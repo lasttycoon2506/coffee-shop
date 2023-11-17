@@ -20,8 +20,8 @@ ex: ![Screenshot 2023-11-17 151718](https://github.com/lasttycoon2506/artdealer/
 "maven.executable.path": "absolute path from step 1 here"
 ```
 
-Save file, exit, reopen VS Code
+4) Save file, exit, reopen VS Code
 
-Ctrl + F5 making sure program runs and exe path was found
+5) Ctrl + F5 making sure program runs and maven exe path was found
 
 -install sqltools -install sqltools-driver -choose mysql -install mysql
