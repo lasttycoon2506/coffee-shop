@@ -14,14 +14,12 @@ ex: ![Screenshot 2023-11-17 151718](https://github.com/lasttycoon2506/artdealer/
 
 
 2) Ctrl + Shift + P and type "preferences open user settings"
-
 3) Add a new independent path making sure to exclude it from any other programs already in the file:
 ```
 "maven.executable.path": "absolute path from step 1 here"
 ```
 
 4) Save file, exit, reopen VS Code
-
 5) Ctrl + F5 making sure program runs and maven exe path was found
 
 -install sqltools -install sqltools-driver -choose mysql -install mysql
