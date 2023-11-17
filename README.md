@@ -1,8 +1,8 @@
 # artdealer
 
-Part I:
+## Installation
+### Part I:
 Install the following extensions in VS Code:
-
 "Extension Pack for Java"
 "Debugger for Java"
 Next...
