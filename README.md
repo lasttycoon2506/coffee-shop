@@ -5,6 +5,7 @@
 Install the following extensions in VS Code:
 1) "Extension Pack for Java"
 2) "Debugger for Java"
+   
 Next...
 
 1) Find the absolute path to the "mvn" of the file "apache-maven" (I found its path from searching my C drive for "apache-maven")
