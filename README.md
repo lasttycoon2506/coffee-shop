@@ -22,4 +22,6 @@ ex: ![Screenshot 2023-11-17 151718](https://github.com/lasttycoon2506/artdealer/
 4) Save file, exit, reopen VS Code
 5) Follow "HOW TO - Create New Program" below to make sure program runs and maven exe path was found
 
--install sqltools -install sqltools-driver -choose mysql -install mysql
+### Part II - MySQL
+1) From MySQL Community Downloads install MySQL; Server, Workbench, Shell, Router, Connector/j
+
