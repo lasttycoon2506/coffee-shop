@@ -20,6 +20,6 @@ ex: ![Screenshot 2023-11-17 151718](https://github.com/lasttycoon2506/artdealer/
 ```
 
 4) Save file, exit, reopen VS Code
-5) Ctrl + F5 making sure program runs and maven exe path was found
+5) Follow "HOW TO - Create New Program" below to make sure program runs and maven exe path was found
 
 -install sqltools -install sqltools-driver -choose mysql -install mysql
