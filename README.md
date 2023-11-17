@@ -24,5 +24,5 @@ ex: ![Screenshot 2023-11-17 151718](https://github.com/lasttycoon2506/artdealer/
 
 ### Part II - MySQL
 1) From MySQL Community Downloads install MySQL; Server, Workbench, Shell, Router, Connector/j
-2) Use MySQL 8.0 Command Line Client to ensure MySQL installed locally
+2) Use MySQL 8.0 Command Line Client (in Windows desktop search bar) and enter credentials to ensure MySQL installed locally
 
