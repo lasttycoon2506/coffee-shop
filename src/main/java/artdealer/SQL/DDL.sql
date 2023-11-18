@@ -82,10 +82,10 @@ VALUES ('Islandy', 'Island Chill', 'Medium', 14.99, 'Indonesia', 14),
 ('Kona', 'Wild Roast', 'Dark', 12.99, 'Ethiopia', 18),
 ('Billy`s', 'Buck Roast', 'Light', 13.99, 'Columbia', 16)
 
-INSERT INTO Orders (quantity, coffee_id, orders_id) 
-VALUES (5, 3, 1),
-(2, 1, 1),
-(10, 2, 2),
+INSERT INTO Orders (orders_date, customer_id, employee_id, order_status) 
+VALUES ('2023-08-05', 1, 1, FALSE),
+('1975-5-5', 2, 2, FALSE)
+('2020-3-17', 3, 3, FALSE)
 
 /* Intersection Table */
 
