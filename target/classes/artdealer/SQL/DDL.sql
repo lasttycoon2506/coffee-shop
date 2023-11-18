@@ -32,7 +32,7 @@ CREATE OR REPLACE TABLE Coffee
     roast_type VARCHAR(50) NOT NULL,
     price  DECIMAL(13,2) NOT NULL, 
     region VARCHAR(50) NOT NULL,
-    coffee_size DECIMAL(13,2) NOT NULL,
+    coffee_size int NOT NULL,
     PRIMARY KEY (id)
 );
 
@@ -68,34 +68,31 @@ CREATE OR REPLACE TABLE Items
 /* Insertion of Data into Tables */
 
 INSERT INTO Customers (first_name, last_name, email, phone) 
-VALUES ('Bobby', 'Mcgee', 'loopy@aol.com', '385-386-3869', 'KY', 'Lex', '482 Beebop Ave', '96028'), 
-('Tim', 'Leary', 'timl@yahoo.com', '463-742-3869', 'Montana', 'Boze', '2892 Moose Dr', '29503'), 
-('ZZ', 'Top', 'email@email.com', '8396045903', 'TX', 'Austin', '3583 Spelunky Dr', '25839');
+VALUES ('Chrissy', 'Rod', 'crod@crod.com', '263-643-4726'),
+('Jimbo', 'Fisher', 'jfish@jfish.com', '265-783-6846'),
+('Gibby', 'Loo', 'gibbloo@gloo.com', '583-376-8603')
 
-INSERT INTO Employees (employee_first_name, employee_last_name, employee_email, employee_phone, employee_title) 
-VALUES ('jj', 'boy', 'bbk@aol.com', '626262', 'Sales'), 
-('mm', 'w', 'lmm@aol.com', '325783', 'Management'),
-('albert', 'pimmerman', 'wazoo@yahoo.com', '252-474-8957', 'Sales');
+INSERT INTO Employees (first_name, last_name, email, phone, title) 
+VALUES ('Johnny', 'Appleseed', 'johnnyapp@zippity.com', '111-111-1111', 'The Man'),
+('Weeping', 'Willow', 'mopey@gmail.com', '222-222-2222', 'Not the Man'),
+('Ludwig', 'Van', 'thebest@besty.com', '123-456-7890', 'Worker')
 
-INSERT INTO Surfboards (surfboard_name, color, surfboard_price, surfboard_condition, surfboard_type) 
-VALUES ('longerdude', 'white', 259.74, 'Like New', 'Longboard'),
-('surfsup', 'blonde', 359, 'Lightly Used', 'Shortboard'),
-('ahoymatey', 'magenta', 679.49, 'New', 'Regular');
+INSERT INTO Coffee (brand, coffee_name, roast_type, price, region, coffee_size) 
+VALUES ('Islandy', 'Island Chill', 'Medium', 14.99, 'Indonesia', 14),
+('Kona', 'Wild Roast', 'Dark', 12.99, 'Ethiopia', 18),
+('Billy`s', 'Buck Roast', 'Light', 13.99, 'Columbia', 16)
 
-INSERT INTO Orders (order_date, order_status, customer_id, employee_id) 
-VALUES ('2022-01-03', True, 1, 2),
-('2023-05-07', True, 2, 2),
-('2023-05-010', True, 3, 2),
-('2028-09-03', False, 1, 1);
+INSERT INTO Orders (quantity, coffee_id, orders_id) 
+VALUES (5, 3, 1),
+(2, 1, 1),
+(10, 2, 2),
 
 /* Intersection Table */
 
-INSERT INTO Order_Items (quantity, surfboard_id, order_id) 
+INSERT INTO Items (quantity, coffee_id, orders_id) 
 VALUES (3, 2, 1),
 (2, 1, 2),
-(1, 3, 3),
 (1, NULL, 3),
-(3, 1, 1);
 
 SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
