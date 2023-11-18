@@ -6,48 +6,44 @@ SET sql_mode = 'STRICT_ALL_TABLES';
 CREATE OR REPLACE TABLE Customers
 (
     customer_id INT NOT NULL AUTO_INCREMENT UNIQUE,
-    customer_first_name VARCHAR(50) NOT NULL,
-    customer_last_name VARCHAR(50) NOT NULL,
-    customer_email VARCHAR(50) NOT NULL UNIQUE,
-    customer_phone  VARCHAR(50) NOT NULL UNIQUE,
-    state VARCHAR(50) NOT NULL,  
-    city VARCHAR(50) NOT NULL,   
-    street VARCHAR(50)  NOT NULL,
-    zip_code VARCHAR(10) NOT NULL,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL UNIQUE,
+    phone  VARCHAR(50) NOT NULL UNIQUE,
     PRIMARY KEY (customer_id)
 );
 
 CREATE OR REPLACE TABLE Employees
 (
     employee_id INT AUTO_INCREMENT NOT NULL UNIQUE,
-    employee_first_name VARCHAR(50) NOT NULL,
-    employee_last_name  VARCHAR(50) NOT NULL,
-    employee_email  VARCHAR(50) NOT NULL UNIQUE,
-    employee_phone  VARCHAR(50) NOT NULL UNIQUE, 
-    employee_title  VARCHAR(50) NOT NULL,
+    first_name VARCHAR(50) NOT NULL,
+    last_name  VARCHAR(50) NOT NULL,
+    email  VARCHAR(50) NOT NULL UNIQUE,
+    phone  VARCHAR(50) NOT NULL UNIQUE, 
+    title  VARCHAR(50) NOT NULL,
     PRIMARY KEY (employee_id)
 );
 
 CREATE OR REPLACE TABLE Coffee
 (
-    id INT AUTO_INCREMENT NOT NULL UNIQUE,
+    coffee_id INT AUTO_INCREMENT NOT NULL UNIQUE,
     brand VARCHAR(50) NOT NULL,
-    name  VARCHAR(50) NOT NULL,
+    coffee_name  VARCHAR(50) NOT NULL,
     roast_type VARCHAR(50) NOT NULL,
     price  DECIMAL(13,2) NOT NULL, 
     region VARCHAR(50) NOT NULL,
-    size DECIMAL(13,2) NOT NULL,
+    coffee_size DECIMAL(13,2) NOT NULL,
     PRIMARY KEY (id)
 );
 
 CREATE OR REPLACE TABLE Orders
 (
-   id int NOT NULL AUTO_INCREMENT UNIQUE,
-   order_date date NOT NULL,
+   orders_id int NOT NULL AUTO_INCREMENT UNIQUE,
+   orders_date date NOT NULL,
    customer_id int NOT NULL,
    employee_id int NOT NULL,
    order_status BOOLEAN NOT NULL DEFAULT FALSE,
-   PRIMARY KEY(order_id),
+   PRIMARY KEY(orders_id),
    CONSTRAINT FK_Orders_Customer_Id
    FOREIGN KEY (customer_id) REFERENCES Customers(customer_id),
    CONSTRAINT FK_Orders_Employee_Id
@@ -56,22 +52,22 @@ CREATE OR REPLACE TABLE Orders
 
 /*Intersection Table */ 
 
-CREATE OR REPLACE TABLE Order_Items
+CREATE OR REPLACE TABLE Items
 (
-   order_items_id int NOT NULL AUTO_INCREMENT UNIQUE,
+   items_id int NOT NULL AUTO_INCREMENT UNIQUE,
    quantity int NOT NULL,
-   surfboard_id int, 
-   order_id int NOT NULL,
-   PRIMARY KEY(order_items_id),
-   CONSTRAINT FK_Order_Items_Surfboard_Id
-   FOREIGN KEY (surfboard_id) REFERENCES Surfboards(surfboard_id),
+   coffee_id int, 
+   orders_id int NOT NULL,
+   PRIMARY KEY(items_id),
+   CONSTRAINT FK_Items_Coffee_Id
+   FOREIGN KEY (coffee_id) REFERENCES Coffee(coffee_id),
    CONSTRAINT FK_Orders_Order_Id
-   FOREIGN KEY (order_id) REFERENCES Orders(order_id) ON DELETE CASCADE
+   FOREIGN KEY (orders_id) REFERENCES Order(orders_id) ON DELETE CASCADE
 );
 
 /* Insertion of Data into Tables */
 
-INSERT INTO Customers (customer_first_name, customer_last_name, customer_email, customer_phone, state, city, street, zip_code) 
+INSERT INTO Customers (first_name, last_name, email, phone) 
 VALUES ('Bobby', 'Mcgee', 'loopy@aol.com', '385-386-3869', 'KY', 'Lex', '482 Beebop Ave', '96028'), 
 ('Tim', 'Leary', 'timl@yahoo.com', '463-742-3869', 'Montana', 'Boze', '2892 Moose Dr', '29503'), 
 ('ZZ', 'Top', 'email@email.com', '8396045903', 'TX', 'Austin', '3583 Spelunky Dr', '25839');
