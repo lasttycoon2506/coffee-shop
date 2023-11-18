@@ -91,8 +91,8 @@ VALUES ('2023-08-05', 1, 1, FALSE),
 
 INSERT INTO Items (quantity, coffee_id, orders_id) 
 VALUES (3, 2, 1),
-(2, 1, 2),
-(1, NULL, 3),
+(4, 1, 2),
+(1, 3, 3),
 
 SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
