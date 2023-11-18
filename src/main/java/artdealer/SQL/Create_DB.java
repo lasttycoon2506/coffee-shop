@@ -1,4 +1,4 @@
-package artdealer.SQL_connector;
+package artdealer.SQL;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
