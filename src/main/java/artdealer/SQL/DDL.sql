@@ -84,7 +84,7 @@ VALUES ('Islandy', 'Island Chill', 'Medium', 14.99, 'Indonesia', 14),
 
 INSERT INTO Orders (orders_date, customer_id, employee_id, order_status) 
 VALUES ('2023-08-05', 1, 1, FALSE),
-('1975-5-5', 2, 2, FALSE)
+('1975-5-5', 2, 2, FALSE),
 ('2020-3-17', 3, 3, FALSE);
 
 /* Intersection Table */
