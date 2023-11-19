@@ -19,7 +19,7 @@ public class Create_DB {
         {
             // String sql = "CREATE DATABASE jimmy";
             // stmt.executeUpdate(sql);
-            System.out.println("DB connected...");
+            System.out.println("Connected to DB...");
             
         }   catch (SQLException e)
         {
