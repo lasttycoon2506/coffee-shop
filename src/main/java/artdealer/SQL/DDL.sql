@@ -6,7 +6,7 @@ SET sql_mode = 'STRICT_ALL_TABLES';
 CREATE OR REPLACE TABLE Customers
 (
     customer_id INT NOT NULL AUTO_INCREMENT UNIQUE,
-    first_name VARCHAR(50) NOT NULL,
+    customer_first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL UNIQUE,
     phone  VARCHAR(50) NOT NULL UNIQUE,
@@ -70,29 +70,29 @@ CREATE OR REPLACE TABLE Items
 INSERT INTO Customers (first_name, last_name, email, phone) 
 VALUES ('Chrissy', 'Rod', 'crod@crod.com', '263-643-4726'),
 ('Jimbo', 'Fisher', 'jfish@jfish.com', '265-783-6846'),
-('Gibby', 'Loo', 'gibbloo@gloo.com', '583-376-8603')
+('Gibby', 'Loo', 'gibbloo@gloo.com', '583-376-8603');
 
 INSERT INTO Employees (first_name, last_name, email, phone, title) 
 VALUES ('Johnny', 'Appleseed', 'johnnyapp@zippity.com', '111-111-1111', 'The Man'),
 ('Weeping', 'Willow', 'mopey@gmail.com', '222-222-2222', 'Not the Man'),
-('Ludwig', 'Van', 'thebest@besty.com', '123-456-7890', 'Worker')
+('Ludwig', 'Van', 'thebest@besty.com', '123-456-7890', 'Worker');
 
 INSERT INTO Coffee (brand, coffee_name, roast_type, price, region, coffee_size) 
 VALUES ('Islandy', 'Island Chill', 'Medium', 14.99, 'Indonesia', 14),
 ('Kona', 'Wild Roast', 'Dark', 12.99, 'Ethiopia', 18),
-('Billy`s', 'Buck Roast', 'Light', 13.99, 'Columbia', 16)
+('Billy`s', 'Buck Roast', 'Light', 13.99, 'Columbia', 16);
 
 INSERT INTO Orders (orders_date, customer_id, employee_id, order_status) 
 VALUES ('2023-08-05', 1, 1, FALSE),
 ('1975-5-5', 2, 2, FALSE)
-('2020-3-17', 3, 3, FALSE)
+('2020-3-17', 3, 3, FALSE);
 
 /* Intersection Table */
 
 INSERT INTO Items (quantity, coffee_id, orders_id) 
 VALUES (3, 2, 1),
 (4, 1, 2),
-(1, 3, 3),
+(1, 3, 3);
 
 SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
