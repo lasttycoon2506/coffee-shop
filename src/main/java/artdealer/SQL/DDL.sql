@@ -24,17 +24,17 @@ CREATE TABLE Employees
     PRIMARY KEY (employee_id)
 );
 
--- CREATE OR REPLACE TABLE Coffee
--- (
---     coffee_id INT AUTO_INCREMENT NOT NULL UNIQUE,
---     brand VARCHAR(50) NOT NULL,
---     coffee_name  VARCHAR(50) NOT NULL,
---     roast_type VARCHAR(50) NOT NULL,
---     price  DECIMAL(13,2) NOT NULL, 
---     region VARCHAR(50) NOT NULL,
---     coffee_size int NOT NULL,
---     PRIMARY KEY (id)
--- );
+CREATE TABLE Coffee
+(
+    coffee_id INT AUTO_INCREMENT NOT NULL UNIQUE,
+    brand VARCHAR(50) NOT NULL,
+    coffee_name  VARCHAR(50) NOT NULL,
+    roast_type VARCHAR(50) NOT NULL,
+    price  DECIMAL(13,2) NOT NULL, 
+    region VARCHAR(50) NOT NULL,
+    coffee_size int NOT NULL,
+    PRIMARY KEY (coffee_id)
+);
 
 -- CREATE OR REPLACE TABLE Orders
 -- (
@@ -72,10 +72,10 @@ CREATE TABLE Employees
 -- ('Jimbo', 'Fisher', 'jfish@jfish.com', '265-783-6846'),
 -- ('Gibby', 'Loo', 'gibbloo@gloo.com', '583-376-8603');
 
-INSERT INTO Employees (first_name, last_name, email, phone, title) 
-VALUES ('Johnny', 'Appleseed', 'johnnyapp@zippity.com', '111-111-1111', 'The Man'),
-('Weeping', 'Willow', 'mopey@gmail.com', '222-222-2222', 'Not the Man'),
-('Ludwig', 'Van', 'thebest@besty.com', '123-456-7890', 'Worker');
+-- INSERT INTO Employees (first_name, last_name, email, phone, title) 
+-- VALUES ('Johnny', 'Appleseed', 'johnnyapp@zippity.com', '111-111-1111', 'The Man'),
+-- ('Weeping', 'Willow', 'mopey@gmail.com', '222-222-2222', 'Not the Man'),
+-- ('Ludwig', 'Van', 'thebest@besty.com', '123-456-7890', 'Worker');
 
 -- INSERT INTO Coffee (brand, coffee_name, roast_type, price, region, coffee_size) 
 -- VALUES ('Islandy', 'Island Chill', 'Medium', 14.99, 'Indonesia', 14),
