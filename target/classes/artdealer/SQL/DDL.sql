@@ -36,19 +36,19 @@ CREATE TABLE Coffee
     PRIMARY KEY (coffee_id)
 );
 
--- CREATE OR REPLACE TABLE Orders
--- (
---    orders_id int NOT NULL AUTO_INCREMENT UNIQUE,
---    orders_date date NOT NULL,
---    customer_id int NOT NULL,
---    employee_id int NOT NULL,
---    order_status BOOLEAN NOT NULL DEFAULT FALSE,
---    PRIMARY KEY(orders_id),
---    CONSTRAINT FK_Orders_Customer_Id
---    FOREIGN KEY (customer_id) REFERENCES Customers(customer_id),
---    CONSTRAINT FK_Orders_Employee_Id
---    FOREIGN KEY (employee_id) REFERENCES Employees(employee_id) 
--- );
+CREATE TABLE Orders
+(
+   orders_id int NOT NULL AUTO_INCREMENT UNIQUE,
+   orders_date date NOT NULL,
+   customer_id int NOT NULL,
+   employee_id int NOT NULL,
+   order_status BOOLEAN NOT NULL DEFAULT FALSE,
+   PRIMARY KEY(orders_id),
+   CONSTRAINT FK_Orders_Customer_Id
+   FOREIGN KEY (customer_id) REFERENCES Customers(customer_id),
+   CONSTRAINT FK_Orders_Employee_Id
+   FOREIGN KEY (employee_id) REFERENCES Employees(employee_id) 
+);
 
 -- /*Intersection Table */ 
 
@@ -77,15 +77,15 @@ CREATE TABLE Coffee
 -- ('Weeping', 'Willow', 'mopey@gmail.com', '222-222-2222', 'Not the Man'),
 -- ('Ludwig', 'Van', 'thebest@besty.com', '123-456-7890', 'Worker');
 
-INSERT INTO Coffee (brand, coffee_name, roast_type, price, region, coffee_size) 
-VALUES ('Islandy', 'Island Chill', 'Medium', 14.99, 'Indonesia', 14),
-('Kona', 'Wild Roast', 'Dark', 12.99, 'Ethiopia', 18),
-('Billys', 'Buck Roast', 'Light', 13.99, 'Columbia', 16);
+-- INSERT INTO Coffee (brand, coffee_name, roast_type, price, region, coffee_size) 
+-- VALUES ('Islandy', 'Island Chill', 'Medium', 14.99, 'Indonesia', 14),
+-- ('Kona', 'Wild Roast', 'Dark', 12.99, 'Ethiopia', 18),
+-- ('Billys', 'Buck Roast', 'Light', 13.99, 'Columbia', 16);
 
--- INSERT INTO Orders (orders_date, customer_id, employee_id, order_status) 
--- VALUES ('2023-08-05', 1, 1, FALSE),
--- ('1975-5-5', 2, 2, FALSE),
--- ('2020-3-17', 3, 3, FALSE);
+INSERT INTO Orders (orders_date, customer_id, employee_id, order_status) 
+VALUES ('2023-08-05', 1, 1, FALSE),
+('1975-5-5', 2, 2, FALSE),
+('2020-3-17', 3, 3, FALSE);
 
 -- /* Intersection Table */
 
