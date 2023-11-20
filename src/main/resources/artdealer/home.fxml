@@ -10,7 +10,7 @@
    <children>
       <Label text="WELCOME TO THE COFFEE SHOP!" />
       <Button fx:id="customerLoginButton" text="Customer" onAction="#switchToCustomerPg"/>
-      <Button fx:id="EmployeeLoginButton" text="Employee" onAction="#switchToCustomerPg"/>
+      <Button fx:id="EmployeeLoginButton" text="Employee" onAction="#switchToEmployeePg"/>
    </children>
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

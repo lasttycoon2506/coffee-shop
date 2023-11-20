@@ -7,7 +7,12 @@ public class HomeController {
 
     @FXML
     private void switchToCustomerPg() throws IOException {
-        
         App.setRoot("customer");
     }
+
+    @FXML
+    private void switchToEmployeePg() throws IOException {
+        App.setRoot("employee");
+    }
+
 }
