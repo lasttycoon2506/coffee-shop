@@ -77,10 +77,10 @@ CREATE TABLE Coffee
 -- ('Weeping', 'Willow', 'mopey@gmail.com', '222-222-2222', 'Not the Man'),
 -- ('Ludwig', 'Van', 'thebest@besty.com', '123-456-7890', 'Worker');
 
--- INSERT INTO Coffee (brand, coffee_name, roast_type, price, region, coffee_size) 
--- VALUES ('Islandy', 'Island Chill', 'Medium', 14.99, 'Indonesia', 14),
--- ('Kona', 'Wild Roast', 'Dark', 12.99, 'Ethiopia', 18),
--- ('Billys', 'Buck Roast', 'Light', 13.99, 'Columbia', 16);
+INSERT INTO Coffee (brand, coffee_name, roast_type, price, region, coffee_size) 
+VALUES ('Islandy', 'Island Chill', 'Medium', 14.99, 'Indonesia', 14),
+('Kona', 'Wild Roast', 'Dark', 12.99, 'Ethiopia', 18),
+('Billys', 'Buck Roast', 'Light', 13.99, 'Columbia', 16);
 
 -- INSERT INTO Orders (orders_date, customer_id, employee_id, order_status) 
 -- VALUES ('2023-08-05', 1, 1, FALSE),
