@@ -67,10 +67,10 @@ CREATE TABLE Customers
 
 -- /* Insertion of Data into Tables */
 
--- INSERT INTO Customers (first_name, last_name, email, phone) 
--- VALUES ('Chrissy', 'Rod', 'crod@crod.com', '263-643-4726'),
--- ('Jimbo', 'Fisher', 'jfish@jfish.com', '265-783-6846'),
--- ('Gibby', 'Loo', 'gibbloo@gloo.com', '583-376-8603');
+INSERT INTO Customers (first_name, last_name, email, phone) 
+VALUES ('Chrissy', 'Rod', 'crod@crod.com', '263-643-4726'),
+('Jimbo', 'Fisher', 'jfish@jfish.com', '265-783-6846'),
+('Gibby', 'Loo', 'gibbloo@gloo.com', '583-376-8603');
 
 -- INSERT INTO Employees (first_name, last_name, email, phone, title) 
 -- VALUES ('Johnny', 'Appleseed', 'johnnyapp@zippity.com', '111-111-1111', 'The Man'),
