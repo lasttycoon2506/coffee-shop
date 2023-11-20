@@ -3,10 +3,10 @@ SET AUTOCOMMIT = 0;
 SET sql_mode = 'STRICT_ALL_TABLES';
 
 
-CREATE OR REPLACE TABLE Customers
+CREATE TABLE Customers
 (
     customer_id INT NOT NULL AUTO_INCREMENT UNIQUE,
-    first_name VARCHAR(50) NOT NULL,
+    first_name VARCHAR(50)NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL UNIQUE,
     phone  VARCHAR(50) NOT NULL UNIQUE,
@@ -80,7 +80,7 @@ CREATE OR REPLACE TABLE Customers
 -- INSERT INTO Coffee (brand, coffee_name, roast_type, price, region, coffee_size) 
 -- VALUES ('Islandy', 'Island Chill', 'Medium', 14.99, 'Indonesia', 14),
 -- ('Kona', 'Wild Roast', 'Dark', 12.99, 'Ethiopia', 18),
--- ('Billy`s', 'Buck Roast', 'Light', 13.99, 'Columbia', 16);
+-- ('Billys', 'Buck Roast', 'Light', 13.99, 'Columbia', 16);
 
 -- INSERT INTO Orders (orders_date, customer_id, employee_id, order_status) 
 -- VALUES ('2023-08-05', 1, 1, FALSE),
@@ -96,3 +96,4 @@ CREATE OR REPLACE TABLE Customers
 
 SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
+
