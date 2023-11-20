@@ -52,18 +52,18 @@ CREATE TABLE Orders
 
 -- /*Intersection Table */ 
 
--- CREATE OR REPLACE TABLE Items
--- (
---    items_id int NOT NULL AUTO_INCREMENT UNIQUE,
---    quantity int NOT NULL,
---    coffee_id int, 
---    orders_id int NOT NULL,
---    PRIMARY KEY(items_id),
---    CONSTRAINT FK_Items_Coffee_Id
---    FOREIGN KEY (coffee_id) REFERENCES Coffee(coffee_id),
---    CONSTRAINT FK_Orders_Order_Id
---    FOREIGN KEY (orders_id) REFERENCES Order(orders_id) ON DELETE CASCADE
--- );
+CREATE TABLE Items
+(
+   items_id int NOT NULL AUTO_INCREMENT UNIQUE,
+   quantity int NOT NULL,
+   coffee_id int, 
+   orders_id int NOT NULL,
+   PRIMARY KEY(items_id),
+   CONSTRAINT FK_Items_Coffee_Id
+   FOREIGN KEY (coffee_id) REFERENCES Coffee(coffee_id),
+   CONSTRAINT FK_Orders_Order_Id
+   FOREIGN KEY (orders_id) REFERENCES Orders(orders_id) ON DELETE CASCADE
+);
 
 -- /* Insertion of Data into Tables */
 
@@ -82,17 +82,17 @@ CREATE TABLE Orders
 -- ('Kona', 'Wild Roast', 'Dark', 12.99, 'Ethiopia', 18),
 -- ('Billys', 'Buck Roast', 'Light', 13.99, 'Columbia', 16);
 
-INSERT INTO Orders (orders_date, customer_id, employee_id, order_status) 
-VALUES ('2023-08-05', 1, 1, FALSE),
-('1975-5-5', 2, 2, FALSE),
-('2020-3-17', 3, 3, FALSE);
+-- INSERT INTO Orders (orders_date, customer_id, employee_id, order_status) 
+-- VALUES ('2023-08-05', 1, 1, FALSE),
+-- ('1975-5-5', 2, 2, FALSE),
+-- ('2020-3-17', 3, 3, FALSE);
 
 -- /* Intersection Table */
 
--- INSERT INTO Items (quantity, coffee_id, orders_id) 
--- VALUES (3, 2, 1),
--- (4, 1, 2),
--- (1, 3, 3);
+INSERT INTO Items (quantity, coffee_id, orders_id) 
+VALUES (3, 2, 1),
+(4, 1, 2),
+(1, 3, 3);
 
 SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
