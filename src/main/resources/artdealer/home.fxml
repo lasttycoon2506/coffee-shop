@@ -9,12 +9,12 @@
 
 <VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="artdealer.HomeController">
    <children>
-   <Label text="WELCOME TO THE COFFEE SHOP!" />
-   <ImageView fx:id = "imageView">
-      <image>
-         <Image url = "@coffee.jpg" />
-      </image>
-   </ImageView>
+      <ImageView>
+         <image>
+            <Image url = "@coffee.jpg" />
+         </image>
+      </ImageView>
+      <Label text="WELCOME TO THE COFFEE SHOP!" Font="SansSerif Regular" />
       <Button fx:id="customerLoginButton" text="Customer" onAction="#switchToCustomerPg"/>
       <Button fx:id="employeeLoginButton" text="Employee" onAction="#switchToEmployeePg"/>
    </children>

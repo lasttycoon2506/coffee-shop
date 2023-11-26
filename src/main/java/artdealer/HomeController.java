@@ -7,14 +7,14 @@ import javafx.scene.image.ImageView;
 
 public class HomeController {
 	
-	@FXML
-	ImageView imageView;
+	// @FXML
+	// ImageView imageView;
 	
-	Image myImage = new Image(getClass().getResourceAsStream("coffee.jpg"));
+	// Image myImage = new Image(getClass().getResourceAsStream("coffee.jpg"));
 	
-	public void displayImage() {
-		imageView.setImage(myImage);
-	}
+	// public void displayImage() {
+	// 	imageView.setImage(myImage);
+	// }
 
     @FXML
     private void switchToCustomerPg() throws IOException {
