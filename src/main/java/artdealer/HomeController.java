@@ -1,29 +1,27 @@
 package artdealer;
 
-import java.io.IOException;
 import javafx.fxml.FXML;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+
+import java.io.IOException;
+
+import javafx.event.ActionEvent;
 
 public class HomeController {
-	
-	// @FXML
-	// ImageView imageView;
-	
-	// Image myImage = new Image(getClass().getResourceAsStream("coffee.jpg"));
-	
-	// public void displayImage() {
-	// 	imageView.setImage(myImage);
-	// }
 
     @FXML
-    private void switchToCustomerPg() throws IOException {
+    void switchToCustomerPg(ActionEvent event) throws IOException {
         App.setRoot("customer");
     }
 
-    @FXML
-    private void switchToEmployeePg() throws IOException {
+
+
+      @FXML
+    void switchToEmployeePg() throws IOException {
         App.setRoot("employee");
     }
+
+    // @FXML
+    // private void switchToEmployeePg() throws IOException {
+    //     App.setRoot("employee");
 
 }
