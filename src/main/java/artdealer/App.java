@@ -20,7 +20,6 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("home"));
         stage.setScene(scene);
-        stage.setMaximized(true);
         stage.setResizable(false);
         stage.show();
     }
