@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.Window;
+
 import java.io.IOException;
 
 /**
@@ -19,6 +21,7 @@ public class App extends Application {
         scene = new Scene(loadFXML("home"));
         stage.setScene(scene);
         stage.setMaximized(true);
+        stage.setResizable(false);
         stage.show();
     }
 

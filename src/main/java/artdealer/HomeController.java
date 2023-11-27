@@ -1,9 +1,7 @@
 package artdealer;
 
 import javafx.fxml.FXML;
-
 import java.io.IOException;
-
 import javafx.event.ActionEvent;
 
 public class HomeController {
@@ -13,15 +11,9 @@ public class HomeController {
         App.setRoot("customer");
     }
 
-
-
       @FXML
     void switchToEmployeePg() throws IOException {
         App.setRoot("employee");
     }
-
-    // @FXML
-    // private void switchToEmployeePg() throws IOException {
-    //     App.setRoot("employee");
 
 }
