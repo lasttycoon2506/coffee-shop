@@ -2,12 +2,11 @@ package artdealer;
 
 import javafx.fxml.FXML;
 import java.io.IOException;
-import javafx.event.ActionEvent;
 
 public class HomeController {
 
     @FXML
-    void switchToCustomerPg(ActionEvent event) throws IOException {
+    void switchToCustomerPg() throws IOException {
         App.setRoot("customer");
     }
 
