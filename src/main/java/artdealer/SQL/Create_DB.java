@@ -17,8 +17,7 @@ public class Create_DB {
         try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
         Statement stmt = conn.createStatement();)
         {
-            // String sql = "CREATE DATABASE jimmy";
-            // stmt.executeUpdate(sql);
+            
             System.out.println("Connected to DB...");
             
         }   catch (SQLException e)
