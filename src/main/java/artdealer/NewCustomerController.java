@@ -9,4 +9,9 @@ public class NewCustomerController {
     private void switchToHomePg() throws IOException {
         App.setRoot("home");
     }
+    @FXML
+    void switchToCustomerPg() throws IOException {
+        App.setRoot("customer");
+    }
+    
 }
