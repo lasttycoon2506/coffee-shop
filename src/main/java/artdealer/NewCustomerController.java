@@ -27,6 +27,9 @@ public class NewCustomerController {
 		
 		
 			System.out.println(firstNameEntry.getText());
+            System.out.println(lastNameEntry.getText());
+            System.out.println(emailEntry.getText());
+            System.out.println(phoneEntry.getText());
 			
 			
 	}
