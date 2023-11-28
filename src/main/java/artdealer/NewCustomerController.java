@@ -2,6 +2,7 @@ package artdealer;
 
 import java.io.IOException;
 
+import artdealer.DTO.DTOCustomer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -26,7 +27,8 @@ public class NewCustomerController {
 	public void submit(ActionEvent event) {
 		
 		
-			System.out.println(firstNameEntry.getText());
+		
+        firstNameEntry.getText();
             System.out.println(lastNameEntry.getText());
             System.out.println(emailEntry.getText());
             System.out.println(phoneEntry.getText());
