@@ -32,28 +32,28 @@ public class NewCustomerController {
             if(firstNameEntry.getText().trim().isEmpty()){
                 firstNameEntry.setText("Please Enter First Name!");
             }
-            if(firstNameEntry.getText().equals("Please Enter First Name!")){
+            else if(firstNameEntry.getText().equals("Please Enter First Name!")){
                 resetFnameField(null);
             }
 
             if(lastNameEntry.getText().trim().isEmpty()){
                 lastNameEntry.setText("Please Enter Last Name!");
             }
-            if(lastNameEntry.getText().equals("Please Enter Last Name!")){
+            else if(lastNameEntry.getText().equals("Please Enter Last Name!")){
                 resetLnameField(null);
             }
 
             if(emailEntry.getText().trim().isEmpty()){
                 emailEntry.setText("Please Enter Email!");
             }
-            if(emailEntry.getText().equals("Please Enter Email!")){
+            else if(emailEntry.getText().equals("Please Enter Email!")){
                 resetEmailField(null);
             }
 
             if(phoneEntry.getText().trim().isEmpty()){
                 phoneEntry.setText("Please Enter Phone Number!");
             }
-            if(phoneEntry.getText().equals("Please Enter Phone Number!")){
+            else if(phoneEntry.getText().equals("Please Enter Phone Number!")){
                 resetPhoneField(null);;
             }
         }
