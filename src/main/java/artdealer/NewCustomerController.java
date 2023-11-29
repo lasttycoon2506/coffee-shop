@@ -24,14 +24,16 @@ public class NewCustomerController {
 	@FXML
 	private Button myButton;
 	
+    
+
 	public void submit(ActionEvent event) {
 		
-		
-        firstNameEntry.getText();
-            System.out.println(lastNameEntry.getText());
-            System.out.println(emailEntry.getText());
-            System.out.println(phoneEntry.getText());
-			
+		CustomerDTO newEntry = new CustomerDTO(firstNameEntry.getText(), lastNameEntry.getText(), emailEntry.getText(), phoneEntry.getText());
+        System.out.println(newEntry.firstName());
+        System.out.println(newEntry.lastName());
+        System.out.println(newEntry.email());
+        System.out.println(newEntry.phone());
+            
 			
 	}
 
