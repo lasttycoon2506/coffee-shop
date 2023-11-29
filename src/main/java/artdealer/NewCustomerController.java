@@ -10,7 +10,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class NewCustomerController {
-
     @FXML
 	private Label myLabel;
 	@FXML
@@ -24,19 +23,12 @@ public class NewCustomerController {
 	@FXML
 	private Button myButton;
 	
-    
 
 	public void submit(ActionEvent event) {
 		
 		CustomerDTO newEntry = new CustomerDTO(firstNameEntry.getText(), lastNameEntry.getText(), emailEntry.getText(), phoneEntry.getText());
-        System.out.println(newEntry.firstName());
-        System.out.println(newEntry.lastName());
-        System.out.println(newEntry.email());
-        System.out.println(newEntry.phone());
-            
 			
 	}
-
     @FXML
     private void switchToHomePg() throws IOException {
         App.setRoot("home");
