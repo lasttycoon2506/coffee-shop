@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
+
 public class NewCustomerController {
     @FXML
 	private Label myLabel;

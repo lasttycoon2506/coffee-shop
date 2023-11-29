@@ -3,6 +3,7 @@ package artdealer;
 import java.io.IOException;
 import javafx.fxml.FXML;
 
+
 public class NewCustomerRegController {
     @FXML
     void switchToCustomerPg() throws IOException {
