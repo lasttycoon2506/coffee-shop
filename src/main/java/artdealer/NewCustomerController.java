@@ -2,7 +2,7 @@ package artdealer;
 
 import java.io.IOException;
 
-import artdealer.DTO.DTOCustomer;
+import artdealer.Models.CustomerDTO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -25,7 +25,6 @@ public class NewCustomerController {
 	private Button myButton;
 	
 	public void submit(ActionEvent event) {
-		
 		
 		
         firstNameEntry.getText();

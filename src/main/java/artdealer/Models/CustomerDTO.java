@@ -1,4 +1,4 @@
-package artdealer.DTO;
+package artdealer.Models;
 
 public record CustomerDTO (
     String firstName, 
