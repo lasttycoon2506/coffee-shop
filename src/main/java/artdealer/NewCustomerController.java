@@ -24,7 +24,7 @@ public class NewCustomerController {
 	private Button myButton;
 	
     @FXML
-	void submit(ActionEvent event) {
+	void submit(ActionEvent event) throws IOException {
         if(firstNameEntry.getText().trim().isEmpty()){
             firstNameEntry.setText("Please Enter First Name!");
         }
@@ -39,6 +39,7 @@ public class NewCustomerController {
         }
         else {
 		CustomerDTO newEntry = new CustomerDTO(firstNameEntry.getText(), lastNameEntry.getText(), emailEntry.getText(), phoneEntry.getText());
+        switchToCustomerRegisteredPg();
         }
 	}
 
@@ -78,5 +79,10 @@ public class NewCustomerController {
     @FXML
     void switchToCustomerPg() throws IOException {
         App.setRoot("customer");
+    }
+
+    @FXML
+    private void switchToCustomerRegisteredPg() throws IOException {
+        App.setRoot("newCustomerRegistered");
     }
 }
