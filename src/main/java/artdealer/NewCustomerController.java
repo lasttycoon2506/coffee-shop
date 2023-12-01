@@ -7,12 +7,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 
 
 public class NewCustomerController {
     @FXML
-	private Label myLabel;
+    private Label fNameLabel;
 	@FXML
 	private TextField firstNameEntry;
     @FXML
@@ -26,38 +28,14 @@ public class NewCustomerController {
 	
     @FXML
 	void submit(ActionEvent event) throws IOException {
-        if (firstNameEntry.getText().trim().isEmpty() || lastNameEntry.getText().trim().isEmpty() || emailEntry.getText().trim().isEmpty() || phoneEntry.getText().trim().isEmpty()
-            || firstNameEntry.getText().equals("Please Enter First Name!") || lastNameEntry.getText().equals("Please Enter Last Name!")
-            || emailEntry.getText().equals("Please Enter Email!") || phoneEntry.getText().equals("Please Enter Phone Number!")) {
+        
             
             if(firstNameEntry.getText().trim().isEmpty()){
-                firstNameEntry.setText("Please Enter First Name!");
+                fNameLabel.setTextFill(Color.color(1, 0, 0));
+                fNameLabel.setText("Enter First Name!");
             }
-            else if(firstNameEntry.getText().equals("Please Enter First Name!")){
-                resetFnameField(null);
-            }
-
-            if(lastNameEntry.getText().trim().isEmpty()){
-                lastNameEntry.setText("Please Enter Last Name!");
-            }
-            else if(lastNameEntry.getText().equals("Please Enter Last Name!")){
-                resetLnameField(null);
-            }
-
-            if(emailEntry.getText().trim().isEmpty()){
-                emailEntry.setText("Please Enter Email!");
-            }
-            else if(emailEntry.getText().equals("Please Enter Email!")){
-                resetEmailField(null);
-            }
-
-            if(phoneEntry.getText().trim().isEmpty()){
-                phoneEntry.setText("Please Enter Phone Number!");
-            }
-            else if(phoneEntry.getText().equals("Please Enter Phone Number!")){
-                resetPhoneField(null);;
-            }
-        }
+           
+        
         else {
 		CustomerDTO newEntry = new CustomerDTO(firstNameEntry.getText(), lastNameEntry.getText(), emailEntry.getText(), phoneEntry.getText());
         switchToCustomerRegisteredPg();
@@ -65,32 +43,10 @@ public class NewCustomerController {
 	}
 
     @FXML
-    void resetFnameField(MouseEvent event) {
-        if(firstNameEntry.getText() != null){
-            firstNameEntry.setText("");
-        }
+    void resetFnameLabel(KeyEvent event) {
+        fNameLabel.setText("");
     }
 
-    @FXML
-    void resetLnameField(MouseEvent event) {
-        if(lastNameEntry.getText() != null){
-            lastNameEntry.setText("");
-        }
-    }
-
-    @FXML
-    void resetEmailField(MouseEvent event) {
-        if(emailEntry.getText() != null){
-            emailEntry.setText("");
-        }
-    }
-
-    @FXML
-    void resetPhoneField(MouseEvent event) {
-        if(phoneEntry.getText() != null){
-            phoneEntry.setText("");
-        }
-    }
 
     @FXML
     private void switchToHomePg() throws IOException {
