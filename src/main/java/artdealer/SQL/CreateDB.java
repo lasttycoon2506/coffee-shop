@@ -37,6 +37,16 @@ public class CreateDB {
                    " PRIMARY KEY (employee_id))"; 
         stmt.executeUpdate(createEmployeeTableSQL);
 
+        String createCoffeeTableSQL = "CREATE TABLE IF NOT EXISTS Coffee " +
+                   "(coffee_id INT AUTO_INCREMENT NOT NULL UNIQUE, " +
+                   " brand VARCHAR(50) NOT NULL, " + 
+                   " coffee_name VARCHAR(50) NOT NULL, " +
+                   " roast_type VARCHAR(50) NOT NULL, " + 
+                   " price DECIMAL(13, 2) NOT NULL, " + 
+                   " region VARCHAR(50) NOT NULL, " +
+                   " coffee_size VARCHAR(50) NOT NULL, " +
+                   " PRIMARY KEY (coffee_id))"; 
+        stmt.executeUpdate(createCoffeeTableSQL);
         }
         catch (SQLException e)
         {
