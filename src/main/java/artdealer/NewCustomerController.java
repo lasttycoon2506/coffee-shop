@@ -2,7 +2,7 @@ package artdealer;
 
 import java.io.IOException;
 import artdealer.Models.CustomerDTO;
-import artdealer.SQL.Create_DB;
+import artdealer.SQL.CreateDB;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -65,7 +65,9 @@ public class NewCustomerController {
         }
         else {
 		CustomerDTO newEntry = new CustomerDTO(firstNameEntry.getText(), lastNameEntry.getText(), emailEntry.getText(), phoneEntry.getText());
-        Create_DB create_DB = new Create_DB();
+        CreateDB createDB = new CreateDB();
+        createDB.connectDB();
+        
         
         switchToCustomerRegisteredPg();
         }
