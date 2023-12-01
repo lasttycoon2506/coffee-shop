@@ -24,8 +24,19 @@ public class CreateDB {
                    " last_name VARCHAR(50) NOT NULL, " + 
                    " email VARCHAR(50) NOT NULL UNIQUE,  " + 
                    " phone VARCHAR(50) NOT NULL UNIQUE, " +
-                   " PRIMARY KEY ( customer_id ))"; 
+                   " PRIMARY KEY (customer_id))"; 
         stmt.executeUpdate(createCustomerTableSQL);
+
+        String createEmployeeTableSQL = "CREATE TABLE IF NOT EXISTS Employees " +
+                   "(employee_id INT AUTO_INCREMENT NOT NULL UNIQUE, " +
+                   " first_name VARCHAR(50) NOT NULL, " + 
+                   " last_name VARCHAR(50) NOT NULL, " + 
+                   " email VARCHAR(50) NOT NULL UNIQUE,  " + 
+                   " phone VARCHAR(50) NOT NULL UNIQUE, " +
+                   " title VARCHAR(50) NOT NULL UNIQUE, " +
+                   " PRIMARY KEY (employee_id))"; 
+        stmt.executeUpdate(createEmployeeTableSQL);
+
         }
         catch (SQLException e)
         {
