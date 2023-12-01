@@ -55,11 +55,23 @@ public class CreateDB {
                     " employee_id INT NOT NULL, " +
                     " order_status BOOLEAN NOT NULL DEFAULT FALSE, " +
                     " PRIMARY KEY(orders_id), " +
-                    " CONSTRAINT FK_Orders_Customer_Id, " + 
+                    " CONSTRAINT FK_Orders_Customer_Id " + 
                     " FOREIGN KEY (customer_id) REFERENCES Customers(customer_id), " +
-                    " CONSTRAINT FK_Orders_Employee_Id, " +
+                    " CONSTRAINT FK_Orders_Employee_Id " +
                     " FOREIGN KEY (employee_id) REFERENCES Employees(employee_id))";
         stmt.executeUpdate(createOrdersTableSQL);
+
+        String createItemsTableSQL = "CREATE TABLE IF NOT EXISTS Items " +
+                    "(items_id INT AUTO_INCREMENT NOT NULL UNIQUE, " +
+                    " quantity INT NOT NULL, " +
+                    " coffee_id INT, " +
+                    " orders_id INT NOT NULL, " +
+                    " PRIMARY KEY(items_id), " + 
+                    " CONSTRAINT FK_Items_Coffee_Id " +
+                    " FOREIGN KEY (coffee_id) REFERENCES Coffee(coffee_id), " +
+                    " CONSTRAINT FK_Orders_Order_Id " + 
+                    " FOREIGN KEY (orders_id) REFERENCES Orders(orders_id) ON DELETE CASCADE)";
+        stmt.executeUpdate(createItemsTableSQL);
         }
         catch (SQLException e)
         {
