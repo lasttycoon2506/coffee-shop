@@ -38,10 +38,10 @@ CREATE TABLE Coffee
 
 CREATE TABLE Orders
 (
-   orders_id int NOT NULL AUTO_INCREMENT UNIQUE,
-   orders_date date NOT NULL,
-   customer_id int NOT NULL,
-   employee_id int NOT NULL,
+   orders_id INT NOT NULL AUTO_INCREMENT UNIQUE,
+   orders_date DATE NOT NULL,
+   customer_id INT NOT NULL,
+   employee_id INT NOT NULL,
    order_status BOOLEAN NOT NULL DEFAULT FALSE,
    PRIMARY KEY(orders_id),
    CONSTRAINT FK_Orders_Customer_Id
@@ -54,10 +54,10 @@ CREATE TABLE Orders
 
 CREATE TABLE Items
 (
-   items_id int NOT NULL AUTO_INCREMENT UNIQUE,
-   quantity int NOT NULL,
-   coffee_id int, 
-   orders_id int NOT NULL,
+   items_id INT NOT NULL AUTO_INCREMENT UNIQUE,
+   quantity INT NOT NULL,
+   coffee_id INT, 
+   orders_id INT NOT NULL,
    PRIMARY KEY(items_id),
    CONSTRAINT FK_Items_Coffee_Id
    FOREIGN KEY (coffee_id) REFERENCES Coffee(coffee_id),
