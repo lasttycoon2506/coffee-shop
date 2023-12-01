@@ -8,13 +8,18 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 
 
 public class NewCustomerController {
     @FXML
     private Label fNameLabel;
+    @FXML
+    private Label lNameLabel;
+    @FXML
+    private Label emailLabel;
+    @FXML
+    private Label phoneLabel;
 	@FXML
 	private TextField firstNameEntry;
     @FXML
@@ -30,11 +35,22 @@ public class NewCustomerController {
 	void submit(ActionEvent event) throws IOException {
         
             
-            if(firstNameEntry.getText().trim().isEmpty()){
+            if (firstNameEntry.getText().trim().isEmpty()){
                 fNameLabel.setTextFill(Color.color(1, 0, 0));
                 fNameLabel.setText("Enter First Name!");
             }
-           
+            if (lastNameEntry.getText().trim().isEmpty()){
+                lNameLabel.setTextFill(Color.color(1, 0, 0));
+                lNameLabel.setText("Enter Last Name!");
+            }
+            if (emailEntry.getText().trim().isEmpty()){
+                emailLabel.setTextFill(Color.color(1, 0, 0));
+                emailLabel.setText("Enter Email!");
+            }
+            if (phoneEntry.getText().trim().isEmpty()){
+                phoneLabel.setTextFill(Color.color(1, 0, 0));
+                phoneLabel.setText("Enter Phone!");
+            }
         
         else {
 		CustomerDTO newEntry = new CustomerDTO(firstNameEntry.getText(), lastNameEntry.getText(), emailEntry.getText(), phoneEntry.getText());

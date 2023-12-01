@@ -25,5 +25,8 @@
       <Label layoutX="434.0" layoutY="251.0" text="Phone" />
       <Button layoutX="227.0" layoutY="354.0" mnemonicParsing="false" onAction="#submit" prefHeight="41.0" prefWidth="140.0" text="REGISTER" />
       <Label fx:id="fNameLabel" layoutX="146.0" layoutY="230.0" />
+      <Label fx:id="lNameLabel" layoutX="440.0" layoutY="230.0" />
+      <Label fx:id="emailLabel" layoutX="146.0" layoutY="293.0" />
+      <Label fx:id="phoneLabel" layoutX="440.0" layoutY="293.0" />
    </children>
 </AnchorPane>
