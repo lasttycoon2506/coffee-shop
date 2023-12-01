@@ -78,6 +78,10 @@ public class CreateDB {
             e.printStackTrace();
         }
     }
+    
+    public void insertDB() {
+
+    }
 
     
 }
