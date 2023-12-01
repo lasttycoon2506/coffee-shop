@@ -34,6 +34,8 @@ public class NewCustomerController {
     @FXML
 	void submit(ActionEvent event) throws IOException {
         
+        if (firstNameEntry.getText().trim().isEmpty() || lastNameEntry.getText().trim().isEmpty()
+            || emailEntry.getText().trim().isEmpty() || phoneEntry.getText().trim().isEmpty()) {
             
             if (firstNameEntry.getText().trim().isEmpty()){
                 fNameLabel.setTextFill(Color.color(1, 0, 0));
@@ -51,7 +53,7 @@ public class NewCustomerController {
                 phoneLabel.setTextFill(Color.color(1, 0, 0));
                 phoneLabel.setText("Enter Phone!");
             }
-        
+        }
         else {
 		CustomerDTO newEntry = new CustomerDTO(firstNameEntry.getText(), lastNameEntry.getText(), emailEntry.getText(), phoneEntry.getText());
         switchToCustomerRegisteredPg();
