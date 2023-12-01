@@ -13,12 +13,12 @@ public class CreateDB {
     static final String USER = "root";
     static final String PASSWORD = "aggY836^@zT9&";
 
-    public void connectDB() {
+    public void createDB() {
+        //connect to DB
         try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
         Statement stmt = conn.createStatement();)
-
         {
-            String createCustomerTableSQL = "CREATE OR REPLACE TABLE Customers " +
+            String createCustomerTableSQL = "CREATE TABLE IF NOT EXISTS Customers " +
                    "(customer_id INT AUTO_INCREMENT NOT NULL UNIQUE, " +
                    " first_name VARCHAR(50) NOT NULL, " + 
                    " last_name VARCHAR(50) NOT NULL, " + 
@@ -26,7 +26,6 @@ public class CreateDB {
                    " phone VARCHAR(50) NOT NULL UNIQUE, " +
                    " PRIMARY KEY ( customer_id ))"; 
         stmt.executeUpdate(createCustomerTableSQL);
-        System.out.println("Created table"); 
         }
         catch (SQLException e)
         {
