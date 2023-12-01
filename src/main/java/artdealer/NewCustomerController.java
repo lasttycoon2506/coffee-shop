@@ -7,7 +7,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 
@@ -54,6 +53,15 @@ public class NewCustomerController {
                 phoneLabel.setTextFill(Color.color(1, 0, 0));
                 phoneLabel.setText("Enter Phone!");
             }
+            if (!phoneEntry.getText().trim().isEmpty()) {
+                try {
+                int phoneNumber = Integer.parseInt(phoneEntry.getText());
+                System.out.println(phoneNumber);
+                }
+                catch (NumberFormatException e){
+                    phoneLabel.setText("Numbers Only!");
+                }
+            }
         }
         else {
 		CustomerDTO newEntry = new CustomerDTO(firstNameEntry.getText(), lastNameEntry.getText(), emailEntry.getText(), phoneEntry.getText());
@@ -81,13 +89,10 @@ public class NewCustomerController {
         phoneLabel.setText("");
     }
 
-    @FXML 
-    void validatePhone(KeyEvent event) {
-        String charTyped = event.getCharacter();
-        if (Character.isDigit(charTyped));
+    // @FXML 
+    // void validatePhone(KeyEvent event) {
 
-
-    }
+    // }
 
     @FXML
     private void switchToHomePg() throws IOException {
