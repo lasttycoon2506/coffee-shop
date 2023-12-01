@@ -33,7 +33,7 @@ public class NewCustomerController {
 	
     @FXML
 	void submit(ActionEvent event) throws IOException {
-        
+
         if (firstNameEntry.getText().trim().isEmpty() || lastNameEntry.getText().trim().isEmpty()
             || emailEntry.getText().trim().isEmpty() || phoneEntry.getText().trim().isEmpty()) {
             
@@ -78,6 +78,17 @@ public class NewCustomerController {
     @FXML
     void resetPhoneLabel(KeyEvent event) {
         phoneLabel.setText("");
+    }
+
+    @FXML 
+    void validatePhone(KeyEvent event) {
+        if (event.getCharacter().matches("[^\\e\t\r\\d+$]")){
+            event.consume();
+            phoneEntry.setStyle("-fx-border-color: red");
+        }
+        else {
+            phoneEntry.setStyle("-fx-border-color: green");
+        }
     }
 
     @FXML
