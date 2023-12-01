@@ -18,7 +18,7 @@
       <TextField fx:id="firstNameEntry" layoutX="42.0" layoutY="205.0" onKeyReleased="#resetFnameLabel" prefHeight="25.0" prefWidth="237.0" />
       <TextField fx:id="lastNameEntry" layoutX="332.0" layoutY="205.0" onKeyReleased="#resetLnameLabel" prefHeight="25.0" prefWidth="237.0" />
       <TextField fx:id="emailEntry" layoutX="42.0" layoutY="268.0" onKeyReleased="#resetEmailLabel" prefHeight="25.0" prefWidth="237.0" />
-      <TextField fx:id="phoneEntry" layoutX="332.0" layoutY="268.0" onKeyPressed="#validatePhone" onKeyReleased="#resetPhoneLabel" prefHeight="25.0" prefWidth="237.0" />
+      <TextField fx:id="phoneEntry" layoutX="332.0" layoutY="268.0" onKeyReleased="#resetPhoneLabel" prefHeight="25.0" prefWidth="237.0" />
       <Label layoutX="126.0" layoutY="183.0" prefHeight="17.0" prefWidth="69.0" text="First Name" />
       <Label layoutX="423.0" layoutY="183.0" text="Last Name" />
       <Label layoutX="146.0" layoutY="251.0" text="Email" />

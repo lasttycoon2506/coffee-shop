@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 
@@ -82,13 +83,10 @@ public class NewCustomerController {
 
     @FXML 
     void validatePhone(KeyEvent event) {
-        if (event.getCharacter().matches("[^\\e\t\r\\d+$]")){
-            event.consume();
-            phoneEntry.setStyle("-fx-border-color: red");
-        }
-        else {
-            phoneEntry.setStyle("-fx-border-color: green");
-        }
+        String charTyped = event.getCharacter();
+        if (Character.isDigit(charTyped));
+
+
     }
 
     @FXML
