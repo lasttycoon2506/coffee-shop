@@ -3,7 +3,7 @@ SET AUTOCOMMIT = 0;
 SET sql_mode = 'STRICT_ALL_TABLES';
 
 
-CREATE TABLE Customers
+CREATE TABLE IF NOT EXISTS Customers
 (
     customer_id INT NOT NULL AUTO_INCREMENT UNIQUE,
     first_name VARCHAR(50) NOT NULL,
@@ -13,7 +13,7 @@ CREATE TABLE Customers
     PRIMARY KEY (customer_id)
 );
 
-CREATE TABLE Employees
+CREATE TABLE IF NOT EXISTS Employees
 (
     employee_id INT AUTO_INCREMENT NOT NULL UNIQUE,
     first_name VARCHAR(50) NOT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE Employees
     PRIMARY KEY (employee_id)
 );
 
-CREATE TABLE Coffee
+CREATE TABLE IF NOT EXISTS Coffee
 (
     coffee_id INT AUTO_INCREMENT NOT NULL UNIQUE,
     brand VARCHAR(50) NOT NULL,
@@ -36,7 +36,7 @@ CREATE TABLE Coffee
     PRIMARY KEY (coffee_id)
 );
 
-CREATE TABLE Orders
+CREATE TABLE IF NOT EXISTS Orders
 (
    orders_id INT NOT NULL AUTO_INCREMENT UNIQUE,
    orders_date DATE NOT NULL,
@@ -52,7 +52,7 @@ CREATE TABLE Orders
 
 -- /*Intersection Table */ 
 
-CREATE TABLE Items
+CREATE TABLE IF NOT EXISTS Items
 (
    items_id INT NOT NULL AUTO_INCREMENT UNIQUE,
    quantity INT NOT NULL,
