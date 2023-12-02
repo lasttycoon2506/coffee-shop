@@ -14,6 +14,7 @@ import artdealer.SQL.CreateSingleInstance;
 
 public class App extends Application {
     private static Scene scene;
+    public static Connection connection;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -34,7 +35,7 @@ public class App extends Application {
 
     public static void main(String[] args) throws SQLException {
         // creates connection to db for later use...
-        Connection conn = CreateSingleInstance.ConnectDB();
+        Connection connection = CreateSingleInstance.ConnectDB();
         launch();
     }
 }

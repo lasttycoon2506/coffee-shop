@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import artdealer.App;
+
 // login to db...
 // mysql -uroot -p
 
@@ -14,9 +16,8 @@ public class CreateDB {
 
     
     public void createDB() throws SQLException {
-        //connect to DB
-        Connection conn = CreateSingleInstance.ConnectDB();
-        Statement stmt = conn.createStatement();
+        //use connection to DB already established from main
+        Statement stmt = App.connection.createStatement();
         
         String createCustomerTableSQL = "CREATE TABLE IF NOT EXISTS Customers " +
                     "(customer_id INT AUTO_INCREMENT NOT NULL UNIQUE, " +
