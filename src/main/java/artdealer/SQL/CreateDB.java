@@ -13,6 +13,7 @@ public class CreateDB {
     static final String USER = "root";
     static final String PASSWORD = "aggY836^@zT9&";
 
+    
     public void createDB() {
         //connect to DB
         try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
