@@ -1,6 +1,8 @@
 package artdealer.Controllers;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import artdealer.App;
 import artdealer.Models.CustomerDTO;
 import artdealer.SQL.CreateDB;
@@ -38,7 +40,7 @@ public class NewCustomerController {
 	private Button myButton;
 	
     @FXML
-	void submit(ActionEvent event) throws IOException {
+	void submit(ActionEvent event) throws IOException, SQLException {
 
         if (firstNameEntry.getText().trim().isEmpty() || lastNameEntry.getText().trim().isEmpty()
             || emailEntry.getText().trim().isEmpty() || phoneEntry.getText().trim().isEmpty()) {
