@@ -11,16 +11,11 @@ public class InsertDB {
 
 
         String insertCustomerSQL = "INSERT INTO Customers (first_name, last_name, email, phone)" +
-                            " VALUES (@fname, @lname, @email, @phone ) "; 
-                           
-                            SqlCommand.Parameters
-        using (var command = new SqlCommand(query, connection))
-        {
-            command.Parameters.AddWithValue("@name", name);
-            command.Parameters.AddWithValue("@phone", phone);
+                            "VALUES ('" +customerdto.firstName()+ "', '" +customerdto.lastName()+ 
+                            "', '" +customerdto.email()+ "', '" +customerdto.phone()+ "')";
+                        
         
-            command.ExecuteNonQuery();
-                            }
+        
                 stmt.executeUpdate(insertCustomerSQL);
     }
 }
