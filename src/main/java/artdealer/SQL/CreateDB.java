@@ -1,7 +1,6 @@
 package artdealer.SQL;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -14,11 +13,11 @@ public class CreateDB {
     static final String PASSWORD = "aggY836^@zT9&";
 
     
-    public void createDB() {
+    public void createDB() throws SQLException {
         //connect to DB
-        try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
-        Statement stmt = conn.createStatement();)
-        {
+        Connection conn = CreateSingleInstance.ConnectDB();
+        Statement stmt = conn.createStatement();
+        
             String createCustomerTableSQL = "CREATE TABLE IF NOT EXISTS Customers " +
                     "(customer_id INT AUTO_INCREMENT NOT NULL UNIQUE, " +
                     " first_name VARCHAR(50) NOT NULL, " + 
@@ -73,11 +72,6 @@ public class CreateDB {
                     " CONSTRAINT FK_Orders_Order_Id " + 
                     " FOREIGN KEY (orders_id) REFERENCES Orders(orders_id) ON DELETE CASCADE)";
         stmt.executeUpdate(createItemsTableSQL);
-        }
-        catch (SQLException e)
-        {
-            e.printStackTrace();
-        }
     }
     
     public void insertDB() {
