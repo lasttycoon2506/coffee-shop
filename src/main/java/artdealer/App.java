@@ -8,8 +8,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
-
-import artdealer.SQL.CreateSingleInstance;
+import artdealer.SQL.ConnectDB;
 
 
 public class App extends Application {
@@ -35,7 +34,7 @@ public class App extends Application {
 
     public static void main(String[] args) throws SQLException {
         // creates connection to db for later use...
-        Connection connection = CreateSingleInstance.ConnectDB();
+        Connection connection = ConnectDB.ConnectDb();
         launch();
     }
 }
