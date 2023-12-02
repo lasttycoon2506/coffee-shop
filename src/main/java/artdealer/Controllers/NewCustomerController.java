@@ -4,6 +4,7 @@ import java.io.IOException;
 import artdealer.App;
 import artdealer.Models.CustomerDTO;
 import artdealer.SQL.CreateDB;
+import artdealer.SQL.InsertDB;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -14,6 +15,9 @@ import javafx.scene.paint.Color;
 
 
 public class NewCustomerController {
+    CreateDB createDB = new CreateDB();
+    InsertDB insertDB = new InsertDB();
+    
     @FXML
     private Label fNameLabel;
     @FXML
@@ -66,8 +70,7 @@ public class NewCustomerController {
         }
         else {
 		CustomerDTO newEntry = new CustomerDTO(firstNameEntry.getText(), lastNameEntry.getText(), emailEntry.getText(), phoneEntry.getText());
-        CreateDB createDB = new CreateDB();
-        
+        insertDB.InsertCustomerData(newEntry);
         
         switchToCustomerRegisteredPg();
         }
