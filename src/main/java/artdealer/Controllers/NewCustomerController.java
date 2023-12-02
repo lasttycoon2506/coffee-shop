@@ -2,7 +2,6 @@ package artdealer.Controllers;
 
 import java.io.IOException;
 import java.sql.SQLException;
-
 import artdealer.App;
 import artdealer.Models.CustomerDTO;
 import artdealer.SQL.CreateDB;
@@ -72,7 +71,10 @@ public class NewCustomerController {
         }
         else {
 		CustomerDTO newEntry = new CustomerDTO(firstNameEntry.getText(), lastNameEntry.getText(), emailEntry.getText(), phoneEntry.getText());
-        insertDB.InsertCustomerData(newEntry);
+        
+        createDB.createDB();
+        
+        // insertDB.InsertCustomerData(newEntry);
         
         switchToCustomerRegisteredPg();
         }

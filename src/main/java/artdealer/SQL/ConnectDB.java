@@ -10,7 +10,7 @@ public class ConnectDB {
     static final String PASSWORD = "aggY836^@zT9&";
 
     public static Connection ConnectDb() throws SQLException {
-        Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
-        return conn;
+        Connection connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
+        return connection;
     }
 }

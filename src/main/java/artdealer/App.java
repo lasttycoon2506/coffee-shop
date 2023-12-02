@@ -13,7 +13,11 @@ import artdealer.SQL.ConnectDB;
 
 public class App extends Application {
     private static Scene scene;
-    public static Connection connection;
+    try {
+        public static Connection connection = getConnection();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -32,9 +36,13 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
+    public static Connection getConnection() throws SQLException {
+        connection = ConnectDB.ConnectDb();
+        return connection;
+    }
+
     public static void main(String[] args) throws SQLException {
-        // creates connection to db for later use...
-        Connection connection = ConnectDB.ConnectDb();
+        
         launch();
     }
 }
