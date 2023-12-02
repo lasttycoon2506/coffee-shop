@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: url('file:C:/Users/werob/Documents/projects/javaproj/CoffeeShop/src/main/resources/artdealer/coffee2.jpg');" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="artdealer.HomeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: url('file:C:/Users/werob/Documents/projects/javaproj/CoffeeShop/src/main/resources/artdealer/coffee2.jpg');" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="artdealer.Controllers.HomeController">
    <children>
       <Button layoutX="253.0" layoutY="156.0" mnemonicParsing="false" onAction="#switchToCustomerPg" prefHeight="43.0" prefWidth="133.0" text="Customer">
          <font>

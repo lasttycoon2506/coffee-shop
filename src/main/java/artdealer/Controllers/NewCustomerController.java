@@ -1,6 +1,7 @@
-package artdealer;
+package artdealer.Controllers;
 
 import java.io.IOException;
+import artdealer.App;
 import artdealer.Models.CustomerDTO;
 import artdealer.SQL.CreateDB;
 import javafx.event.ActionEvent;

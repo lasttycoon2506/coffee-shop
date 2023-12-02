@@ -5,4 +5,7 @@ module artdealer {
 
     opens artdealer to javafx.fxml;
     exports artdealer;
+    opens artdealer.Controllers to javafx.fxml;
+    exports artdealer.Controllers;
+
 }
