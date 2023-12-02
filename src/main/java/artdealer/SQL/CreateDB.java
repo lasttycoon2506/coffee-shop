@@ -18,7 +18,7 @@ public class CreateDB {
         Connection conn = CreateSingleInstance.ConnectDB();
         Statement stmt = conn.createStatement();
         
-            String createCustomerTableSQL = "CREATE TABLE IF NOT EXISTS Customers " +
+        String createCustomerTableSQL = "CREATE TABLE IF NOT EXISTS Customers " +
                     "(customer_id INT AUTO_INCREMENT NOT NULL UNIQUE, " +
                     " first_name VARCHAR(50) NOT NULL, " + 
                     " last_name VARCHAR(50) NOT NULL, " + 

@@ -6,6 +6,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import artdealer.SQL.CreateSingleInstance;
 
 
 public class App extends Application {
@@ -28,7 +32,9 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
+        // creates connection to db for later use...
+        Connection conn = CreateSingleInstance.ConnectDB();
         launch();
     }
 }
