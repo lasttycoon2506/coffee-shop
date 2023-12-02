@@ -93,11 +93,6 @@ public class NewCustomerController {
         phoneLabel.setText("");
     }
 
-    // @FXML 
-    // void validatePhone(KeyEvent event) {
-
-    // }
-
     @FXML
     private void switchToHomePg() throws IOException {
         App.setRoot("home");
