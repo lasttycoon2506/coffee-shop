@@ -7,5 +7,4 @@ module artdealer {
     exports artdealer;
     opens artdealer.Controllers to javafx.fxml;
     exports artdealer.Controllers;
-
 }
