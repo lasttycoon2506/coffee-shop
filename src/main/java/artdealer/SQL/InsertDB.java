@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import artdealer.Models.CustomerDTO;
+
+
 public class InsertDB {
     
     public void InsertCustomerData(CustomerDTO customerdto) throws SQLException {
