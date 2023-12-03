@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 
+// login to db...
+// mysql -uroot -p
 public class ConnectDB {
     static final String DB_URL = "jdbc:mysql://localhost:3306/artshop";
     static final String USER = "root";

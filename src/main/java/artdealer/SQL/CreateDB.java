@@ -4,14 +4,8 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-// login to db...
-// mysql -uroot -p
 
 public class CreateDB {
-    static final String DB_URL = "jdbc:mysql://localhost:3306/artshop";
-    static final String USER = "root";
-    static final String PASSWORD = "aggY836^@zT9&";
-    
     public void createDB() throws SQLException {
         Connection connection = ConnectDB.ConnectDb();
         Statement stmt = connection.createStatement();
