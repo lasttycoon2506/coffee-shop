@@ -7,12 +7,12 @@ import artdealer.Models.CustomerDTO;
 public class InsertDB {
     
     public void InsertCustomerData(CustomerDTO customerdto) throws SQLException {
-        Statement stmt = App.connection.createStatement();
+        // Statement stmt = App.connection.createStatement();
 
         String insertCustomerSQL = "INSERT INTO Customers (first_name, last_name, email, phone)" +
                             "VALUES ('" +customerdto.firstName()+ "', '" +customerdto.lastName()+ 
                             "', '" +customerdto.email()+ "', '" +customerdto.phone()+ "')";   
         
-        stmt.executeUpdate(insertCustomerSQL);
+        // stmt.executeUpdate(insertCustomerSQL);
     }
 }
