@@ -5,7 +5,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="artdealer.Controllers.NewCustomerRegController">
    <children>
       <Label layoutX="155.0" layoutY="35.0" text="You're Registered!">
@@ -13,7 +12,7 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <Button layoutX="14.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchToCustomerPg" text="BACK" />
+      <Button layoutX="14.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchToNewCustomerPg" text="BACK" />
       <Button layoutX="534.0" layoutY="11.0" mnemonicParsing="false" onAction="#switchToHomePg" text="HOME" />
       <Button layoutX="236.0" layoutY="200.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="128.0" text="NEW ORDER" />
    </children>

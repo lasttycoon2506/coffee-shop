@@ -7,7 +7,7 @@ import javafx.fxml.FXML;
 
 public class NewCustomerRegController {
     @FXML
-    void switchToCustomerPg() throws IOException {
+    void switchToNewCustomerPg() throws IOException {
         App.setRoot("newCustomer");
     }
 
@@ -16,4 +16,8 @@ public class NewCustomerRegController {
         App.setRoot("home");
     }
 
+    @FXML
+    void switchToNewOrderPg() throws IOException {
+        App.setRoot("home");
+    }
 }
