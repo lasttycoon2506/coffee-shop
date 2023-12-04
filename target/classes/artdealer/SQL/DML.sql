@@ -10,4 +10,9 @@ VALUES (:first_name, :last_name, :email, :phone);
 INSERT INTO Employees (first_name, last_name, email, phone, title) 
 VALUES (:first_name, :last_name, :email, :phone, :title);
 
+INSERT INTO Coffee (brand, coffee_name, roast_type, price, region, coffee_size) 
+VALUES (:brand, :coffee_name, :roast_type, :price, :region, :coffee_size);
+
+
+
 
