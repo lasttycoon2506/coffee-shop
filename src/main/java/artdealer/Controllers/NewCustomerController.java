@@ -2,6 +2,7 @@ package artdealer.Controllers;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.function.UnaryOperator;
 import artdealer.App;
 import artdealer.Models.CustomerDTO;
 import artdealer.SQL.CreateDB;
@@ -11,13 +12,36 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
+import javafx.util.converter.IntegerStringConverter;
+import javafx.util.StringConverter;
 
 
 public class NewCustomerController {
     CreateDB createDB = new CreateDB();
     InsertDB insertDB = new InsertDB();
+    
+	UnaryOperator<TextFormatter.Change> integerFilter = change -> {
+        String newText = change.getControlNewText();
+        if (newText.matches("-?([1-9][0-9]*)?")) {
+            return change;
+        }
+        return null;
+    };
+
+    StringConverter<Integer> converter = new IntegerStringConverter() {
+        @Override
+        public Integer fromString(String s) {
+            if (s.isEmpty()) return 0 ;
+            return super.fromString(s);
+        }
+    };
+
+    public void initialize(){
+        phoneEntry.setTextFormatter(new TextFormatter<Integer>(converter, 0, integerFilter));
+    }
     
     @FXML
     private Label fNameLabel;
@@ -34,10 +58,13 @@ public class NewCustomerController {
     @FXML
 	private TextField emailEntry;
     @FXML
-	private TextField phoneEntry;
+    private TextField phoneEntry;
+    // playsFld.setTextFormatter(new TextFormatter<String>(playsValidator))
 	@FXML
 	private Button myButton;
 	
+     
+
     @FXML
 	void submit(ActionEvent event) throws IOException, SQLException {
         if (firstNameEntry.getText().trim().isEmpty() || lastNameEntry.getText().trim().isEmpty()
@@ -68,6 +95,11 @@ public class NewCustomerController {
             switchToCustomerRegisteredPg();
         }
 	}
+
+
+    TextFormatter<Integer> textFormatter = new TextFormatter<Integer>(converter, 0, integerFilter);
+
+
 
     @FXML
     void resetFnameLabel(KeyEvent event) {
