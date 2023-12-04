@@ -7,4 +7,7 @@ SET sql_mode = 'STRICT_ALL_TABLES';
 INSERT INTO Customers (first_name, last_name, email, phone) 
 VALUES (:first_name, :last_name, :email, :phone);
 
+INSERT INTO Employees (first_name, last_name, email, phone, title) 
+VALUES (:first_name, :last_name, :email, :phone, :title);
+
 
