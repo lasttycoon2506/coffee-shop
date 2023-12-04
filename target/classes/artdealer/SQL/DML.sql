@@ -16,6 +16,8 @@ VALUES (:brand, :coffee_name, :roast_type, :price, :region, :coffee_size);
 INSERT INTO Orders (orders_date, customer_id, employee_id, order_status) 
 VALUES (:orders_date, :customer_id, :employee_id, :order_status);
 
+INSERT INTO Items (quantity, coffee_id, orders_id) 
+VALUES (:quantity, :coffee_id, :orders_id);
 
 
 
