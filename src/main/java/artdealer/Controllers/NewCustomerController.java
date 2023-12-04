@@ -40,7 +40,6 @@ public class NewCustomerController {
 	
     @FXML
 	void submit(ActionEvent event) throws IOException, SQLException {
-
         if (firstNameEntry.getText().trim().isEmpty() || lastNameEntry.getText().trim().isEmpty()
             || emailEntry.getText().trim().isEmpty() || phoneEntry.getText().trim().isEmpty()) {
             
@@ -65,16 +64,26 @@ public class NewCustomerController {
                 int phoneNumber = Integer.parseInt(phoneEntry.getText());
                 }
                 catch (NumberFormatException e){
+                    phoneLabel.setTextFill(Color.color(1, 0, 0));
                     phoneLabel.setText("Numbers Only!");
                 }
             }
         }
+        else if (!phoneEntry.getText().trim().isEmpty()) {
+                try {
+                int phoneNumber = Integer.parseInt(phoneEntry.getText());
+                }
+                catch (NumberFormatException e){
+                    phoneLabel.setTextFill(Color.color(1, 0, 0));
+                    phoneLabel.setText("Numbers Only!");
+                }
+            }
         else {
 		CustomerDTO newEntry = new CustomerDTO(firstNameEntry.getText(), lastNameEntry.getText(), emailEntry.getText(), phoneEntry.getText());
         
         createDB.createDB();
         
-        // insertDB.InsertCustomerData(newEntry);
+        insertDB.InsertCustomerData(newEntry);
         
         switchToCustomerRegisteredPg();
         }
