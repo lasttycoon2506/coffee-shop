@@ -4,7 +4,9 @@ SET sql_mode = 'STRICT_ALL_TABLES';
 
 
 /* Insertion of Data into Tables */
-INSERT INTO Customers (customer_first_name, customer_last_name, customer_email, customer_phone, state, city, street, zip_code) 
-VALUES (:customer_first_name, :customer_last_name, :customer_email, :customer_phone, :state, :city, :street, :zip);
+INSERT INTO Customers (first_name, last_name, email, phone) 
+VALUES (:first_name, :last_name, :email, :phone);
+
+
 
 

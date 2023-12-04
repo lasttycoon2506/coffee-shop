@@ -51,7 +51,6 @@ CREATE TABLE IF NOT EXISTS Orders
 );
 
 -- /*Intersection Table */ 
-
 CREATE TABLE IF NOT EXISTS Items
 (
    items_id INT NOT NULL AUTO_INCREMENT UNIQUE,
