@@ -23,26 +23,6 @@ public class NewCustomerController {
     CreateDB createDB = new CreateDB();
     InsertDB insertDB = new InsertDB();
     
-	UnaryOperator<TextFormatter.Change> integerFilter = change -> {
-        String newText = change.getControlNewText();
-        if (newText.matches("-?([1-9][0-9]*)?")) {
-            return change;
-        }
-        return null;
-    };
-
-    StringConverter<Integer> converter = new IntegerStringConverter() {
-        @Override
-        public Integer fromString(String s) {
-            if (s.isEmpty()) return 0 ;
-            return super.fromString(s);
-        }
-    };
-
-    public void initialize(){
-        phoneEntry.setTextFormatter(new TextFormatter<Integer>(converter, 0, integerFilter));
-    }
-    
     @FXML
     private Label fNameLabel;
     @FXML
@@ -61,9 +41,26 @@ public class NewCustomerController {
     private TextField phoneEntry;
 	@FXML
 	private Button myButton;
+
+    UnaryOperator<TextFormatter.Change> integerFilter = change -> {
+        String newText = change.getControlNewText();
+        if (newText.matches("-?([1-9][0-9]*)?")) {
+            return change;
+        }
+        return null;
+    };
+    StringConverter<Integer> converter = new IntegerStringConverter() {
+        @Override
+        public Integer fromString(String s) {
+            if (s.isEmpty()) return 0 ;
+            return super.fromString(s);
+        }
+    };
+    public void initialize(){
+        phoneEntry.setTextFormatter(new TextFormatter<Integer>(converter, 0, integerFilter));
+    }
 	
      
-
     @FXML
 	void submit(ActionEvent event) throws IOException, SQLException {
         if (firstNameEntry.getText().trim().isEmpty() || lastNameEntry.getText().trim().isEmpty()
