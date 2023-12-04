@@ -85,7 +85,6 @@ public class NewCustomerController {
         }
         else {
             CustomerDTO newEntry = new CustomerDTO(firstNameEntry.getText(), lastNameEntry.getText(), emailEntry.getText(), phoneEntry.getText());
-            System.out.println(newEntry);
             createDB.createDB();
             insertDB.InsertCustomerData(newEntry);
             switchToCustomerRegisteredPg();

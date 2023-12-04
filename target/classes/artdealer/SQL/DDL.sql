@@ -65,29 +65,6 @@ CREATE TABLE IF NOT EXISTS Items
    FOREIGN KEY (orders_id) REFERENCES Orders(orders_id) ON DELETE CASCADE
 );
 
--- /* Insertion of Data into Tables */
-
--- INSERT INTO Employees (first_name, last_name, email, phone, title) 
--- VALUES ('Johnny', 'Appleseed', 'johnnyapp@zippity.com', '111-111-1111', 'The Man'),
--- ('Weeping', 'Willow', 'mopey@gmail.com', '222-222-2222', 'Not the Man'),
--- ('Ludwig', 'Van', 'thebest@besty.com', '123-456-7890', 'Worker');
-
--- INSERT INTO Coffee (brand, coffee_name, roast_type, price, region, coffee_size) 
--- VALUES ('Islandy', 'Island Chill', 'Medium', 14.99, 'Indonesia', 14),
--- ('Kona', 'Wild Roast', 'Dark', 12.99, 'Ethiopia', 18),
--- ('Billys', 'Buck Roast', 'Light', 13.99, 'Columbia', 16);
-
--- INSERT INTO Orders (orders_date, customer_id, employee_id, order_status) 
--- VALUES ('2023-08-05', 1, 1, FALSE),
--- ('1975-5-5', 2, 2, FALSE),
--- ('2020-3-17', 3, 3, FALSE);
-
--- /* Intersection Table */
-
-INSERT INTO Items (quantity, coffee_id, orders_id) 
-VALUES (3, 2, 1),
-(4, 1, 2),
-(1, 3, 3);
 
 SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
