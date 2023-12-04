@@ -65,10 +65,4 @@ public class CreateDB {
                     " FOREIGN KEY (orders_id) REFERENCES Orders(orders_id) ON DELETE CASCADE)";
         stmt.executeUpdate(createItemsTableSQL);
     }
-    
-    public void insertDB() {
-
-    }
-
-    
 }

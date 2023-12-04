@@ -15,8 +15,5 @@ public class ConnectDB {
     public static Connection ConnectDb() throws SQLException {
         Connection connection = DriverManager.getConnection(DB_URL, USER, PASSWORD);
         return connection;
-        
     }
-
-    
 }

@@ -19,6 +19,7 @@ VALUES (:orders_date, :customer_id, :employee_id, :order_status);
 INSERT INTO Items (quantity, coffee_id, orders_id) 
 VALUES (:quantity, :coffee_id, :orders_id);
 
+
 SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
 
