@@ -13,6 +13,10 @@ VALUES (:first_name, :last_name, :email, :phone, :title);
 INSERT INTO Coffee (brand, coffee_name, roast_type, price, region, coffee_size) 
 VALUES (:brand, :coffee_name, :roast_type, :price, :region, :coffee_size);
 
+INSERT INTO Orders (orders_date, customer_id, employee_id, order_status) 
+VALUES (:orders_date, :customer_id, :employee_id, :order_status);
+
+
 
 
 
