@@ -59,7 +59,6 @@ public class NewCustomerController {
 	private TextField emailEntry;
     @FXML
     private TextField phoneEntry;
-    // playsFld.setTextFormatter(new TextFormatter<String>(playsValidator))
 	@FXML
 	private Button myButton;
 	
@@ -95,11 +94,6 @@ public class NewCustomerController {
             switchToCustomerRegisteredPg();
         }
 	}
-
-
-    TextFormatter<Integer> textFormatter = new TextFormatter<Integer>(converter, 0, integerFilter);
-
-
 
     @FXML
     void resetFnameLabel(KeyEvent event) {
