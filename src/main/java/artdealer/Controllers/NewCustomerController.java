@@ -52,12 +52,12 @@ public class NewCustomerController {
     StringConverter<Integer> converter = new IntegerStringConverter() {
         @Override
         public Integer fromString(String s) {
-            if (s.isEmpty()) return 0 ;
+            if (s.isEmpty()) return 0;
             return super.fromString(s);
         }
     };
     public void initialize(){
-        phoneEntry.setTextFormatter(new TextFormatter<Integer>(converter, 0, integerFilter));
+        phoneEntry.setTextFormatter(new TextFormatter<Integer>(converter, null, integerFilter));
     }
 	
      
