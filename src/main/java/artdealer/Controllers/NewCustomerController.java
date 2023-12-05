@@ -23,6 +23,7 @@ public class NewCustomerController {
     CreateDB createDB = new CreateDB();
     InsertDB insertDB = new InsertDB();
     
+    
     @FXML
     private Label fNameLabel;
     @FXML
@@ -90,22 +91,19 @@ public class NewCustomerController {
             switchToCustomerRegisteredPg();
         }
 	}
-
+    //clears empty label alert upon text entered
     @FXML
     void resetFnameLabel(KeyEvent event) {
         fNameLabel.setText("");
     }
-
     @FXML
     void resetLnameLabel(KeyEvent event) {
         lNameLabel.setText("");
     }
-
     @FXML
     void resetEmailLabel(KeyEvent event) {
         emailLabel.setText("");
     }
-
     @FXML
     void resetPhoneLabel(KeyEvent event) {
         phoneLabel.setText("");
@@ -115,12 +113,10 @@ public class NewCustomerController {
     private void switchToHomePg() throws IOException {
         App.setRoot("home");
     }
-
     @FXML
     void switchToCustomerPg() throws IOException {
         App.setRoot("customer");
     }
-
     @FXML
     private void switchToCustomerRegisteredPg() throws IOException {
         App.setRoot("newCustomerRegistered");
