@@ -113,9 +113,10 @@ public class NewCustomerController {
                 }
             }
             else {
-                CustomerDTO newEntry = new CustomerDTO(fNameEntry.getText(), lNameEntry.getText(), emailEntry.getText(), phoneEntry.getText());
+                CustomerDTO newEntry = new CustomerDTO(userEntry.getText(), pwEntry.getText(), fNameEntry.getText(), 
+                                            lNameEntry.getText(), emailEntry.getText(), phoneEntry.getText());
                 createDB.createDB();
-                insertDB.InsertCustomerData(newEntry);
+                // insertDB.InsertCustomerData(newEntry);
                 switchToCustomerRegisteredPg();
             }
         }

@@ -6,6 +6,8 @@ SET sql_mode = 'STRICT_ALL_TABLES';
 CREATE TABLE IF NOT EXISTS Customers
 (
     customer_id INT NOT NULL AUTO_INCREMENT UNIQUE,
+    user_name VARCHAR(50) NOT NULL UNIQUE,
+    pword VARCHAR(50) NOT NULL,
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL UNIQUE,

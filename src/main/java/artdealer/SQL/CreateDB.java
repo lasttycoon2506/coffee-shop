@@ -12,6 +12,8 @@ public class CreateDB {
         
         String createCustomerTableSQL = "CREATE TABLE IF NOT EXISTS Customers " +
                     "(customer_id INT AUTO_INCREMENT NOT NULL UNIQUE, " +
+                    " user_name VARCHAR(50) NOT NULL UNIQUE, " +
+                    " pword VARCHAR(50) NOT NULL," +
                     " first_name VARCHAR(50) NOT NULL, " + 
                     " last_name VARCHAR(50) NOT NULL, " + 
                     " email VARCHAR(50) NOT NULL UNIQUE,  " + 
