@@ -21,12 +21,16 @@
       <TextField fx:id="phoneEntry" layoutX="332.0" layoutY="268.0" onKeyReleased="#resetPhoneLabel" prefHeight="25.0" prefWidth="237.0" />
       <Label layoutX="126.0" layoutY="183.0" prefHeight="17.0" prefWidth="69.0" text="First Name" />
       <Label layoutX="423.0" layoutY="183.0" text="Last Name" />
-      <Label layoutX="146.0" layoutY="251.0" text="Email" />
-      <Label layoutX="434.0" layoutY="251.0" text="Phone" />
+      <Label layoutX="134.0" layoutY="243.0" text="Email" />
+      <Label layoutX="433.0" layoutY="243.0" text="Phone" />
       <Button layoutX="227.0" layoutY="354.0" mnemonicParsing="false" onAction="#submit" prefHeight="41.0" prefWidth="140.0" text="REGISTER" />
       <Label fx:id="fNameLabel" layoutX="146.0" layoutY="230.0" />
       <Label fx:id="lNameLabel" layoutX="440.0" layoutY="230.0" />
       <Label fx:id="emailLabel" layoutX="146.0" layoutY="293.0" />
       <Label fx:id="phoneLabel" layoutX="440.0" layoutY="293.0" />
+      <Label layoutX="128.0" layoutY="121.0" prefHeight="17.0" prefWidth="69.0" text="Username" />
+      <Label layoutX="417.0" layoutY="121.0" prefHeight="17.0" prefWidth="69.0" text="Password" />
+      <TextField fx:id="firstNameEntry1" layoutX="42.0" layoutY="146.0" onKeyReleased="#resetFnameLabel" prefHeight="25.0" prefWidth="237.0" />
+      <TextField fx:id="firstNameEntry2" layoutX="332.0" layoutY="146.0" onKeyReleased="#resetFnameLabel" prefHeight="25.0" prefWidth="237.0" />
    </children>
 </AnchorPane>
