@@ -21,12 +21,12 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="221.0" layoutY="284.0" mnemonicParsing="false" onAction="#switchToNewCustomerPg" prefHeight="39.0" prefWidth="158.0" text="Login">
+      <Button layoutX="221.0" layoutY="284.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="158.0" text="Login">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="208.0" layoutY="340.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="187.0" text="New Customer">
+      <Button layoutX="221.0" layoutY="347.0" mnemonicParsing="false" onAction="#switchToNewCustomerPg" prefHeight="39.0" prefWidth="158.0" text="New Customer">
          <font>
             <Font size="18.0" />
          </font>
@@ -55,7 +55,7 @@
             </Lighting>
          </effect>
       </Label>
-      <TextField layoutX="246.0" layoutY="145.0" />
-      <TextField layoutX="246.0" layoutY="192.0" />
+      <TextField layoutX="238.0" layoutY="145.0" />
+      <TextField layoutX="238.0" layoutY="188.0" />
    </children>
 </AnchorPane>
