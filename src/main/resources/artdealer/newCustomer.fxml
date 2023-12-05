@@ -30,9 +30,9 @@
       <Label fx:id="phoneLabel" layoutX="417.0" layoutY="314.0" />
       <Label layoutX="128.0" layoutY="113.0" prefHeight="17.0" prefWidth="56.0" text="Username" />
       <Label layoutX="423.0" layoutY="113.0" prefHeight="17.0" prefWidth="56.0" text="Password" />
-      <TextField fx:id="firstNameEntry1" layoutX="42.0" layoutY="134.0" onKeyReleased="#resetFnameLabel" prefHeight="25.0" prefWidth="237.0" />
-      <TextField fx:id="firstNameEntry2" layoutX="331.0" layoutY="134.0" onKeyReleased="#resetFnameLabel" prefHeight="25.0" prefWidth="237.0" />
-      <Label layoutX="117.0" layoutY="163.0" text="Enter Username!" />
-      <Label layoutX="409.0" layoutY="163.0" text="Enter Password!" />
+      <TextField fx:id="userEntry" layoutX="42.0" layoutY="134.0" onKeyReleased="#resetUserLabel" prefHeight="25.0" prefWidth="237.0" />
+      <TextField fx:id="pwEntry" layoutX="331.0" layoutY="134.0" onKeyReleased="#resetPwLabel" prefHeight="25.0" prefWidth="237.0" />
+      <Label fx:id="userLabel" layoutX="117.0" layoutY="163.0" />
+      <Label fx:id="pwLabel" layoutX="409.0" layoutY="163.0" />
    </children>
 </AnchorPane>

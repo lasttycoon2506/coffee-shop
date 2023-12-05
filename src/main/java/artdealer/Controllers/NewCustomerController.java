@@ -23,7 +23,10 @@ public class NewCustomerController {
     CreateDB createDB = new CreateDB();
     InsertDB insertDB = new InsertDB();
     
-    
+    @FXML
+    private Label userLabel;
+    @FXML
+    private Label pwLabel;
     @FXML
     private Label fNameLabel;
     @FXML
@@ -32,6 +35,10 @@ public class NewCustomerController {
     private Label emailLabel;
     @FXML
     private Label phoneLabel;
+    @FXML
+	private TextField userEntry;
+    @FXML
+	private TextField pwEntry;
 	@FXML
 	private TextField firstNameEntry;
     @FXML
@@ -92,6 +99,14 @@ public class NewCustomerController {
         }
 	}
     //clears empty label alert upon text entered
+    @FXML
+    void resetUserLabel(KeyEvent event) {
+        userLabel.setText("");
+    }
+    @FXML
+    void resetPwLabel(KeyEvent event) {
+        pwLabel.setText("");
+    }
     @FXML
     void resetFnameLabel(KeyEvent event) {
         fNameLabel.setText("");
