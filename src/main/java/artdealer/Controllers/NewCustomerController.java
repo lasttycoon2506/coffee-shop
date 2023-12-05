@@ -2,7 +2,10 @@ package artdealer.Controllers;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.function.UnaryOperator;
+import java.util.regex.Pattern;
+
 import artdealer.App;
 import artdealer.Models.CustomerDTO;
 import artdealer.SQL.CreateDB;
@@ -50,6 +53,7 @@ public class NewCustomerController {
 	@FXML
 	private Button myButton;
 
+    // phone validator
     UnaryOperator<TextFormatter.Change> integerFilter = change -> {
         String newText = change.getControlNewText();
         if (newText.matches("-?([1-9][0-9]*)?")) {
@@ -70,7 +74,7 @@ public class NewCustomerController {
 	
      
     @FXML
-	void submit(ActionEvent event) throws IOException, SQLException {
+	public void submit(ActionEvent event) throws IOException, SQLException {
         if (userEntry.getText().trim().isEmpty() || pwEntry.getText().trim().isEmpty()
             || fNameEntry.getText().trim().isEmpty() || lNameEntry.getText().trim().isEmpty()
             || emailEntry.getText().trim().isEmpty() || phoneEntry.getText().trim().isEmpty()) {
@@ -108,6 +112,43 @@ public class NewCustomerController {
         }
 	}
 
+    public static boolean isValid(String passwordhere, String confirmhere, List<String> errorList) {
+
+        Pattern specailCharPatten = Pattern.compile("[^a-z0-9 ]", Pattern.CASE_INSENSITIVE);
+        Pattern UpperCasePatten = Pattern.compile("[A-Z ]");
+        Pattern lowerCasePatten = Pattern.compile("[a-z ]");
+        Pattern digitCasePatten = Pattern.compile("[0-9 ]");
+        errorList.clear();
+
+        boolean flag=true;
+
+        if (!passwordhere.equals(confirmhere)) {
+            errorList.add("password and confirm password does not match");
+            flag=false;
+        }
+        if (passwordhere.length() < 8) {
+            errorList.add("Password lenght must have alleast 8 character !!");
+            flag=false;
+        }
+        if (!specailCharPatten.matcher(passwordhere).find()) {
+            errorList.add("Password must have atleast one specail character !!");
+            flag=false;
+        }
+        if (!UpperCasePatten.matcher(passwordhere).find()) {
+            errorList.add("Password must have atleast one uppercase character !!");
+            flag=false;
+        }
+        if (!lowerCasePatten.matcher(passwordhere).find()) {
+            errorList.add("Password must have atleast one lowercase character !!");
+            flag=false;
+        }
+        if (!digitCasePatten.matcher(passwordhere).find()) {
+            errorList.add("Password must have atleast one digit character !!");
+            flag=false;
+        }
+        return flag;
+    }
+
     //clears empty label alert upon text entered
     @FXML
     void resetUserLabel(KeyEvent event) {
@@ -139,7 +180,7 @@ public class NewCustomerController {
         App.setRoot("home");
     }
     @FXML
-    void switchToCustomerPg() throws IOException {
+    private void switchToCustomerPg() throws IOException {
         App.setRoot("customer");
     }
     @FXML
