@@ -2,6 +2,10 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -27,7 +31,31 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Label layoutX="133.0" layoutY="149.0" style="-fx-background-color: white;" text="Username:" />
-      <Label layoutX="133.0" layoutY="192.0" style="-fx-background-color: white;" text="Password: " />
+      <Label layoutX="153.0" layoutY="145.0" prefHeight="25.0" prefWidth="57.0" style="-fx-background-color: white;" text="Username:">
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect>
+      </Label>
+      <Label layoutX="153.0" layoutY="192.0" prefHeight="25.0" prefWidth="57.0" style="-fx-background-color: white;" text="Password: ">
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect>
+      </Label>
+      <TextField layoutX="246.0" layoutY="145.0" />
+      <TextField layoutX="246.0" layoutY="192.0" />
    </children>
 </AnchorPane>
