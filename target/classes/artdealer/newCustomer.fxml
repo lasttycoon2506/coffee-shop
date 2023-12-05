@@ -33,6 +33,10 @@
       <TextField fx:id="userEntry" layoutX="42.0" layoutY="134.0" onKeyReleased="#resetUserLabel" prefHeight="25.0" prefWidth="237.0" />
       <TextField fx:id="pwEntry" layoutX="331.0" layoutY="134.0" onKeyReleased="#resetPwLabel" prefHeight="25.0" prefWidth="237.0" />
       <Label fx:id="userLabel" layoutX="117.0" layoutY="163.0" />
-      <Label fx:id="pwLabel" layoutX="409.0" layoutY="163.0" />
+      <Label fx:id="pwLabel" layoutX="331.0" layoutY="163.0" prefHeight="33.0" prefWidth="237.0">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

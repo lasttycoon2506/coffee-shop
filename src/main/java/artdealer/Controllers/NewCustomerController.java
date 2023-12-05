@@ -107,7 +107,10 @@ public class NewCustomerController {
         }
         else {
             if (!pwValidator(pwEntry, errorList)){
-                System.out.println(errorList);
+                pwLabel.setTextFill(Color.color(1, 0, 0));
+                for (String error: errorList) {
+                    pwLabel.setText(error);
+                }
             }
             else {
                 CustomerDTO newEntry = new CustomerDTO(fNameEntry.getText(), lNameEntry.getText(), emailEntry.getText(), phoneEntry.getText());
@@ -120,10 +123,10 @@ public class NewCustomerController {
     
     public static boolean pwValidator(TextField pwField, List<String> errorList) {
         String pw = pwField.getText().trim();
-        Pattern specialChar = Pattern.compile("[^a-z0-9 ]", Pattern.CASE_INSENSITIVE);
-        Pattern upperCase = Pattern.compile("[A-Z ]");
-        Pattern lowerCase = Pattern.compile("[a-z ]");
-        Pattern number = Pattern.compile("[0-9 ]");
+        Pattern specialChar = Pattern.compile("[^a-z0-9]", Pattern.CASE_INSENSITIVE);
+        Pattern upperCase = Pattern.compile("[A-Z]");
+        Pattern lowerCase = Pattern.compile("[a-z]");
+        Pattern number = Pattern.compile("[0-9]");
         errorList.clear();
         boolean flag=true;
 
@@ -132,15 +135,15 @@ public class NewCustomerController {
             flag=false;
         }
         if (!specialChar.matcher(pw).find()) {
-            errorList.add("Password must have at least one Special Character!");
+            errorList.add("Password must have at least one \n Special Character!");
             flag=false;
         }
         if (!upperCase.matcher(pw).find()) {
-            errorList.add("Password must have at least one Upper Case letter!");
+            errorList.add("Password must have at least one \n Upper Case letter!");
             flag=false;
         }
         if (!lowerCase.matcher(pw).find()) {
-            errorList.add("Password must have at least one Lower Case letter!");
+            errorList.add("Password must have at least one \n Lower Case letter!");
             flag=false;
         }
         if (!number.matcher(pw).find()) {
