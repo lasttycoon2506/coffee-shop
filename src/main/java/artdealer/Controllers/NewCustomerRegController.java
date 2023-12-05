@@ -9,6 +9,7 @@ public class NewCustomerRegController {
 
     //display newly added customer...
 
+
     @FXML
     void switchToNewCustomerPg() throws IOException {
         App.setRoot("newCustomer");
