@@ -12,10 +12,9 @@ public class InsertDB {
         Statement stmt = connection.createStatement();
 
         String insertCustomerSQL = "INSERT INTO Customers (user_name, pword, first_name, last_name, email, phone)" +
-                            "VALUES ('" +customerdto.firstName()+ "', '" +customerdto.lastName()+ 
-                                    "', '" +customerdto.email()+ "', '" +customerdto.phone()+
-                                    "', '" +customerdto.email()+ "', '" +customerdto.phone()+ "')";   
-        
+                                    "VALUES ('" +customerdto.userName()+ "', '" +customerdto.password()+ 
+                                            "', '" +customerdto.firstName()+ "', '" +customerdto.lastName()+
+                                            "', '" +customerdto.email()+ "', '" +customerdto.phone()+ "')";   
         stmt.executeUpdate(insertCustomerSQL);
     }
 }
