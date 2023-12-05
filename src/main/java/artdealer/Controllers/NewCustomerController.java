@@ -65,7 +65,7 @@ public class NewCustomerController {
     StringConverter<Integer> converter = new IntegerStringConverter() {
         @Override
         public Integer fromString(String s) {
-            if (s.isEmpty()) return 0;
+            if (s.isEmpty()) return null;
             return super.fromString(s);
         }
     };
@@ -106,14 +106,20 @@ public class NewCustomerController {
             }
         }
         else {
-            CustomerDTO newEntry = new CustomerDTO(fNameEntry.getText(), lNameEntry.getText(), emailEntry.getText(), phoneEntry.getText());
-            createDB.createDB();
-            insertDB.InsertCustomerData(newEntry);
-            switchToCustomerRegisteredPg();
+            if (!pwValidator(pwEntry, errorList)){
+                System.out.println(errorList);
+            }
+            else {
+                CustomerDTO newEntry = new CustomerDTO(fNameEntry.getText(), lNameEntry.getText(), emailEntry.getText(), phoneEntry.getText());
+                createDB.createDB();
+                insertDB.InsertCustomerData(newEntry);
+                switchToCustomerRegisteredPg();
+            }
         }
 	}
     
-    public static boolean pwValidator(String pw, List<String> errorList) {
+    public static boolean pwValidator(TextField pwField, List<String> errorList) {
+        String pw = pwField.getText().trim();
         Pattern specialChar = Pattern.compile("[^a-z0-9 ]", Pattern.CASE_INSENSITIVE);
         Pattern upperCase = Pattern.compile("[A-Z ]");
         Pattern lowerCase = Pattern.compile("[a-z ]");
