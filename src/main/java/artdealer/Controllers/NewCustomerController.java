@@ -71,9 +71,18 @@ public class NewCustomerController {
      
     @FXML
 	void submit(ActionEvent event) throws IOException, SQLException {
-        if (firstNameEntry.getText().trim().isEmpty() || lastNameEntry.getText().trim().isEmpty()
+        if (userEntry.getText().trim().isEmpty() || pwEntry.getText().trim().isEmpty()
+            || firstNameEntry.getText().trim().isEmpty() || lastNameEntry.getText().trim().isEmpty()
             || emailEntry.getText().trim().isEmpty() || phoneEntry.getText().trim().isEmpty()) {
             
+            if (userEntry.getText().trim().isEmpty()){
+                userLabel.setTextFill(Color.color(1, 0, 0));
+                userLabel.setText("Enter Username!");
+            }
+            if (pwEntry.getText().trim().isEmpty()){
+                pwLabel.setTextFill(Color.color(1, 0, 0));
+                pwLabel.setText("Enter Password!");
+            }
             if (firstNameEntry.getText().trim().isEmpty()){
                 fNameLabel.setTextFill(Color.color(1, 0, 0));
                 fNameLabel.setText("Enter First Name!");
