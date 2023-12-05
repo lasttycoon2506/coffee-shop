@@ -17,15 +17,17 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="222.0" layoutY="181.0" mnemonicParsing="false" onAction="#switchToNewCustomerPg" prefHeight="39.0" prefWidth="158.0" text="New Customer">
+      <Button layoutX="221.0" layoutY="284.0" mnemonicParsing="false" onAction="#switchToNewCustomerPg" prefHeight="39.0" prefWidth="158.0" text="Login">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="207.0" layoutY="282.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="187.0" text="Returning Customer">
+      <Button layoutX="208.0" layoutY="340.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="187.0" text="New Customer">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
+      <Label layoutX="133.0" layoutY="149.0" style="-fx-background-color: white;" text="Username:" />
+      <Label layoutX="133.0" layoutY="192.0" style="-fx-background-color: white;" text="Password: " />
    </children>
 </AnchorPane>
