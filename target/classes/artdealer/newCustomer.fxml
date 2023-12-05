@@ -15,22 +15,24 @@
       </Label>
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToCustomerPg" text="Back" />
       <Button layoutX="534.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToHomePg" text="Home" />
-      <TextField fx:id="firstNameEntry" layoutX="42.0" layoutY="205.0" onKeyReleased="#resetFnameLabel" prefHeight="25.0" prefWidth="237.0" />
-      <TextField fx:id="lastNameEntry" layoutX="332.0" layoutY="205.0" onKeyReleased="#resetLnameLabel" prefHeight="25.0" prefWidth="237.0" />
-      <TextField fx:id="emailEntry" layoutX="42.0" layoutY="268.0" onKeyReleased="#resetEmailLabel" prefHeight="25.0" prefWidth="237.0" />
-      <TextField fx:id="phoneEntry" layoutX="332.0" layoutY="268.0" onKeyReleased="#resetPhoneLabel" prefHeight="25.0" prefWidth="237.0" />
-      <Label layoutX="126.0" layoutY="183.0" prefHeight="17.0" prefWidth="69.0" text="First Name" />
-      <Label layoutX="423.0" layoutY="183.0" text="Last Name" />
-      <Label layoutX="134.0" layoutY="243.0" text="Email" />
-      <Label layoutX="433.0" layoutY="243.0" text="Phone" />
+      <TextField fx:id="firstNameEntry" layoutX="42.0" layoutY="218.0" onKeyReleased="#resetFnameLabel" prefHeight="25.0" prefWidth="237.0" />
+      <TextField fx:id="lastNameEntry" layoutX="331.0" layoutY="218.0" onKeyReleased="#resetLnameLabel" prefHeight="25.0" prefWidth="237.0" />
+      <TextField fx:id="emailEntry" layoutX="42.0" layoutY="289.0" onKeyReleased="#resetEmailLabel" prefHeight="25.0" prefWidth="237.0" />
+      <TextField fx:id="phoneEntry" layoutX="332.0" layoutY="289.0" onKeyReleased="#resetPhoneLabel" prefHeight="25.0" prefWidth="237.0" />
+      <Label layoutX="126.0" layoutY="197.0" prefHeight="17.0" prefWidth="69.0" text="First Name" />
+      <Label layoutX="417.0" layoutY="197.0" text="Last Name" />
+      <Label layoutX="142.0" layoutY="272.0" text="Email" />
+      <Label layoutX="434.0" layoutY="272.0" text="Phone" />
       <Button layoutX="227.0" layoutY="354.0" mnemonicParsing="false" onAction="#submit" prefHeight="41.0" prefWidth="140.0" text="REGISTER" />
-      <Label fx:id="fNameLabel" layoutX="118.0" layoutY="230.0" prefHeight="17.0" prefWidth="97.0" />
-      <Label fx:id="lNameLabel" layoutX="417.0" layoutY="230.0" />
-      <Label fx:id="emailLabel" layoutX="129.0" layoutY="293.0" />
-      <Label fx:id="phoneLabel" layoutX="418.0" layoutY="293.0" />
-      <Label layoutX="128.0" layoutY="121.0" prefHeight="17.0" prefWidth="69.0" text="Username" />
-      <Label layoutX="417.0" layoutY="121.0" prefHeight="17.0" prefWidth="69.0" text="Password" />
-      <TextField fx:id="firstNameEntry1" layoutX="42.0" layoutY="146.0" onKeyReleased="#resetFnameLabel" prefHeight="25.0" prefWidth="237.0" />
-      <TextField fx:id="firstNameEntry2" layoutX="332.0" layoutY="146.0" onKeyReleased="#resetFnameLabel" prefHeight="25.0" prefWidth="237.0" />
+      <Label fx:id="fNameLabel" layoutX="112.0" layoutY="247.0" prefHeight="17.0" prefWidth="97.0" />
+      <Label fx:id="lNameLabel" layoutX="405.0" layoutY="247.0" />
+      <Label fx:id="emailLabel" layoutX="125.0" layoutY="314.0" />
+      <Label fx:id="phoneLabel" layoutX="417.0" layoutY="314.0" />
+      <Label layoutX="128.0" layoutY="113.0" prefHeight="17.0" prefWidth="56.0" text="Username" />
+      <Label layoutX="423.0" layoutY="113.0" prefHeight="17.0" prefWidth="56.0" text="Password" />
+      <TextField fx:id="firstNameEntry1" layoutX="42.0" layoutY="134.0" onKeyReleased="#resetFnameLabel" prefHeight="25.0" prefWidth="237.0" />
+      <TextField fx:id="firstNameEntry2" layoutX="331.0" layoutY="134.0" onKeyReleased="#resetFnameLabel" prefHeight="25.0" prefWidth="237.0" />
+      <Label layoutX="117.0" layoutY="163.0" text="Enter Username!" />
+      <Label layoutX="409.0" layoutY="163.0" text="Enter Password!" />
    </children>
 </AnchorPane>
