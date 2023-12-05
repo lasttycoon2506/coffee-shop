@@ -40,9 +40,9 @@ public class NewCustomerController {
     @FXML
 	private TextField pwEntry;
 	@FXML
-	private TextField firstNameEntry;
+	private TextField fNameEntry;
     @FXML
-	private TextField lastNameEntry;
+	private TextField lNameEntry;
     @FXML
 	private TextField emailEntry;
     @FXML
@@ -72,7 +72,7 @@ public class NewCustomerController {
     @FXML
 	void submit(ActionEvent event) throws IOException, SQLException {
         if (userEntry.getText().trim().isEmpty() || pwEntry.getText().trim().isEmpty()
-            || firstNameEntry.getText().trim().isEmpty() || lastNameEntry.getText().trim().isEmpty()
+            || fNameEntry.getText().trim().isEmpty() || lNameEntry.getText().trim().isEmpty()
             || emailEntry.getText().trim().isEmpty() || phoneEntry.getText().trim().isEmpty()) {
             
             if (userEntry.getText().trim().isEmpty()){
@@ -83,11 +83,11 @@ public class NewCustomerController {
                 pwLabel.setTextFill(Color.color(1, 0, 0));
                 pwLabel.setText("Enter Password!");
             }
-            if (firstNameEntry.getText().trim().isEmpty()){
+            if (fNameEntry.getText().trim().isEmpty()){
                 fNameLabel.setTextFill(Color.color(1, 0, 0));
                 fNameLabel.setText("Enter First Name!");
             }
-            if (lastNameEntry.getText().trim().isEmpty()){
+            if (lNameEntry.getText().trim().isEmpty()){
                 lNameLabel.setTextFill(Color.color(1, 0, 0));
                 lNameLabel.setText("Enter Last Name!");
             }
@@ -101,12 +101,13 @@ public class NewCustomerController {
             }
         }
         else {
-            CustomerDTO newEntry = new CustomerDTO(firstNameEntry.getText(), lastNameEntry.getText(), emailEntry.getText(), phoneEntry.getText());
+            CustomerDTO newEntry = new CustomerDTO(fNameEntry.getText(), lNameEntry.getText(), emailEntry.getText(), phoneEntry.getText());
             createDB.createDB();
             insertDB.InsertCustomerData(newEntry);
             switchToCustomerRegisteredPg();
         }
 	}
+
     //clears empty label alert upon text entered
     @FXML
     void resetUserLabel(KeyEvent event) {

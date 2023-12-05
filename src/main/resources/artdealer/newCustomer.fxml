@@ -15,8 +15,8 @@
       </Label>
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToCustomerPg" text="Back" />
       <Button layoutX="534.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToHomePg" text="Home" />
-      <TextField fx:id="firstNameEntry" layoutX="42.0" layoutY="218.0" onKeyReleased="#resetFnameLabel" prefHeight="25.0" prefWidth="237.0" />
-      <TextField fx:id="lastNameEntry" layoutX="331.0" layoutY="218.0" onKeyReleased="#resetLnameLabel" prefHeight="25.0" prefWidth="237.0" />
+      <TextField fx:id="fNameEntry" layoutX="42.0" layoutY="218.0" onKeyReleased="#resetFnameLabel" prefHeight="25.0" prefWidth="237.0" />
+      <TextField fx:id="lNameEntry" layoutX="331.0" layoutY="218.0" onKeyReleased="#resetLnameLabel" prefHeight="25.0" prefWidth="237.0" />
       <TextField fx:id="emailEntry" layoutX="42.0" layoutY="289.0" onKeyReleased="#resetEmailLabel" prefHeight="25.0" prefWidth="237.0" />
       <TextField fx:id="phoneEntry" layoutX="332.0" layoutY="289.0" onKeyReleased="#resetPhoneLabel" prefHeight="25.0" prefWidth="237.0" />
       <Label layoutX="126.0" layoutY="197.0" prefHeight="17.0" prefWidth="69.0" text="First Name" />
