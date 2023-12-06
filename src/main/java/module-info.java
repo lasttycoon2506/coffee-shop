@@ -1,10 +1,10 @@
-module artdealer {
+module coffeeshop {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
 
-    opens artdealer to javafx.fxml;
-    exports artdealer;
-    opens artdealer.Controllers to javafx.fxml;
-    exports artdealer.Controllers;
+    opens coffeeshop to javafx.fxml;
+    exports coffeeshop;
+    opens coffeeshop.Controllers to javafx.fxml;
+    exports coffeeshop.Controllers;
 }
