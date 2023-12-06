@@ -24,7 +24,13 @@ public class CustomerDAOImpl implements CustomerDAO {
         return null;
     }
 
-    public void update(Customer customer){}
+    public void update(Customer customer){
+        Session session = sessionFactory.openSession();
+        Transaction tx = session.beginTransaction();
+        session.save(customer);
+        tx.commit();
+        session.close();
+    }
 
     public void delete(Customer customer){}
 
