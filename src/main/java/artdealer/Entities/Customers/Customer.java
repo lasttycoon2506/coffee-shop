@@ -1,7 +1,5 @@
 package artdealer.Entities.Customers;
 
-@Entity
-@Table(name = "Customers")
 public class Customer {
     private String user;
     private String password;

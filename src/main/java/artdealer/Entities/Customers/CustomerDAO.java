@@ -1,5 +1,11 @@
 package artdealer.Entities.Customers;
 
-public class CustomerDAO {
+import java.util.List;
+
+public interface CustomerDAO {
     
+    public void save(Customer customer);
+
+    public List<Customer> list();
+
 }
