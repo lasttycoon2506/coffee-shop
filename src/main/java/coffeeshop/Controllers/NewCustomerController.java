@@ -27,7 +27,6 @@ import javafx.util.StringConverter;
 public class NewCustomerController {
     CreateDB createDB = new CreateDB();
     InsertDB insertDB = new InsertDB();
-    Customer customer = new Customer();
 
     List<String> errorList = new ArrayList<String>();
     
@@ -122,7 +121,6 @@ public class NewCustomerController {
                 createDB.createDB();
                 CustomerDAOService.saveCustomer(new Customer("t","t","t","t","t","t"));
                 switchToCustomerRegisteredPg();
-                new Customer("t","t","t","t","t","t");
             }
         }
 	}

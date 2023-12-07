@@ -19,8 +19,7 @@ public class Customer {
     private String email;
     private String phone;
 
-    Customer (Integer id, String user, String password, String fname, String lname, String email, String phone){
-        this.id = id;
+    public Customer (String user, String password, String fname, String lname, String email, String phone){
         this.user = user;
         this.password = password;
         this.fname = fname;

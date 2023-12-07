@@ -12,7 +12,7 @@ public class CustomerDAOService {
         Optional<Customer> customer = customerDAO.get(id);
         
         return customer.orElseGet(
-          () -> new Customer());
+          () -> new Customer(null, null, null, null, null, null));
     }
     
     public static List<Customer> getAllCustomers() {
