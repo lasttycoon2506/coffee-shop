@@ -11,6 +11,9 @@ import jakarta.persistence.EntityTransaction;
 public class CustomerDAO implements DAO<Customer> {
     private EntityManager entityManager;
 
+    public CustomerDAO(DAO<Customer> customer) {
+    }
+
     @Override
     public Optional<Customer> get(Integer id) {
         return null;
