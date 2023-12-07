@@ -12,7 +12,7 @@ public class CustomerDAO implements DAO<Customer> {
     private EntityManager entityManager;
 
     @Override
-    public Optional<Customer> get(int id) {
+    public Optional<Customer> get(long id) {
         return null;
     }
 
@@ -33,7 +33,7 @@ public class CustomerDAO implements DAO<Customer> {
     }
 
     public void delete(Customer customer){
-        
+
     }
 
     private void executeInsideTransaction(Consumer<EntityManager> action) {
