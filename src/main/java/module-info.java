@@ -3,6 +3,7 @@ module coffeeshop {
     requires javafx.fxml;
     requires java.sql;
     requires org.hibernate.orm.core;
+    requires java.naming;
 
     opens coffeeshop to javafx.fxml, org.hibernate.orm.core;
     exports coffeeshop;
