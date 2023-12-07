@@ -26,7 +26,6 @@ public class CustomerDAO implements DAO<Customer> {
     public void save(Customer customer){
         Session session = sessionFactory.openSession();
         Transaction tx = session.beginTransaction();
-        session.save(customer);
         tx.commit();
         session.close();
     }
