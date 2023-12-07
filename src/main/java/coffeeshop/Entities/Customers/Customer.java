@@ -11,12 +11,21 @@ import jakarta.persistence.Table;
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    
+    private Integer id;
     private String user;
     private String password;
     private String fname;
     private String lname;
     private String email;
     private String phone;
+
+    Customer (Integer id, String user, String password, String fname, String lname, String email, String phone){
+        this.id = id;
+        this.user = user;
+        this.password = password;
+        this.fname = fname;
+        this.lname = lname;
+        this.email = email;
+        this.phone = phone;
+    }
 }

@@ -12,7 +12,7 @@ public class CustomerDAO implements DAO<Customer> {
     private EntityManager entityManager;
 
     @Override
-    public Optional<Customer> get(long id) {
+    public Optional<Customer> get(Integer id) {
         return null;
     }
 

@@ -8,7 +8,7 @@ import coffeeshop.Models.DAO;
 public class CustomerDAOService {
     private static DAO<Customer> customerDAO;
 
-    public static Customer getCustomer(long id) {
+    public static Customer getCustomer(Integer id) {
         Optional<Customer> customer = customerDAO.get(id);
         
         return customer.orElseGet(

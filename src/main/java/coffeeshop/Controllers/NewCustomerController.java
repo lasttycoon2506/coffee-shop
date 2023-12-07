@@ -9,6 +9,7 @@ import java.util.regex.Pattern;
 import coffeeshop.App;
 import coffeeshop.DB.CreateDB;
 import coffeeshop.DB.InsertDB;
+import coffeeshop.Entities.Customers.Customer;
 import coffeeshop.Entities.Customers.CustomerDAOService;
 import coffeeshop.Models.CustomerDTO;
 import javafx.event.ActionEvent;
@@ -26,7 +27,8 @@ import javafx.util.StringConverter;
 public class NewCustomerController {
     CreateDB createDB = new CreateDB();
     InsertDB insertDB = new InsertDB();
-    CustomerDAOService customerDAOService = new CustomerDAOService();
+    Customer customer = new Customer();
+
     List<String> errorList = new ArrayList<String>();
     
     @FXML
@@ -118,7 +120,9 @@ public class NewCustomerController {
                 CustomerDTO newEntry = new CustomerDTO(userEntry.getText(), pwEntry.getText(), fNameEntry.getText(), 
                                             lNameEntry.getText(), emailEntry.getText(), phoneEntry.getText());                                             
                 createDB.createDB();
+                CustomerDAOService.saveCustomer(new Customer("t","t","t","t","t","t"));
                 switchToCustomerRegisteredPg();
+                new Customer("t","t","t","t","t","t");
             }
         }
 	}
