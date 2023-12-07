@@ -118,7 +118,6 @@ public class NewCustomerController {
                 CustomerDTO newEntry = new CustomerDTO(userEntry.getText(), pwEntry.getText(), fNameEntry.getText(), 
                                             lNameEntry.getText(), emailEntry.getText(), phoneEntry.getText());                                             
                 createDB.createDB();
-                
                 switchToCustomerRegisteredPg();
             }
         }
