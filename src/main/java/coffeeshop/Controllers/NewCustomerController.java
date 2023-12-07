@@ -6,11 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.UnaryOperator;
 import java.util.regex.Pattern;
-
 import coffeeshop.App;
+import coffeeshop.DB.CreateDB;
+import coffeeshop.DB.InsertDB;
 import coffeeshop.Models.CustomerDTO;
-import coffeeshop.SQL.CreateDB;
-import coffeeshop.SQL.InsertDB;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

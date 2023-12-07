@@ -2,7 +2,6 @@ package coffeeshop.Entities.Customers;
 
 import java.util.List;
 import java.util.Optional;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -15,8 +14,9 @@ public class CustomerDAO implements DAO<Customer> {
         this.sessionFactory = sessionFactory;
     }
 
-    public void get(Customer customer) {
-
+    @Override
+    public Optional<Customer> get(int id) {
+        return null;
     }
 
     public List<Customer> getAll(){
@@ -45,11 +45,6 @@ public class CustomerDAO implements DAO<Customer> {
 
     public void delete(Customer customer){}
 
-    @Override
-    public Optional<Customer> get(int id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'get'");
-    }
 
 
 }
