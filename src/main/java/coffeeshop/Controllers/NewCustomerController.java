@@ -110,7 +110,7 @@ public class NewCustomerController {
                 pwLabel.setTextFill(Color.color(1, 0, 0));
                 for (String error: errorList) {
                     pwLabel.setText(error);
-                }
+                } 
             }
             else {
                 CustomerDTO newEntry = new CustomerDTO(userEntry.getText(), pwEntry.getText(), fNameEntry.getText(), 
