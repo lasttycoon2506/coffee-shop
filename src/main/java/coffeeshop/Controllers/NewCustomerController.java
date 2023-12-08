@@ -8,7 +8,6 @@ import java.util.function.UnaryOperator;
 import java.util.regex.Pattern;
 import coffeeshop.App;
 import coffeeshop.DB.CreateDB;
-import coffeeshop.DB.InsertDB;
 import coffeeshop.Entities.Customers.Customer;
 import coffeeshop.Entities.Customers.CustomerDAOService;
 import coffeeshop.Models.CustomerDTO;
@@ -26,7 +25,6 @@ import javafx.util.StringConverter;
 
 public class NewCustomerController {
     CreateDB createDB = new CreateDB();
-    InsertDB insertDB = new InsertDB();
     List<String> errorList = new ArrayList<String>();
     
     @FXML
