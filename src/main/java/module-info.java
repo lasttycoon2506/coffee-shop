@@ -1,4 +1,4 @@
-module coffeeshop {
+open module coffeeshop {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
@@ -6,8 +6,8 @@ module coffeeshop {
     requires java.naming;
     requires jakarta.persistence;
 
-    opens coffeeshop to javafx.fxml, org.hibernate.orm.core;
+    // opens coffeeshop to javafx.fxml, org.hibernate.orm.core;
     exports coffeeshop;
-    opens coffeeshop.Controllers to javafx.fxml;
+    // opens coffeeshop.Controllers to javafx.fxml, org.hibernate.orm.core;
     exports coffeeshop.Controllers;
 }
