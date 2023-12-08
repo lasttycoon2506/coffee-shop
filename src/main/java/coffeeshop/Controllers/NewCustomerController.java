@@ -10,7 +10,7 @@ import coffeeshop.App;
 import coffeeshop.DB.CreateDB;
 import coffeeshop.DB.InsertDB;
 import coffeeshop.Entities.Customers.Customer;
-import coffeeshop.Entities.Customers.CustomerDAOService;
+import coffeeshop.Entities.Customers.CustomerDAO;
 import coffeeshop.Models.CustomerDTO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,7 +27,6 @@ import javafx.util.StringConverter;
 public class NewCustomerController {
     CreateDB createDB = new CreateDB();
     InsertDB insertDB = new InsertDB();
-
     List<String> errorList = new ArrayList<String>();
     
     @FXML
@@ -119,7 +118,10 @@ public class NewCustomerController {
                 CustomerDTO newEntry = new CustomerDTO(userEntry.getText(), pwEntry.getText(), fNameEntry.getText(), 
                                             lNameEntry.getText(), emailEntry.getText(), phoneEntry.getText());                                             
                 createDB.createDB();
-                CustomerDAOService.saveCustomer(new Customer("t","t","t","t","t","t"));
+                Customer jb = new Customer("t","t","t","t","t","t");
+                CustomerDAO customerDAO = new CustomerDAO((jb));
+                customerDAO.save(jb);
+                // CustomerDAOService.saveCustomer(new Customer("t","t","t","t","t","t"));
                 switchToCustomerRegisteredPg();
             }
         }

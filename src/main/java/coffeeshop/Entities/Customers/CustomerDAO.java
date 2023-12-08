@@ -10,8 +10,11 @@ import jakarta.persistence.EntityTransaction;
 
 public class CustomerDAO implements DAO<Customer> {
     private EntityManager entityManager;
+    private Customer customer;
 
-    public CustomerDAO(DAO<Customer> customer) {
+    public CustomerDAO(Customer customer) {
+        
+        this.customer = customer;
     }
 
     @Override
