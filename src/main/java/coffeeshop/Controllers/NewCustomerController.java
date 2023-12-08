@@ -10,7 +10,7 @@ import coffeeshop.App;
 import coffeeshop.DB.CreateDB;
 import coffeeshop.DB.InsertDB;
 import coffeeshop.Entities.Customers.Customer;
-import coffeeshop.Entities.Customers.CustomerDAO;
+import coffeeshop.Entities.Customers.CustomerDAOService;
 import coffeeshop.Models.CustomerDTO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -117,12 +117,13 @@ public class NewCustomerController {
             else {
                 CustomerDTO newEntry = new CustomerDTO(userEntry.getText(), pwEntry.getText(), fNameEntry.getText(), 
                                             lNameEntry.getText(), emailEntry.getText(), phoneEntry.getText());                                             
-                createDB.createDB();
-                Customer jb = new Customer(newEntry.userName(), newEntry.password(), newEntry.firstName(), 
-                                    newEntry.lastName(), newEntry.email(), newEntry.phone());
-                CustomerDAO customerDAO = new CustomerDAO();
-                customerDAO.save(jb);
-                // CustomerDAOService.saveCustomer(new Customer("t","t","t","t","t","t"));
+                // createDB.createDB();
+                // Customer jb = new Customer(newEntry.userName(), newEntry.password(), newEntry.firstName(), 
+                //                     newEntry.lastName(), newEntry.email(), newEntry.phone());
+                // CustomerDAO customerDAO = new CustomerDAO();
+                // customerDAO.save(jb);
+                CustomerDAOService.saveCustomer(new Customer(newEntry.userName(), newEntry.password(), newEntry.firstName(), 
+                                                    newEntry.lastName(), newEntry.email(), newEntry.phone()));
                 switchToCustomerRegisteredPg();
             }
         }

@@ -7,11 +7,9 @@ import coffeeshop.Models.DAO;
 
 public class CustomerDAOService {
     private static DAO<Customer> customerDAO;
-    private static CustomerDAO jpaCustDao;
 
-    public CustomerDAOService(DAO<Customer> customerDAO, CustomerDAO jpaCustDao) {
+    public CustomerDAOService(DAO<Customer> customerDAO) {
         CustomerDAOService.customerDAO = customerDAO;
-        CustomerDAOService.jpaCustDao = jpaCustDao;
     }
 
     public static Customer getCustomer(Integer id) {
