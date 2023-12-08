@@ -2,13 +2,12 @@ package coffeeshop.Entities.Customers;
 
 import java.util.List;
 import java.util.Optional;
-import coffeeshop.Models.DAO;
 
 
 public class CustomerDAOService {
-    private static DAO<Customer> customerDAO;
+    private static CustomerDAO customerDAO = new CustomerDAO();
 
-    public CustomerDAOService(DAO<Customer> customerDAO) {
+    public CustomerDAOService(CustomerDAO customerDAO) {
         CustomerDAOService.customerDAO = customerDAO;
     }
 

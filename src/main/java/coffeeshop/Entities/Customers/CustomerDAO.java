@@ -13,7 +13,7 @@ import jakarta.persistence.Persistence;
 public class CustomerDAO implements DAO<Customer> {
     final EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa-hibernate-mysql");
     final EntityManager entityManager = factory.createEntityManager();
-
+    
     @Override
     public Optional<Customer> get(Integer id) {
         return null;
