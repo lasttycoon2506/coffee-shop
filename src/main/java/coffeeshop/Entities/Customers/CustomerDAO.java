@@ -5,17 +5,14 @@ import java.util.Optional;
 import java.util.function.Consumer;
 import coffeeshop.Models.DAO;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Persistence;
 
 
 public class CustomerDAO implements DAO<Customer> {
-    private EntityManager entityManager;
-    private Customer customer;
-
-    public CustomerDAO(Customer customer) {
-        
-        this.customer = customer;
-    }
+    final EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa-hibernate-mysql");
+    final EntityManager entityManager = factory.createEntityManager();
 
     @Override
     public Optional<Customer> get(Integer id) {

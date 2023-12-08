@@ -119,7 +119,7 @@ public class NewCustomerController {
                                             lNameEntry.getText(), emailEntry.getText(), phoneEntry.getText());                                             
                 createDB.createDB();
                 Customer jb = new Customer("t","t","t","t","t","t");
-                CustomerDAO customerDAO = new CustomerDAO((jb));
+                CustomerDAO customerDAO = new CustomerDAO();
                 customerDAO.save(jb);
                 // CustomerDAOService.saveCustomer(new Customer("t","t","t","t","t","t"));
                 switchToCustomerRegisteredPg();
