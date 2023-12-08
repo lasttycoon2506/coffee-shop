@@ -19,6 +19,10 @@ public class Customer {
     private String email;
     private String phone;
 
+    public Customer() {
+
+    }
+    
     public Customer (String user_name, String pword, String first_name, String last_name, String email, String phone){
         this.user_name = user_name;
         this.pword = pword;
