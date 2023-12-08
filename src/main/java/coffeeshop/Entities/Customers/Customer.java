@@ -11,19 +11,19 @@ import jakarta.persistence.Table;
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
-    private String user;
-    private String password;
-    private String fname;
-    private String lname;
+    private Integer customer_id;
+    private String user_name;
+    private String pword;
+    private String first_name;
+    private String last_name;
     private String email;
     private String phone;
 
-    public Customer (String user, String password, String fname, String lname, String email, String phone){
-        this.user = user;
-        this.password = password;
-        this.fname = fname;
-        this.lname = lname;
+    public Customer (String user_name, String pword, String first_name, String last_name, String email, String phone){
+        this.user_name = user_name;
+        this.pword = pword;
+        this.first_name = first_name;
+        this.last_name = last_name;
         this.email = email;
         this.phone = phone;
     }
