@@ -1,7 +1,6 @@
 package coffeeshop.Controllers;
 
 import java.io.IOException;
-
 import coffeeshop.App;
 import javafx.fxml.FXML;
 

@@ -114,12 +114,7 @@ public class NewCustomerController {
             }
             else {
                 CustomerDTO newEntry = new CustomerDTO(userEntry.getText(), pwEntry.getText(), fNameEntry.getText(), 
-                                            lNameEntry.getText(), emailEntry.getText(), phoneEntry.getText());                                             
-                // createDB.createDB();
-                // Customer jb = new Customer(newEntry.userName(), newEntry.password(), newEntry.firstName(), 
-                //                     newEntry.lastName(), newEntry.email(), newEntry.phone());
-                // CustomerDAO customerDAO = new CustomerDAO();
-                // customerDAO.save(jb);
+                                            lNameEntry.getText(), emailEntry.getText(), phoneEntry.getText());  
                 CustomerDAOService.saveCustomer(new Customer(newEntry.userName(), newEntry.password(), newEntry.firstName(), 
                                                     newEntry.lastName(), newEntry.email(), newEntry.phone()));
                 switchToCustomerRegisteredPg();
