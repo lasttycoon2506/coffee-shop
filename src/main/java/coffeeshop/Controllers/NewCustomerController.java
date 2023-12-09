@@ -59,7 +59,7 @@ public class NewCustomerController {
         }
         return change;
     };
-    // phone validator
+    // phone field allows numbers only
     UnaryOperator<TextFormatter.Change> integerFilter = change -> {
         String newText = change.getControlNewText();
         if (newText.matches("-?([1-9][0-9]*)?")) {
@@ -67,16 +67,9 @@ public class NewCustomerController {
         }
         return null;
     };
-    StringConverter<Integer> converter = new IntegerStringConverter() {
-        @Override
-        public Integer fromString(String s) {
-            if (s.isEmpty()) return null;
-            return super.fromString(s);
-        }
-    };
     // inits pw/phone fields using above filters
     public void initialize(){
-        phoneEntry.setTextFormatter(new TextFormatter<Integer>(converter, null, integerFilter));
+        phoneEntry.setTextFormatter(new TextFormatter<>(integerFilter));
         pwEntry.setTextFormatter(new TextFormatter<>(spaceFilter));
     }
 	
