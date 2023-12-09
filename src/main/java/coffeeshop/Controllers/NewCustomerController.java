@@ -132,7 +132,9 @@ public class NewCustomerController {
                                                     newEntry.lastName(), newEntry.email(), newEntry.phone()));
                 }
                 catch (JDBCException e) {
-                    System.out.println(e);
+                    Alert dialog = new Alert(AlertType.ERROR, "tt", ButtonType.OK);
+                    dialog.show();
+                    System.out.println("error is:" + e);
                 }
                 
             }
@@ -183,9 +185,6 @@ public class NewCustomerController {
         }
         return flag;
     }
-
-    
-    
 
     //clears empty label alert upon text entered
     @FXML
