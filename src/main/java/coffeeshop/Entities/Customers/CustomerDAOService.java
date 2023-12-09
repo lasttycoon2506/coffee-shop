@@ -13,7 +13,6 @@ public class CustomerDAOService {
 
     public static Customer getCustomer(Integer id) {
         Optional<Customer> customer = customerDAO.get(id);
-        
         return customer.orElseGet(
           () -> new Customer(null, null, null, null, null, null));
     }
