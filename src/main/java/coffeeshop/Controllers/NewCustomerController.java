@@ -110,11 +110,14 @@ public class NewCustomerController {
                 for (String error: errorList) {
                     pwLabel.setText(error);
                 } 
+                if (!emailValidator(emailEntry)){
+                    emailLabel.setTextFill(Color.color(1, 0, 0));
+                    emailLabel.setText(emailErr);
+                }
             }
-            if (!emailValidator(emailEntry)){
+            else if (!emailValidator(emailEntry)){
                 emailLabel.setTextFill(Color.color(1, 0, 0));
                 emailLabel.setText(emailErr);
-                
             }
             else {
                 CustomerDTO newEntry = new CustomerDTO(userEntry.getText(), pwEntry.getText(), fNameEntry.getText(), 
