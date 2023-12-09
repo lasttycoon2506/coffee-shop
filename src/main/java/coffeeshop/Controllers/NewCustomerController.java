@@ -18,12 +18,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
-import javafx.util.converter.IntegerStringConverter;
-import javafx.util.StringConverter;
 
 
 public class NewCustomerController {
     List<String> errorList = new ArrayList<String>();
+    static String emailErr;
     
     @FXML
     private Label userLabel;
@@ -60,7 +59,7 @@ public class NewCustomerController {
         return change;
     };
     // phone field allows numbers only
-    UnaryOperator<TextFormatter.Change> integerFilter = change -> {
+    UnaryOperator<TextFormatter.Change> phoneFilter = change -> {
         String newText = change.getControlNewText();
         if (newText.matches("-?([1-9][0-9]*)?")) {
             return change;
@@ -69,8 +68,8 @@ public class NewCustomerController {
     };
     // inits pw/phone fields using above filters
     public void initialize(){
-        phoneEntry.setTextFormatter(new TextFormatter<>(integerFilter));
         pwEntry.setTextFormatter(new TextFormatter<>(spaceFilter));
+        phoneEntry.setTextFormatter(new TextFormatter<>(phoneFilter));
     }
 	
      
@@ -111,6 +110,11 @@ public class NewCustomerController {
                 for (String error: errorList) {
                     pwLabel.setText(error);
                 } 
+            }
+            if (!emailValidator(emailEntry)){
+                emailLabel.setTextFill(Color.color(1, 0, 0));
+                emailLabel.setText(emailErr);
+                
             }
             else {
                 CustomerDTO newEntry = new CustomerDTO(userEntry.getText(), pwEntry.getText(), fNameEntry.getText(), 
@@ -154,6 +158,19 @@ public class NewCustomerController {
         return flag;
     }
 
+    // email field accepts only @address...
+    public static boolean emailValidator(TextField emailField) {
+        String email = emailField.getText().trim();
+        Pattern emailPattern = Pattern.compile("[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$");
+        boolean flag=true;
+
+        if (!emailPattern.matcher(email).find()) {
+            emailErr = "Email must contain:\n @gmail \n @icloud \n @yahoo \n @outlook";
+            flag=false;
+        }
+        return flag;
+    }
+
     //clears empty label alert upon text entered
     @FXML
     void resetUserLabel(KeyEvent event) {
@@ -180,6 +197,7 @@ public class NewCustomerController {
         phoneLabel.setText("");
     }
 
+    //page navigation...
     @FXML
     private void switchToHomePg() throws IOException {
         App.setRoot("home");
