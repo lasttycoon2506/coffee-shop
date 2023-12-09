@@ -6,13 +6,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.UnaryOperator;
 import java.util.regex.Pattern;
+
+import org.hibernate.JDBCException;
 import coffeeshop.App;
 import coffeeshop.Entities.Customers.Customer;
 import coffeeshop.Entities.Customers.CustomerDAOService;
 import coffeeshop.Models.CustomerDTO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
@@ -74,7 +79,7 @@ public class NewCustomerController {
 	
      
     @FXML
-	public void submit(ActionEvent event) throws IOException, SQLException {
+	public void submit(ActionEvent event) throws IOException, SQLException, JDBCException {
         if (userEntry.getText().trim().isEmpty() || pwEntry.getText().trim().isEmpty()
             || fNameEntry.getText().trim().isEmpty() || lNameEntry.getText().trim().isEmpty()
             || emailEntry.getText().trim().isEmpty() || phoneEntry.getText().trim().isEmpty()) {
@@ -122,9 +127,14 @@ public class NewCustomerController {
             else {
                 CustomerDTO newEntry = new CustomerDTO(userEntry.getText(), pwEntry.getText(), fNameEntry.getText(), 
                                             lNameEntry.getText(), emailEntry.getText(), phoneEntry.getText());  
+                try {
                 CustomerDAOService.saveCustomer(new Customer(newEntry.userName(), newEntry.password(), newEntry.firstName(), 
                                                     newEntry.lastName(), newEntry.email(), newEntry.phone()));
-                switchToCustomerRegisteredPg();
+                }
+                catch (JDBCException e) {
+                    System.out.println(e);
+                }
+                
             }
         }
 	}
@@ -173,6 +183,9 @@ public class NewCustomerController {
         }
         return flag;
     }
+
+    
+    
 
     //clears empty label alert upon text entered
     @FXML
