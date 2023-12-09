@@ -128,15 +128,14 @@ public class NewCustomerController {
                 CustomerDTO newEntry = new CustomerDTO(userEntry.getText(), pwEntry.getText(), fNameEntry.getText(), 
                                             lNameEntry.getText(), emailEntry.getText(), phoneEntry.getText());  
                 try {
-                CustomerDAOService.saveCustomer(new Customer(newEntry.userName(), newEntry.password(), newEntry.firstName(), 
-                                                    newEntry.lastName(), newEntry.email(), newEntry.phone()));
+                    CustomerDAOService.saveCustomer(new Customer(newEntry.userName(), newEntry.password(), newEntry.firstName(), 
+                                                        newEntry.lastName(), newEntry.email(), newEntry.phone()));
                 }
                 catch (JDBCException e) {
-                    Alert dialog = new Alert(AlertType.ERROR, "tt", ButtonType.OK);
+                    Alert dialog = new Alert(AlertType.ERROR, "Error:" + e.getStackTrace().toString(), ButtonType.OK);
                     dialog.show();
-                    System.out.println("error is:" + e);
+                    // e.getErrorCode();
                 }
-                
             }
         }
 	}
@@ -176,7 +175,7 @@ public class NewCustomerController {
     // email field accepts only @address...
     public static boolean emailValidator(TextField emailField) {
         String email = emailField.getText().trim();
-        Pattern emailPattern = Pattern.compile("[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$");
+        Pattern emailPattern = Pattern.compile("\\A[A-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[A-Z0-9.-]+\\Z");
         boolean flag=true;
 
         if (!emailPattern.matcher(email).find()) {
