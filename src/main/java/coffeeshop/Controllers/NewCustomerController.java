@@ -52,6 +52,13 @@ public class NewCustomerController {
 	@FXML
 	private Button myButton;
 
+    // pw doesnt accept space
+    UnaryOperator<TextFormatter.Change> spaceFilter = change -> {
+        if (change.getText().equals(" ")) {
+            change.setText("");
+        }
+        return change;
+    };
     // phone validator
     UnaryOperator<TextFormatter.Change> integerFilter = change -> {
         String newText = change.getControlNewText();
@@ -67,8 +74,10 @@ public class NewCustomerController {
             return super.fromString(s);
         }
     };
+    // inits pw/phone fields using above filters
     public void initialize(){
         phoneEntry.setTextFormatter(new TextFormatter<Integer>(converter, null, integerFilter));
+        pwEntry.setTextFormatter(new TextFormatter<>(spaceFilter));
     }
 	
      
