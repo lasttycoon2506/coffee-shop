@@ -140,6 +140,7 @@ public class NewCustomerController {
         }
 	}
     
+
     public static boolean pwValidator(TextField pwField, List<String> errorList) {
         String pw = pwField.getText().trim();
         Pattern specialChar = Pattern.compile("[^a-z0-9]", Pattern.CASE_INSENSITIVE);
@@ -172,18 +173,27 @@ public class NewCustomerController {
         return flag;
     }
 
+
     // email field accepts only @address...
     public static boolean emailValidator(TextField emailField) {
         String email = emailField.getText().trim();
-        Pattern emailPattern = Pattern.compile("\\A[A-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[A-Z0-9.-]+\\Z");
+        Pattern gmailPattern = Pattern.compile("^.*@gmail.com.*$");
+        Pattern yahooPattern = Pattern.compile("^.*@yahoo.com.*$");
+        Pattern icloudPattern = Pattern.compile("^.*@icloud.com.*$");
+        Pattern outlookPattern = Pattern.compile("^.*@outlook.com.*$");
         boolean flag=true;
 
-        if (!emailPattern.matcher(email).find()) {
-            emailErr = "Email must contain:\n @gmail \n @icloud \n @yahoo \n @outlook";
-            flag=false;
+        if (gmailPattern.matcher(email).find() || yahooPattern.matcher(email).find()
+            || icloudPattern.matcher(email).find() || outlookPattern.matcher(email).find()) {
+            return flag;
+            }
+        else {
+            emailErr = "Email must contain: \n @gmail \n @yahoo \n @icloud \n @outlook";
+            flag = false;
+            return flag;
         }
-        return flag;
     }
+
 
     //clears empty label alert upon text entered
     @FXML
@@ -210,6 +220,7 @@ public class NewCustomerController {
     void resetPhoneLabel(KeyEvent event) {
         phoneLabel.setText("");
     }
+
 
     //page navigation...
     @FXML
