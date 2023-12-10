@@ -23,6 +23,12 @@ public class CustomerDAO implements DAO<Customer> {
         return null;
     }
 
+    public Boolean userNameExists(String userName) {
+        Customer userN = entityManager.createQuery( "SELECT u from Customer u WHERE u.username = :username", 
+                    Customer.class).setParameter("username", userName).getSingleResult();
+        return userN.equals(null);
+    }
+
     public void save(Customer customer){
         executeInsideTransaction(entityManager -> entityManager.persist(customer));
     }
