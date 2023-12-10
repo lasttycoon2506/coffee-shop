@@ -111,7 +111,11 @@ public class NewCustomerController {
         }
         else {
             if (CustomerDAOService.userNameExists(userEntry.getText())){
-                    Alert dialog = new Alert(AlertType.ERROR, "Error:", ButtonType.OK);
+                    Alert dialog = new Alert(AlertType.ERROR, "User Name Exists!", ButtonType.OK);
+                    dialog.show();
+                }
+            if (CustomerDAOService.emailExists(emailEntry.getText())){
+                    Alert dialog = new Alert(AlertType.ERROR, "Email Exists!", ButtonType.OK);
                     dialog.show();
                 }
             if (!pwValidator(pwEntry, errorList)){

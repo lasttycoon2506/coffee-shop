@@ -24,6 +24,10 @@ public class CustomerDAOService {
     public static Boolean userNameExists(String userName) {
         return customerDAO.userNameExists(userName);
     }
+
+    public static Boolean emailExists(String email) {
+        return customerDAO.emailExists(email);
+    }
     
     public static void updateCustomer(Customer customer) {
         customerDAO.update(customer);
