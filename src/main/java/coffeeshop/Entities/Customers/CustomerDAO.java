@@ -28,7 +28,7 @@ public class CustomerDAO implements DAO<Customer> {
         try {
             executeInsideTransaction(entityManager -> entityManager.createQuery("SELECT u from Customer u WHERE u.user_name = :username", 
                                                     Customer.class).setParameter("username", userName).getSingleResult());
-            return true;
+                                                    return true;
         }
         catch (NoResultException e) {
             return false;
