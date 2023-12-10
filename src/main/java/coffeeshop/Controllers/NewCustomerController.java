@@ -110,6 +110,10 @@ public class NewCustomerController {
             }
         }
         else {
+            if (!CustomerDAOService.userNameExists(userEntry.getText())){
+                    Alert dialog = new Alert(AlertType.ERROR, "Error:", ButtonType.OK);
+                    dialog.show();
+                }
             if (!pwValidator(pwEntry, errorList)){
                 pwLabel.setTextFill(Color.color(1, 0, 0));
                 for (String error: errorList) {
@@ -127,7 +131,7 @@ public class NewCustomerController {
             else {
                 CustomerDTO newEntry = new CustomerDTO(userEntry.getText(), pwEntry.getText(), fNameEntry.getText(), 
                                             lNameEntry.getText(), emailEntry.getText(), phoneEntry.getText());  
-                
+
                     CustomerDAOService.saveCustomer(new Customer(newEntry.userName(), newEntry.password(), newEntry.firstName(), 
                                                         newEntry.lastName(), newEntry.email(), newEntry.phone()));
                     switchToCustomerRegisteredPg();

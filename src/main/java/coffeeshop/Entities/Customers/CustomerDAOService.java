@@ -20,6 +20,10 @@ public class CustomerDAOService {
     public static List<Customer> getAllCustomers() {
         return customerDAO.getAll();
     }
+
+    public static Boolean userNameExists(String userName) {
+        return customerDAO.userNameExists(userName);
+    }
     
     public static void updateCustomer(Customer customer) {
         customerDAO.update(customer);
