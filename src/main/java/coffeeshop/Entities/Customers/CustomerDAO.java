@@ -46,6 +46,17 @@ public class CustomerDAO implements DAO<Customer> {
         }
     }
 
+    public Boolean phoneExists(String phone)  {
+        try {
+            executeInsideTransaction(entityManager -> entityManager.createQuery("SELECT p from Customer p WHERE p.phone = :phone", 
+                                                    Customer.class).setParameter("phone", phone).getSingleResult());
+            return true;
+        }
+        catch (NoResultException e) {
+            return false;
+        }
+    }
+
     public void save(Customer customer){
         executeInsideTransaction(entityManager -> entityManager.persist(customer));
     }

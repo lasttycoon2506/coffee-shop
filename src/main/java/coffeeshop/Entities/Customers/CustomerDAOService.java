@@ -28,6 +28,10 @@ public class CustomerDAOService {
     public static Boolean emailExists(String email) {
         return customerDAO.emailExists(email);
     }
+
+    public static Boolean phoneExists(String phone) {
+        return customerDAO.phoneExists(phone);
+    }
     
     public static void updateCustomer(Customer customer) {
         customerDAO.update(customer);
