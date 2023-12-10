@@ -130,13 +130,21 @@ public class NewCustomerController {
                 try {
                     CustomerDAOService.saveCustomer(new Customer(newEntry.userName(), newEntry.password(), newEntry.firstName(), 
                                                         newEntry.lastName(), newEntry.email(), newEntry.phone()));
+                    switchToCustomerRegisteredPg();
                 }
                 catch (JDBCException e) {
-                    Alert dialog = new Alert(AlertType.ERROR, "Error:" + e.getSQLException(), ButtonType.OK);
-                    dialog.show();
-                    // e.getErrorCode();
+                    // Alert dialog = new Alert(AlertType.ERROR, "Error:", ButtonType.OK);
+                    // dialog.show();
+                    System.out.println("\n" + e.getErrorCode());
+                    System.out.println("\n" + e.getErrorMessage());
+                    System.out.println("\n" + e.getLocalizedMessage());
+                    System.out.println("\n" + e.getMessage());
+                    System.out.println("\n" + e.getSQL());
+                    System.out.println("\n" + e.getSQLState());
+                    System.out.println("\n" + e.getCause());
+                    System.out.println("\n" + e.getSQLException() + "\n");
+
                 }
-                switchToCustomerRegisteredPg();
             }
         }
 	}
