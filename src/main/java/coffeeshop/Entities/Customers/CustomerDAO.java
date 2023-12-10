@@ -16,9 +16,7 @@ public class CustomerDAO implements DAO<Customer> {
     
     @Override
     public Optional<Customer> get(Integer id) {
-        // executeInsideTransaction(entityManager -> entityManager.get(id));
-
-        return null;
+        return Optional.ofNullable(entityManager.find(Customer.class, id));
     }
 
     public List<Customer> getAll(){
