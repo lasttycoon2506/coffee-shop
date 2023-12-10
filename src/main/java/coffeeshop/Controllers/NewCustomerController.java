@@ -143,11 +143,6 @@ public class NewCustomerController {
                     CustomerDAOService.saveCustomer(new Customer(newEntry.userName(), newEntry.password(), newEntry.firstName(), 
                                                         newEntry.lastName(), newEntry.email(), newEntry.phone()));
                     switchToCustomerRegisteredPg();
-                
-                
-                    // Alert dialog = new Alert(AlertType.ERROR, "Error:", ButtonType.OK);
-                    // dialog.show();
-                    
             }
         }
 	}
