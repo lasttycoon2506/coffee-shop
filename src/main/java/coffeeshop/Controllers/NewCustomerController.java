@@ -132,10 +132,11 @@ public class NewCustomerController {
                                                         newEntry.lastName(), newEntry.email(), newEntry.phone()));
                 }
                 catch (JDBCException e) {
-                    Alert dialog = new Alert(AlertType.ERROR, "Error:" + e.getStackTrace().toString(), ButtonType.OK);
+                    Alert dialog = new Alert(AlertType.ERROR, "Error:" + e.getSQLException(), ButtonType.OK);
                     dialog.show();
                     // e.getErrorCode();
                 }
+                switchToCustomerRegisteredPg();
             }
         }
 	}
