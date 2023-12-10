@@ -110,7 +110,7 @@ public class NewCustomerController {
             }
         }
         else {
-            if (!CustomerDAOService.userNameExists(userEntry.getText())){
+            if (CustomerDAOService.userNameExists(userEntry.getText())){
                     Alert dialog = new Alert(AlertType.ERROR, "Error:", ButtonType.OK);
                     dialog.show();
                 }

@@ -7,6 +7,7 @@ import coffeeshop.Models.DAO;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.Persistence;
 
 
@@ -23,10 +24,15 @@ public class CustomerDAO implements DAO<Customer> {
         return null;
     }
 
-    public Boolean userNameExists(String userName) {
-        Customer userN = entityManager.createQuery( "SELECT u from Customer u WHERE u.username = :username", 
-                    Customer.class).setParameter("username", userName).getSingleResult();
-        return userN.equals(null);
+    public Boolean userNameExists(String userName)  {
+        try {
+            executeInsideTransaction(entityManager -> entityManager.createQuery("SELECT u from Customer u WHERE u.user_name = :username", 
+                                                    Customer.class).setParameter("username", userName).getSingleResult());
+            return true;
+        }
+        catch (NoResultException e) {
+            return false;
+        }
     }
 
     public void save(Customer customer){
