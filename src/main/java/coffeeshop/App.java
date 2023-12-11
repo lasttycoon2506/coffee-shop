@@ -6,7 +6,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.sql.SQLException;
+
+import coffeeshop.Security.SecurityUtils;
 
 
 public class App extends Application {
@@ -28,8 +32,9 @@ public class App extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
-
-    public static void main(String[] args) throws SQLException {
-        launch();
+    
+    public static void main(String[] args) throws SQLException, NoSuchAlgorithmException, InvalidKeySpecException {
+        SecurityUtils.tester();
+        // launch();
     }
 }
