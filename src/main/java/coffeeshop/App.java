@@ -10,8 +10,6 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.sql.SQLException;
 
-import coffeeshop.Security.Password;
-
 
 public class App extends Application {
     private static Scene scene;

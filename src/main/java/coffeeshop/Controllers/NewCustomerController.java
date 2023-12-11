@@ -143,7 +143,7 @@ public class NewCustomerController {
 
                     CustomerDAOService.saveCustomer(new Customer(newEntry.userName(), newEntry.password(), newEntry.firstName(), 
                                                         newEntry.lastName(), newEntry.email(), newEntry.phone()));
-                    switchToLoginPg();
+                    switchToCustomerPg();
             }
         }
 	}
@@ -239,8 +239,5 @@ public class NewCustomerController {
     private void switchToCustomerPg() throws IOException {
         App.setRoot("customer");
     }
-    @FXML
-    private void switchToLoginPg() throws IOException {
-        App.setRoot("newCustomerRegistered");
-    }
+    
 }
