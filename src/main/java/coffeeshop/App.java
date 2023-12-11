@@ -10,7 +10,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.sql.SQLException;
 
-import coffeeshop.Security.SecurityUtils;
+import coffeeshop.Security.Password;
 
 
 public class App extends Application {
@@ -34,7 +34,7 @@ public class App extends Application {
     }
     
     public static void main(String[] args) throws SQLException, NoSuchAlgorithmException, InvalidKeySpecException {
-        SecurityUtils.tester();
+        Password.tester();
         // launch();
     }
 }

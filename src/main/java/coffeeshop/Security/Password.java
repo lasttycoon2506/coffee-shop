@@ -8,13 +8,13 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 
 
-public class SecurityUtils {
-    public static byte[] getSecurePassword(String password, byte[] salt) throws NoSuchAlgorithmException, InvalidKeySpecException {
+public class Password {
+    public static String getSecurePassword(String password, byte[] salt) throws NoSuchAlgorithmException, InvalidKeySpecException {
         System.out.println(salt);
         KeySpec spec = new PBEKeySpec(password.toCharArray(), salt, 65536, 128);
         SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
         byte[] hash = factory.generateSecret(spec).getEncoded();
-        return hash;
+        return hash.toString();
     }
 
     private static byte[] getSalt() throws NoSuchAlgorithmException {
@@ -34,6 +34,8 @@ public class SecurityUtils {
 // [B@29ca901e
 // [B@5649fd9b
 // [B@1b68ddbd
+
+
 
 
 
