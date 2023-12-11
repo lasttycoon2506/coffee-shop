@@ -1,4 +1,4 @@
-package coffeeshop.Models;
+package coffeeshop.Security;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -31,5 +31,7 @@ public class SecurityUtils {
         return salt;
     }
 
-
+    public void tester() throws NoSuchAlgorithmException {
+            System.out.println(getSalt());
+    }
 }
