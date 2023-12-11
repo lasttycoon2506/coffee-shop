@@ -1,5 +1,8 @@
 package coffeeshop.Entities.Customers;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+import coffeeshop.Security.Password;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -33,9 +36,9 @@ public class Customer {
     public Customer(){
     }
     
-    public Customer (String user_name, String pword, String first_name, String last_name, String email, String phone){
+    public Customer (String user_name, String pword, String first_name, String last_name, String email, String phone) throws NoSuchAlgorithmException, InvalidKeySpecException{
         this.user_name = user_name;
-        this.pword = pword;
+        this.pword = Password.getHashedPw(pword);
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;

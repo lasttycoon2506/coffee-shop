@@ -1,6 +1,8 @@
 package coffeeshop.Controllers;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -79,7 +81,7 @@ public class NewCustomerController {
 	
      
     @FXML
-	public void submit(ActionEvent event) throws IOException, SQLException, JDBCException {
+	public void submit(ActionEvent event) throws IOException, SQLException, JDBCException, NoSuchAlgorithmException, InvalidKeySpecException {
         if (userEntry.getText().trim().isEmpty() || pwEntry.getText().trim().isEmpty()
             || fNameEntry.getText().trim().isEmpty() || lNameEntry.getText().trim().isEmpty()
             || emailEntry.getText().trim().isEmpty() || phoneEntry.getText().trim().isEmpty()) {

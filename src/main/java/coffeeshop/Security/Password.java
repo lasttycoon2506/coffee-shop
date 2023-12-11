@@ -9,8 +9,11 @@ import javax.crypto.spec.PBEKeySpec;
 
 
 public class Password {
-    public static String getSecurePassword(String password, byte[] salt) throws NoSuchAlgorithmException, InvalidKeySpecException {
-        System.out.println(salt);
+    public static String getHashedPw(String pw) throws NoSuchAlgorithmException, InvalidKeySpecException {
+        return getSecurePassword(pw, getSalt());
+    }
+
+    private static String getSecurePassword(String password, byte[] salt) throws NoSuchAlgorithmException, InvalidKeySpecException {
         KeySpec spec = new PBEKeySpec(password.toCharArray(), salt, 65536, 128);
         SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
         byte[] hash = factory.generateSecret(spec).getEncoded();

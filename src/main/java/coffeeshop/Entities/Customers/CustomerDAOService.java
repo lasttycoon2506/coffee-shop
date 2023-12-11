@@ -1,5 +1,7 @@
 package coffeeshop.Entities.Customers;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,7 +16,15 @@ public class CustomerDAOService {
     public static Customer getCustomer(Integer id) {
         Optional<Customer> customer = customerDAO.get(id);
         return customer.orElseGet(
-          () -> new Customer(null, null, null, null, null, null));
+          () -> {
+            try {
+                return new Customer(null, null, null, null, null, null);
+            } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            return null;
+        });
     }
     
     public static List<Customer> getAllCustomers() {
