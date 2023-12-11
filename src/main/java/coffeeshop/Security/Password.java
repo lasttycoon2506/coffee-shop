@@ -26,24 +26,4 @@ public class Password {
         random.nextBytes(salt);
         return salt;
     }
-//     [B@29ca901e
-// [B@5649fd9b
-// [B@53f65459
-
-// [B@29ca901e
-// [B@5649fd9b
-// [B@3b088d51
-
-// [B@29ca901e
-// [B@5649fd9b
-// [B@1b68ddbd
-
-
-
-
-
-    public static void tester() throws NoSuchAlgorithmException, InvalidKeySpecException {
-            System.out.println(getSalt());
-            System.out.println(getSecurePassword("doodles", getSalt()));
-    }
 }
