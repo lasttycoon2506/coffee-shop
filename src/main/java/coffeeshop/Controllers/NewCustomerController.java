@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.UnaryOperator;
 import java.util.regex.Pattern;
-
 import org.hibernate.JDBCException;
 import coffeeshop.App;
 import coffeeshop.Entities.Customers.Customer;
@@ -144,7 +143,7 @@ public class NewCustomerController {
 
                     CustomerDAOService.saveCustomer(new Customer(newEntry.userName(), newEntry.password(), newEntry.firstName(), 
                                                         newEntry.lastName(), newEntry.email(), newEntry.phone()));
-                    switchToCustomerRegisteredPg();
+                    switchToLoginPg();
             }
         }
 	}
@@ -241,7 +240,7 @@ public class NewCustomerController {
         App.setRoot("customer");
     }
     @FXML
-    private void switchToCustomerRegisteredPg() throws IOException {
+    private void switchToLoginPg() throws IOException {
         App.setRoot("newCustomerRegistered");
     }
 }

@@ -5,13 +5,9 @@ import coffeeshop.App;
 import javafx.fxml.FXML;
 
 
-public class NewCustomerRegController {
-
-    //display newly added customer...
-
-
+public class LoginController {
     @FXML
-    void switchToNewCustomerPg() throws IOException {
+    void switchToLoginPg() throws IOException {
         App.setRoot("newCustomer");
     }
 
