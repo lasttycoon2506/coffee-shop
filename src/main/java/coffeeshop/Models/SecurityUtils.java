@@ -2,6 +2,7 @@ package coffeeshop.Models;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 
 
 public class SecurityUtils {
@@ -22,5 +23,13 @@ public class SecurityUtils {
         }
         return generatedPassword;
     }
+
+    private static byte[] getSalt() throws NoSuchAlgorithmException {
+        SecureRandom random = new SecureRandom();
+        byte[] salt = new byte[16];
+        random.nextBytes(salt);
+        return salt;
+    }
+
 
 }
