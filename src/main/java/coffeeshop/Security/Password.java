@@ -10,6 +10,7 @@ import javax.crypto.spec.PBEKeySpec;
 // import at.favre.lib.crypto.bcrypt.BCrypt;
 
 
+
 public class Password {
     public static String getHashedPw(String pw) throws NoSuchAlgorithmException, InvalidKeySpecException {
         return getSecurePassword(pw, getSalt());
