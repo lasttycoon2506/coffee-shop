@@ -1,12 +1,10 @@
 package coffeeshop.Security;
 
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
 import at.favre.lib.crypto.bcrypt.BCrypt;
 
 
 public class Password {
-    public static String getHashedPw(String pw) throws NoSuchAlgorithmException, InvalidKeySpecException {
+    public static String getHashedPw(String pw) {
         return getSecurePassword(pw);
     }
 
