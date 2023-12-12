@@ -112,8 +112,7 @@ public class NewCustomerController {
         }
         else {
             if (CustomerDAOService.userNameExists(userEntry.getText())){
-                    Alert dialog = new Alert(AlertType.ERROR, "User Name Exists!", ButtonType.OK);
-                    dialog.show();
+                    notificationWindow("error");
                 }
             else if (CustomerDAOService.emailExists(emailEntry.getText())){
                     Alert dialog = new Alert(AlertType.ERROR, "Email Exists!", ButtonType.OK);
@@ -143,7 +142,7 @@ public class NewCustomerController {
 
                     CustomerDAOService.saveCustomer(new Customer(newEntry.userName(), newEntry.password(), newEntry.firstName(), 
                                                         newEntry.lastName(), newEntry.email(), newEntry.phone()));
-                    confirmationWindow();
+                    notificationWindow("confirmation");
                     switchToCustomerPg();
             }
         }
@@ -241,8 +240,14 @@ public class NewCustomerController {
         App.setRoot("customer");
     }
     
-    private void confirmationWindow() {
-        Alert dialog = new Alert(AlertType.CONFIRMATION, "Successfully Added!", ButtonType.OK);
-        dialog.show();
+    private void notificationWindow(String windowType) {
+        Alert dialog;
+        if (windowType.equals("confirmation")) {
+            dialog = new Alert(AlertType.CONFIRMATION, "Successfully Added!", ButtonType.OK);
+        }
+        else {
+            dialog = new Alert(AlertType.ERROR, "Phone Number Exists!", ButtonType.OK);
+        }
+            dialog.show();
     }
 }
