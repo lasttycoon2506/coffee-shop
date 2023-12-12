@@ -22,10 +22,10 @@ public class CustomerController {
 
     @FXML
 	public void loginAttempt(ActionEvent event) {
-        if (!CustomerDAOService.userNameExists(userLogin.getText())){
+        if (!CustomerDAOService.userNameExists(userLogin.getText().trim())){
                     notificationWindow("error");
                 }
-                
+        CustomerDAOService.login(userLogin.getText().trim());
     }
 
     private void notificationWindow(String windowType) {

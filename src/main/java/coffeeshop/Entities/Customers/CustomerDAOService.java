@@ -26,6 +26,10 @@ public class CustomerDAOService {
             return null;
         });
     }
+
+    public static Boolean login(String userName){
+        return customerDAO.login(userName);
+    }
     
     public static List<Customer> getAllCustomers() {
         return customerDAO.getAll();

@@ -60,9 +60,11 @@ public class CustomerDAO implements DAO<Customer> {
         }
     }
 
-    public boolean login(String userName, String pw){
-            return false;
-                                            
+    public boolean login(String user){
+        Customer pwHash = entityManager.createQuery("SELECT pwHash from Customer pwHash WHERE pwHash.pword = :userN", 
+                                        Customer.class).setParameter("userN", user).getSingleResult();
+        System.out.println(pwHash + "\n" +  "\n" +  "\n"+  "\n" +  "\n" );
+        return false;
     }
 
     public void save(Customer customer){
