@@ -26,9 +26,10 @@ public class CustomerDAO implements DAO<Customer> {
 
     public Boolean userNameExists(String userName)  {
         try {
-            executeInsideTransaction(entityManager -> entityManager.createQuery("SELECT u from Customer u WHERE u.user_name = :username", 
-                                                    Customer.class).setParameter("username", userName).getSingleResult());
-                                                    return true;
+            executeInsideTransaction(entityManager -> 
+                                    entityManager.createQuery("SELECT u from Customer u WHERE u.user_name = :username", 
+                                    Customer.class).setParameter("username", userName).getSingleResult());
+            return true;
         }
         catch (NoResultException e) {
             return false;
@@ -37,8 +38,9 @@ public class CustomerDAO implements DAO<Customer> {
 
     public Boolean emailExists(String email)  {
         try {
-            executeInsideTransaction(entityManager -> entityManager.createQuery("SELECT e from Customer e WHERE e.email = :email", 
-                                                    Customer.class).setParameter("email", email).getSingleResult());
+            executeInsideTransaction(entityManager -> 
+                                    entityManager.createQuery("SELECT e from Customer e WHERE e.email = :email", 
+                                    Customer.class).setParameter("email", email).getSingleResult());
             return true;
         }
         catch (NoResultException e) {
@@ -48,13 +50,22 @@ public class CustomerDAO implements DAO<Customer> {
 
     public Boolean phoneExists(String phone)  {
         try {
-            executeInsideTransaction(entityManager -> entityManager.createQuery("SELECT p from Customer p WHERE p.phone = :phone", 
-                                                    Customer.class).setParameter("phone", phone).getSingleResult());
+            executeInsideTransaction(entityManager -> 
+                entityManager.createQuery("SELECT p from Customer p WHERE p.phone = :phone", 
+                                        Customer.class).setParameter("phone", phone).getSingleResult());
             return true;
         }
         catch (NoResultException e) {
             return false;
         }
+    }
+
+    public boolean login(String userName, String pw){
+        executeInsideTransaction(entityManager -> 
+            entityManager.createQuery("SELECT u from Customer u WHERE u.user_name = :username", 
+                                    Customer.class).setParameter("username", userName).getSingleResult());
+                                                    return false;
+                                                    
     }
 
     public void save(Customer customer){
