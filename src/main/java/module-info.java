@@ -5,7 +5,7 @@ module coffeeshop {
     requires transitive org.hibernate.orm.core;
     requires transitive java.naming;
     requires transitive jakarta.persistence;
-    requires transitive java.xml.crypto;
+    requires java.xml.crypto;
 
     exports coffeeshop;
     opens coffeeshop.Controllers to javafx.fxml, org.hibernate.orm.core;
