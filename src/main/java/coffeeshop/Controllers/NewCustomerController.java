@@ -112,15 +112,14 @@ public class NewCustomerController {
         }
         else {
             if (CustomerDAOService.userNameExists(userEntry.getText())){
-                    notificationWindow("error");
+                notificationWindow("error", "User Name Exists!");
                 }
             else if (CustomerDAOService.emailExists(emailEntry.getText())){
-                    Alert dialog = new Alert(AlertType.ERROR, "Email Exists!", ButtonType.OK);
-                    dialog.show();
+                notificationWindow("error", "Email Exists!");
                 }
             else if (CustomerDAOService.phoneExists(phoneEntry.getText())){
-                    Alert dialog = new Alert(AlertType.ERROR, "Phone Exists!", ButtonType.OK);
-                    dialog.show();
+                notificationWindow("error", "Phone Exists!");
+
                 }
             if (!pwValidator(pwEntry, errorList)){
                 pwLabel.setTextFill(Color.color(1, 0, 0));
@@ -142,7 +141,7 @@ public class NewCustomerController {
 
                     CustomerDAOService.saveCustomer(new Customer(newEntry.userName(), newEntry.password(), newEntry.firstName(), 
                                                         newEntry.lastName(), newEntry.email(), newEntry.phone()));
-                    notificationWindow("confirmation");
+                    notificationWindow("confirmation", null);
                     switchToCustomerPg();
             }
         }
@@ -240,13 +239,13 @@ public class NewCustomerController {
         App.setRoot("customer");
     }
     
-    private void notificationWindow(String windowType) {
+    private void notificationWindow(String windowType, String message) {
         Alert dialog;
         if (windowType.equals("confirmation")) {
             dialog = new Alert(AlertType.CONFIRMATION, "Successfully Added!", ButtonType.OK);
         }
         else {
-            dialog = new Alert(AlertType.ERROR, "Phone Number Exists!", ButtonType.OK);
+            dialog = new Alert(AlertType.ERROR, message, ButtonType.OK);
         }
             dialog.show();
     }
