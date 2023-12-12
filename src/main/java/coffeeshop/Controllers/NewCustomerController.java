@@ -143,6 +143,7 @@ public class NewCustomerController {
 
                     CustomerDAOService.saveCustomer(new Customer(newEntry.userName(), newEntry.password(), newEntry.firstName(), 
                                                         newEntry.lastName(), newEntry.email(), newEntry.phone()));
+                    confirmationWindow();
                     switchToCustomerPg();
             }
         }
@@ -240,4 +241,8 @@ public class NewCustomerController {
         App.setRoot("customer");
     }
     
+    private void confirmationWindow() {
+        Alert dialog = new Alert(AlertType.CONFIRMATION, "Successfully Added!", ButtonType.OK);
+        dialog.show();
+    }
 }
