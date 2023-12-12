@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.SQLException;
-import coffeeshop.Security.Password;
 
 
 public class App extends Application {
@@ -31,7 +30,6 @@ public class App extends Application {
     }
     
     public static void main(String[] args) throws SQLException {
-        Password.tester();
         launch();
     }
 }

@@ -10,14 +10,6 @@ public class Password {
 
     private static String getSecurePassword(String pw) {
         String bcryptHashString = BCrypt.withDefaults().hashToString(12, pw.toCharArray());
-        System.out.println(bcryptHashString);
-        return null;
-        // $2a$12$US00g/uMhoSBm.HiuieBjeMtoN69SN.GE25fCpldebzkryUyopws6
-        // BCrypt.Result result = BCrypt.verifyer().verify(password.toCharArray(), bcryptHashString);
-        // result.verified == true
-    }
-
-    public static void tester(){
-        getSecurePassword("password");
+        return bcryptHashString;
     }
 }
