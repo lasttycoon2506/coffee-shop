@@ -61,11 +61,8 @@ public class CustomerDAO implements DAO<Customer> {
     }
 
     public boolean login(String userName, String pw){
-        executeInsideTransaction(entityManager -> 
-            entityManager.createQuery("SELECT u from Customer u WHERE u.user_name = :username", 
-                                    Customer.class).setParameter("username", userName).getSingleResult());
-                                                    return false;
-                                                    
+            return false;
+                                            
     }
 
     public void save(Customer customer){
