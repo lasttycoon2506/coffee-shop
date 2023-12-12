@@ -21,7 +21,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="221.0" layoutY="284.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="158.0" text="Login">
+      <Button layoutX="221.0" layoutY="284.0" mnemonicParsing="false" onAction="#loginAttempt" prefHeight="39.0" prefWidth="158.0" text="Login">
          <font>
             <Font size="18.0" />
          </font>
@@ -55,7 +55,7 @@
             </Lighting>
          </effect>
       </Label>
-      <TextField layoutX="238.0" layoutY="145.0" />
-      <TextField layoutX="238.0" layoutY="188.0" />
+      <TextField fx:id="userLogin" layoutX="238.0" layoutY="145.0" />
+      <TextField fx:id="pwLogin" layoutX="238.0" layoutY="188.0" />
    </children>
 </AnchorPane>

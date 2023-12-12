@@ -3,8 +3,11 @@ package coffeeshop.Security;
 import at.favre.lib.crypto.bcrypt.BCrypt;
 
 public class Login {
-		// boolean matched = BCrypt.checkpw(originalPassword, generatedSecuredPasswordHash);
-		// System.out.println(matched);
+	public static boolean loginCheck(String originalPw, String hashedPw){
+		// boolean matched = BCrypt.checkpw(originalPw, hashedPw);
+		// return matched;
+		return false;
+	}
 }
 
 
