@@ -1,4 +1,4 @@
-package coffeeshop.Controllers;
+package coffeeshop.Controllers.Customers;
 
 import java.io.IOException;
 import java.util.function.UnaryOperator;
