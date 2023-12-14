@@ -15,7 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 
 
-public class CustomerController {
+public class CustomerLogin {
     @FXML
 	private TextField userLogin;
     @FXML
