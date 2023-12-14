@@ -1,5 +1,6 @@
 package coffeeshop.Entities.Customers;
 
+import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
@@ -60,10 +61,12 @@ public class CustomerDAO implements DAO<Customer> {
         }
     }
 
-    public boolean login(String user){
+    public boolean login(String user) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException{
         Customer pwHash = entityManager.createQuery("SELECT pwHash from Customer pwHash WHERE user_name = :userN", 
                                         Customer.class).setParameter("userN", user).getSingleResult();
-        System.out.println(pwHash + "\n" +  "\n" +  "\n"+  "\n" +  "\n" );
+        Field c = pwHash.getClass().getDeclaredField("pword");
+        c.setAccessible(true);
+        System.out.println(c.get(pwHash));
         return false;
     }
 

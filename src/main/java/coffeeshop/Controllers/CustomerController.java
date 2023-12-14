@@ -21,7 +21,7 @@ public class CustomerController {
 	private Button myButton;
 
     @FXML
-	public void loginAttempt(ActionEvent event) {
+	public void loginAttempt(ActionEvent event) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
         if (!CustomerDAOService.userNameExists(userLogin.getText().trim())){
                     notificationWindow("error");
                 }
