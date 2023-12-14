@@ -4,7 +4,6 @@ import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
-
 import at.favre.lib.crypto.bcrypt.BCrypt;
 import coffeeshop.Models.DAO;
 import jakarta.persistence.EntityManager;
@@ -63,7 +62,7 @@ public class CustomerDAO implements DAO<Customer> {
         }
     }
 
-    public boolean login(String user, String pw) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException{
+    public boolean login(String user, String pw) throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException{
         Customer customer = entityManager.createQuery("SELECT pwHash from Customer pwHash WHERE user_name = :userN",
                             Customer.class).setParameter("userN", user).getSingleResult();
         // gets pword field from customer obj
