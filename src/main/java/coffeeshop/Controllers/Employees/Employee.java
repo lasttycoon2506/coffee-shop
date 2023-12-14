@@ -1,4 +1,4 @@
-package coffeeshop.Controllers;
+package coffeeshop.Controllers.Employees;
 
 import java.io.IOException;
 import coffeeshop.App;

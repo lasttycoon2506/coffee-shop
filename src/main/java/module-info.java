@@ -10,9 +10,9 @@ module coffeeshop {
 
     exports coffeeshop;
     opens coffeeshop.Controllers to javafx.fxml, org.hibernate.orm.core;
-    exports coffeeshop.Controllers;
     opens coffeeshop.Entities.Customers to org.hibernate.orm.core;
     opens coffeeshop.Controllers.Customers to javafx.fxml, org.hibernate.orm.core;
+    opens coffeeshop.Controllers.Employees to javafx.fxml, org.hibernate.orm.core;
 }
 
 
