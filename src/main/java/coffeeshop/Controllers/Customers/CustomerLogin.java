@@ -2,7 +2,6 @@ package coffeeshop.Controllers.Customers;
 
 import java.io.IOException;
 import java.util.function.UnaryOperator;
-
 import coffeeshop.App;
 import coffeeshop.Entities.Customers.CustomerDAOService;
 import javafx.event.ActionEvent;
@@ -29,7 +28,6 @@ public class CustomerLogin {
         }
         return change;
     };
-
     public void initialize(){
         userLogin.setTextFormatter(new TextFormatter<>(spaceFilter));
         pwLogin.setTextFormatter(new TextFormatter<>(spaceFilter));

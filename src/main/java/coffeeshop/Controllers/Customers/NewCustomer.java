@@ -81,15 +81,15 @@ public class NewCustomer {
      
     @FXML
 	public void submit(ActionEvent event) throws IOException, SQLException, JDBCException, NoSuchAlgorithmException, InvalidKeySpecException {
-        if (userEntry.getText().trim().isEmpty() || pwEntry.getText().trim().isEmpty()
+        if (userEntry.getText().trim().isEmpty() || pwEntry.getText().isEmpty()
             || fNameEntry.getText().trim().isEmpty() || lNameEntry.getText().trim().isEmpty()
-            || emailEntry.getText().trim().isEmpty() || phoneEntry.getText().trim().isEmpty()) {
+            || emailEntry.getText().trim().isEmpty() || phoneEntry.getText().isEmpty()) {
             
             if (userEntry.getText().trim().isEmpty()){
                 userLabel.setTextFill(Color.color(1, 0, 0));
                 userLabel.setText("Enter Username!");
             }
-            if (pwEntry.getText().trim().isEmpty()){
+            if (pwEntry.getText().isEmpty()){
                 pwLabel.setTextFill(Color.color(1, 0, 0));
                 pwLabel.setText("Enter Password!");
             }
@@ -105,7 +105,7 @@ public class NewCustomer {
                 emailLabel.setTextFill(Color.color(1, 0, 0));
                 emailLabel.setText("Enter Email!");
             }
-            if (phoneEntry.getText().trim().isEmpty()){
+            if (phoneEntry.getText().isEmpty()){
                 phoneLabel.setTextFill(Color.color(1, 0, 0));
                 phoneLabel.setText("Enter Phone!");
             }
@@ -136,8 +136,8 @@ public class NewCustomer {
                 emailLabel.setText(emailErr);
             }
             else {
-                CustomerDTO newEntry = new CustomerDTO(userEntry.getText(), pwEntry.getText(), fNameEntry.getText(), 
-                                            lNameEntry.getText(), emailEntry.getText(), phoneEntry.getText());  
+                CustomerDTO newEntry = new CustomerDTO(userEntry.getText().trim(), pwEntry.getText(), fNameEntry.getText().trim(), 
+                                            lNameEntry.getText().trim(), emailEntry.getText().trim(), phoneEntry.getText());  
 
                     CustomerDAOService.saveCustomer(new Customer(newEntry.userName(), newEntry.password(), newEntry.firstName(), 
                                                         newEntry.lastName(), newEntry.email(), newEntry.phone()));
@@ -149,7 +149,7 @@ public class NewCustomer {
     
 
     public static boolean pwValidator(TextField pwField, List<String> errorList) {
-        String pw = pwField.getText().trim();
+        String pw = pwField.getText();
         Pattern specialChar = Pattern.compile("[^a-z0-9]", Pattern.CASE_INSENSITIVE);
         Pattern upperCase = Pattern.compile("[A-Z]");
         Pattern lowerCase = Pattern.compile("[a-z]");
