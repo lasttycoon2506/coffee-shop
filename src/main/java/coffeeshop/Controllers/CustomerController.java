@@ -25,7 +25,7 @@ public class CustomerController {
         if (!CustomerDAOService.userNameExists(userLogin.getText().trim())){
                     notificationWindow("error");
                 }
-        CustomerDAOService.login(userLogin.getText().trim());
+        CustomerDAOService.login(userLogin.getText().trim(), pwLogin.getText().trim());
     }
 
     private void notificationWindow(String windowType) {

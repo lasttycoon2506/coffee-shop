@@ -61,12 +61,16 @@ public class CustomerDAO implements DAO<Customer> {
         }
     }
 
-    public boolean login(String user) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException{
-        Customer pwHash = entityManager.createQuery("SELECT pwHash from Customer pwHash WHERE user_name = :userN", 
-                                        Customer.class).setParameter("userN", user).getSingleResult();
-        Field c = pwHash.getClass().getDeclaredField("pword");
-        c.setAccessible(true);
-        System.out.println(c.get(pwHash));
+    public boolean login(String user, String pw) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException{
+        Customer customer = entityManager.createQuery("SELECT pwHash from Customer pwHash WHERE user_name = :userN",
+                            Customer.class).setParameter("userN", user).getSingleResult();
+        // gets pword field from customer obj
+        Field pWordHash = customer.getClass().getDeclaredField("pword");
+        pWordHash.setAccessible(true);
+        if (pw.equals(pWordHash.get(customer))) {
+            System.out.println("yay");
+        }
+
         return false;
     }
 
