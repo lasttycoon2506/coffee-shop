@@ -9,7 +9,7 @@ public class Home {
 
     @FXML
     void switchToCustomerPg() throws IOException {
-        App.setRoot("customer");
+        App.setRoot("customerLogin");
     }
 
       @FXML
