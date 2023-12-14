@@ -183,16 +183,14 @@ public class NewCustomer {
         Pattern yahooPattern = Pattern.compile("^.*@yahoo.com.*$");
         Pattern icloudPattern = Pattern.compile("^.*@icloud.com.*$");
         Pattern outlookPattern = Pattern.compile("^.*@outlook.com.*$");
-        boolean flag=true;
 
         if (gmailPattern.matcher(email).find() || yahooPattern.matcher(email).find()
             || icloudPattern.matcher(email).find() || outlookPattern.matcher(email).find()) {
-            return flag;
+            return true;
             }
         else {
             emailErr = "Email must contain: \n @gmail \n @yahoo \n @icloud \n @outlook";
-            flag = false;
-            return flag;
+            return false;
         }
     }
 
@@ -208,8 +206,8 @@ public class NewCustomer {
 
 
     public String stringFormatter(List lst) {
-        String l = Arrays.toString(lst.toArray()).replace("[", "").replace("]", "").replace(",", "");
-        return l;
+        String listToStr = Arrays.toString(lst.toArray()).replace("[", "").replace("]", "").replace(",", "");
+        return listToStr;
     }
 
 
