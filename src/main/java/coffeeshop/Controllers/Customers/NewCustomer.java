@@ -29,6 +29,8 @@ import javafx.scene.paint.Color;
 public class NewCustomer {
     List<String> errorList = new ArrayList<String>();
     static String emailErr;
+    static String phoneLenErr;
+
     
     @FXML
     private Label userLabel;
@@ -130,6 +132,10 @@ public class NewCustomer {
                     emailLabel.setTextFill(Color.color(1, 0, 0));
                     emailLabel.setText(emailErr);
                 }
+                if (!phoneLenValidator(phoneEntry)){
+                    phoneLabel.setTextFill(Color.color(1, 0, 0));
+                    phoneLabel.setText(phoneLenErr);
+                }
             }
             else if (!emailValidator(emailEntry)){
                 emailLabel.setTextFill(Color.color(1, 0, 0));
@@ -199,6 +205,16 @@ public class NewCustomer {
             flag = false;
             return flag;
         }
+    }
+
+
+    public static boolean phoneLenValidator(TextField phoneField) {
+        String phone = phoneField.getText();
+        if (phone.length() != 10) {
+            phoneLenErr = "Phone Number must be 10 digits!";
+            return false;
+        }
+        return true;
     }
 
 

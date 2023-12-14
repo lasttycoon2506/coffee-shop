@@ -27,7 +27,7 @@
       <Label fx:id="fNameLabel" layoutX="112.0" layoutY="247.0" prefHeight="17.0" prefWidth="97.0" />
       <Label fx:id="lNameLabel" layoutX="405.0" layoutY="247.0" />
       <Label fx:id="emailLabel" layoutX="125.0" layoutY="314.0" />
-      <Label fx:id="phoneLabel" layoutX="417.0" layoutY="314.0" />
+      <Label fx:id="phoneLabel" layoutX="333.0" layoutY="314.0" prefHeight="17.0" prefWidth="237.0" />
       <Label layoutX="128.0" layoutY="113.0" prefHeight="17.0" prefWidth="56.0" text="Username" />
       <Label layoutX="423.0" layoutY="113.0" prefHeight="17.0" prefWidth="56.0" text="Password" />
       <TextField fx:id="userEntry" layoutX="42.0" layoutY="134.0" onKeyReleased="#resetUserLabel" prefHeight="25.0" prefWidth="237.0" />
