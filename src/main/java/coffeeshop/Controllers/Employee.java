@@ -5,7 +5,7 @@ import coffeeshop.App;
 import javafx.fxml.FXML;
 
 
-public class EmployeeController {
+public class Employee {
 
     @FXML
     private void switchToHomePg() throws IOException {

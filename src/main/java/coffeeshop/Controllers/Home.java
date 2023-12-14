@@ -5,7 +5,7 @@ import java.io.IOException;
 import coffeeshop.App;
 
 
-public class HomeController {
+public class Home {
 
     @FXML
     void switchToCustomerPg() throws IOException {
