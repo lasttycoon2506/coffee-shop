@@ -4,6 +4,8 @@ import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
+
+import at.favre.lib.crypto.bcrypt.BCrypt;
 import coffeeshop.Models.DAO;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -67,10 +69,11 @@ public class CustomerDAO implements DAO<Customer> {
         // gets pword field from customer obj
         Field pWordHash = customer.getClass().getDeclaredField("pword");
         pWordHash.setAccessible(true);
-        if (pw.equals(pWordHash.get(customer))) {
+        BCrypt.Result result = BCrypt.verifyer().verify(pw.toCharArray(), pWordHash.get(customer).toString().toCharArray());
+        if (result.verified) {
             System.out.println("yay");
         }
-
+        // result.verified == true
         return false;
     }
 
