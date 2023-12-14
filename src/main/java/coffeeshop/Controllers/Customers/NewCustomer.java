@@ -120,18 +120,15 @@ public class NewCustomer {
                 }
             if (!pwValidator(pwEntry, errorList)){
                 notificationWindow("error", stringFormatter(errorList));
-                if (!emailValidator(emailEntry)){
-                    emailLabel.setTextFill(Color.color(1, 0, 0));
-                    emailLabel.setText(emailErr);
-                }
-                if (!phoneLenValidator(phoneEntry)){
-                    phoneLabel.setTextFill(Color.color(1, 0, 0));
-                    phoneLabel.setText(phoneLenErr);
-                }
             }
             else if (!emailValidator(emailEntry)){
-                emailLabel.setTextFill(Color.color(1, 0, 0));
-                emailLabel.setText(emailErr);
+                notificationWindow("error", emailErr);
+            }
+            else if (!phoneLenValidator(phoneEntry)){
+                notificationWindow("error", phoneLenErr);
+            }
+            else if (!emailValidator(emailEntry)){
+                notificationWindow("error", emailErr);
             }
             else {
                 CustomerDTO newEntry = new CustomerDTO(userEntry.getText().trim(), pwEntry.getText(), fNameEntry.getText().trim(), 
