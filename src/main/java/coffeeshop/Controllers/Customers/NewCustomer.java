@@ -5,6 +5,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.UnaryOperator;
 import java.util.regex.Pattern;
@@ -88,28 +89,22 @@ public class NewCustomer {
             || emailEntry.getText().trim().isEmpty() || phoneEntry.getText().isEmpty()) {
             
             if (userEntry.getText().trim().isEmpty()){
-                userLabel.setTextFill(Color.color(1, 0, 0));
-                userLabel.setText("Enter Username!");
+                notificationWindow("error", "User Name Empty!");
             }
-            if (pwEntry.getText().isEmpty()){
-                pwLabel.setTextFill(Color.color(1, 0, 0));
-                pwLabel.setText("Enter Password!");
+            else if (pwEntry.getText().isEmpty()){
+                notificationWindow("error", "Password Empty!");
             }
-            if (fNameEntry.getText().trim().isEmpty()){
-                fNameLabel.setTextFill(Color.color(1, 0, 0));
-                fNameLabel.setText("Enter First Name!");
+            else if (fNameEntry.getText().trim().isEmpty()){
+                notificationWindow("error", "First Name Empty!");
             }
-            if (lNameEntry.getText().trim().isEmpty()){
-                lNameLabel.setTextFill(Color.color(1, 0, 0));
-                lNameLabel.setText("Enter Last Name!");
+            else if (lNameEntry.getText().trim().isEmpty()){
+                notificationWindow("error", "Last Name Empty!");
             }
-            if (emailEntry.getText().trim().isEmpty()){
-                emailLabel.setTextFill(Color.color(1, 0, 0));
-                emailLabel.setText("Enter Email!");
+            else if (emailEntry.getText().trim().isEmpty()){
+               notificationWindow("error", "Email Empty!");
             }
-            if (phoneEntry.getText().isEmpty()){
-                phoneLabel.setTextFill(Color.color(1, 0, 0));
-                phoneLabel.setText("Enter Phone!");
+            else if (phoneEntry.getText().isEmpty()){
+                notificationWindow("error", "Phone Empty!");
             }
         }
         else {
@@ -124,10 +119,7 @@ public class NewCustomer {
 
                 }
             if (!pwValidator(pwEntry, errorList)){
-                pwLabel.setTextFill(Color.color(1, 0, 0));
-                for (String error: errorList) {
-                    pwLabel.setText(error);
-                } 
+                notificationWindow("error", stringFormatter(errorList));
                 if (!emailValidator(emailEntry)){
                     emailLabel.setTextFill(Color.color(1, 0, 0));
                     emailLabel.setText(emailErr);
@@ -164,19 +156,19 @@ public class NewCustomer {
         boolean flag=true;
 
         if (pw.length() < 8) {
-            errorList.add("Password must be at least 8 Characters!");
+            errorList.add(" Password must be at least 8 Characters!\n");
             flag=false;
         }
         if (!specialChar.matcher(pw).find()) {
-            errorList.add("Password must have at least one \n Special Character!");
+            errorList.add("Password must have at least one Special Character!\n");
             flag=false;
         }
         if (!upperCase.matcher(pw).find()) {
-            errorList.add("Password must have at least one \n Upper Case letter!");
+            errorList.add("Password must have at least one Upper Case letter!\n");
             flag=false;
         }
         if (!lowerCase.matcher(pw).find()) {
-            errorList.add("Password must have at least one \n Lower Case letter!");
+            errorList.add("Password must have at least one Lower Case letter!\n");
             flag=false;
         }
         if (!number.matcher(pw).find()) {
@@ -218,6 +210,12 @@ public class NewCustomer {
     }
 
 
+    public String stringFormatter(List lst) {
+        String l = Arrays.toString(lst.toArray()).replace("[", "").replace("]", "").replace(",", "");
+        return l;
+    }
+
+
     //clears empty label alert upon text entered
     @FXML
     void resetUserLabel(KeyEvent event) {
@@ -255,7 +253,7 @@ public class NewCustomer {
         App.setRoot("customer");
     }
     
-    
+
     private void notificationWindow(String windowType, String message) {
         Alert dialog;
         if (windowType.equals("confirmation")) {
@@ -264,6 +262,7 @@ public class NewCustomer {
         else {
             dialog = new Alert(AlertType.ERROR, message, ButtonType.OK);
         }
-            dialog.show();
+        dialog.show();
+
     }
 }
