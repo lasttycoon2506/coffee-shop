@@ -36,16 +36,25 @@ public class CustomerLogin {
 
     @FXML
 	public void loginAttempt(ActionEvent event) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
-        if (!CustomerDAOService.userNameExists(userLogin.getText())){
-                    notificationWindow("error");
-                }
-        CustomerDAOService.login(userLogin.getText().trim(), pwLogin.getText());
+        if (userLogin.getText().isEmpty() || pwLogin.getText().isEmpty()) {
+            notificationWindow("blank field(s)");
+        }
+        else if (!CustomerDAOService.userNameExists(userLogin.getText())){
+            notificationWindow("error");
+        }
+        else {
+            CustomerDAOService.login(userLogin.getText().trim(), pwLogin.getText());
+        }
     }
 
+    
     private void notificationWindow(String windowType) {
         Alert dialog;
         if (windowType.equals("confirmation")) {
             dialog = new Alert(AlertType.CONFIRMATION, "Successfully Added!", ButtonType.OK);
+        }
+        else if (windowType.equals("blank field(s)")) {
+            dialog = new Alert(AlertType.ERROR, "Missing Field(s)!", ButtonType.OK);
         }
         else {
             dialog = new Alert(AlertType.ERROR, "User Name Doesn't Exist!", ButtonType.OK);
