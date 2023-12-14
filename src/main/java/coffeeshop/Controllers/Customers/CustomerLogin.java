@@ -35,19 +35,20 @@ public class CustomerLogin {
     
 
     @FXML
-	public void loginAttempt(ActionEvent event) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
+	public void loginAttempt(ActionEvent event) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, IOException {
         if (userLogin.getText().isEmpty() || pwLogin.getText().isEmpty()) {
             notificationWindow("blank field(s)");
         }
-        else if (!CustomerDAOService.userNameExists(userLogin.getText())){
+        else if (!CustomerDAOService.userNameExists(userLogin.getText())) {
             notificationWindow("error");
         }
         else {
             CustomerDAOService.login(userLogin.getText().trim(), pwLogin.getText());
+            switchToCustomerPg();
         }
     }
 
-    
+
     private void notificationWindow(String windowType) {
         Alert dialog;
         if (windowType.equals("confirmation")) {
@@ -63,13 +64,15 @@ public class CustomerLogin {
     }
 
     @FXML
+    void switchToCustomerPg() throws IOException {
+        App.setRoot("customer");
+    }
+    @FXML
     void switchToHomePg() throws IOException {
         App.setRoot("home");
     }
-
     @FXML
     void switchToNewCustomerPg() throws IOException {
         App.setRoot("newCustomer");
     }
-
 }

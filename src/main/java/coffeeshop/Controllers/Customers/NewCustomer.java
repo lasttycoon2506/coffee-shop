@@ -255,6 +255,7 @@ public class NewCustomer {
         App.setRoot("customer");
     }
     
+    
     private void notificationWindow(String windowType, String message) {
         Alert dialog;
         if (windowType.equals("confirmation")) {
