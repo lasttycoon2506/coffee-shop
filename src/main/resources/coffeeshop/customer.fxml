@@ -7,7 +7,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: orange;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coffeeshop.Controllers.Customers.Customer">
    <children>
-      <Button layoutX="238.0" layoutY="142.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="125.0" text="Your Profile">
+      <Button layoutX="238.0" layoutY="142.0" mnemonicParsing="false" onAction="#switchToCustomerProfilePg" prefHeight="44.0" prefWidth="125.0" text="Your Profile">
          <font>
             <Font size="18.0" />
          </font></Button>
@@ -17,9 +17,9 @@
          </font></Button>
       <Button layoutX="14.0" layoutY="19.0" mnemonicParsing="false" onAction="#switchToLoginPg" text="BACK" />
       <Button layoutX="526.0" layoutY="19.0" mnemonicParsing="false" onAction="#switchToHomePg" text="HOME" />
-      <Label layoutX="206.0" layoutY="16.0" prefHeight="57.0" prefWidth="208.0" text="WELCOME! ">
+      <Label layoutX="161.0" layoutY="16.0" prefHeight="70.0" prefWidth="253.0" text="WELCOME! ">
          <font>
-            <Font size="36.0" />
+            <Font size="48.0" />
          </font></Label>
    </children>
 </AnchorPane>
