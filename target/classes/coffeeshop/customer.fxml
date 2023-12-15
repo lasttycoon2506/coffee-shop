@@ -17,7 +17,7 @@
          </font></Button>
       <Button layoutX="14.0" layoutY="19.0" mnemonicParsing="false" onAction="#switchToLoginPg" text="BACK" />
       <Button layoutX="526.0" layoutY="19.0" mnemonicParsing="false" onAction="#switchToHomePg" text="HOME" />
-      <Label layoutX="161.0" layoutY="16.0" prefHeight="70.0" prefWidth="253.0" text="WELCOME! ">
+      <Label alignment="CENTER" layoutY="16.0" prefHeight="70.0" prefWidth="600.0" text="WELCOME! ">
          <font>
             <Font size="48.0" />
          </font></Label>
