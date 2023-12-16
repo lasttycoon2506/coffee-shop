@@ -42,8 +42,11 @@ public class CustomerLogin {
         else if (!CustomerDAOService.userNameExists(userLogin.getText())) {
             notificationWindow("error");
         }
+        else if (!CustomerDAOService.login(userLogin.getText(), pwLogin.getText())){
+            notificationWindow("user/pw incorrect");
+        }
         else {
-            CustomerDAOService.login(userLogin.getText().trim(), pwLogin.getText());
+            CustomerDAOService.login(userLogin.getText(), pwLogin.getText());
             switchToCustomerPg();
         }
     }
@@ -56,6 +59,9 @@ public class CustomerLogin {
         }
         else if (windowType.equals("blank field(s)")) {
             dialog = new Alert(AlertType.ERROR, "Missing Field(s)!", ButtonType.OK);
+        }
+        else if (windowType.equals("user/pw incorrect")) {
+            dialog = new Alert(AlertType.ERROR, "User/Password Incorrect!", ButtonType.OK);
         }
         else {
             dialog = new Alert(AlertType.ERROR, "User Name Doesn't Exist!", ButtonType.OK);

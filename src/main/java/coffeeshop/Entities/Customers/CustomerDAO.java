@@ -70,10 +70,11 @@ public class CustomerDAO implements DAO<Customer> {
         pWordHash.setAccessible(true);
         BCrypt.Result result = BCrypt.verifyer().verify(pw.toCharArray(), pWordHash.get(customer).toString().trim());
         if (result.verified) {
-            System.out.println("yay");
+            return true;
         }
-        // result.verified == true
-        return false;
+        else {
+            return false;
+        }
     }
 
     public void save(Customer customer){
