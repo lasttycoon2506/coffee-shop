@@ -12,6 +12,10 @@ public class Context {
 
     private Customer customer = new Customer();
 
+    public void setCustomer(Customer cust) {
+        this.customer = cust;
+    }
+
     public Customer getCustomer() {
         return customer;
     }

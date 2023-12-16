@@ -5,6 +5,7 @@ import java.lang.reflect.Field;
 import java.util.function.UnaryOperator;
 import coffeeshop.App;
 import coffeeshop.Entities.Customers.CustomerDAOService;
+import coffeeshop.Models.Context;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -17,8 +18,6 @@ import coffeeshop.Entities.Customers.Customer;
 
 
 public class CustomerLogin {
-    @FXML
-    private Customer customer;
     @FXML
 	private TextField userLogin;
     @FXML
@@ -51,9 +50,7 @@ public class CustomerLogin {
         }
         else {
             Customer customer = CustomerDAOService.login(userLogin.getText(), pwLogin.getText());
-            Field pWordHash = customer.getClass().getDeclaredField("customer_id");
-            pWordHash.setAccessible(true);
-            System.out.println(pWordHash.get(customer));
+            Context.getInstance().setCustomer(customer);
             switchToCustomerPg();
         }
     }
