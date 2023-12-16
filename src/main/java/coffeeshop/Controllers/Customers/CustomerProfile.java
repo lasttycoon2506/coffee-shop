@@ -1,14 +1,20 @@
 package coffeeshop.Controllers.Customers;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+
 import coffeeshop.App;
 import coffeeshop.Models.Context;
 import coffeeshop.Entities.Customers.Customer;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.converter.IntegerStringConverter;
@@ -21,86 +27,45 @@ public class CustomerProfile {
 	@FXML
 	private Customer customer;
 	@FXML
-    private TableView<Customer> customerTable;
+    private TableView<Customer> table;
 	@FXML
-	private TableColumn<Customer, String> userCol;
+	private ObservableList<Customer> data;
 	@FXML
-	private TableColumn<Customer, String> pwCol;
+	private TableColumn<Customer, String> userColumn;
 	@FXML
-	private TableColumn<Customer, String> firstNCol;
+	private TableColumn<Customer, String> pwColumn;
 	@FXML
-	private TableColumn<Customer, String> lastNCol;
+	private TableColumn<Customer, String> firstNColumn;
 	@FXML
-	private TableColumn<Customer, String> emailCol;
+	private TableColumn<Customer, String> lastNColumn;
 	@FXML
-	private TableColumn<Customer, String> phoneCol;
-
-	public void initialize(){
+	private TableColumn<Customer, String> emailColumn;
+	@FXML
+	private TableColumn<Customer, String> phoneColumn;
+	
+	public void initialize() throws NoSuchAlgorithmException, InvalidKeySpecException{
         customer = Context.getInstance().getCustomer();
+		data = FXCollections.observableArrayList( new Customer(customer.getUserName(), customer.getPassword(), customer.getFirstName(),
+														customer.getLastName(), customer.getEmail(), customer.getPhone())
+        );
     }
+	
 
+	public void createTable()  {
+        userColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        pwColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        firstNColumn
+.setCellValueFactory(new PropertyValueFactory<>("birth"));
+        lastNColumn.setCellValueFactory(new PropertyValueFactory<>("adress"));
+        emailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
+		phoneColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
 
-	public void createTable() {
-		customerTable.setEditable(true);
-				
-		customerTable.getItems().add(new Customer(customer.));
-		userCol.setCellValueFactory(new PropertyValueFactory<Customer, String>("firstName"));
-		userCol.setCellFactory(TextFieldTableCell.forTableColumn());
+		// table.setItems(null);
+		
+		
+
+		
 	}
-
-	
-
-	
-	// 	firstNameColumn.setOnEditCommit(new EventHandler<CellEditEvent<Customer, String>>() {
-	// 		@Override
-	// 		public void handle(CellEditEvent<Person, String> event) {
-	// 			Customer customer = event.getRowValue();
-	// 			customer.setFirstName(event.getNewValue());
-	// 		}
-	// 	});
-	// }
-		
-
-
-	// 	lastNameColumn.setCellValueFactory(new PropertyValueFactory<Person, String>("lastName"));
-	// 	lastNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-	// 	lastNameColumn.setOnEditCommit(new EventHandler<CellEditEvent<Person, String>>() {
-	// 		@Override
-	// 		public void handle(CellEditEvent<Person, String> event) {
-	// 			Person person = event.getRowValue();
-	// 			person.setLastName(event.getNewValue());
-	// 		}
-	// 	});
-
-	// 	ageColumn.setCellValueFactory(new PropertyValueFactory<Person, Integer>("age"));
-	// 	ageColumn.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
-	// 	ageColumn.setOnEditCommit(new EventHandler<CellEditEvent<Person, Integer>>() {
-	// 		@Override
-	// 		public void handle(CellEditEvent<Person, Integer> event) {
-	// 			Person person = event.getRowValue();
-	// 			person.setAge(event.getNewValue());
-	// 		}
-	// 	});
-		
-	
-		
-	// 	table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-		
-	/
-	// 	table.getItems().add(new Person("Daffy", "Duck", 83));
-	// 	table.getItems().add(new Person("Foghorn", "Leghorn", 74));
-	// 	table.getItems().add(new Person("Elmer", "Fudd", 83));
-	// 	table.getItems().add(new Person("Tweety", "Bird", 73));
-		
-	// 	root.setCenter(table);
-
-	// 	Scene scene = new Scene(root, 500, 300);
-	// 	scene.getStylesheets().add("application/stylesheet.css");
-	// 	primaryStage.setTitle("TableView Demo");
-	// 	primaryStage.setScene(scene);
-	// 	primaryStage.show();
-	// }
-
     @FXML
     private void switchToCustomerPg() throws IOException {
         App.setRoot("customer");
