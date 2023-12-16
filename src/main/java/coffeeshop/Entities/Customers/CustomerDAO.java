@@ -82,6 +82,7 @@ public class CustomerDAO implements DAO<Customer> {
 
     public void save(Customer customer){
         executeInsideTransaction(entityManager -> entityManager.persist(customer));
+        Context.getInstance().setCustomer(customer);
     }
 
     public void update(Customer customer){
