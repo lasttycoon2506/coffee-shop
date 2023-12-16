@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.function.UnaryOperator;
 import coffeeshop.App;
 import coffeeshop.Entities.Customers.CustomerDAOService;
-import coffeeshop.Models.Context;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -13,7 +12,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
-import coffeeshop.Entities.Customers.Customer;
 
 
 public class CustomerLogin {

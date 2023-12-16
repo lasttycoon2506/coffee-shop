@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
 import at.favre.lib.crypto.bcrypt.BCrypt;
+import coffeeshop.Models.Context;
 import coffeeshop.Models.DAO;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -70,6 +71,8 @@ public class CustomerDAO implements DAO<Customer> {
         pWordHash.setAccessible(true);
         BCrypt.Result result = BCrypt.verifyer().verify(pw.toCharArray(), pWordHash.get(customer).toString().trim());
         if (result.verified) {
+            //sets current customer for future display/operations
+            Context.getInstance().setCustomer(customer);
             return true;
         }
         else {
