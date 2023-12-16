@@ -2,6 +2,8 @@ package coffeeshop.Controllers.Customers;
 
 import java.io.IOException;
 import coffeeshop.App;
+import coffeeshop.Models.Context;
+import coffeeshop.Entities.Customers.Customer;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -11,6 +13,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.converter.IntegerStringConverter;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextFormatter;
 import javafx.scene.control.TableColumn;
 
 
@@ -32,12 +35,15 @@ public class CustomerProfile {
 	@FXML
 	private TableColumn<Customer, String> phoneCol;
 
-	
-		
+	public void initialize(){
+        customer = Context.getInstance().getCustomer();
+    }
+
 
 	public void createTable() {
 		customerTable.setEditable(true);
 				
+		customerTable.getItems().add(new Customer(customer.));
 		userCol.setCellValueFactory(new PropertyValueFactory<Customer, String>("firstName"));
 		userCol.setCellFactory(TextFieldTableCell.forTableColumn());
 	}
@@ -56,7 +62,6 @@ public class CustomerProfile {
 		
 
 
-	// 	TableColumn<Person, String> lastNameColumn = new TableColumn<Person, String>("Last Name");
 	// 	lastNameColumn.setCellValueFactory(new PropertyValueFactory<Person, String>("lastName"));
 	// 	lastNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 	// 	lastNameColumn.setOnEditCommit(new EventHandler<CellEditEvent<Person, String>>() {
@@ -67,7 +72,6 @@ public class CustomerProfile {
 	// 		}
 	// 	});
 
-	// 	TableColumn<Person, Integer> ageColumn = new TableColumn<Person, Integer>("Age");
 	// 	ageColumn.setCellValueFactory(new PropertyValueFactory<Person, Integer>("age"));
 	// 	ageColumn.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
 	// 	ageColumn.setOnEditCommit(new EventHandler<CellEditEvent<Person, Integer>>() {
@@ -78,13 +82,11 @@ public class CustomerProfile {
 	// 		}
 	// 	});
 		
-	// 	table.getColumns().add(firstNameColumn);
-	// 	table.getColumns().add(lastNameColumn);
-	// 	table.getColumns().add(ageColumn);
+	
 		
 	// 	table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 		
-	// 	table.getItems().add(new Person("Buggs", "Bunny", 79));
+	/
 	// 	table.getItems().add(new Person("Daffy", "Duck", 83));
 	// 	table.getItems().add(new Person("Foghorn", "Leghorn", 74));
 	// 	table.getItems().add(new Person("Elmer", "Fudd", 83));

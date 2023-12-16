@@ -16,7 +16,6 @@ import jakarta.persistence.Table;
 public class Customer {
     public Customer(){
     }
-    
     public Customer (String user_name, String pword, String first_name, String last_name, String email, String phone) throws NoSuchAlgorithmException, InvalidKeySpecException{
         this.user_name = user_name;
         this.pword = Password.getHashedPw(pword);
@@ -25,23 +24,37 @@ public class Customer {
         this.email = email;
         this.phone = phone;
     }
+
     //@ = JPA interfacing
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer customer_id;
-
     @Column(unique = true)
     private String user_name;
-
     private String pword;
-
     private String first_name;
-
     private String last_name;
-
     @Column(unique = true)
     private String email;
-    
     @Column(unique = true)
     private String phone;
+
+    public String getUserName(){
+        return user_name;
+    }
+    public String getPassword(){
+        return pword;
+    }
+    public String getFirstName(){
+        return first_name;
+    }
+    public String getLastName(){
+        return last_name;
+    }
+    public String getEmail(){
+        return email;
+    }
+    public String getPhone(){
+        return phone;
+    }
 }
