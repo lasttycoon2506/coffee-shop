@@ -42,7 +42,7 @@ public class CustomerLogin {
         else if (!CustomerDAOService.userNameExists(userLogin.getText())) {
             notificationWindow("error");
         }
-        else if (!CustomerDAOService.login(userLogin.getText(), pwLogin.getText())){
+        else if (CustomerDAOService.login(userLogin.getText(), pwLogin.getText()).equals(null)){
             notificationWindow("user/pw incorrect");
         }
         else {

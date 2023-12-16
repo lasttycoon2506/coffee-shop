@@ -31,7 +31,6 @@ public class NewCustomer {
     static String emailErr;
     static String phoneLenErr;
 
-    
     @FXML
     private Label userLabel;
     @FXML

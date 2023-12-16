@@ -62,7 +62,7 @@ public class CustomerDAO implements DAO<Customer> {
         }
     }
 
-    public boolean login(String user, String pw) throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException{
+    public Customer login(String user, String pw) throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException{
         Customer customer = entityManager.createQuery("SELECT pwHash from Customer pwHash WHERE user_name = :userN",
                             Customer.class).setParameter("userN", user).getSingleResult();
         // gets pword field from customer obj
@@ -70,10 +70,10 @@ public class CustomerDAO implements DAO<Customer> {
         pWordHash.setAccessible(true);
         BCrypt.Result result = BCrypt.verifyer().verify(pw.toCharArray(), pWordHash.get(customer).toString().trim());
         if (result.verified) {
-            return true;
+            return customer;
         }
         else {
-            return false;
+            return null;
         }
     }
 
