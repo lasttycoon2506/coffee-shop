@@ -3,7 +3,7 @@ package coffeeshop.Security;
 import at.favre.lib.crypto.bcrypt.BCrypt;
 
 
-public class Password {
+public class PasswordGen {
     public static String getHashedPw(String pw) {
         return getSecurePassword(pw);
     }

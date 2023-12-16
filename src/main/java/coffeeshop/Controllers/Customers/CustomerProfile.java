@@ -39,11 +39,11 @@ public class CustomerProfile {
 		data = FXCollections.observableArrayList(new Customer(customer.getUserName(), customer.getPassword(), customer.getFirstName(),
 														customer.getLastName(), customer.getEmail(), customer.getPhone())
         );
-		createTable();
+		loadTable();
     }
 	
 
-	public void createTable()  {
+	public void loadTable()  {
 		table.setEditable(true);
         userColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("userName"));
         pwColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("pWord"));
