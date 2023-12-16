@@ -18,6 +18,8 @@ import coffeeshop.Entities.Customers.Customer;
 
 public class CustomerLogin {
     @FXML
+    private Customer customer;
+    @FXML
 	private TextField userLogin;
     @FXML
 	private TextField pwLogin;
@@ -51,7 +53,7 @@ public class CustomerLogin {
             Customer customer = CustomerDAOService.login(userLogin.getText(), pwLogin.getText());
             Field pWordHash = customer.getClass().getDeclaredField("customer_id");
             pWordHash.setAccessible(true);
-            System.out.println(pWordHash);
+            System.out.println(pWordHash.get(customer));
             switchToCustomerPg();
         }
     }

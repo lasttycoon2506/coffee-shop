@@ -3,15 +3,20 @@ package coffeeshop.Controllers.Customers;
 import java.io.IOException;
 import coffeeshop.App;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.converter.IntegerStringConverter;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
 
 
 public class CustomerProfile {
+	@FXML
+	private Customer customer;
 	@FXML
     private TableView<Customer> customerTable;
 	@FXML
@@ -27,6 +32,8 @@ public class CustomerProfile {
 	@FXML
 	private TableColumn<Customer, String> phoneCol;
 
+	
+		
 
 	public void createTable() {
 		customerTable.setEditable(true);
@@ -34,6 +41,10 @@ public class CustomerProfile {
 		userCol.setCellValueFactory(new PropertyValueFactory<Customer, String>("firstName"));
 		userCol.setCellFactory(TextFieldTableCell.forTableColumn());
 	}
+
+	
+
+	
 	// 	firstNameColumn.setOnEditCommit(new EventHandler<CellEditEvent<Customer, String>>() {
 	// 		@Override
 	// 		public void handle(CellEditEvent<Person, String> event) {
