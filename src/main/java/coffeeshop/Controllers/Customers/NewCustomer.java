@@ -242,6 +242,10 @@ public class NewCustomer {
         App.setRoot("home");
     }
     @FXML
+    private void switchToCustomerLoginPg() throws IOException {
+        App.setRoot("customerLogin");
+    }
+    @FXML
     private void switchToCustomerPg() throws IOException {
         App.setRoot("customer");
     }

@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
+import coffeeshop.Entities.Customers.Customer;
 
 
 public class CustomerLogin {
@@ -46,7 +47,8 @@ public class CustomerLogin {
             notificationWindow("user/pw incorrect");
         }
         else {
-            CustomerDAOService.login(userLogin.getText(), pwLogin.getText());
+            Customer customer = CustomerDAOService.login(userLogin.getText(), pwLogin.getText());
+            System.out.println(customer);
             switchToCustomerPg();
         }
     }
