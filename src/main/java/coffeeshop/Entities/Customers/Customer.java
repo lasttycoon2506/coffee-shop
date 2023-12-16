@@ -14,6 +14,17 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "Customers")
 public class Customer {
+    public Customer(){
+    }
+    
+    public Customer (String user_name, String pword, String first_name, String last_name, String email, String phone) throws NoSuchAlgorithmException, InvalidKeySpecException{
+        this.user_name = user_name;
+        this.pword = Password.getHashedPw(pword);
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.email = email;
+        this.phone = phone;
+    }
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer customer_id;
@@ -32,16 +43,4 @@ public class Customer {
     
     @Column(unique = true)
     private String phone;
-
-    public Customer(){
-    }
-    
-    public Customer (String user_name, String pword, String first_name, String last_name, String email, String phone) throws NoSuchAlgorithmException, InvalidKeySpecException{
-        this.user_name = user_name;
-        this.pword = Password.getHashedPw(pword);
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.email = email;
-        this.phone = phone;
-    }
 }

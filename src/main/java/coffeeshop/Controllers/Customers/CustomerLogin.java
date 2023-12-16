@@ -48,7 +48,6 @@ public class CustomerLogin {
         }
         else {
             Customer customer = CustomerDAOService.login(userLogin.getText(), pwLogin.getText());
-            System.out.println(customer);
             switchToCustomerPg();
         }
     }
