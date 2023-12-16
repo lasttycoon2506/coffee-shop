@@ -16,11 +16,11 @@
       </Label>
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToCustomerPg" prefHeight="39.0" prefWidth="80.0" text="BACK" />
       <Button layoutX="506.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToHomePg" prefHeight="39.0" prefWidth="80.0" text="HOME" />
-      <TableView fx:id="table" layoutX="175.0" layoutY="117.0" prefHeight="200.0" prefWidth="358.0">
+      <TableView fx:id="table" layoutX="-2.0" layoutY="115.0" prefHeight="283.0" prefWidth="600.0">
         <columns>
-          <TableColumn fx:id="userColumn" prefWidth="75.0" text="C1" />
-          <TableColumn fx:id="pwColumn" prefWidth="75.0" text="C2" />
-            <TableColumn fx:id="firstNColumn" prefWidth="75.0" text="Column X" />
+          <TableColumn fx:id="userColumn" prefWidth="75.0" text="User Name" />
+          <TableColumn fx:id="pwColumn" prefWidth="75.0" text="Password" />
+            <TableColumn fx:id="firstNColumn" prefWidth="75.0" text="First Name" />
         </columns>
       </TableView>
    </children>
