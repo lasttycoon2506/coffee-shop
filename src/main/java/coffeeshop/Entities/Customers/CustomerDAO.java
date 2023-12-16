@@ -81,12 +81,8 @@ public class CustomerDAO implements DAO<Customer> {
         executeInsideTransaction(entityManager -> entityManager.persist(customer));
     }
 
-    public List<Customer> listView(){
-        return null;
-    }
-
     public void update(Customer customer){
-        
+
     }
 
     public void delete(Customer customer){

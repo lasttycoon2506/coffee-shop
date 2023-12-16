@@ -10,7 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-
+//@ for JPA
 @Entity
 @Table(name = "Customers")
 public class Customer {
@@ -25,6 +25,7 @@ public class Customer {
         this.email = email;
         this.phone = phone;
     }
+    //@ = JPA interfacing
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer customer_id;

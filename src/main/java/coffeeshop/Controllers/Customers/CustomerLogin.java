@@ -1,6 +1,7 @@
 package coffeeshop.Controllers.Customers;
 
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.util.function.UnaryOperator;
 import coffeeshop.App;
 import coffeeshop.Entities.Customers.CustomerDAOService;
@@ -48,6 +49,9 @@ public class CustomerLogin {
         }
         else {
             Customer customer = CustomerDAOService.login(userLogin.getText(), pwLogin.getText());
+            Field pWordHash = customer.getClass().getDeclaredField("customer_id");
+            pWordHash.setAccessible(true);
+            System.out.println(pWordHash);
             switchToCustomerPg();
         }
     }
