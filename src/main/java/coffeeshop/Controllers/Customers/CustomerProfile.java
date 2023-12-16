@@ -36,7 +36,7 @@ public class CustomerProfile {
 	
 	public void initialize() throws NoSuchAlgorithmException, InvalidKeySpecException{
         customer = Context.getInstance().getCustomer();
-		data = FXCollections.observableArrayList( new Customer(customer.getUserName(), customer.getPassword(), customer.getFirstName(),
+		data = FXCollections.observableArrayList(new Customer(customer.getUserName(), customer.getPassword(), customer.getFirstName(),
 														customer.getLastName(), customer.getEmail(), customer.getPhone())
         );
 		createTable();
@@ -45,14 +45,15 @@ public class CustomerProfile {
 
 	public void createTable()  {
 		table.setEditable(true);
- 
-        userColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("user_name"));
-        pwColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("passWord"));
+        userColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("userName"));
+        pwColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("pWord"));
         firstNColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("firstName"));
- 
+		lastNColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("lastName"));
+        emailColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("email"));
+        phoneColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("phone"));
         table.setItems(data);
 	}
-	
+
     @FXML
     private void switchToCustomerPg() throws IOException {
         App.setRoot("customer");

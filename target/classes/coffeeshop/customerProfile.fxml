@@ -21,6 +21,9 @@
           <TableColumn fx:id="userColumn" prefWidth="75.0" text="User Name" />
           <TableColumn fx:id="pwColumn" prefWidth="75.0" text="Password" />
             <TableColumn fx:id="firstNColumn" prefWidth="75.0" text="First Name" />
+            <TableColumn fx:id="lastNColumn" prefWidth="75.0" text="Last Name" />
+            <TableColumn fx:id="emailColumn" prefWidth="75.0" text="Email" />
+            <TableColumn fx:id="phoneColumn" prefWidth="75.0" text="Phone" />
         </columns>
       </TableView>
    </children>
