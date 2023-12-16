@@ -44,12 +44,11 @@ public class CustomerLogin {
         else if (!CustomerDAOService.userNameExists(userLogin.getText())) {
             notificationWindow("error");
         }
-        else if (CustomerDAOService.login(userLogin.getText(), pwLogin.getText()) == null){
+        else if (!CustomerDAOService.login(userLogin.getText(), pwLogin.getText())){
             notificationWindow("user/pw incorrect");
         }
         else {
-            Customer customer = CustomerDAOService.login(userLogin.getText(), pwLogin.getText());
-            Context.getInstance().setCustomer(customer);
+            CustomerDAOService.login(userLogin.getText(), pwLogin.getText());
             switchToCustomerPg();
         }
     }

@@ -27,7 +27,7 @@ public class CustomerDAOService {
         });
     }
 
-    public static Customer login(String userName, String pw) throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException{
+    public static Boolean login(String userName, String pw) throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException{
         return customerDAO.login(userName, pw);
     }
     
