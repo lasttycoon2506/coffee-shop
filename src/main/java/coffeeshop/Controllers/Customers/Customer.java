@@ -7,6 +7,10 @@ import javafx.fxml.FXML;
 
 public class Customer {
     @FXML
+    private void switchToCustomerOrdersPg() throws IOException {
+        App.setRoot("customerOrders");
+    }
+    @FXML
     private void switchToCustomerProfilePg() throws IOException {
         App.setRoot("customerProfile");
     }

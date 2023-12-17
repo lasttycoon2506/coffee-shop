@@ -14,7 +14,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
 
 
-public class CustomerProfile {
+public class CustomerOrders {
 	@FXML
 	private Customer customer;
 	@FXML

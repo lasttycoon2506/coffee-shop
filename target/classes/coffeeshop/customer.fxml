@@ -11,7 +11,7 @@
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Button layoutX="238.0" layoutY="238.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="125.0" text="New Order">
+      <Button layoutX="238.0" layoutY="238.0" mnemonicParsing="false" onAction="#switchToCustomerOrdersPg" prefHeight="44.0" prefWidth="125.0" text="New Order">
          <font>
             <Font size="18.0" />
          </font></Button>
