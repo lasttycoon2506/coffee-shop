@@ -86,8 +86,11 @@ public class CustomerDAO implements DAO<Customer> {
     }
 
     public void edit(Customer customer){
-        Customer customerToEdit = entityManager.merge(customer);
-        customerToEdit.setEmail("tt@gmail.com");
+                EntityTransaction transaction = entityManager.getTransaction();
+        transaction.begin();
+                Customer customerToEdit = entityManager.merge(customer);
+        customerToEdit.setEmail("testing@gmail.com");
+                transaction.commit();
         // hibernates update to-do...
     }
 

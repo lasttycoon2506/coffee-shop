@@ -91,7 +91,7 @@ public class CustomerProfile {
 
     private void loadData() {
         userEntry.setText(data.getUserName());
-        pwEntry.setText("Enter New Password");
+        // pwEntry.setText("Enter New Password");
         fNameEntry.setText(data.getFirstName());
         lNameEntry.setText(data.getLastName());
         emailEntry.setText(data.getEmail());
@@ -101,16 +101,16 @@ public class CustomerProfile {
      
     @FXML
 	public void edit(ActionEvent event) throws IOException, SQLException, JDBCException, NoSuchAlgorithmException, InvalidKeySpecException {
-        if (userEntry.getText().trim().isEmpty() || pwEntry.getText().isEmpty()
-            || fNameEntry.getText().trim().isEmpty() || lNameEntry.getText().trim().isEmpty()
+        if (userEntry.getText().trim().isEmpty() || // pwEntry.getText().isEmpty()
+             fNameEntry.getText().trim().isEmpty() || lNameEntry.getText().trim().isEmpty()
             || emailEntry.getText().trim().isEmpty() || phoneEntry.getText().isEmpty()) {
             
             if (userEntry.getText().trim().isEmpty()){
                 notificationWindow("error", "User Name Empty!");
             }
-            else if (pwEntry.getText().isEmpty()){
-                notificationWindow("error", "Password Empty!");
-            }
+            // else if (pwEntry.getText().isEmpty()){
+            //     notificationWindow("error", "Password Empty!");
+            // }
             else if (fNameEntry.getText().trim().isEmpty()){
                 notificationWindow("error", "First Name Empty!");
             }
@@ -135,9 +135,9 @@ public class CustomerProfile {
                 notificationWindow("error", "Phone Exists!");
 
                 }
-            if (!pwValidator(pwEntry, errorList)){
-                notificationWindow("error", stringFormatter(errorList));
-            }
+            // if (!pwValidator(pwEntry, errorList)){
+            //     notificationWindow("error", stringFormatter(errorList));
+            // }
             else if (!emailValidator(emailEntry)){
                 notificationWindow("error", emailErr);
             }
@@ -148,11 +148,11 @@ public class CustomerProfile {
                 notificationWindow("error", emailErr);
             }
             else {
-                CustomerDTO newEntry = new CustomerDTO(userEntry.getText().trim(), pwEntry.getText(), fNameEntry.getText().trim(), 
+                CustomerDTO editEntry = new CustomerDTO(userEntry.getText().trim(), pwEntry.getText(), fNameEntry.getText().trim(), 
                                             lNameEntry.getText().trim(), emailEntry.getText().trim(), phoneEntry.getText());  
 
-                CustomerDAOService.editCustomer(new Customer(newEntry.userName(), newEntry.password(), newEntry.firstName(), 
-                                                        newEntry.lastName(), newEntry.email(), newEntry.phone()));
+                CustomerDAOService.editCustomer(new Customer(editEntry.userName(), editEntry.password(), editEntry.firstName(), 
+                                                        editEntry.lastName(), editEntry.email(), editEntry.phone()));
                 notificationWindow("confirmation", null);
                 switchToCustomerPg();
             }
