@@ -261,6 +261,5 @@ public class NewCustomer {
             dialog = new Alert(AlertType.ERROR, message, ButtonType.OK);
         }
         dialog.show();
-
     }
 }
