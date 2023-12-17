@@ -58,16 +58,22 @@ public class Customer {
         return phone;
     }
 
-    public void setUserName(){
+    public void setUserName(String newUserName){
+        this.user_name = newUserName;
     }
-    public void setPassword(){
+    public void setPassword(String newPW){
+        this.pword = newPW;
     }
-    public void setFirstName(){
+    public void setFirstName(String newFirstName){
+        this.first_name = newFirstName;
     }
-    public void setLastName(){
+    public void setLastName(String newLastName){
+        this.last_name = newLastName;
     }
-    public void setEmail(){
+    public void setEmail(String newEmail){
+        this.email = newEmail;
     }
-    public void setPhone(){
+    public void setPhone(String newPhone){
+        this.phone = newPhone;
     }
 }
