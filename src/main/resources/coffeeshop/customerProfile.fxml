@@ -3,7 +3,13 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coffeeshop.Controllers.Customers.CustomerProfile">
@@ -13,8 +19,22 @@
             <Font name="Century Gothic" size="48.0" />
          </font>
       </Label>
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToCustomerLoginPg" prefHeight="41.0" prefWidth="69.0" text="Back" />
-      <Button layoutX="513.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToHomePg" prefHeight="41.0" prefWidth="69.0" text="Home" />
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToCustomerLoginPg" prefHeight="41.0" prefWidth="69.0" style="-fx-background-color: lightyellow;" text="Back" textFill="#262424">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.9473684430122375" green="0.01461988314986229" blue="0.01461988314986229" />
+               </color>
+            </DropShadow>
+         </effect></Button>
+      <Button layoutX="513.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToHomePg" prefHeight="41.0" prefWidth="69.0" style="-fx-background-color: lightyellow;" text="Home">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.969298243522644" green="0.022437458857893944" blue="0.022437458857893944" />
+               </color>
+            </DropShadow>
+         </effect></Button>
       <TextField fx:id="fNameEntry" layoutX="42.0" layoutY="218.0" onKeyReleased="#resetFnameLabel" prefHeight="25.0" prefWidth="237.0" />
       <TextField fx:id="lNameEntry" layoutX="331.0" layoutY="218.0" onKeyReleased="#resetLnameLabel" prefHeight="25.0" prefWidth="237.0" />
       <TextField fx:id="emailEntry" layoutX="42.0" layoutY="289.0" onKeyReleased="#resetEmailLabel" prefHeight="25.0" prefWidth="237.0" />
@@ -23,7 +43,24 @@
       <Label layoutX="417.0" layoutY="197.0" text="Last Name" />
       <Label layoutX="142.0" layoutY="272.0" text="Email" />
       <Label layoutX="434.0" layoutY="272.0" text="Phone" />
-      <Button layoutX="227.0" layoutY="354.0" mnemonicParsing="false" onAction="#submit" prefHeight="41.0" prefWidth="140.0" text="REGISTER" />
+      <Button layoutX="227.0" layoutY="354.0" mnemonicParsing="false" onAction="#edit" prefHeight="41.0" prefWidth="140.0" text="EDIT">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <effect>
+            <Reflection>
+               <input>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </input>
+            </Reflection>
+         </effect></Button>
       <Label fx:id="fNameLabel" layoutX="112.0" layoutY="247.0" prefHeight="17.0" prefWidth="97.0" />
       <Label fx:id="lNameLabel" layoutX="405.0" layoutY="247.0" />
       <Label fx:id="emailLabel" layoutX="125.0" layoutY="314.0" />

@@ -100,7 +100,7 @@ public class CustomerProfile {
 	
      
     @FXML
-	public void submit(ActionEvent event) throws IOException, SQLException, JDBCException, NoSuchAlgorithmException, InvalidKeySpecException {
+	public void edit(ActionEvent event) throws IOException, SQLException, JDBCException, NoSuchAlgorithmException, InvalidKeySpecException {
         if (userEntry.getText().trim().isEmpty() || pwEntry.getText().isEmpty()
             || fNameEntry.getText().trim().isEmpty() || lNameEntry.getText().trim().isEmpty()
             || emailEntry.getText().trim().isEmpty() || phoneEntry.getText().isEmpty()) {
@@ -151,8 +151,8 @@ public class CustomerProfile {
                 CustomerDTO newEntry = new CustomerDTO(userEntry.getText().trim(), pwEntry.getText(), fNameEntry.getText().trim(), 
                                             lNameEntry.getText().trim(), emailEntry.getText().trim(), phoneEntry.getText());  
 
-                // CustomerDAOService.saveCustomer(new Customer(newEntry.userName(), newEntry.password(), newEntry.firstName(), 
-                //                                         newEntry.lastName(), newEntry.email(), newEntry.phone()));
+                CustomerDAOService.editCustomer(new Customer(newEntry.userName(), newEntry.password(), newEntry.firstName(), 
+                                                        newEntry.lastName(), newEntry.email(), newEntry.phone()));
                 notificationWindow("confirmation", null);
                 switchToCustomerPg();
             }

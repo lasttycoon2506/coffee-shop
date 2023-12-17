@@ -85,8 +85,8 @@ public class CustomerDAO implements DAO<Customer> {
         Context.getInstance().setCustomer(customer);
     }
 
-    public void update(Customer customer){
-
+    public void edit(Customer customer){
+        // hibernates update to-do...
     }
 
     public void delete(Customer customer){
