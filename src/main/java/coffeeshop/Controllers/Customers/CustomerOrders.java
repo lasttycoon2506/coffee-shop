@@ -16,7 +16,7 @@ import javafx.scene.control.TableColumn;
 
 public class CustomerOrders {
 	@FXML
-	private Customer customer;
+	private static Customer customer = Context.getInstance().getCustomer();
 	@FXML
     private TableView<Customer> table;
 	@FXML
@@ -35,7 +35,6 @@ public class CustomerOrders {
 	private TableColumn<Customer, String> phoneColumn;
 	
 	public void initialize() throws NoSuchAlgorithmException, InvalidKeySpecException{
-        customer = Context.getInstance().getCustomer();
 		data = FXCollections.observableArrayList(new Customer(customer.getUserName(), customer.getPassword(), customer.getFirstName(),
 														customer.getLastName(), customer.getEmail(), customer.getPhone())
         );

@@ -12,10 +12,9 @@ import java.util.regex.Pattern;
 import org.hibernate.JDBCException;
 import coffeeshop.App;
 import coffeeshop.Entities.Customers.CustomerDAOService;
+import coffeeshop.Models.Context;
 import coffeeshop.Models.CustomerDTO;
 import coffeeshop.Entities.Customers.Customer;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -33,10 +32,12 @@ public class CustomerProfile {
     static String emailErr;
     static String phoneLenErr;
 
+    // @FXML
+	// private Context customer;
     @FXML
-	private Customer customer;
+    private static Customer customer = Context.getInstance().getCustomer();
     @FXML
-	private ObservableList<Customer> data;
+	private Customer data;
     @FXML
     private Label userLabel;
     @FXML
@@ -83,9 +84,13 @@ public class CustomerProfile {
     public void initialize() throws NoSuchAlgorithmException, InvalidKeySpecException{
         pwEntry.setTextFormatter(new TextFormatter<>(spaceFilter));
         phoneEntry.setTextFormatter(new TextFormatter<>(phoneFilter));
-        data = FXCollections.observableArrayList(new Customer(customer.getUserName(), customer.getPassword(), customer.getFirstName(),
-														customer.getLastName(), customer.getEmail(), customer.getPhone())
-        );
+        data = new Customer(customer.getUserName(), customer.getPassword(), customer.getFirstName(),
+														customer.getLastName(), customer.getEmail(), customer.getPhone());                                               
+        loadData();
+    }
+
+    private void loadData() {
+        userEntry.setText(data.getUserName());
     }
 	
      
