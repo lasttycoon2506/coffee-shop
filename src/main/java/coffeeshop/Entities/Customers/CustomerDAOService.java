@@ -47,8 +47,8 @@ public class CustomerDAOService {
         return customerDAO.phoneExists(phone);
     }
     
-    public static void editCustomer(Customer customer) {
-        customerDAO.edit(customer);
+    public static void editCustomer() {
+        customerDAO.edit();
     }
     
     public static void saveCustomer(Customer customer) {

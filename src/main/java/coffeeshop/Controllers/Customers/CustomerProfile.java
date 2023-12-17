@@ -150,9 +150,7 @@ public class CustomerProfile {
             else {
                 CustomerDTO editEntry = new CustomerDTO(userEntry.getText().trim(), pwEntry.getText(), fNameEntry.getText().trim(), 
                                             lNameEntry.getText().trim(), emailEntry.getText().trim(), phoneEntry.getText());  
-
-                CustomerDAOService.editCustomer(new Customer(editEntry.userName(), editEntry.password(), editEntry.firstName(), 
-                                                        editEntry.lastName(), editEntry.email(), editEntry.phone()));
+                CustomerDAOService.editCustomer();
                 notificationWindow("confirmation", null);
                 switchToCustomerPg();
             }

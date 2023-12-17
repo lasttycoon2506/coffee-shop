@@ -39,6 +39,9 @@ public class Customer {
     @Column(unique = true)
     private String phone;
 
+    public Integer getCustomerID(){
+        return customer_id;
+    }
     public String getUserName(){
         return user_name;
     }

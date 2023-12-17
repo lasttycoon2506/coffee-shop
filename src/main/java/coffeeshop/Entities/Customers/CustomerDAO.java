@@ -17,6 +17,7 @@ import jakarta.persistence.Persistence;
 public class CustomerDAO implements DAO<Customer> {
     final EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa-hibernate-mysql");
     final EntityManager entityManager = factory.createEntityManager();
+    private static Context customer;
     
     @Override
     public Optional<Customer> get(Integer id) {
@@ -85,12 +86,15 @@ public class CustomerDAO implements DAO<Customer> {
         Context.getInstance().setCustomer(customer);
     }
 
-    public void edit(Customer customer){
-                EntityTransaction transaction = entityManager.getTransaction();
-        transaction.begin();
-                Customer customerToEdit = entityManager.merge(customer);
-        customerToEdit.setEmail("testing@gmail.com");
-                transaction.commit();
+    
+    public void edit(){
+    Integer customerID = Context.getInstance().getCustomer().getCustomerID();
+        //         EntityTransaction transaction = entityManager.getTransaction();
+        // transaction.begin();
+        //         Customer customerToEdit = entityManager.merge(customer);
+        // customerToEdit.setEmail("testing@gmail.com");
+        //         transaction.commit();
+        System.out.println(customerID);
         // hibernates update to-do...
     }
 
@@ -110,4 +114,6 @@ public class CustomerDAO implements DAO<Customer> {
             throw e;
         }
     }
+
+
 }
