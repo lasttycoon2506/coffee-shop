@@ -57,4 +57,17 @@ public class Customer {
     public String getPhone(){
         return phone;
     }
+
+    public void setUserName(){
+    }
+    public void setPassword(){
+    }
+    public void setFirstName(){
+    }
+    public void setLastName(){
+    }
+    public void setEmail(){
+    }
+    public void setPhone(){
+    }
 }
