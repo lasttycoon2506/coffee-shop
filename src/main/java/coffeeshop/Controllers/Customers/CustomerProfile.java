@@ -91,7 +91,7 @@ public class CustomerProfile {
 
     private void loadData() {
         userEntry.setText(data.getUserName());
-        pwEntry.setText(data.getPassword());
+        pwEntry.setText("Enter New Password");
         fNameEntry.setText(data.getFirstName());
         lNameEntry.setText(data.getLastName());
         emailEntry.setText(data.getEmail());

@@ -6,15 +6,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coffeeshop.Controllers.Customers.CustomerProfile">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="coffeeshop.Controllers.Customers.CustomerProfile">
    <children>
       <Label alignment="CENTER" layoutX="-1.0" layoutY="14.0" prefHeight="63.0" prefWidth="600.0" text="YOUR PROFILE" textAlignment="CENTER">
          <font>
             <Font name="Century Gothic" size="48.0" />
          </font>
       </Label>
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToCustomerLoginPg" text="Back" />
-      <Button layoutX="534.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToHomePg" text="Home" />
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToCustomerLoginPg" prefHeight="41.0" prefWidth="69.0" text="Back" />
+      <Button layoutX="513.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToHomePg" prefHeight="41.0" prefWidth="69.0" text="Home" />
       <TextField fx:id="fNameEntry" layoutX="42.0" layoutY="218.0" onKeyReleased="#resetFnameLabel" prefHeight="25.0" prefWidth="237.0" />
       <TextField fx:id="lNameEntry" layoutX="331.0" layoutY="218.0" onKeyReleased="#resetLnameLabel" prefHeight="25.0" prefWidth="237.0" />
       <TextField fx:id="emailEntry" layoutX="42.0" layoutY="289.0" onKeyReleased="#resetEmailLabel" prefHeight="25.0" prefWidth="237.0" />
