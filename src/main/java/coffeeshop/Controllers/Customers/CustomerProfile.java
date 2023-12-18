@@ -90,6 +90,7 @@ public class CustomerProfile {
         loadData();
     }
 
+
     private void loadData() {
         userEntry.setText(data.getUserName());
         // pwEntry.setText("Enter New Password");
@@ -102,7 +103,12 @@ public class CustomerProfile {
      
     @FXML
 	public void edit(ActionEvent event) throws IOException, SQLException, JDBCException, NoSuchAlgorithmException, InvalidKeySpecException {
-        if (userEntry.getText().isEmpty() || // pwEntry.getText().isEmpty()
+        if (userEntry.getText().equals(data.getUserName()) && fNameEntry.getText().equals(data.getFirstName()) 
+            && lNameEntry.getText().equals(data.getLastName()) && emailEntry.getText().equals(data.getEmail())
+            && phoneEntry.getText().equals(data.getPhone()) ) {
+                notificationWindow("error", "No Changes Made!");
+        }
+        else if (userEntry.getText().isEmpty() || // pwEntry.getText().isEmpty()
              fNameEntry.getText().trim().isEmpty() || lNameEntry.getText().trim().isEmpty()
             || emailEntry.getText().isEmpty() || phoneEntry.getText().isEmpty()) {
             
@@ -126,13 +132,13 @@ public class CustomerProfile {
             }
         }
         else {
-            if (!customer.getUserName().equals(userEntry.getText()) && CustomerDAOService.userNameExists(userEntry.getText())){
+            if (!data.getUserName().equals(userEntry.getText()) && CustomerDAOService.userNameExists(userEntry.getText())){
                 notificationWindow("error", "User Name Exists!");
                 }
-            else if (!customer.getEmail().equals(emailEntry.getText()) && CustomerDAOService.emailExists(emailEntry.getText())){
+            else if (!data.getEmail().equals(emailEntry.getText()) && CustomerDAOService.emailExists(emailEntry.getText())){
                 notificationWindow("error", "Email Exists!");
                 }
-            else if (!customer.getPhone().equals(phoneEntry.getText()) && CustomerDAOService.phoneExists(phoneEntry.getText())){
+            else if (!data.getPhone().equals(phoneEntry.getText()) && CustomerDAOService.phoneExists(phoneEntry.getText())){
                 notificationWindow("error", "Phone Exists!");
                 }
             // if (!pwValidator(pwEntry, errorList)){
