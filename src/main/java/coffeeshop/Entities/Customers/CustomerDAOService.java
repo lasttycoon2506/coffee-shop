@@ -30,7 +30,7 @@ public class CustomerDAOService {
     }
 
     public static Boolean login(String userName, String pw) throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException{
-        return customerDAO.login(userName, pw);
+        return CustomerDAO.login(userName, pw);
     }
     
     public static List<Customer> getAllCustomers() {
@@ -38,15 +38,15 @@ public class CustomerDAOService {
     }
 
     public static Boolean userNameExists(String userName) {
-        return customerDAO.userNameExists(userName);
+        return CustomerDAO.userNameExists(userName);
     }
 
     public static Boolean emailExists(String email) {
-        return customerDAO.emailExists(email);
+        return CustomerDAO.emailExists(email);
     }
 
     public static Boolean phoneExists(String phone) {
-        return customerDAO.phoneExists(phone);
+        return CustomerDAO.phoneExists(phone);
     }
 
     public static void saveCustomer(CustomerDTO customerDTO) throws NoSuchAlgorithmException, InvalidKeySpecException {

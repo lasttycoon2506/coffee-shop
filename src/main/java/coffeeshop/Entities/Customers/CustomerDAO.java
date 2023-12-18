@@ -79,7 +79,7 @@ public class CustomerDAO implements DAO<Customer> {
             return false;
         }
     }
-
+    
     public void save(Customer customer) {
         executeInsideTransaction(entityManager -> entityManager.persist(customer));
         Context.getInstance().setCustomer(customer);
