@@ -19,18 +19,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
-import javafx.scene.input.MouseEvent;
 
 
 public class CustomerProfile {
     List<String> errorList = new ArrayList<String>();
     static String emailErr;
     static String phoneLenErr;
-
     @FXML
     private static Customer customer;
     @FXML
@@ -88,9 +85,14 @@ public class CustomerProfile {
      
     @FXML
 	public void edit(ActionEvent event) throws IOException, SQLException, JDBCException, NoSuchAlgorithmException, InvalidKeySpecException {
-        if (userEntry.getText().equals(data.getUserName()) && fNameEntry.getText().equals(data.getFirstName()) 
-            && lNameEntry.getText().equals(data.getLastName()) && emailEntry.getText().equals(data.getEmail())
-            && phoneEntry.getText().equals(data.getPhone()) ) {
+        if (userEntry.getText().equals(data.getUserName()) && pwEntry.getText().equals("")
+            && fNameEntry.getText().equals(data.getFirstName()) && lNameEntry.getText().equals(data.getLastName()) 
+            && emailEntry.getText().equals(data.getEmail()) && phoneEntry.getText().equals(data.getPhone()) ) {
+                    notificationWindow("error", "No Changes Made!");
+        }
+        else if (userEntry.getText().equals(data.getUserName()) && pwEntry.getText().equals("Enter New Password")
+            && fNameEntry.getText().equals(data.getFirstName()) && lNameEntry.getText().equals(data.getLastName()) 
+            && emailEntry.getText().equals(data.getEmail()) && phoneEntry.getText().equals(data.getPhone()) ) {
                     notificationWindow("error", "No Changes Made!");
         }
         else if (userEntry.getText().isEmpty() ||  pwEntry.getText().isEmpty()
@@ -227,7 +229,7 @@ public class CustomerProfile {
         pwEntry.clear();
     }
 
-    
+
     //page navigation...
     @FXML
     private void switchToHomePg() throws IOException {
