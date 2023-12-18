@@ -6,7 +6,6 @@ import coffeeshop.App;
 
 
 public class Home {
-
     @FXML
     private void switchToCustomerPg() throws IOException {
         App.setRoot("customerLogin");
@@ -16,5 +15,4 @@ public class Home {
     private void switchToEmployeePg() throws IOException {
         App.setRoot("employee");
     }
-
 }

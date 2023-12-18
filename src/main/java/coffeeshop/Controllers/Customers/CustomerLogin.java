@@ -8,7 +8,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
@@ -19,9 +18,7 @@ public class CustomerLogin {
 	private TextField userLogin;
     @FXML
 	private TextField pwLogin;
-    @FXML
-	private Button myButton;
-
+    
     UnaryOperator<TextFormatter.Change> spaceFilter = change -> {
         if (change.getText().equals(" ")) {
             change.setText("");
@@ -52,7 +49,7 @@ public class CustomerLogin {
     }
 
 
-    private void notificationWindow(String windowType) {
+    private static void notificationWindow(String windowType) {
         Alert dialog;
         if (windowType.equals("confirmation")) {
             dialog = new Alert(AlertType.CONFIRMATION, "Successfully Added!", ButtonType.OK);

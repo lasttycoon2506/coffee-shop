@@ -27,17 +27,17 @@ public class NewCustomer {
     private static String emailErr;
     private static String phoneLenErr;
     @FXML
-	private static TextField userEntry;
+	private TextField userEntry;
     @FXML
-	private static TextField pwEntry;
+	private TextField pwEntry;
 	@FXML
-	private static TextField fNameEntry;
+	private TextField fNameEntry;
     @FXML
-	private static TextField lNameEntry;
+	private TextField lNameEntry;
     @FXML
-	private static TextField emailEntry;
+	private TextField emailEntry;
     @FXML
-    private static TextField phoneEntry;
+    private TextField phoneEntry;
 
     // pw doesnt accept space
     UnaryOperator<TextFormatter.Change> spaceFilter = change -> {
@@ -206,7 +206,7 @@ public class NewCustomer {
     }
     
 
-    private void notificationWindow(String windowType, String message) {
+    private static void notificationWindow(String windowType, String message) {
         Alert dialog;
         if (windowType.equals("confirmation")) {
             dialog = new Alert(AlertType.CONFIRMATION, "Successfully Added!", ButtonType.OK);
