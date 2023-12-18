@@ -273,7 +273,7 @@ public class CustomerProfile {
     private void notificationWindow(String windowType, String message) {
         Alert dialog;
         if (windowType.equals("confirmation")) {
-            dialog = new Alert(AlertType.CONFIRMATION, "Successfully Added!", ButtonType.OK);
+            dialog = new Alert(AlertType.CONFIRMATION, "Successfully Edited!", ButtonType.OK);
         }
         else {
             dialog = new Alert(AlertType.ERROR, message, ButtonType.OK);
