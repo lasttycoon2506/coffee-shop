@@ -84,7 +84,7 @@ public class CustomerProfile {
 	
      
     @FXML
-	public void edit(ActionEvent event) throws IOException, SQLException, JDBCException, NoSuchAlgorithmException, InvalidKeySpecException {
+	private void edit(ActionEvent event) throws IOException, SQLException, JDBCException, NoSuchAlgorithmException, InvalidKeySpecException {
         if (userEntry.getText().equals(data.getUserName()) && pwEntry.getText().equals("")
             && fNameEntry.getText().equals(data.getFirstName()) && lNameEntry.getText().equals(data.getLastName()) 
             && emailEntry.getText().equals(data.getEmail()) && phoneEntry.getText().equals(data.getPhone()) ) {
@@ -157,7 +157,7 @@ public class CustomerProfile {
 	}
     
 
-    public static boolean pwValidator(TextField pwField, List<String> errorList) {
+    private static boolean pwValidator(TextField pwField, List<String> errorList) {
         String pw = pwField.getText();
         Pattern specialChar = Pattern.compile("[^a-z0-9]", Pattern.CASE_INSENSITIVE);
         Pattern upperCase = Pattern.compile("[A-Z]");
@@ -191,7 +191,7 @@ public class CustomerProfile {
 
 
     // email field accepts only @address...
-    public static boolean emailValidator(TextField emailField) {
+    private static boolean emailValidator(TextField emailField) {
         String email = emailField.getText().trim();
         Pattern gmailPattern = Pattern.compile("^.*@gmail.com.*$");
         Pattern yahooPattern = Pattern.compile("^.*@yahoo.com.*$");
@@ -209,7 +209,7 @@ public class CustomerProfile {
     }
 
 
-    public static boolean phoneLenValidator(TextField phoneField) {
+    private static boolean phoneLenValidator(TextField phoneField) {
         String phone = phoneField.getText();
         if (phone.length() != 10) {
             phoneLenErr = "Phone Number must be 10 digits!";
@@ -219,7 +219,7 @@ public class CustomerProfile {
     }
 
 
-    public String stringFormatter(List lst) {
+    private String stringFormatter(List lst) {
         String listToStr = Arrays.toString(lst.toArray()).replace("[", "").replace("]", "").replace(",", "");
         return listToStr;
     }

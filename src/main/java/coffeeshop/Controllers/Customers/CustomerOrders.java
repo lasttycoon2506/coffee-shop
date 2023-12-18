@@ -42,7 +42,7 @@ public class CustomerOrders {
     }
 	
 
-	public void loadTable()  {
+	private void loadTable()  {
 		table.setEditable(true);
         userColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("userName"));
         pwColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("pWord"));

@@ -8,12 +8,12 @@ import coffeeshop.App;
 public class Home {
 
     @FXML
-    void switchToCustomerPg() throws IOException {
+    private void switchToCustomerPg() throws IOException {
         App.setRoot("customerLogin");
     }
 
       @FXML
-    void switchToEmployeePg() throws IOException {
+    private void switchToEmployeePg() throws IOException {
         App.setRoot("employee");
     }
 

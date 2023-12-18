@@ -35,7 +35,7 @@ public class CustomerLogin {
     
 
     @FXML
-	public void loginAttempt(ActionEvent event) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, IOException {
+	private void loginAttempt(ActionEvent event) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, IOException {
         if (userLogin.getText().isEmpty() || pwLogin.getText().isEmpty()) {
             notificationWindow("blank field(s)");
         }
@@ -70,15 +70,15 @@ public class CustomerLogin {
     }
 
     @FXML
-    void switchToCustomerPg() throws IOException {
+    private void switchToCustomerPg() throws IOException {
         App.setRoot("customer");
     }
     @FXML
-    void switchToHomePg() throws IOException {
+    private void switchToHomePg() throws IOException {
         App.setRoot("home");
     }
     @FXML
-    void switchToNewCustomerPg() throws IOException {
+    private void switchToNewCustomerPg() throws IOException {
         App.setRoot("newCustomer");
     }
 }

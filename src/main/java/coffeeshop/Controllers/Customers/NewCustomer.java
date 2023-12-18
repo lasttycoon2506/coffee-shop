@@ -17,7 +17,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
@@ -27,7 +26,6 @@ public class NewCustomer {
     List<String> errorList = new ArrayList<String>();
     static String emailErr;
     static String phoneLenErr;
-
     @FXML
 	private TextField userEntry;
     @FXML
@@ -66,7 +64,7 @@ public class NewCustomer {
 	
      
     @FXML
-	public void submit(ActionEvent event) throws IOException, SQLException, JDBCException, NoSuchAlgorithmException, InvalidKeySpecException {
+	private void submit(ActionEvent event) throws IOException, SQLException, JDBCException, NoSuchAlgorithmException, InvalidKeySpecException {
         if (userEntry.getText().isEmpty() || pwEntry.getText().isEmpty()
             || fNameEntry.getText().trim().isEmpty() || lNameEntry.getText().trim().isEmpty()
             || emailEntry.getText().trim().isEmpty() || phoneEntry.getText().isEmpty()) {
@@ -125,7 +123,7 @@ public class NewCustomer {
 	}
     
 
-    public static boolean pwValidator(TextField pwField, List<String> errorList) {
+    private static boolean pwValidator(TextField pwField, List<String> errorList) {
         String pw = pwField.getText();
         Pattern specialChar = Pattern.compile("[^a-z0-9]", Pattern.CASE_INSENSITIVE);
         Pattern upperCase = Pattern.compile("[A-Z]");
@@ -159,7 +157,7 @@ public class NewCustomer {
 
 
     // email field accepts only @address...
-    public static boolean emailValidator(TextField emailField) {
+    private static boolean emailValidator(TextField emailField) {
         String email = emailField.getText().trim();
         Pattern gmailPattern = Pattern.compile("^.*@gmail.com.*$");
         Pattern yahooPattern = Pattern.compile("^.*@yahoo.com.*$");
@@ -177,7 +175,7 @@ public class NewCustomer {
     }
 
 
-    public static boolean phoneLenValidator(TextField phoneField) {
+    private static boolean phoneLenValidator(TextField phoneField) {
         String phone = phoneField.getText();
         if (phone.length() != 10) {
             phoneLenErr = "Phone Number must be 10 digits!";
@@ -187,7 +185,7 @@ public class NewCustomer {
     }
 
 
-    public String stringFormatter(List lst) {
+    private String stringFormatter(List lst) {
         String listToStr = Arrays.toString(lst.toArray()).replace("[", "").replace("]", "").replace(",", "");
         return listToStr;
     }
