@@ -130,11 +130,11 @@ public class NewCustomer {
                 notificationWindow("error", emailErr);
             }
             else {
-                CustomerDTO newEntry = new CustomerDTO(userEntry.getText().trim(), pwEntry.getText(), fNameEntry.getText().trim(), 
+                CustomerDTO newCustomer = new CustomerDTO(userEntry.getText().trim(), pwEntry.getText(), fNameEntry.getText().trim(), 
                                             lNameEntry.getText().trim(), emailEntry.getText().trim(), phoneEntry.getText());  
 
-                CustomerDAOService.saveCustomer(new Customer(newEntry.userName(), newEntry.password(), newEntry.firstName(), 
-                                                        newEntry.lastName(), newEntry.email(), newEntry.phone()));
+                CustomerDAOService.saveCustomer(new Customer(newCustomer.userName(), newCustomer.password(), newCustomer.firstName(), 
+                                                        newCustomer.lastName(), newCustomer.email(), newCustomer.phone()));
                 notificationWindow("confirmation", null);
                 switchToCustomerPg();
             }

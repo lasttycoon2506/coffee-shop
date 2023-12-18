@@ -148,9 +148,9 @@ public class CustomerProfile {
                 notificationWindow("error", emailErr);
             }
             else {
-                CustomerDTO editEntry = new CustomerDTO(userEntry.getText().trim(), pwEntry.getText(), fNameEntry.getText().trim(), 
-                                            lNameEntry.getText().trim(), emailEntry.getText().trim(), phoneEntry.getText());  
-                CustomerDAOService.editCustomer();
+                CustomerDTO editCustomer = new CustomerDTO(userEntry.getText().trim(), pwEntry.getText(), fNameEntry.getText().trim(), 
+                                            lNameEntry.getText().trim(), emailEntry.getText().trim(), phoneEntry.getText());      
+                CustomerDAOService.editCustomer(editCustomer);
                 notificationWindow("confirmation", null);
                 switchToCustomerPg();
             }

@@ -4,16 +4,20 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.List;
 import java.util.Optional;
+import coffeeshop.Models.Context;
+import coffeeshop.Models.CustomerDTO;
 
 
 public class CustomerDAOService {
     private static CustomerDAO customerDAO = new CustomerDAO();
+    private static Customer customer = Context.getInstance().getCustomer();
+
 
     public CustomerDAOService(CustomerDAO customerDAO) {
         CustomerDAOService.customerDAO = customerDAO;
     }
 
-    public static Customer getCustomer(Integer id) {
+    private static Customer getCustomer(Integer id) {
         Optional<Customer> customer = customerDAO.get(id);
         return customer.orElseGet(
           () -> {
@@ -47,8 +51,8 @@ public class CustomerDAOService {
         return customerDAO.phoneExists(phone);
     }
     
-    public static void editCustomer() {
-        customerDAO.edit();
+    public static void editCustomer(CustomerDTO customerDTO) {
+        customerDAO.edit(customer);
     }
     
     public static void saveCustomer(Customer customer) {
