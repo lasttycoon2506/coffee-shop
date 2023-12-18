@@ -40,8 +40,6 @@ public class NewCustomer {
 	private TextField emailEntry;
     @FXML
     private TextField phoneEntry;
-	@FXML
-	private Button myButton;
 
     // pw doesnt accept space
     UnaryOperator<TextFormatter.Change> spaceFilter = change -> {

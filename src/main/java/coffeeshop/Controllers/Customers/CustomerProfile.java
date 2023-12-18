@@ -23,6 +23,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
+import javafx.scene.input.MouseEvent;
 
 
 public class CustomerProfile {
@@ -46,8 +47,6 @@ public class CustomerProfile {
 	private TextField emailEntry;
     @FXML
     private TextField phoneEntry;
-	@FXML
-	private Button myButton;
 
     // pw doesnt accept space
     UnaryOperator<TextFormatter.Change> spaceFilter = change -> {
@@ -223,6 +222,7 @@ public class CustomerProfile {
         return listToStr;
     }
 
+    
 
     //page navigation...
     @FXML
