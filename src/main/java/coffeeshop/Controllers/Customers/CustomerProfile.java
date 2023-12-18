@@ -125,15 +125,14 @@ public class CustomerProfile {
             }
         }
         else {
-            if (CustomerDAOService.userNameExists(userEntry.getText())){
+            if (!customer.getUserName().equals(userEntry.getText()) && CustomerDAOService.userNameExists(userEntry.getText())){
                 notificationWindow("error", "User Name Exists!");
                 }
-            else if (CustomerDAOService.emailExists(emailEntry.getText())){
+            else if (!customer.getEmail().equals(emailEntry.getText()) && CustomerDAOService.emailExists(emailEntry.getText())){
                 notificationWindow("error", "Email Exists!");
                 }
-            else if (CustomerDAOService.phoneExists(phoneEntry.getText())){
+            else if (!customer.getPhone().equals(phoneEntry.getText()) && CustomerDAOService.phoneExists(phoneEntry.getText())){
                 notificationWindow("error", "Phone Exists!");
-
                 }
             // if (!pwValidator(pwEntry, errorList)){
             //     notificationWindow("error", stringFormatter(errorList));
