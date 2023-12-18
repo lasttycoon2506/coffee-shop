@@ -33,7 +33,7 @@ public class CustomerProfile {
     static String phoneLenErr;
 
     @FXML
-    private static Customer customer = Context.getInstance().getCustomer();
+    private static Customer customer;
     @FXML
 	private Customer data;
     @FXML
@@ -84,8 +84,9 @@ public class CustomerProfile {
         pwEntry.setTextFormatter(new TextFormatter<>(spaceFilter));
         emailEntry.setTextFormatter(new TextFormatter<>(spaceFilter));
         phoneEntry.setTextFormatter(new TextFormatter<>(phoneFilter));
+        customer = Context.getInstance().getCustomer();
         data = new Customer(customer.getUserName(), customer.getPassword(), customer.getFirstName(),
-														customer.getLastName(), customer.getEmail(), customer.getPhone());                                               
+														customer.getLastName(), customer.getEmail(), customer.getPhone());               
         loadData();
     }
 
