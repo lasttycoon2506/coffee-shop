@@ -133,8 +133,7 @@ public class NewCustomer {
                 CustomerDTO newCustomer = new CustomerDTO(userEntry.getText().trim(), pwEntry.getText(), fNameEntry.getText().trim(), 
                                             lNameEntry.getText().trim(), emailEntry.getText().trim(), phoneEntry.getText());  
 
-                CustomerDAOService.saveCustomer(new Customer(newCustomer.userName(), newCustomer.password(), newCustomer.firstName(), 
-                                                        newCustomer.lastName(), newCustomer.email(), newCustomer.phone()));
+                CustomerDAOService.saveCustomer(newCustomer);
                 notificationWindow("confirmation", null);
                 switchToCustomerPg();
             }

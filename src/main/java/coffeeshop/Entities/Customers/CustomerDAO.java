@@ -1,11 +1,14 @@
 package coffeeshop.Entities.Customers;
 
 import java.lang.reflect.Field;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
 import at.favre.lib.crypto.bcrypt.BCrypt;
 import coffeeshop.Models.Context;
+import coffeeshop.Models.CustomerDTO;
 import coffeeshop.Models.DAO;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -80,7 +83,7 @@ public class CustomerDAO implements DAO<Customer> {
         }
     }
 
-    public void save(Customer customer){
+    public void save(Customer customer) {
         executeInsideTransaction(entityManager -> entityManager.persist(customer));
         Context.getInstance().setCustomer(customer);
     }
@@ -106,6 +109,4 @@ public class CustomerDAO implements DAO<Customer> {
             throw e;
         }
     }
-
-
 }

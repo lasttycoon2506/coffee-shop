@@ -12,7 +12,6 @@ public class CustomerDAOService {
     private static CustomerDAO customerDAO = new CustomerDAO();
     private static Customer customer = Context.getInstance().getCustomer();
 
-
     public CustomerDAOService(CustomerDAO customerDAO) {
         CustomerDAOService.customerDAO = customerDAO;
     }
@@ -50,13 +49,16 @@ public class CustomerDAOService {
     public static Boolean phoneExists(String phone) {
         return customerDAO.phoneExists(phone);
     }
-    
-    public static void editCustomer(CustomerDTO customerDTO) {
-        customerDAO.edit(customer);
+
+    public static void saveCustomer(CustomerDTO customerDTO) throws NoSuchAlgorithmException, InvalidKeySpecException {
+        Customer newCustomer = new Customer(customerDTO.userName(), customerDTO.password(), customerDTO.firstName(), 
+                                                        customerDTO.lastName(), customerDTO.email(), customerDTO.phone());
+        customerDAO.save(newCustomer);
     }
     
-    public static void saveCustomer(Customer customer) {
-        customerDAO.save(customer);
+    public static void editCustomer(CustomerDTO customerDTO) {
+        customer.setEmail(customerDTO.email());
+        customerDAO.edit(Context.getInstance().getCustomer());
     }
     
     public static void deleteCustomer(Customer customer) {
