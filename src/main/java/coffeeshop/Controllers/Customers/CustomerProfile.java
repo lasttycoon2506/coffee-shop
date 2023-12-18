@@ -13,7 +13,7 @@ import org.hibernate.JDBCException;
 import coffeeshop.App;
 import coffeeshop.Entities.Customers.CustomerDAOService;
 import coffeeshop.Models.Context;
-import coffeeshop.Models.CustomerDTO;
+import coffeeshop.Security.PasswordGen;
 import coffeeshop.Entities.Customers.Customer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -93,7 +93,7 @@ public class CustomerProfile {
 
     private void loadData() {
         userEntry.setText(data.getUserName());
-        // pwEntry.setText("Enter New Password");
+        pwEntry.setText("Enter New Password");
         fNameEntry.setText(data.getFirstName());
         lNameEntry.setText(data.getLastName());
         emailEntry.setText(data.getEmail());
@@ -106,18 +106,18 @@ public class CustomerProfile {
         if (userEntry.getText().equals(data.getUserName()) && fNameEntry.getText().equals(data.getFirstName()) 
             && lNameEntry.getText().equals(data.getLastName()) && emailEntry.getText().equals(data.getEmail())
             && phoneEntry.getText().equals(data.getPhone()) ) {
-                notificationWindow("error", "No Changes Made!");
+                    notificationWindow("error", "No Changes Made!");
         }
-        else if (userEntry.getText().isEmpty() || // pwEntry.getText().isEmpty()
-             fNameEntry.getText().trim().isEmpty() || lNameEntry.getText().trim().isEmpty()
+        else if (userEntry.getText().isEmpty() ||  pwEntry.getText().isEmpty()
+            || fNameEntry.getText().trim().isEmpty() || lNameEntry.getText().trim().isEmpty()
             || emailEntry.getText().isEmpty() || phoneEntry.getText().isEmpty()) {
-            
+        
             if (userEntry.getText().isEmpty()){
                 notificationWindow("error", "User Name Empty!");
             }
-            // else if (pwEntry.getText().isEmpty()){
-            //     notificationWindow("error", "Password Empty!");
-            // }
+            else if (pwEntry.getText().isEmpty()){
+                notificationWindow("error", "Password Empty!");
+            }
             else if (fNameEntry.getText().trim().isEmpty()){
                 notificationWindow("error", "First Name Empty!");
             }
@@ -125,7 +125,7 @@ public class CustomerProfile {
                 notificationWindow("error", "Last Name Empty!");
             }
             else if (emailEntry.getText().isEmpty()){
-               notificationWindow("error", "Email Empty!");
+            notificationWindow("error", "Email Empty!");
             }
             else if (phoneEntry.getText().isEmpty()){
                 notificationWindow("error", "Phone Empty!");
@@ -141,9 +141,9 @@ public class CustomerProfile {
             else if (!data.getPhone().equals(phoneEntry.getText()) && CustomerDAOService.phoneExists(phoneEntry.getText())){
                 notificationWindow("error", "Phone Exists!");
                 }
-            // if (!pwValidator(pwEntry, errorList)){
-            //     notificationWindow("error", stringFormatter(errorList));
-            // }
+            if (!pwValidator(pwEntry, errorList) && !pwEntry.getText().equals("Enter New Password")){
+                notificationWindow("error", stringFormatter(errorList));
+            }
             else if (!emailValidator(emailEntry)){
                 notificationWindow("error", emailErr);
             }
@@ -155,6 +155,9 @@ public class CustomerProfile {
             }
             else {
                 customer.setUserName(userEntry.getText());
+                if (!pwEntry.getText().equals("Enter New Password")) {
+                    customer.setPassword(PasswordGen.getHashedPw(pwEntry.getText()));
+                }
                 customer.setFirstName(fNameEntry.getText());
                 customer.setLastName(lNameEntry.getText());
                 customer.setEmail(emailEntry.getText());
