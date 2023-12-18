@@ -35,10 +35,10 @@
                </color>
             </DropShadow>
          </effect></Button>
-      <TextField fx:id="fNameEntry" layoutX="42.0" layoutY="218.0" onKeyReleased="#resetFnameLabel" prefHeight="25.0" prefWidth="237.0" />
-      <TextField fx:id="lNameEntry" layoutX="331.0" layoutY="218.0" onKeyReleased="#resetLnameLabel" prefHeight="25.0" prefWidth="237.0" />
-      <TextField fx:id="emailEntry" layoutX="42.0" layoutY="289.0" onKeyReleased="#resetEmailLabel" prefHeight="25.0" prefWidth="237.0" />
-      <TextField fx:id="phoneEntry" layoutX="332.0" layoutY="289.0" onKeyReleased="#resetPhoneLabel" prefHeight="25.0" prefWidth="237.0" />
+      <TextField fx:id="fNameEntry" layoutX="42.0" layoutY="218.0" prefHeight="25.0" prefWidth="237.0" />
+      <TextField fx:id="lNameEntry" layoutX="331.0" layoutY="218.0" prefHeight="25.0" prefWidth="237.0" />
+      <TextField fx:id="emailEntry" layoutX="42.0" layoutY="289.0" prefHeight="25.0" prefWidth="237.0" />
+      <TextField fx:id="phoneEntry" layoutX="332.0" layoutY="289.0" prefHeight="25.0" prefWidth="237.0" />
       <Label layoutX="126.0" layoutY="197.0" prefHeight="17.0" prefWidth="69.0" text="First Name" />
       <Label layoutX="417.0" layoutY="197.0" text="Last Name" />
       <Label layoutX="142.0" layoutY="272.0" text="Email" />
@@ -67,8 +67,8 @@
       <Label fx:id="phoneLabel" layoutX="333.0" layoutY="314.0" prefHeight="17.0" prefWidth="237.0" />
       <Label layoutX="128.0" layoutY="113.0" prefHeight="17.0" prefWidth="56.0" text="Username" />
       <Label layoutX="423.0" layoutY="113.0" prefHeight="17.0" prefWidth="56.0" text="Password" />
-      <TextField fx:id="userEntry" layoutX="42.0" layoutY="134.0" onKeyReleased="#resetUserLabel" prefHeight="25.0" prefWidth="237.0" />
-      <TextField fx:id="pwEntry" layoutX="331.0" layoutY="134.0" onKeyReleased="#resetPwLabel" prefHeight="25.0" prefWidth="237.0" />
+      <TextField fx:id="userEntry" layoutX="42.0" layoutY="134.0" prefHeight="25.0" prefWidth="237.0" />
+      <TextField fx:id="pwEntry" layoutX="331.0" layoutY="134.0" prefHeight="25.0" prefWidth="237.0" />
       <Label fx:id="userLabel" layoutX="117.0" layoutY="163.0" />
       <Label fx:id="pwLabel" layoutX="331.0" layoutY="163.0" prefHeight="33.0" prefWidth="237.0">
          <font>

@@ -238,33 +238,6 @@ public class CustomerProfile {
     }
 
 
-    //clears empty label alert upon text entered
-    @FXML
-    void resetUserLabel(KeyEvent event) {
-        userLabel.setText("");
-    }
-    @FXML
-    void resetPwLabel(KeyEvent event) {
-        pwLabel.setText("");
-    }
-    @FXML
-    void resetFnameLabel(KeyEvent event) {
-        fNameLabel.setText("");
-    }
-    @FXML
-    void resetLnameLabel(KeyEvent event) {
-        lNameLabel.setText("");
-    }
-    @FXML
-    void resetEmailLabel(KeyEvent event) {
-        emailLabel.setText("");
-    }
-    @FXML
-    void resetPhoneLabel(KeyEvent event) {
-        phoneLabel.setText("");
-    }
-
-
     //page navigation...
     @FXML
     private void switchToHomePg() throws IOException {
