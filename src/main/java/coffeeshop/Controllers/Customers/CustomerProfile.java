@@ -21,10 +21,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
-import javafx.scene.input.KeyEvent;
 
 
 public class CustomerProfile {
@@ -36,18 +34,6 @@ public class CustomerProfile {
     private static Customer customer;
     @FXML
 	private Customer data;
-    @FXML
-    private Label userLabel;
-    @FXML
-    private Label pwLabel;
-    @FXML
-    private Label fNameLabel;
-    @FXML
-    private Label lNameLabel;
-    @FXML
-    private Label emailLabel;
-    @FXML
-    private Label phoneLabel;
     @FXML
 	private TextField userEntry;
     @FXML
