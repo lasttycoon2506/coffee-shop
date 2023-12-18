@@ -19,10 +19,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
-import javafx.scene.input.KeyEvent;
 
 
 public class NewCustomer {
@@ -30,18 +28,6 @@ public class NewCustomer {
     static String emailErr;
     static String phoneLenErr;
 
-    @FXML
-    private Label userLabel;
-    @FXML
-    private Label pwLabel;
-    @FXML
-    private Label fNameLabel;
-    @FXML
-    private Label lNameLabel;
-    @FXML
-    private Label emailLabel;
-    @FXML
-    private Label phoneLabel;
     @FXML
 	private TextField userEntry;
     @FXML
@@ -206,33 +192,6 @@ public class NewCustomer {
     public String stringFormatter(List lst) {
         String listToStr = Arrays.toString(lst.toArray()).replace("[", "").replace("]", "").replace(",", "");
         return listToStr;
-    }
-
-
-    //clears empty label alert upon text entered
-    @FXML
-    void resetUserLabel(KeyEvent event) {
-        userLabel.setText("");
-    }
-    @FXML
-    void resetPwLabel(KeyEvent event) {
-        pwLabel.setText("");
-    }
-    @FXML
-    void resetFnameLabel(KeyEvent event) {
-        fNameLabel.setText("");
-    }
-    @FXML
-    void resetLnameLabel(KeyEvent event) {
-        lNameLabel.setText("");
-    }
-    @FXML
-    void resetEmailLabel(KeyEvent event) {
-        emailLabel.setText("");
-    }
-    @FXML
-    void resetPhoneLabel(KeyEvent event) {
-        phoneLabel.setText("");
     }
 
 
