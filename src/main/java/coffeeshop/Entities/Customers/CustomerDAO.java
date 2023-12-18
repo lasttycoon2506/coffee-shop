@@ -15,8 +15,8 @@ import jakarta.persistence.Persistence;
 
 
 public class CustomerDAO implements DAO<Customer> {
-    final EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa-hibernate-mysql");
-    final EntityManager entityManager = factory.createEntityManager();
+    private static final EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa-hibernate-mysql");
+    private static final EntityManager entityManager = factory.createEntityManager();
     
     @Override
     public Optional<Customer> get(Integer id) {
@@ -27,7 +27,7 @@ public class CustomerDAO implements DAO<Customer> {
         return null;
     }
 
-    public Boolean userNameExists(String userName)  {
+    public static Boolean userNameExists(String userName)  {
         try {
             executeInsideTransaction(entityManager -> 
                                     entityManager.createQuery("SELECT u from Customer u WHERE u.user_name = :username", 
@@ -39,7 +39,7 @@ public class CustomerDAO implements DAO<Customer> {
         }
     }
 
-    public Boolean emailExists(String email)  {
+    public static Boolean emailExists(String email)  {
         try {
             executeInsideTransaction(entityManager -> 
                                     entityManager.createQuery("SELECT e from Customer e WHERE e.email = :email", 
@@ -51,7 +51,7 @@ public class CustomerDAO implements DAO<Customer> {
         }
     }
 
-    public Boolean phoneExists(String phone)  {
+    public static Boolean phoneExists(String phone)  {
         try {
             executeInsideTransaction(entityManager -> 
                 entityManager.createQuery("SELECT p from Customer p WHERE p.phone = :phone", 
@@ -63,7 +63,7 @@ public class CustomerDAO implements DAO<Customer> {
         }
     }
 
-    public Boolean login(String user, String pw) throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
+    public static Boolean login(String user, String pw) throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
         Customer customer = entityManager.createQuery("SELECT pwHash from Customer pwHash WHERE user_name = :userN",
                             Customer.class).setParameter("userN", user).getSingleResult();
         // gets pword field from customer obj
@@ -93,7 +93,7 @@ public class CustomerDAO implements DAO<Customer> {
 
     }
 
-    private void executeInsideTransaction(Consumer<EntityManager> action) {
+    private static void executeInsideTransaction(Consumer<EntityManager> action) {
         EntityTransaction transaction = entityManager.getTransaction();
         try {
             transaction.begin();
