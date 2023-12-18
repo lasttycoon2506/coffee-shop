@@ -76,6 +76,7 @@ public class NewCustomer {
     public void initialize(){
         userEntry.setTextFormatter(new TextFormatter<>(spaceFilter));
         pwEntry.setTextFormatter(new TextFormatter<>(spaceFilter));
+        emailEntry.setTextFormatter(new TextFormatter<>(spaceFilter));
         phoneEntry.setTextFormatter(new TextFormatter<>(phoneFilter));
     }
 	

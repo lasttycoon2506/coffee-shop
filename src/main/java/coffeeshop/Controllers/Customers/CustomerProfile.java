@@ -82,6 +82,7 @@ public class CustomerProfile {
     public void initialize() throws NoSuchAlgorithmException, InvalidKeySpecException{
         userEntry.setTextFormatter(new TextFormatter<>(spaceFilter));
         pwEntry.setTextFormatter(new TextFormatter<>(spaceFilter));
+        emailEntry.setTextFormatter(new TextFormatter<>(spaceFilter));
         phoneEntry.setTextFormatter(new TextFormatter<>(phoneFilter));
         data = new Customer(customer.getUserName(), customer.getPassword(), customer.getFirstName(),
 														customer.getLastName(), customer.getEmail(), customer.getPhone());                                               
@@ -102,7 +103,7 @@ public class CustomerProfile {
 	public void edit(ActionEvent event) throws IOException, SQLException, JDBCException, NoSuchAlgorithmException, InvalidKeySpecException {
         if (userEntry.getText().isEmpty() || // pwEntry.getText().isEmpty()
              fNameEntry.getText().trim().isEmpty() || lNameEntry.getText().trim().isEmpty()
-            || emailEntry.getText().trim().isEmpty() || phoneEntry.getText().isEmpty()) {
+            || emailEntry.getText().isEmpty() || phoneEntry.getText().isEmpty()) {
             
             if (userEntry.getText().isEmpty()){
                 notificationWindow("error", "User Name Empty!");
@@ -116,7 +117,7 @@ public class CustomerProfile {
             else if (lNameEntry.getText().trim().isEmpty()){
                 notificationWindow("error", "Last Name Empty!");
             }
-            else if (emailEntry.getText().trim().isEmpty()){
+            else if (emailEntry.getText().isEmpty()){
                notificationWindow("error", "Email Empty!");
             }
             else if (phoneEntry.getText().isEmpty()){
