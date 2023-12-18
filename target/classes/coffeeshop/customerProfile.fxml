@@ -68,7 +68,7 @@
       <Label layoutX="128.0" layoutY="113.0" prefHeight="17.0" prefWidth="56.0" text="Username" />
       <Label layoutX="423.0" layoutY="113.0" prefHeight="17.0" prefWidth="56.0" text="Password" />
       <TextField fx:id="userEntry" layoutX="42.0" layoutY="134.0" prefHeight="25.0" prefWidth="237.0" />
-      <TextField fx:id="pwEntry" layoutX="331.0" layoutY="134.0" prefHeight="25.0" prefWidth="237.0" />
+      <TextField fx:id="pwEntry" layoutX="331.0" layoutY="134.0" onMouseClicked="#pwFieldReset" prefHeight="25.0" prefWidth="237.0" />
       <Label fx:id="userLabel" layoutX="117.0" layoutY="163.0" />
       <Label fx:id="pwLabel" layoutX="331.0" layoutY="163.0" prefHeight="33.0" prefWidth="237.0">
          <font>

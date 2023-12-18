@@ -222,8 +222,12 @@ public class CustomerProfile {
         return listToStr;
     }
 
-    
+    @FXML
+    private void pwFieldReset() {
+        pwEntry.clear();
+    }
 
+    
     //page navigation...
     @FXML
     private void switchToHomePg() throws IOException {
