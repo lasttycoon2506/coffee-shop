@@ -90,7 +90,11 @@ public class CustomerDAO implements DAO<Customer> {
 
     
     public void edit(Customer customer){
-        entityManager.merge(customer);
+        EntityTransaction transaction = entityManager.getTransaction();
+        
+        transaction.begin();
+        entityManager.merge(customer);            
+        transaction.commit();
     }
 
     public void delete(Customer customer){

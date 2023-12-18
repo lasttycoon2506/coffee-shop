@@ -149,9 +149,9 @@ public class CustomerProfile {
             else {
                 customer.setUserName(userEntry.getText());
                 customer.setFirstName(fNameEntry.getText());
-                customer.setUserName(lNameEntry.getText());
-                customer.setFirstName(emailEntry.getText());
-                customer.setUserName(phoneEntry.getText());
+                customer.setLastName(lNameEntry.getText());
+                customer.setEmail(emailEntry.getText());
+                customer.setPhone(phoneEntry.getText());
                 CustomerDAOService.editCustomer();
                 notificationWindow("confirmation", null);
                 switchToCustomerPg();
