@@ -23,21 +23,21 @@ import javafx.scene.control.TextFormatter;
 
 
 public class NewCustomer {
-    List<String> errorList = new ArrayList<String>();
-    static String emailErr;
-    static String phoneLenErr;
+    private static List<String> errorList = new ArrayList<String>();
+    private static String emailErr;
+    private static String phoneLenErr;
     @FXML
-	private TextField userEntry;
+	private static TextField userEntry;
     @FXML
-	private TextField pwEntry;
+	private static TextField pwEntry;
 	@FXML
-	private TextField fNameEntry;
+	private static TextField fNameEntry;
     @FXML
-	private TextField lNameEntry;
+	private static TextField lNameEntry;
     @FXML
-	private TextField emailEntry;
+	private static TextField emailEntry;
     @FXML
-    private TextField phoneEntry;
+    private static TextField phoneEntry;
 
     // pw doesnt accept space
     UnaryOperator<TextFormatter.Change> spaceFilter = change -> {
