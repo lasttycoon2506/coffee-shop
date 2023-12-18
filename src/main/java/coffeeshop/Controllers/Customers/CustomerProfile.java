@@ -32,8 +32,6 @@ public class CustomerProfile {
     static String emailErr;
     static String phoneLenErr;
 
-    // @FXML
-	// private Context customer;
     @FXML
     private static Customer customer = Context.getInstance().getCustomer();
     @FXML
@@ -82,6 +80,7 @@ public class CustomerProfile {
     };
     // inits pw/phone fields using above filters
     public void initialize() throws NoSuchAlgorithmException, InvalidKeySpecException{
+        userEntry.setTextFormatter(new TextFormatter<>(spaceFilter));
         pwEntry.setTextFormatter(new TextFormatter<>(spaceFilter));
         phoneEntry.setTextFormatter(new TextFormatter<>(phoneFilter));
         data = new Customer(customer.getUserName(), customer.getPassword(), customer.getFirstName(),
@@ -101,11 +100,11 @@ public class CustomerProfile {
      
     @FXML
 	public void edit(ActionEvent event) throws IOException, SQLException, JDBCException, NoSuchAlgorithmException, InvalidKeySpecException {
-        if (userEntry.getText().trim().isEmpty() || // pwEntry.getText().isEmpty()
+        if (userEntry.getText().isEmpty() || // pwEntry.getText().isEmpty()
              fNameEntry.getText().trim().isEmpty() || lNameEntry.getText().trim().isEmpty()
             || emailEntry.getText().trim().isEmpty() || phoneEntry.getText().isEmpty()) {
             
-            if (userEntry.getText().trim().isEmpty()){
+            if (userEntry.getText().isEmpty()){
                 notificationWindow("error", "User Name Empty!");
             }
             // else if (pwEntry.getText().isEmpty()){
@@ -148,9 +147,12 @@ public class CustomerProfile {
                 notificationWindow("error", emailErr);
             }
             else {
-                CustomerDTO editCustomer = new CustomerDTO(userEntry.getText().trim(), pwEntry.getText(), fNameEntry.getText().trim(), 
-                                            lNameEntry.getText().trim(), emailEntry.getText().trim(), phoneEntry.getText());      
-                CustomerDAOService.editCustomer(editCustomer);
+                customer.setUserName(userEntry.getText());
+                customer.setFirstName(fNameEntry.getText());
+                customer.setUserName(lNameEntry.getText());
+                customer.setFirstName(emailEntry.getText());
+                customer.setUserName(phoneEntry.getText());
+                CustomerDAOService.editCustomer();
                 notificationWindow("confirmation", null);
                 switchToCustomerPg();
             }

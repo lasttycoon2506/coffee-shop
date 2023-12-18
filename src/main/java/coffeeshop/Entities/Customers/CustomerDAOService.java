@@ -10,7 +10,6 @@ import coffeeshop.Models.CustomerDTO;
 
 public class CustomerDAOService {
     private static CustomerDAO customerDAO = new CustomerDAO();
-    private static Customer customer = Context.getInstance().getCustomer();
 
     public CustomerDAOService(CustomerDAO customerDAO) {
         CustomerDAOService.customerDAO = customerDAO;
@@ -56,8 +55,7 @@ public class CustomerDAOService {
         customerDAO.save(newCustomer);
     }
     
-    public static void editCustomer(CustomerDTO customerDTO) {
-        customer.setEmail(customerDTO.email());
+    public static void editCustomer() {
         customerDAO.edit(Context.getInstance().getCustomer());
     }
     

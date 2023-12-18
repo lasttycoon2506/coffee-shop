@@ -11,9 +11,7 @@ import java.util.function.UnaryOperator;
 import java.util.regex.Pattern;
 import org.hibernate.JDBCException;
 import coffeeshop.App;
-import coffeeshop.Entities.Customers.Customer;
 import coffeeshop.Entities.Customers.CustomerDAOService;
-import coffeeshop.Models.Context;
 import coffeeshop.Models.CustomerDTO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -76,6 +74,7 @@ public class NewCustomer {
     };
     // inits pw/phone fields using above filters
     public void initialize(){
+        userEntry.setTextFormatter(new TextFormatter<>(spaceFilter));
         pwEntry.setTextFormatter(new TextFormatter<>(spaceFilter));
         phoneEntry.setTextFormatter(new TextFormatter<>(phoneFilter));
     }
@@ -83,11 +82,11 @@ public class NewCustomer {
      
     @FXML
 	public void submit(ActionEvent event) throws IOException, SQLException, JDBCException, NoSuchAlgorithmException, InvalidKeySpecException {
-        if (userEntry.getText().trim().isEmpty() || pwEntry.getText().isEmpty()
+        if (userEntry.getText().isEmpty() || pwEntry.getText().isEmpty()
             || fNameEntry.getText().trim().isEmpty() || lNameEntry.getText().trim().isEmpty()
             || emailEntry.getText().trim().isEmpty() || phoneEntry.getText().isEmpty()) {
             
-            if (userEntry.getText().trim().isEmpty()){
+            if (userEntry.getText().isEmpty()){
                 notificationWindow("error", "User Name Empty!");
             }
             else if (pwEntry.getText().isEmpty()){
@@ -130,7 +129,7 @@ public class NewCustomer {
                 notificationWindow("error", emailErr);
             }
             else {
-                CustomerDTO newCustomer = new CustomerDTO(userEntry.getText().trim(), pwEntry.getText(), fNameEntry.getText().trim(), 
+                CustomerDTO newCustomer = new CustomerDTO(userEntry.getText(), pwEntry.getText(), fNameEntry.getText().trim(), 
                                             lNameEntry.getText().trim(), emailEntry.getText().trim(), phoneEntry.getText());  
 
                 CustomerDAOService.saveCustomer(newCustomer);
