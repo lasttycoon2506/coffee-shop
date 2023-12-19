@@ -20,9 +20,13 @@ ex: ![Screenshot 2023-11-17 151718](https://github.com/lasttycoon2506/artdealer/
 ```
 
 4) Save file, exit, reopen VS Code
-5) Follow "HOW TO - Create New Program" below to make sure program runs and maven exe path was found
+5) Create new program to make sure Maven .exe path was found
 
 ### Part II - MySQL
 1) From MySQL Community Downloads install MySQL; Server, Workbench, Shell, Router, Connector/j
 2) Use MySQL 8.0 Command Line Client (in Windows desktop search bar) and enter credentials to ensure MySQL installed locally
 
+## How-To
+### Start Program
+1) Start MySQL (Windows: Task Manager -> Services)
+2) Run program
