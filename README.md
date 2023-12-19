@@ -1,4 +1,4 @@
-# artdealer
+# coffeeshop
 
 ## Installation
 ### Part I - Java:
