@@ -29,9 +29,9 @@ public class CustomerProfile {
     private static String emailErr;
     private static String phoneLenErr;
     @FXML
-    private static Customer customer;
+    private Customer customer;
     @FXML
-	private static Customer data;
+	private Customer data;
     @FXML
 	private TextField userEntry;
     @FXML
@@ -226,7 +226,9 @@ public class CustomerProfile {
 
     @FXML
     private void pwFieldReset() {
-        pwEntry.clear();
+        if (pwEntry.getText().equals("Enter New Password")) {
+            pwEntry.clear();
+        }
     }
 
 
