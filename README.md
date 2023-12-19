@@ -20,7 +20,7 @@ ex: ![Screenshot 2023-11-17 151718](https://github.com/lasttycoon2506/artdealer/
 ```
 
 4) Save file, exit, reopen VS Code
-5) Create new program to make sure Maven .exe path was found
+5) Create new program and run to make sure Maven .exe path was found
 
 ### Part II - MySQL
 1) From MySQL Community Downloads install MySQL; Server, Workbench, Shell, Router, Connector/j
@@ -30,3 +30,7 @@ ex: ![Screenshot 2023-11-17 151718](https://github.com/lasttycoon2506/artdealer/
 ### Start Program
 1) Start MySQL (Windows: Task Manager -> Services)
 2) Run program
+
+
+
+
