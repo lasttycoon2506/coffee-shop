@@ -7,11 +7,11 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 
-@Entity
-@Table(name = "Coffee")
+// @Entity
+// @Table(name = "Coffee")
 public class Coffee {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    // @Id
+    // @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer coffee_id;
     private String brand;
     private String coffee_name;
