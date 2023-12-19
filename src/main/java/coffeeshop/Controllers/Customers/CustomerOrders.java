@@ -27,31 +27,25 @@ public class CustomerOrders {
 	private TableColumn<Customer, String> pwColumn;
 	@FXML
 	private TableColumn<Customer, String> firstNColumn;
-	@FXML
-	private TableColumn<Customer, String> lastNColumn;
-	@FXML
-	private TableColumn<Customer, String> emailColumn;
-	@FXML
-	private TableColumn<Customer, String> phoneColumn;
 	
 	public void initialize() throws NoSuchAlgorithmException, InvalidKeySpecException{
-		data = FXCollections.observableArrayList(new Customer(customer.getUserName(), customer.getPassword(), customer.getFirstName(),
-														customer.getLastName(), customer.getEmail(), customer.getPhone())
-        );
-		loadTable();
+		// data = FXCollections.observableArrayList(new Customer(customer.getUserName(), customer.getPassword(), customer.getFirstName(),
+		// 												customer.getLastName(), customer.getEmail(), customer.getPhone())
+        // );
+		// loadTable();
     }
 	
 
-	private void loadTable()  {
-		table.setEditable(true);
-        userColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("userName"));
-        pwColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("pWord"));
-        firstNColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("firstName"));
-		lastNColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("lastName"));
-        emailColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("email"));
-        phoneColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("phone"));
-        table.setItems(data);
-	}
+	// private void loadTable()  {
+	// 	table.setEditable(true);
+    //     userColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("userName"));
+    //     pwColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("pWord"));
+    //     firstNColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("firstName"));
+	// 	lastNColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("lastName"));
+    //     emailColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("email"));
+    //     phoneColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("phone"));
+    //     table.setItems(data);
+	// }
 
     @FXML
     private void switchToCustomerPg() throws IOException {

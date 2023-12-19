@@ -13,15 +13,12 @@ public class Coffee {
     // @Id
     // @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer coffee_id;
-    private String brand;
-    private String coffee_name;
-    private String roast_type;
-    private Float price;
-    private String region;
-    private Integer coffee_size;
-
-    public Coffee(){
-    }
+    private final String brand;
+    private final String coffee_name;
+    private final String roast_type;
+    private final Float price;
+    private final String region;
+    private final Integer coffee_size;
 
     public Coffee(String brand, String coffee_name, String roast_type, Float price, String region, Integer coffee_size){
         this.brand = brand;
