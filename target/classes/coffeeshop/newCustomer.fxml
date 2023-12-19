@@ -15,28 +15,12 @@
       </Label>
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToCustomerLoginPg" text="Back" />
       <Button layoutX="534.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToHomePg" text="Home" />
-      <TextField fx:id="fNameEntry" layoutX="42.0" layoutY="218.0" prefHeight="25.0" prefWidth="237.0" />
-      <TextField fx:id="lNameEntry" layoutX="331.0" layoutY="218.0" prefHeight="25.0" prefWidth="237.0" />
-      <TextField fx:id="emailEntry" layoutX="42.0" layoutY="289.0" prefHeight="25.0" prefWidth="237.0" />
-      <TextField fx:id="phoneEntry" layoutX="332.0" layoutY="289.0" prefHeight="25.0" prefWidth="237.0" />
-      <Label layoutX="126.0" layoutY="197.0" prefHeight="17.0" prefWidth="69.0" text="First Name" />
-      <Label layoutX="417.0" layoutY="197.0" text="Last Name" />
-      <Label layoutX="142.0" layoutY="272.0" text="Email" />
-      <Label layoutX="434.0" layoutY="272.0" text="Phone" />
+      <TextField fx:id="fNameEntry" layoutX="42.0" layoutY="212.0" prefHeight="25.0" prefWidth="237.0" promptText="First Name" />
+      <TextField fx:id="lNameEntry" layoutX="331.0" layoutY="212.0" prefHeight="25.0" prefWidth="237.0" promptText="Last Name" />
+      <TextField fx:id="emailEntry" layoutX="42.0" layoutY="289.0" prefHeight="25.0" prefWidth="237.0" promptText="Email" />
+      <TextField fx:id="phoneEntry" layoutX="332.0" layoutY="289.0" prefHeight="25.0" prefWidth="237.0" promptText="Phone" />
       <Button layoutX="227.0" layoutY="354.0" mnemonicParsing="false" onAction="#submit" prefHeight="41.0" prefWidth="140.0" text="REGISTER" />
-      <Label fx:id="fNameLabel" layoutX="112.0" layoutY="247.0" prefHeight="17.0" prefWidth="97.0" />
-      <Label fx:id="lNameLabel" layoutX="405.0" layoutY="247.0" />
-      <Label fx:id="emailLabel" layoutX="125.0" layoutY="314.0" />
-      <Label fx:id="phoneLabel" layoutX="333.0" layoutY="314.0" prefHeight="17.0" prefWidth="237.0" />
-      <Label layoutX="128.0" layoutY="113.0" prefHeight="17.0" prefWidth="56.0" text="Username" />
-      <Label layoutX="423.0" layoutY="113.0" prefHeight="17.0" prefWidth="56.0" text="Password" />
-      <TextField fx:id="userEntry" layoutX="42.0" layoutY="134.0" prefHeight="25.0" prefWidth="237.0" />
-      <TextField fx:id="pwEntry" layoutX="331.0" layoutY="134.0" prefHeight="25.0" prefWidth="237.0" />
-      <Label fx:id="userLabel" layoutX="117.0" layoutY="163.0" />
-      <Label fx:id="pwLabel" layoutX="331.0" layoutY="163.0" prefHeight="33.0" prefWidth="237.0">
-         <font>
-            <Font size="11.0" />
-         </font>
-      </Label>
+      <TextField fx:id="userEntry" layoutX="42.0" layoutY="134.0" prefHeight="25.0" prefWidth="237.0" promptText="Username" />
+      <TextField fx:id="pwEntry" layoutX="331.0" layoutY="134.0" prefHeight="25.0" prefWidth="237.0" promptText="Password" />
    </children>
 </AnchorPane>

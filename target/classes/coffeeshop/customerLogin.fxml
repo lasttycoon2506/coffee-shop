@@ -31,7 +31,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Label layoutX="153.0" layoutY="145.0" prefHeight="25.0" prefWidth="57.0" style="-fx-background-color: white;" text="Username:">
+      <Label alignment="CENTER" layoutX="137.0" layoutY="145.0" prefHeight="25.0" prefWidth="73.0" style="-fx-background-color: white;" text="Username:">
          <effect>
             <Lighting>
                <bumpInput>
@@ -42,8 +42,11 @@
                </light>
             </Lighting>
          </effect>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
       </Label>
-      <Label layoutX="153.0" layoutY="192.0" prefHeight="25.0" prefWidth="57.0" style="-fx-background-color: white;" text="Password: ">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="137.0" layoutY="192.0" prefHeight="25.0" prefWidth="73.0" style="-fx-background-color: white;" text="Password: ">
          <effect>
             <Lighting>
                <bumpInput>
@@ -54,8 +57,11 @@
                </light>
             </Lighting>
          </effect>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
       </Label>
       <TextField fx:id="userLogin" layoutX="238.0" layoutY="145.0" />
-      <TextField fx:id="pwLogin" layoutX="238.0" layoutY="188.0" />
+      <TextField fx:id="pwLogin" layoutX="238.0" layoutY="192.0" />
    </children>
 </AnchorPane>
