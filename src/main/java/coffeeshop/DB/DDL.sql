@@ -42,6 +42,7 @@ CREATE TABLE IF NOT EXISTS Orders
 (
    orders_id INT NOT NULL AUTO_INCREMENT UNIQUE,
    orders_date DATE NOT NULL,
+   number_of_items INT NOT NULL,
    customer_id INT NOT NULL,
    employee_id INT NOT NULL,
    order_status BOOLEAN NOT NULL DEFAULT FALSE,
