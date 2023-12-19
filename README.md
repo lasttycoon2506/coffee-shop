@@ -31,6 +31,24 @@ ex: ![Screenshot 2023-11-17 151718](https://github.com/lasttycoon2506/artdealer/
 1) Start MySQL (Windows: Task Manager -> Services)
 2) Run program
 
+### Create New Customer
+1) Customer button
+2) New Customer button
+3) Fill-out and click Register
+
+### Login 
+1) Customer button
+2) Provide Login credentials
+3) Login button
+
+### Edit Customer
+1) Login
+2) Your Profile button
+3) Edit info and click Edit 
+
+
+
+
 
 
 
