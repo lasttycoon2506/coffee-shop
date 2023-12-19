@@ -16,7 +16,7 @@ import javafx.scene.control.TableColumn;
 
 public class CustomerOrders {
 	@FXML
-	private static Customer customer = Context.getInstance().getCustomer();
+	private Customer customer = Context.getInstance().getCustomer();
 	@FXML
     private TableView<Customer> table;
 	@FXML
