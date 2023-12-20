@@ -23,7 +23,7 @@ import javafx.scene.control.TextFormatter;
 
 
 public class NewCustomer {
-    private static List<String> errorList = new ArrayList<String>();
+    private static List<String> errorListPWPW = new ArrayList<String>();
     private static String emailErr;
     private static String phoneLenErr;
     @FXML
@@ -99,8 +99,8 @@ public class NewCustomer {
                 notificationWindow("error", "Phone Exists!");
 
                 }
-            if (!pwValidator(pwEntry, errorList)){
-                notificationWindow("error", stringFormatter(errorList));
+            if (!pwValidator(pwEntry, errorListPWPW)){
+                notificationWindow("error", stringFormatter(errorListPWPW));
             }
             else if (!emailValidator(emailEntry)){
                 notificationWindow("error", emailErr);
@@ -123,33 +123,33 @@ public class NewCustomer {
 	}
     
 
-    private static boolean pwValidator(TextField pwField, List<String> errorList) {
+    private static boolean pwValidator(TextField pwField, List<String> errorListPW) {
         String pw = pwField.getText();
         Pattern specialChar = Pattern.compile("[^a-z0-9]", Pattern.CASE_INSENSITIVE);
         Pattern upperCase = Pattern.compile("[A-Z]");
         Pattern lowerCase = Pattern.compile("[a-z]");
         Pattern number = Pattern.compile("[0-9]");
-        errorList.clear();
+        errorListPW.clear();
         boolean flag=true;
 
         if (pw.length() < 8) {
-            errorList.add(" Password must be at least 8 Characters!\n");
+            errorListPW.add(" Password must be at least 8 Characters!\n");
             flag=false;
         }
         if (!specialChar.matcher(pw).find()) {
-            errorList.add("Password must have at least one Special Character!\n");
+            errorListPW.add("Password must have at least one Special Character!\n");
             flag=false;
         }
         if (!upperCase.matcher(pw).find()) {
-            errorList.add("Password must have at least one Upper Case letter!\n");
+            errorListPW.add("Password must have at least one Upper Case letter!\n");
             flag=false;
         }
         if (!lowerCase.matcher(pw).find()) {
-            errorList.add("Password must have at least one Lower Case letter!\n");
+            errorListPW.add("Password must have at least one Lower Case letter!\n");
             flag=false;
         }
         if (!number.matcher(pw).find()) {
-            errorList.add("Password must have at least one Number!");
+            errorListPW.add("Password must have at least one Number!");
             flag=false;
         }
         return flag;
@@ -184,7 +184,7 @@ public class NewCustomer {
         return true;
     }
 
-
+    // removes [], for user errors
     private String stringFormatter(List lst) {
         String listToStr = Arrays.toString(lst.toArray()).replace("[", "").replace("]", "").replace(",", "");
         return listToStr;
@@ -205,7 +205,7 @@ public class NewCustomer {
         App.setRoot("customer");
     }
     
-
+    // confirmation/error window for user
     private static void notificationWindow(String windowType, String message) {
         Alert dialog;
         if (windowType.equals("confirmation")) {

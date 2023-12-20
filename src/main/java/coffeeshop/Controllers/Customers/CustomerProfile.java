@@ -25,7 +25,7 @@ import javafx.scene.control.TextFormatter;
 
 
 public class CustomerProfile {
-    private static List<String> errorList = new ArrayList<String>();
+    private static List<String> errorListPW = new ArrayList<String>();
     private static String emailErr;
     private static String phoneLenErr;
     @FXML
@@ -72,7 +72,7 @@ public class CustomerProfile {
         loadData();
     }
 
-
+    // customer table
     private void loadData() {
         userEntry.setText(data.getUserName());
         pwEntry.setText("Enter New Password");
@@ -128,8 +128,8 @@ public class CustomerProfile {
             else if (!data.getPhone().equals(phoneEntry.getText()) && CustomerDAOService.phoneExists(phoneEntry.getText())){
                 notificationWindow("error", "Phone Exists!");
                 }
-            if (!pwValidator(pwEntry, errorList) && !pwEntry.getText().equals("Enter New Password")){
-                notificationWindow("error", stringFormatter(errorList));
+            if (!pwValidator(pwEntry, errorListPW) && !pwEntry.getText().equals("Enter New Password")){
+                notificationWindow("error", stringFormatter(errorListPW));
             }
             else if (!emailValidator(emailEntry)){
                 notificationWindow("error", emailErr);
@@ -141,6 +141,7 @@ public class CustomerProfile {
                 notificationWindow("error", emailErr);
             }
             else {
+                //sets instance of customer as current customer
                 customer.setUserName(userEntry.getText());
                 if (!pwEntry.getText().equals("Enter New Password")) {
                     customer.setPassword(PasswordGen.getHashedPw(pwEntry.getText()));
@@ -157,33 +158,33 @@ public class CustomerProfile {
 	}
     
 
-    private static boolean pwValidator(TextField pwField, List<String> errorList) {
+    private static boolean pwValidator(TextField pwField, List<String> errorListPW) {
         String pw = pwField.getText();
         Pattern specialChar = Pattern.compile("[^a-z0-9]", Pattern.CASE_INSENSITIVE);
         Pattern upperCase = Pattern.compile("[A-Z]");
         Pattern lowerCase = Pattern.compile("[a-z]");
         Pattern number = Pattern.compile("[0-9]");
-        errorList.clear();
+        errorListPW.clear();
         boolean flag=true;
 
         if (pw.length() < 8) {
-            errorList.add(" Password must be at least 8 Characters!\n");
+            errorListPW.add(" Password must be at least 8 Characters!\n");
             flag=false;
         }
         if (!specialChar.matcher(pw).find()) {
-            errorList.add("Password must have at least one Special Character!\n");
+            errorListPW.add("Password must have at least one Special Character!\n");
             flag=false;
         }
         if (!upperCase.matcher(pw).find()) {
-            errorList.add("Password must have at least one Upper Case letter!\n");
+            errorListPW.add("Password must have at least one Upper Case letter!\n");
             flag=false;
         }
         if (!lowerCase.matcher(pw).find()) {
-            errorList.add("Password must have at least one Lower Case letter!\n");
+            errorListPW.add("Password must have at least one Lower Case letter!\n");
             flag=false;
         }
         if (!number.matcher(pw).find()) {
-            errorList.add("Password must have at least one Number!");
+            errorListPW.add("Password must have at least one Number!");
             flag=false;
         }
         return flag;
