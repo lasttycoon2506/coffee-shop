@@ -5,6 +5,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import coffeeshop.App;
 import coffeeshop.Models.Context;
+import coffeeshop.Entities.Coffee.Coffee;
 import coffeeshop.Entities.Customers.Customer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -36,7 +37,7 @@ public class CustomerOrders {
     }
 	
 
-	// private void loadTable()  {
+	private void loadTable()  {
 	// 	table.setEditable(true);
     //     userColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("userName"));
     //     pwColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("pWord"));
@@ -45,7 +46,7 @@ public class CustomerOrders {
     //     emailColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("email"));
     //     phoneColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("phone"));
     //     table.setItems(data);
-	// }
+	}
 
     @FXML
     private void switchToCustomerPg() throws IOException {

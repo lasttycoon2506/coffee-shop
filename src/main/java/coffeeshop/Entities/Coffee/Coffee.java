@@ -1,38 +1,29 @@
 package coffeeshop.Entities.Coffee;
 
 
-public class Coffee {
-    public enum Brand {
-        KONA, CARIBOU, JAVA, BANDED, WHOOPER
-    }
-    public enum Roast {
-        LIGHT, MEDIUM, DARK 
-    }
-    public enum Price {
-        P1(8.99), 
-        P2(9.99), 
-        P3(10.99), 
-        P4(12.99), 
-        P5(13.99);
+public enum Coffee{
+    COFFEE1()
+    COFFEE2()
+    COFFEE1()
+    COFFEE2()
+    COFFEE2()
+    COFFEE2()
+    COFFEE2()
+    COFFEE1()
+    COFFEE2()
+    COFFEE1()
 
-        private final float price;
-        Price(float price){
-            this.price = price;
-        }
-    }
 
-    public enum Region {
-        INDONESIA, MALAYSIA, MOZAMBIQUE, ARGENTINA, ETHIOPIA
-    }
-
-    public enum Size {
-        SMALL(12),
-        MEDIUM(14), 
-        LARGE(18);
-        private final int size;
-        Size(int size){
-            this.size = size;
-        }
-    }
+    CREATE TABLE IF NOT EXISTS Coffee
+(
+    coffee_id INT AUTO_INCREMENT NOT NULL UNIQUE,
+    brand VARCHAR(50) NOT NULL,
+    coffee_name  VARCHAR(50) NOT NULL,
+    roast_type VARCHAR(50) NOT NULL,
+    price  DECIMAL(13,2) NOT NULL, 
+    region VARCHAR(50) NOT NULL,
+    coffee_size int NOT NULL,
+    PRIMARY KEY (coffee_id)
+);
 
 }
