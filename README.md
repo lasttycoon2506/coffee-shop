@@ -1,4 +1,4 @@
-# artdealer
+# coffeeshop
 
 ## Installation
 ### Part I - Java:
@@ -20,9 +20,35 @@ ex: ![Screenshot 2023-11-17 151718](https://github.com/lasttycoon2506/artdealer/
 ```
 
 4) Save file, exit, reopen VS Code
-5) Follow "HOW TO - Create New Program" below to make sure program runs and maven exe path was found
+5) Create new program and run to make sure Maven .exe path was found
 
 ### Part II - MySQL
 1) From MySQL Community Downloads install MySQL; Server, Workbench, Shell, Router, Connector/j
 2) Use MySQL 8.0 Command Line Client (in Windows desktop search bar) and enter credentials to ensure MySQL installed locally
+
+## How-To
+### Start Program
+1) Start MySQL (Windows: Task Manager -> Services)
+2) Run program
+
+### Create New Customer
+1) Customer button
+2) New Customer button
+3) Fill-out and click Register
+
+### Login 
+1) Customer button
+2) Provide Login credentials
+3) Login button
+
+### Edit Customer
+1) Login
+2) Your Profile button
+3) Edit info and click Edit 
+
+
+
+
+
+
 
