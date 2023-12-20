@@ -17,7 +17,7 @@ public class Customer {
     //@ = JPA interfacing / customer_id handled by mysql
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer customer_id;
+    private int customer_id;
     @Column(unique = true)
     private String user_name;
     private String pword;
@@ -39,7 +39,7 @@ public class Customer {
         this.phone = phone;
     }
 
-    public Integer getCustomerID(){
+    public int getCustomerID(){
         return customer_id;
     }
     public String getUserName(){
