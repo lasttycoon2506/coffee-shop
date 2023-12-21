@@ -7,7 +7,6 @@ module coffeeshop {
     requires transitive jakarta.persistence;
     requires bcrypt;
     
-
     exports coffeeshop;
     opens coffeeshop.Controllers to javafx.fxml, org.hibernate.orm.core;
     opens coffeeshop.Entities.Customers to org.hibernate.orm.core, javafx.base;

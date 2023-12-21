@@ -3,11 +3,14 @@ package coffeeshop.Controllers.Customers;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import coffeeshop.App;
+import coffeeshop.Data.CoffeeList;
 import coffeeshop.Models.Context;
 import coffeeshop.Entities.Coffee.Coffee;
+import coffeeshop.Entities.Coffee.CoffeeDAOService;
 import coffeeshop.Entities.Customers.Customer;
 import javafx.beans.DefaultProperty;
 import javafx.collections.FXCollections;
@@ -51,10 +54,15 @@ public class CustomerOrders {
         // );
 		// loadTable();
 		// brandBox.getItems().addAll(brands);
-		// myChoiceBox.setOnAction(this::getFood);
+		// myChoiceBox.setOnAction(this::getFood);	
+		saveCoffeeToDB();	
     }
 	
-
+	private void saveCoffeeToDB() {
+		for (Coffee coffee : CoffeeList.getCoffeeList()) {
+			CoffeeDAOService.saveCoffee(coffee);
+		}
+	}
 
 	private void loadTable()  {
 		table.setEditable(true);
