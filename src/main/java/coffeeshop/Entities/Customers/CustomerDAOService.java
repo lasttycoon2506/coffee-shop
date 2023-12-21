@@ -11,7 +11,7 @@ import coffeeshop.Models.CustomerDTO;
 public class CustomerDAOService {
     private static CustomerDAO customerDAO = new CustomerDAO();
 
-    public CustomerDAOService(CustomerDAO customerDAO) {
+    private CustomerDAOService(CustomerDAO customerDAO) {
         CustomerDAOService.customerDAO = customerDAO;
     }
 
