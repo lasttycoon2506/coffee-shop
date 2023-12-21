@@ -25,9 +25,21 @@ public class CustomerOrders {
 	@FXML
     private TableView<Customer> table;
 	@FXML
-	private ComboBox<String> myBox;
+	private ComboBox<String> brandBox;
+	@FXML
+	private ComboBox<String> coffeeNameBox;
+	@FXML
+	private ComboBox<String> roastBox;
+	@FXML
+	private ComboBox<Float> priceBox;
+	@FXML
+	private ComboBox<String> regionBox;
+	@FXML
+	private ComboBox<Integer> sizeBox;
 	@FXML
 	private ObservableList<Customer> data;
+	@FXML
+	private ObservableList<String> brands = FXCollections.observableArrayList(Coffee.COFFEE1.getBrand(), Coffee.COFFEE2.getBrand());
 	@FXML
 	private TableColumn<Customer, String> userColumn;
 	@FXML
@@ -40,14 +52,11 @@ public class CustomerOrders {
 		// 												customer.getLastName(), customer.getEmail(), customer.getPhone())
         // );
 		// loadTable();
-		myBox.getItems().addAll(food);
+		brandBox.getItems().addAll(brands);
 		// myChoiceBox.setOnAction(this::getFood);
     }
 	
-	
-	private String[] food = {	Coffee.COFFEE1.getBrand() ,"sushi","ramen"};
 
-	
 
 	private void loadTable()  {
 		table.setEditable(true);
@@ -58,7 +67,6 @@ public class CustomerOrders {
         // emailColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("email"));
         // phoneColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("phone"));
         table.setItems(data);
-	Coffee.COFFEE1.getBrand();
 	}
 
     @FXML

@@ -25,6 +25,11 @@
         </columns>
       </TableView>
       <Button layoutX="527.0" layoutY="108.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="62.0" text="ADD" />
-      <ComboBox fx:id="myBox" layoutX="19.0" layoutY="108.0" prefWidth="150.0" promptText="Brand" />
+      <ComboBox fx:id="brandBox" layoutX="-3.0" layoutY="108.0" prefHeight="25.0" prefWidth="80.0" promptText="Brand" />
+      <ComboBox fx:id="coffeeNameBox" layoutX="77.0" layoutY="108.0" prefHeight="25.0" prefWidth="80.0" promptText="Brand" />
+      <ComboBox fx:id="roastBox" layoutX="157.0" layoutY="108.0" prefHeight="25.0" prefWidth="80.0" promptText="Brand" />
+      <ComboBox fx:id="priceBox" layoutX="237.0" layoutY="108.0" prefHeight="25.0" prefWidth="80.0" promptText="Brand" />
+      <ComboBox fx:id="regionBox" layoutX="317.0" layoutY="108.0" prefHeight="25.0" prefWidth="80.0" promptText="Brand" />
+      <ComboBox fx:id="sizeBox" layoutX="397.0" layoutY="108.0" prefHeight="25.0" prefWidth="80.0" promptText="Brand" />
    </children>
 </AnchorPane>
