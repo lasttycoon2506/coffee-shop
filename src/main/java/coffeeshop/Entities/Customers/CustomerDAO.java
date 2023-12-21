@@ -27,7 +27,7 @@ public class CustomerDAO implements DAO<Customer> {
         return null;
     }
 
-    public static Boolean userNameExists(String userName)  {
+    public static boolean userNameExists(String userName)  {
         try {
             executeInsideTransaction(entityManager -> 
                                     entityManager.createQuery("SELECT u from Customer u WHERE u.user_name = :userName", 
@@ -39,7 +39,7 @@ public class CustomerDAO implements DAO<Customer> {
         }
     }
 
-    public static Boolean emailExists(String email)  {
+    public static boolean emailExists(String email)  {
         try {
             executeInsideTransaction(entityManager -> 
                                     entityManager.createQuery("SELECT e from Customer e WHERE e.email = :email", 
@@ -51,7 +51,7 @@ public class CustomerDAO implements DAO<Customer> {
         }
     }
 
-    public static Boolean phoneExists(String phone)  {
+    public static boolean phoneExists(String phone)  {
         try {
             executeInsideTransaction(entityManager -> 
                 entityManager.createQuery("SELECT p from Customer p WHERE p.phone = :phone", 
@@ -63,7 +63,7 @@ public class CustomerDAO implements DAO<Customer> {
         }
     }
 
-    public static Boolean login(String user, String pw) throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
+    public static boolean login(String user, String pw) throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
         Customer customer = entityManager.createQuery("SELECT pwHash from Customer pwHash WHERE user_name = :userName",
                             Customer.class).setParameter("userName", user).getSingleResult();
         // gets pword field from customer obj

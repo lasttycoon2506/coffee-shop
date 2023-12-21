@@ -29,7 +29,7 @@ public class CustomerDAOService {
         });
     }
 
-    public static Boolean login(String userName, String pw) throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException{
+    public static boolean login(String userName, String pw) throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException{
         return CustomerDAO.login(userName, pw);
     }
     
@@ -37,15 +37,15 @@ public class CustomerDAOService {
         return customerDAO.getAll();
     }
 
-    public static Boolean userNameExists(String userName) {
+    public static boolean userNameExists(String userName) {
         return CustomerDAO.userNameExists(userName);
     }
 
-    public static Boolean emailExists(String email) {
+    public static boolean emailExists(String email) {
         return CustomerDAO.emailExists(email);
     }
 
-    public static Boolean phoneExists(String phone) {
+    public static boolean phoneExists(String phone) {
         return CustomerDAO.phoneExists(phone);
     }
 
