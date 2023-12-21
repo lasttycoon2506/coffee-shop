@@ -41,6 +41,18 @@ CREATE TABLE IF NOT EXISTS Orders
    FOREIGN KEY (employee_id) REFERENCES Employees(employee_id) 
 );
 
+CREATE TABLE IF NOT EXISTS Coffee
+(
+   coffee_id INT NOT NULL AUTO_INCREMENT UNIQUE,
+   brand VARCHAR(50) NOT NULL,
+   coffee_name VARCHAR(50) NOT NULL,
+   roast VARCHAR(50) NOT NULL,
+   price DECIMAL(13,2) NOT NULL,
+   region VARCHAR(50) NOT NULL,
+   coffee_size INT NOT NULL,
+   PRIMARY KEY(coffee_id)
+);
+
 -- /*Intersection Table */ 
 CREATE TABLE IF NOT EXISTS Items
 (

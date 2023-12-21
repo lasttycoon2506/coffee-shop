@@ -1,5 +1,13 @@
 package coffeeshop.Entities.Coffee;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 
 public enum Coffee{
     COFFEE1("Kona", "Kona's Fire", "Medium", 10.99f, "Ethiopia", 14),
@@ -46,6 +54,10 @@ public enum Coffee{
         return size;
     }
 
-}
+
+    }
+
+
+
 
 
