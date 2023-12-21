@@ -59,8 +59,11 @@ public class CustomerOrders {
     }
 	
 	private void saveCoffeeToDB() {
-		for (Coffee coffee : CoffeeList.getCoffeeList()) {
-			CoffeeDAOService.saveCoffee(coffee);
+		//checks if coffee table already populated
+		if (!CoffeeDAOService.coffeeListExistsDB()) {
+			for (Coffee coffee : CoffeeList.getCoffeeList()) {
+				CoffeeDAOService.saveCoffee(coffee);
+			}
 		}
 	}
 
