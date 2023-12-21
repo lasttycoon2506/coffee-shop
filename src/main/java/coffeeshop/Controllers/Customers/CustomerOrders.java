@@ -3,14 +3,19 @@ package coffeeshop.Controllers.Customers;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.util.ResourceBundle;
+
 import coffeeshop.App;
 import coffeeshop.Models.Context;
+import coffeeshop.Entities.Coffee.Coffee;
 import coffeeshop.Entities.Customers.Customer;
+import javafx.beans.DefaultProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.TableView;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 
 
@@ -19,6 +24,8 @@ public class CustomerOrders {
 	private Customer customer = Context.getInstance().getCustomer();
 	@FXML
     private TableView<Customer> table;
+	@FXML
+	private ComboBox<String> myBox;
 	@FXML
 	private ObservableList<Customer> data;
 	@FXML
@@ -33,19 +40,26 @@ public class CustomerOrders {
 		// 												customer.getLastName(), customer.getEmail(), customer.getPhone())
         // );
 		// loadTable();
+		myBox.getItems().addAll(food);
+		// myChoiceBox.setOnAction(this::getFood);
     }
 	
+	
+	private String[] food = {	Coffee.COFFEE1.getBrand() ,"sushi","ramen"};
 
-	// private void loadTable()  {
-	// 	table.setEditable(true);
-    //     userColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("userName"));
-    //     pwColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("pWord"));
-    //     firstNColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("firstName"));
-	// 	lastNColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("lastName"));
-    //     emailColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("email"));
-    //     phoneColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("phone"));
-    //     table.setItems(data);
-	// }
+	
+
+	private void loadTable()  {
+		table.setEditable(true);
+        // userColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>(Coffee.COFFEE1.getBrand()));
+        // pwColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("pWord"));
+        // firstNColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("firstName"));
+		// lastNColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("lastName"));
+        // emailColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("email"));
+        // phoneColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("phone"));
+        table.setItems(data);
+	Coffee.COFFEE1.getBrand();
+	}
 
     @FXML
     private void switchToCustomerPg() throws IOException {
