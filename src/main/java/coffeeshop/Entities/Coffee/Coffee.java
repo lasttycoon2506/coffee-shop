@@ -1,45 +1,41 @@
 package coffeeshop.Entities.Coffee;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Stream;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
 
-public enum Coffee{
-    COFFEE1("Kona", "Kona's Fire", "Medium", 10.99f, "Ethiopia", 14),
-    COFFEE2("Jimmy's", "Jimmy's Best", "Dark", 8.99f, "Peru", 18),
-    COFFEE3("Kiliminjaro", "KB Summit", "Light", 14.99f, "Mozambique", 12),
-    COFFEE4("Luna", "Luna's Special", "Light", 12.99f, "Indonesia", 14),
-    COFFEE5("Warber's", "Mid-day Blend", "Dark", 15.99f, "Java", 16),
-    COFFEE6("Yunnan", "Yunnan's Peak", "Medium", 11.99f, "Yunnan", 14),
-    COFFEE7("Locals", "Locallie", "Light", 11.99f, "Yosemite", 14),
-    COFFEE8("Helium", "Lift Me Up", "Dark", 15.99f, "Mozambique", 16);
-    
+@Entity
+@Table(name = "Coffee")
+public class Coffee {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int coffee_id;
     private String brand;
-    private String name;
+    private String coffee_name;
     private String roast;
     private float price;
     private String region;
-    private int size;
+    private int coffee_size;
 
-    private Coffee(String brand, String name, String roast, float price, String region, int size){
+    public Coffee(){
+    }
+    public Coffee (String brand, String coffee_name, String roast, float price, String region, int coffee_size) {
         this.brand = brand;
-        this.name = name;
+        this.coffee_name = coffee_name;
         this.roast = roast;
         this.price = price;
         this.region = region;
-        this.size = size;
+        this.coffee_size = coffee_size;
     }
 
     public String getBrand(){
         return brand;
     }
-    public String getName(){
-        return name;
+    public String getCoffeeName(){
+        return coffee_name;
     }
     public String getRoast(){
         return roast;
@@ -50,12 +46,11 @@ public enum Coffee{
     public String getRegion(){
         return region;
     }
-    public int getSize(){
-        return size;
+    public int getCoffeeSize(){
+        return coffee_size;
     }
-
-
-    }
+}
+    
 
 
 
