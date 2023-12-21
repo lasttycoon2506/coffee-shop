@@ -39,8 +39,6 @@ public class CustomerOrders {
 	@FXML
 	private ObservableList<Customer> data;
 	@FXML
-	private ObservableList<String> brands = FXCollections.observableArrayList(Coffee.COFFEE1.getBrand(), Coffee.COFFEE2.getBrand());
-	@FXML
 	private TableColumn<Customer, String> userColumn;
 	@FXML
 	private TableColumn<Customer, String> pwColumn;
@@ -52,7 +50,7 @@ public class CustomerOrders {
 		// 												customer.getLastName(), customer.getEmail(), customer.getPhone())
         // );
 		// loadTable();
-		brandBox.getItems().addAll(brands);
+		// brandBox.getItems().addAll(brands);
 		// myChoiceBox.setOnAction(this::getFood);
     }
 	
@@ -67,6 +65,7 @@ public class CustomerOrders {
         // emailColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("email"));
         // phoneColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("phone"));
         table.setItems(data);
+		// private ObservableList<String> brands = FXCollections.observableArrayList(Coffee.COFFEE1.getBrand(), Coffee.COFFEE2.getBrand());
 	}
 
     @FXML
