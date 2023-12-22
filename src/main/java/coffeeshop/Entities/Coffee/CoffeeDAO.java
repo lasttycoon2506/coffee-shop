@@ -17,11 +17,16 @@ public class CoffeeDAO {
     }
 
     public static boolean coffeeListExistsDB() {
-        List<String> dbCoffeeList = entityManager.createQuery("SELECT c from Coffee c").getResultList();
-        if (dbCoffeeList.isEmpty()) {
+        List<String> coffeeList = entityManager.createQuery("SELECT c from Coffee c").getResultList();
+        if (coffeeList.isEmpty()) {
             return false;
         }
         return true;
+    }
+
+    public static List<Coffee> getCoffeeList(){
+        List<Coffee> coffeeList =  entityManager.createQuery("SELECT c from Coffee c").getResultList();
+        return coffeeList;
     }
 
     private static void executeInsideTransaction(Consumer<EntityManager> action) {

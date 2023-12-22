@@ -53,7 +53,8 @@ public class CustomerOrders {
 		// 												customer.getLastName(), customer.getEmail(), customer.getPhone())
         // );
 		// loadTable();
-		// brandBox.getItems().addAll(brands);
+		CoffeeDAOService.getBrands();
+		brandBox.getItems().addAll();
 		// myChoiceBox.setOnAction(this::getFood);	
 		saveCoffeeToDB();	
     }

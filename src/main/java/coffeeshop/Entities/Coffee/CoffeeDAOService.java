@@ -1,5 +1,6 @@
 package coffeeshop.Entities.Coffee;
 
+import java.util.List;
 
 public class CoffeeDAOService {
     
@@ -9,5 +10,9 @@ public class CoffeeDAOService {
 
     public static boolean coffeeListExistsDB() {
         return CoffeeDAO.coffeeListExistsDB();
+    }
+
+    public static List<Coffee> getCoffeeList() {
+        return CoffeeDAO.getCoffeeList();
     }
 }
