@@ -112,36 +112,53 @@ public class CustomerOrders {
 	@FXML
 	private void selectedByBrand(){
 		coffeeNameBox.setOnShown(event -> coffeeNameBox.hide());
+		coffeeNameBox.setPromptText("");
 		priceBox.setOnShown(event -> priceBox.hide());
+		priceBox.setPromptText("");
 		regionBox.setOnShown(event -> regionBox.hide());
+		regionBox.setPromptText("");
 	}
 	@FXML
 	private void selectedByCoffeeName(){
 		brandBox.setOnShown(event -> brandBox.hide());
+		brandBox.setPromptText("");
 		priceBox.setOnShown(event -> priceBox.hide());
+		priceBox.setPromptText("");
 		regionBox.setOnShown(event -> regionBox.hide());
+		regionBox.setPromptText("");
 	}
 	@FXML
 	private void selectedByPrice(){
 		brandBox.setOnShown(event -> brandBox.hide());
+		brandBox.setPromptText("");
 		coffeeNameBox.setOnShown(event -> coffeeNameBox.hide());
+		coffeeNameBox.setPromptText("");
 		regionBox.setOnShown(event -> regionBox.hide());
+		regionBox.setPromptText("");
 	}
 	@FXML
 	private void selectedByRegion(){
 		brandBox.setOnShown(event -> brandBox.hide());
+		brandBox.setPromptText("");
 		coffeeNameBox.setOnShown(event -> coffeeNameBox.hide());
+		coffeeNameBox.setPromptText("");
 		priceBox.setOnShown(event -> priceBox.hide());
+		priceBox.setPromptText("");
 	}
 	
 
 	private void saveCoffeeToDB() {
-		//checks if coffee table already populated
 		if (!CoffeeDAOService.coffeeListExistsDB()) {
 			for (Coffee coffee : CoffeeList.getCoffeeList()) {
 				CoffeeDAOService.saveCoffee(coffee);
 			}
 		}
+	}
+
+	@FXML
+	private void reset(){
+				priceBox.setOnShown(event -> priceBox.show());
+
 	}
 
 	private void loadTable()  {
