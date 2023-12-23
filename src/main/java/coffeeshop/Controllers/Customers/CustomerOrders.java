@@ -75,6 +75,13 @@ public class CustomerOrders {
 			setText(empty ? "" : Float.toString(item.getPrice()));
 		}
 	};
+	Callback<ListView<Coffee>, ListCell<Coffee>> cellFactoryRegion = lv -> new ListCell<Coffee>() {
+		@Override
+		protected void updateItem(Coffee item, boolean empty) {
+			super.updateItem(item, empty);
+			setText(empty ? "" : item.getRegion());
+		}
+	};
 	public void initialize() throws NoSuchAlgorithmException, InvalidKeySpecException{
 		// data = FXCollections.observableArrayList(new Customer(customer.getUserName(), customer.getPassword(), customer.getFirstName(),
 		// 												customer.getLastName(), customer.getEmail(), customer.getPhone())
@@ -89,6 +96,9 @@ public class CustomerOrders {
 		priceBox.setButtonCell(cellFactoryPrice.call(null));
 		priceBox.setCellFactory(cellFactoryPrice);
 		priceBox.getItems().addAll(coffeeList);
+		regionBox.setButtonCell(cellFactoryRegion.call(null));
+		regionBox.setCellFactory(cellFactoryRegion);
+		regionBox.getItems().addAll(coffeeList);
 		saveCoffeeToDB();	
     }
 	
