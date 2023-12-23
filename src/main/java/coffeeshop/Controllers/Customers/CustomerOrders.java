@@ -34,13 +34,13 @@ public class CustomerOrders {
 	@FXML
 	private ComboBox<Coffee> brandBox;
 	@FXML
-	private ComboBox<String> coffeeNameBox;
+	private ComboBox<Coffee> coffeeNameBox;
 	@FXML
 	private ComboBox<String> roastBox;
 	@FXML
-	private ComboBox<Float> priceBox;
+	private ComboBox<Coffee> priceBox;
 	@FXML
-	private ComboBox<String> regionBox;
+	private ComboBox<Coffee> regionBox;
 	@FXML
 	private ComboBox<Integer> sizeBox;
 	@FXML
@@ -54,11 +54,18 @@ public class CustomerOrders {
 	@FXML
 	private TableColumn<Customer, String> firstNColumn;
 	//inits list cells with coffee objects brand
-	Callback<ListView<Coffee>, ListCell<Coffee>> cellFactory = lv -> new ListCell<Coffee>() {
+	Callback<ListView<Coffee>, ListCell<Coffee>> cellFactoryBrand = lv -> new ListCell<Coffee>() {
 		@Override
 		protected void updateItem(Coffee item, boolean empty) {
 			super.updateItem(item, empty);
 			setText(empty ? "" : item.getBrand());
+		}
+	};
+	Callback<ListView<Coffee>, ListCell<Coffee>> cellFactoryCoffeeName = lv -> new ListCell<Coffee>() {
+		@Override
+		protected void updateItem(Coffee item, boolean empty) {
+			super.updateItem(item, empty);
+			setText(empty ? "" : item.getCoffeeName());
 		}
 	};
 	public void initialize() throws NoSuchAlgorithmException, InvalidKeySpecException{
@@ -66,9 +73,12 @@ public class CustomerOrders {
 		// 												customer.getLastName(), customer.getEmail(), customer.getPhone())
         // );
 		// loadTable();
-		brandBox.setButtonCell(cellFactory.call(null));
-		brandBox.setCellFactory(cellFactory);
+		brandBox.setButtonCell(cellFactoryBrand.call(null));
+		brandBox.setCellFactory(cellFactoryBrand);
 		brandBox.getItems().addAll(coffeeList);
+		coffeeNameBox.setButtonCell(cellFactoryCoffeeName.call(null));
+		coffeeNameBox.setCellFactory(cellFactoryCoffeeName);
+		coffeeNameBox.getItems().addAll(coffeeList);
 		saveCoffeeToDB();	
     }
 	
