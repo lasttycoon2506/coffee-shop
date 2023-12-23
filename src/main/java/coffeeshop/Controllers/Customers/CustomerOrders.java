@@ -53,6 +53,7 @@ public class CustomerOrders {
 	private TableColumn<Customer, String> pwColumn;
 	@FXML
 	private TableColumn<Customer, String> firstNColumn;
+	//inits list cells with coffee objects brand
 	Callback<ListView<Coffee>, ListCell<Coffee>> cellFactory = lv -> new ListCell<Coffee>() {
 		@Override
 		protected void updateItem(Coffee item, boolean empty) {
@@ -68,10 +69,14 @@ public class CustomerOrders {
 		brandBox.setButtonCell(cellFactory.call(null));
 		brandBox.setCellFactory(cellFactory);
 		brandBox.getItems().addAll(coffeeList);
-		// myChoiceBox.setOnAction(this::getFood);	
 		saveCoffeeToDB();	
     }
 	
+	@FXML
+	private void addToOrder() {
+		Coffee t = brandBox.getValue();
+		System.out.println("Dg");
+	}
 
 	private void saveCoffeeToDB() {
 		//checks if coffee table already populated

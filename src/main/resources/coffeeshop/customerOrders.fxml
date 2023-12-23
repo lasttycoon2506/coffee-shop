@@ -24,7 +24,7 @@
             <TableColumn fx:id="firstNColumn" prefWidth="179.66668701171875" text="Item(s)" />
         </columns>
       </TableView>
-      <Button layoutX="527.0" layoutY="108.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="62.0" text="ADD" />
+      <Button layoutX="527.0" layoutY="108.0" mnemonicParsing="false" onAction="#addToOrder" prefHeight="25.0" prefWidth="62.0" text="ADD" />
       <ComboBox fx:id="brandBox" layoutX="-3.0" layoutY="108.0" prefHeight="25.0" prefWidth="80.0" promptText="Brand" />
       <ComboBox fx:id="coffeeNameBox" layoutX="77.0" layoutY="108.0" prefHeight="25.0" prefWidth="80.0" />
       <ComboBox fx:id="roastBox" layoutX="157.0" layoutY="108.0" prefHeight="25.0" prefWidth="80.0" />
