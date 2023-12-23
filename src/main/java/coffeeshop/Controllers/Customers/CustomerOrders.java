@@ -58,28 +58,28 @@ public class CustomerOrders {
 		@Override
 		protected void updateItem(Coffee item, boolean empty) {
 			super.updateItem(item, empty);
-			setText(empty ? "" : item.getBrand());
+			setText(empty ? "Brand" : item.getBrand());
 		}
 	};
 	Callback<ListView<Coffee>, ListCell<Coffee>> cellFactoryCoffeeName = lv -> new ListCell<Coffee>() {
 		@Override
 		protected void updateItem(Coffee item, boolean empty) {
 			super.updateItem(item, empty);
-			setText(empty ? "" : item.getCoffeeName());
+			setText(empty ? "Name" : item.getCoffeeName());
 		}
 	};
 	Callback<ListView<Coffee>, ListCell<Coffee>> cellFactoryPrice = lv -> new ListCell<Coffee>() {
 		@Override
 		protected void updateItem(Coffee item, boolean empty) {
 			super.updateItem(item, empty);
-			setText(empty ? "" : Float.toString(item.getPrice()));
+			setText(empty ? "Price" : Float.toString(item.getPrice()));
 		}
 	};
 	Callback<ListView<Coffee>, ListCell<Coffee>> cellFactoryRegion = lv -> new ListCell<Coffee>() {
 		@Override
 		protected void updateItem(Coffee item, boolean empty) {
 			super.updateItem(item, empty);
-			setText(empty ? "" : item.getRegion());
+			setText(empty ? "Region" : item.getRegion());
 		}
 	};
 	public void initialize() throws NoSuchAlgorithmException, InvalidKeySpecException{
@@ -156,9 +156,11 @@ public class CustomerOrders {
 	}
 
 	@FXML
-	private void reset(){
-				priceBox.setOnShown(event -> priceBox.show());
-
+	private void resetCoffeeFields(){
+		brandBox.setOnShown(event -> brandBox.show());
+		coffeeNameBox.setOnShown(event -> coffeeNameBox.show());
+		priceBox.setOnShown(event -> priceBox.show());
+		regionBox.setOnShown(event -> regionBox.show());
 	}
 
 	private void loadTable()  {
