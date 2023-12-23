@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import coffeeshop.App;
@@ -17,8 +18,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.util.Callback;
 import javafx.scene.control.TableView;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 
 
@@ -28,7 +32,7 @@ public class CustomerOrders {
 	@FXML
     private TableView<Customer> table;
 	@FXML
-	private ComboBox<String> brandBox;
+	private ComboBox<Coffee> brandBox;
 	@FXML
 	private ComboBox<String> coffeeNameBox;
 	@FXML
@@ -42,23 +46,33 @@ public class CustomerOrders {
 	@FXML
 	private ObservableList<Customer> data;
 	@FXML
+	private List<Coffee> coffeeList = CoffeeDAOService.getCoffeeList();
+	@FXML
 	private TableColumn<Customer, String> userColumn;
 	@FXML
 	private TableColumn<Customer, String> pwColumn;
 	@FXML
 	private TableColumn<Customer, String> firstNColumn;
-	
+	Callback<ListView<Coffee>, ListCell<Coffee>> cellFactory = lv -> new ListCell<Coffee>() {
+		@Override
+		protected void updateItem(Coffee item, boolean empty) {
+			super.updateItem(item, empty);
+			setText(empty ? "" : item.getBrand());
+		}
+	};
 	public void initialize() throws NoSuchAlgorithmException, InvalidKeySpecException{
 		// data = FXCollections.observableArrayList(new Customer(customer.getUserName(), customer.getPassword(), customer.getFirstName(),
 		// 												customer.getLastName(), customer.getEmail(), customer.getPhone())
         // );
 		// loadTable();
-		CoffeeDAOService.getBrands();
-		brandBox.getItems().addAll();
+		brandBox.setButtonCell(cellFactory.call(null));
+		brandBox.setCellFactory(cellFactory);
+		brandBox.getItems().addAll(coffeeList);
 		// myChoiceBox.setOnAction(this::getFood);	
 		saveCoffeeToDB();	
     }
 	
+
 	private void saveCoffeeToDB() {
 		//checks if coffee table already populated
 		if (!CoffeeDAOService.coffeeListExistsDB()) {
