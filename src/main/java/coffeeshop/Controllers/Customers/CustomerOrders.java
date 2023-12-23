@@ -53,7 +53,7 @@ public class CustomerOrders {
 	private TableColumn<Customer, String> pwColumn;
 	@FXML
 	private TableColumn<Customer, String> firstNColumn;
-	//inits list cells with coffee objects brand
+	//inits list cells with coffee objects specific property
 	Callback<ListView<Coffee>, ListCell<Coffee>> cellFactoryBrand = lv -> new ListCell<Coffee>() {
 		@Override
 		protected void updateItem(Coffee item, boolean empty) {
@@ -104,9 +104,18 @@ public class CustomerOrders {
 	
 	@FXML
 	private void addToOrder() {
-		Coffee t = brandBox.getValue();
-		System.out.println("Dg");
+		// Coffee t = brandBox.getValue();
+		// System.out.println(t);
 	}
+
+	// if unique coffee object selected prevents others from being selected
+	@FXML
+	private void selectedByBrand(){
+		coffeeNameBox.setOnShown(event -> coffeeNameBox.hide());
+		priceBox.setOnShown(event -> priceBox.hide());
+		regionBox.setOnShown(event -> regionBox.hide());
+	}
+	
 
 	private void saveCoffeeToDB() {
 		//checks if coffee table already populated
