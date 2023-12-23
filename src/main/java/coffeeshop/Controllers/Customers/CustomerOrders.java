@@ -16,10 +16,13 @@ import coffeeshop.Entities.Customers.Customer;
 import javafx.beans.DefaultProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Callback;
 import javafx.scene.control.TableView;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
@@ -53,6 +56,8 @@ public class CustomerOrders {
 	private TableColumn<Customer, String> pwColumn;
 	@FXML
 	private TableColumn<Customer, String> firstNColumn;
+	@FXML
+    private Button resetButton;
 	//inits list cells with coffee objects specific property
 	Callback<ListView<Coffee>, ListCell<Coffee>> cellFactoryBrand = lv -> new ListCell<Coffee>() {
 		@Override
@@ -108,8 +113,7 @@ public class CustomerOrders {
 		// System.out.println(t);
 	}
 
-	// if unique coffee object selected by property prevents others from being selected
-	@FXML
+	@FXML // if unique coffee object selected by property prevents others from being selected
 	private void selectedByBrand(){
 		coffeeNameBox.setOnShown(event -> coffeeNameBox.hide());
 		coffeeNameBox.setPromptText("");
@@ -157,11 +161,30 @@ public class CustomerOrders {
 
 	@FXML
 	private void resetCoffeeFields(){
-		brandBox.setOnShown(event -> brandBox.show());
-		coffeeNameBox.setOnShown(event -> coffeeNameBox.show());
-		priceBox.setOnShown(event -> priceBox.show());
-		regionBox.setOnShown(event -> regionBox.show());
+		
 	}
+
+	private void resetBrand(){
+		brandBox.setOnShown(event -> brandBox.show());
+		brandBox.getSelectionModel().clearSelection();
+		brandBox.setPromptText("Brand");
+	}
+	private void resetCoffeeName(){
+		coffeeNameBox.setOnShown(event -> coffeeNameBox.show());
+		coffeeNameBox.getSelectionModel().clearSelection();
+		coffeeNameBox.setPromptText("Name");
+	}
+	private void resetPrice(){
+		priceBox.setOnShown(event -> priceBox.show());
+		priceBox.valueProperty().set(null);
+		priceBox.setPromptText("Price");
+	}
+	private void resetRegion(){
+		regionBox.setOnShown(event -> regionBox.show());
+		regionBox.valueProperty().set(null);
+		regionBox.setPromptText("Region");
+	}
+
 
 	private void loadTable()  {
 		table.setEditable(true);

@@ -13,7 +13,6 @@ import org.hibernate.JDBCException;
 import coffeeshop.App;
 import coffeeshop.Entities.Customers.CustomerDAOService;
 import coffeeshop.Models.CustomerDTO;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -64,7 +63,7 @@ public class NewCustomer {
 	
      
     @FXML
-	private void submit(ActionEvent event) throws IOException, SQLException, JDBCException, NoSuchAlgorithmException, InvalidKeySpecException {
+	private void submit() throws IOException, SQLException, JDBCException, NoSuchAlgorithmException, InvalidKeySpecException {
         if (userEntry.getText().isEmpty() || pwEntry.getText().isEmpty()
             || fNameEntry.getText().trim().isEmpty() || lNameEntry.getText().trim().isEmpty()
             || emailEntry.getText().trim().isEmpty() || phoneEntry.getText().isEmpty()) {

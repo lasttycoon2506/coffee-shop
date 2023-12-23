@@ -25,12 +25,12 @@
         </columns>
       </TableView>
       <Button layoutX="475.0" layoutY="108.0" mnemonicParsing="false" onAction="#addToOrder" prefHeight="25.0" prefWidth="62.0" text="ADD" />
-      <ComboBox fx:id="brandBox" layoutX="-3.0" layoutY="108.0" onAction="#selectedByBrand" prefHeight="25.0" prefWidth="80.0" />
+      <ComboBox fx:id="brandBox" layoutX="-3.0" layoutY="108.0" onAction="#selectedByBrand" prefHeight="25.0" prefWidth="80.0" promptText="Brand" />
       <ComboBox fx:id="coffeeNameBox" layoutX="77.0" layoutY="108.0" onAction="#selectedByCoffeeName" prefHeight="25.0" prefWidth="80.0" promptText="Name" />
       <ComboBox fx:id="roastBox" layoutX="157.0" layoutY="108.0" prefHeight="25.0" prefWidth="80.0" promptText="Roast" />
       <ComboBox fx:id="priceBox" layoutX="237.0" layoutY="108.0" onAction="#selectedByPrice" prefHeight="25.0" prefWidth="80.0" promptText="Price" />
       <ComboBox fx:id="regionBox" layoutX="317.0" layoutY="108.0" onAction="#selectedByRegion" prefHeight="25.0" prefWidth="80.0" promptText="Region" />
       <ComboBox fx:id="sizeBox" layoutX="397.0" layoutY="108.0" prefHeight="25.0" prefWidth="80.0" promptText="Size" />
-      <Button layoutX="537.0" layoutY="108.0" mnemonicParsing="false" onAction="#resetCoffeeFields" text="RESET" />
+      <Button fx:id="resetButton" layoutX="537.0" layoutY="108.0" mnemonicParsing="false" onAction="#resetCoffeeFields" text="RESET" />
    </children>
 </AnchorPane>
