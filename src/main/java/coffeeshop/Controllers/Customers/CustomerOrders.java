@@ -108,12 +108,30 @@ public class CustomerOrders {
 		// System.out.println(t);
 	}
 
-	// if unique coffee object selected prevents others from being selected
+	// if unique coffee object selected by property prevents others from being selected
 	@FXML
 	private void selectedByBrand(){
 		coffeeNameBox.setOnShown(event -> coffeeNameBox.hide());
 		priceBox.setOnShown(event -> priceBox.hide());
 		regionBox.setOnShown(event -> regionBox.hide());
+	}
+	@FXML
+	private void selectedByCoffeeName(){
+		brandBox.setOnShown(event -> brandBox.hide());
+		priceBox.setOnShown(event -> priceBox.hide());
+		regionBox.setOnShown(event -> regionBox.hide());
+	}
+	@FXML
+	private void selectedByPrice(){
+		brandBox.setOnShown(event -> brandBox.hide());
+		coffeeNameBox.setOnShown(event -> coffeeNameBox.hide());
+		regionBox.setOnShown(event -> regionBox.hide());
+	}
+	@FXML
+	private void selectedByRegion(){
+		brandBox.setOnShown(event -> brandBox.hide());
+		coffeeNameBox.setOnShown(event -> coffeeNameBox.hide());
+		priceBox.setOnShown(event -> priceBox.hide());
 	}
 	
 
