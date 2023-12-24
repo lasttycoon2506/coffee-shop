@@ -92,6 +92,12 @@ public class CustomerOrders {
 		// 												customer.getLastName(), customer.getEmail(), customer.getPhone())
         // );
 		// loadTable();
+		saveCoffeeToDB();
+		fillComboBoxes();	
+    }
+	
+	//fills combo boxes with coffee objects w/ chooseable properties
+	private void fillComboBoxes() {
 		brandBox.setButtonCell(cellFactoryBrand.call(null));
 		brandBox.setCellFactory(cellFactoryBrand);
 		brandBox.getItems().addAll(coffeeList);
@@ -108,9 +114,8 @@ public class CustomerOrders {
 		sizeBox.setButtonCell(cellFactorySize.call(null));
 		sizeBox.setCellFactory(cellFactorySize);
 		sizeBox.getItems().addAll(coffeeList);
-		saveCoffeeToDB();	
-    }
-	
+	}
+
 	@FXML
 	private void addToOrder() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException  {
         Coffee coffeeItem = brandBox.getValue();

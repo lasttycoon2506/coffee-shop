@@ -32,5 +32,6 @@
       <ComboBox fx:id="regionBox" layoutX="317.0" layoutY="108.0" onAction="#selectedByRegion" prefHeight="25.0" prefWidth="80.0" promptText="Region" />
       <ComboBox fx:id="sizeBox" layoutX="397.0" layoutY="108.0" prefHeight="25.0" prefWidth="80.0" promptText="Size" />
       <Button fx:id="resetButton" layoutX="537.0" layoutY="108.0" mnemonicParsing="false" onAction="#resetCoffeeFields" text="RESET" />
+      <Label layoutX="176.0" layoutY="91.0" prefHeight="17.0" prefWidth="80.0" text="Filter By:" />
    </children>
 </AnchorPane>
