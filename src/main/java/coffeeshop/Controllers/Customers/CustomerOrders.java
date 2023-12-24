@@ -1,6 +1,7 @@
 package coffeeshop.Controllers.Customers;
 
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.List;
@@ -50,7 +51,7 @@ public class CustomerOrders {
 	private TableColumn<Customer, String> firstNColumn;
 	@FXML
     private Button resetButton;
-	//inits list cells with coffee objects specific property
+	//inits list cells with coffee objects' specific property
 	Callback<ListView<Coffee>, ListCell<Coffee>> cellFactoryBrand = lv -> new ListCell<Coffee>() {
 		@Override
 		protected void updateItem(Coffee item, boolean empty) {
@@ -111,12 +112,14 @@ public class CustomerOrders {
     }
 	
 	@FXML
-	private void addToOrder() {
-		// Coffee t = brandBox.getValue();
-		// System.out.println(t);
+	private void addToOrder() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException  {
+        Coffee coffeeItem = brandBox.getValue();
+		Field coffeeID = coffeeItem.getClass().getDeclaredField("coffee_id");
+		coffeeID.setAccessible(true);
+		System.out.println(coffeeID.get(coffeeItem));
 	}
 
-	@FXML // if unique coffee object selected by property prevents others from being selected
+	@FXML // if unique coffee object is selected by property this prevents others from being selected
 	private void selectedByBrand(){
 		coffeeNameBox.setOnShown(event -> coffeeNameBox.hide());
 		coffeeNameBox.setPromptText("");
@@ -168,6 +171,7 @@ public class CustomerOrders {
 		sizeBox.getItems().addAll(listByRoast);
 	}
 
+	//saves coffee table to DB once only
 	private void saveCoffeeToDB() {
 		if (!CoffeeDAOService.coffeeListExistsDB()) {
 			for (Coffee coffee : CoffeeList.getCoffeeList()) {
