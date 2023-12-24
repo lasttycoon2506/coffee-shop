@@ -3,23 +3,15 @@ package coffeeshop.Controllers.Customers;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.ResourceBundle;
-
 import coffeeshop.App;
 import coffeeshop.Data.CoffeeList;
 import coffeeshop.Models.Context;
 import coffeeshop.Entities.Coffee.Coffee;
 import coffeeshop.Entities.Coffee.CoffeeDAOService;
 import coffeeshop.Entities.Customers.Customer;
-import javafx.beans.DefaultProperty;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Callback;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Button;
@@ -161,7 +153,10 @@ public class CustomerOrders {
 
 	@FXML
 	private void resetCoffeeFields(){
-		
+		resetBrand();
+		resetCoffeeName();
+		resetPrice();
+		resetRegion();
 	}
 
 	private void resetBrand(){

@@ -109,6 +109,7 @@ public class NewCustomer {
         return flag;
     }
 
+    // checks if duplicate property value exists in DB
     private boolean entryExists(){
         boolean flag = false;
         if (CustomerDAOService.userNameExists(userEntry.getText())){
@@ -126,6 +127,7 @@ public class NewCustomer {
         return flag;
     }
 
+    
     private boolean isFieldValid(){
         boolean flag = true;
         if (!pwValidator(pwEntry, errorListPWPW)){
