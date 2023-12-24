@@ -146,7 +146,17 @@ public class CustomerOrders {
 	
 	@FXML
 	private void filtersByRoast(){
-		CoffeeDAOService.getbyRoastList(roastBox.getValue());
+		final List<Coffee> listByRoast = CoffeeDAOService.getbyRoastList(roastBox.getValue());
+		brandBox.getItems().clear();
+		brandBox.getItems().addAll(listByRoast);
+		coffeeNameBox.getItems().clear();
+		coffeeNameBox.getItems().addAll(listByRoast);
+		// roastBox.getItems().addAll(listByRoast);
+		priceBox.getItems().clear();
+		priceBox.getItems().addAll(listByRoast);
+		regionBox.getItems().clear();
+		regionBox.getItems().addAll(listByRoast);
+		sizeBox.getItems().addAll(listByRoast);
 	}
 
 	private void saveCoffeeToDB() {
