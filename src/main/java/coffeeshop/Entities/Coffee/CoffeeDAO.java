@@ -1,18 +1,20 @@
 package coffeeshop.Entities.Coffee;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Consumer;
+import coffeeshop.Models.DAO;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 
 
-public class CoffeeDAO {
+public class CoffeeDAO implements DAO<Coffee>{
     private static final EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa-hibernate-mysql");
     private static final EntityManager entityManager = factory.createEntityManager();
 
-    public static void save(Coffee coffee) {
+    public void save(Coffee coffee) {
         executeInsideTransaction(entityManager -> entityManager.persist(coffee));
     }
 
@@ -35,6 +37,8 @@ public class CoffeeDAO {
         return roastList;
     }
 
+
+
     private static void executeInsideTransaction(Consumer<EntityManager> action) {
         EntityTransaction transaction = entityManager.getTransaction();
         try {
@@ -46,5 +50,29 @@ public class CoffeeDAO {
             transaction.rollback();
             throw e;
         }
+    }
+
+    @Override
+    public Optional<Coffee> get(Integer id) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'get'");
+    }
+
+    @Override
+    public List<Coffee> getAll() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getAll'");
+    }
+
+    @Override
+    public void edit(Coffee t) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'edit'");
+    }
+
+    @Override
+    public void delete(Coffee t) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
 }
