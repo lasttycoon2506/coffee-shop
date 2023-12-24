@@ -90,12 +90,14 @@ public class CustomerOrders {
 		coffeeNameBox.setButtonCell(cellFactoryCoffeeName.call(null));
 		coffeeNameBox.setCellFactory(cellFactoryCoffeeName);
 		coffeeNameBox.getItems().addAll(coffeeList);
+		roastBox.getItems().addAll("Light", "Medium", "Dark");
 		priceBox.setButtonCell(cellFactoryPrice.call(null));
 		priceBox.setCellFactory(cellFactoryPrice);
 		priceBox.getItems().addAll(coffeeList);
 		regionBox.setButtonCell(cellFactoryRegion.call(null));
 		regionBox.setCellFactory(cellFactoryRegion);
 		regionBox.getItems().addAll(coffeeList);
+		sizeBox.getItems().addAll(12, 14, 16, 18);
 		saveCoffeeToDB();	
     }
 	
