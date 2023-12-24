@@ -12,11 +12,6 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="260.0" layoutY="244.0" mnemonicParsing="false" onAction="#switchToEmployeePg" prefHeight="40.0" prefWidth="120.0" text="Employee">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
       <Label alignment="CENTER" layoutY="8.0" prefHeight="57.0" prefWidth="600.0" text="Coffee Shop" textFill="#0bb221">
          <font>
             <Font name="Gill Sans MT" size="48.0" />
