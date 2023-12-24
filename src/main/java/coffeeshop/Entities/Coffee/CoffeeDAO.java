@@ -29,6 +29,12 @@ public class CoffeeDAO {
         return coffeeList;
     }
 
+    public static List<Coffee> getByRoastList(String roast){
+        List<Coffee> roastList = entityManager.createQuery("SELECT roast from Coffee roast WHERE roast.roast = :roastType",
+                            Coffee.class).setParameter("roastType", roast).getResultList();
+        return roastList;
+    }
+
     private static void executeInsideTransaction(Consumer<EntityManager> action) {
         EntityTransaction transaction = entityManager.getTransaction();
         try {

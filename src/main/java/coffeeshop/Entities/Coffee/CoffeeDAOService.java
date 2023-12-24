@@ -15,4 +15,8 @@ public class CoffeeDAOService {
     public static List<Coffee> getCoffeeList() {
         return CoffeeDAO.getCoffeeList();
     }
+
+    public static List<Coffee> getbyRoastList(String roast) {
+        return CoffeeDAO.getByRoastList(roast);
+    }
 }

@@ -144,6 +144,10 @@ public class CustomerOrders {
 		priceBox.setPromptText("");
 	}
 	
+	@FXML
+	private void filtersByRoast(){
+		CoffeeDAOService.getbyRoastList(roastBox.getValue());
+	}
 
 	private void saveCoffeeToDB() {
 		if (!CoffeeDAOService.coffeeListExistsDB()) {
