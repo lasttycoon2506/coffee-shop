@@ -96,7 +96,7 @@ public class CustomerOrders {
 		fillComboBoxes();	
     }
 	
-	//fills combo boxes with coffee objects w/ chooseable properties
+	//sets & fills combo boxes with coffee objects w/ chooseable properties
 	private void fillComboBoxes() {
 		brandBox.setButtonCell(cellFactoryBrand.call(null));
 		brandBox.setCellFactory(cellFactoryBrand);
@@ -128,19 +128,27 @@ public class CustomerOrders {
 	private void selectedByBrand(){
 		coffeeNameBox.setOnShown(event -> coffeeNameBox.hide());
 		coffeeNameBox.setPromptText("");
+		roastBox.setOnShown(event -> roastBox.hide());
+		roastBox.setPromptText("");
 		priceBox.setOnShown(event -> priceBox.hide());
 		priceBox.setPromptText("");
 		regionBox.setOnShown(event -> regionBox.hide());
 		regionBox.setPromptText("");
+		sizeBox.setOnShown(event -> sizeBox.hide());
+		sizeBox.setPromptText("");
 	}
 	@FXML
 	private void selectedByCoffeeName(){
 		brandBox.setOnShown(event -> brandBox.hide());
 		brandBox.setPromptText("");
+		roastBox.setOnShown(event -> roastBox.hide());
+		roastBox.setPromptText("");
 		priceBox.setOnShown(event -> priceBox.hide());
 		priceBox.setPromptText("");
 		regionBox.setOnShown(event -> regionBox.hide());
 		regionBox.setPromptText("");
+		sizeBox.setOnShown(event -> sizeBox.hide());
+		sizeBox.setPromptText("");
 	}
 	@FXML
 	private void selectedByPrice(){
@@ -148,8 +156,12 @@ public class CustomerOrders {
 		brandBox.setPromptText("");
 		coffeeNameBox.setOnShown(event -> coffeeNameBox.hide());
 		coffeeNameBox.setPromptText("");
+		roastBox.setOnShown(event -> roastBox.hide());
+		roastBox.setPromptText("");
 		regionBox.setOnShown(event -> regionBox.hide());
 		regionBox.setPromptText("");
+		sizeBox.setOnShown(event -> sizeBox.hide());
+		sizeBox.setPromptText("");
 	}
 	@FXML
 	private void selectedByRegion(){
@@ -157,8 +169,12 @@ public class CustomerOrders {
 		brandBox.setPromptText("");
 		coffeeNameBox.setOnShown(event -> coffeeNameBox.hide());
 		coffeeNameBox.setPromptText("");
+		roastBox.setOnShown(event -> roastBox.hide());
+		roastBox.setPromptText("");
 		priceBox.setOnShown(event -> priceBox.hide());
 		priceBox.setPromptText("");
+		sizeBox.setOnShown(event -> sizeBox.hide());
+		sizeBox.setPromptText("");
 	}
 	
 	@FXML
@@ -189,6 +205,7 @@ public class CustomerOrders {
 	private void resetCoffeeFields(){
 		resetBrand();
 		resetCoffeeName();
+		resetRoast();
 		resetPrice();
 		resetRegion();
 	}
@@ -202,6 +219,11 @@ public class CustomerOrders {
 		coffeeNameBox.setOnShown(event -> coffeeNameBox.show());
 		coffeeNameBox.getSelectionModel().clearSelection();
 		coffeeNameBox.setPromptText("Name");
+	}
+	private void resetRoast(){
+		// roastBox.setOnShown(event -> coffeeNameBox.show());
+		roastBox.getSelectionModel().clearSelection();
+		roastBox.setPromptText("Light");
 	}
 	private void resetPrice(){
 		priceBox.setOnShown(event -> priceBox.show());
