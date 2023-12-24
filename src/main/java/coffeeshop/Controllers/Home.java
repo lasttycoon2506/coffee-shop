@@ -10,9 +10,4 @@ public class Home {
     private void switchToCustomerPg() throws IOException {
         App.setRoot("customerLogin");
     }
-
-      @FXML
-    private void switchToEmployeePg() throws IOException {
-        App.setRoot("employee");
-    }
 }
