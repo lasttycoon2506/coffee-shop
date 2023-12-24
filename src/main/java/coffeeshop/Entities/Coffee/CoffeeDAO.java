@@ -17,7 +17,7 @@ public class CoffeeDAO {
     }
 
     public static boolean coffeeListExistsDB() {
-        List<String> coffeeList = entityManager.createQuery("SELECT c from Coffee c").getResultList();
+        List<Coffee> coffeeList = entityManager.createQuery("SELECT c from Coffee c", Coffee.class).getResultList();
         if (coffeeList.isEmpty()) {
             return false;
         }
@@ -25,7 +25,7 @@ public class CoffeeDAO {
     }
 
     public static List<Coffee> getCoffeeList(){
-        List<Coffee> coffeeList =  entityManager.createQuery("SELECT c from Coffee c").getResultList();
+        List<Coffee> coffeeList =  entityManager.createQuery("SELECT c from Coffee c", Coffee.class).getResultList();
         return coffeeList;
     }
 
