@@ -64,25 +64,28 @@ public class NewCustomer {
      
     @FXML
 	private void submit() throws IOException, SQLException, JDBCException, NoSuchAlgorithmException, InvalidKeySpecException {
-        isEmptyField();
-        entryExists();
-        fieldValidator();
-            
-            
+        if (isEmptyField()) {
+        }
+        else if (entryExists()){
+        }
+        else if (!isFieldValid()){
+        }
+        else { 
                 CustomerDTO newCustomer = new CustomerDTO(userEntry.getText(), pwEntry.getText(), fNameEntry.getText().trim(), 
                                             lNameEntry.getText().trim(), emailEntry.getText().trim(), phoneEntry.getText());  
-
                 CustomerDAOService.saveCustomer(newCustomer);
                 notificationWindow("confirmation", null);
                 switchToCustomerPg();
-            
+            }
         }
 	
 
-    private void isEmptyField(){
+    private boolean isEmptyField(){
+        boolean flag = false;
         if (userEntry.getText().isEmpty() || pwEntry.getText().isEmpty()
             || fNameEntry.getText().trim().isEmpty() || lNameEntry.getText().trim().isEmpty()
             || emailEntry.getText().trim().isEmpty() || phoneEntry.getText().isEmpty()) {
+            flag = true;
             
             if (userEntry.getText().isEmpty()){
                 notificationWindow("error", "User Name Empty!");
@@ -103,33 +106,45 @@ public class NewCustomer {
                 notificationWindow("error", "Phone Empty!");
                 }
         }
+        return flag;
     }
 
-    private void entryExists(){
+    private boolean entryExists(){
+        boolean flag = false;
         if (CustomerDAOService.userNameExists(userEntry.getText())){
-                notificationWindow("error", "User Name Exists!");
+            notificationWindow("error", "User Name Exists!");
+            flag = true;
             }
         else if (CustomerDAOService.emailExists(emailEntry.getText())){
-                notificationWindow("error", "Email Exists!");
+            notificationWindow("error", "Email Exists!");
+            flag = true;
             }
         else if (CustomerDAOService.phoneExists(phoneEntry.getText())){
-                notificationWindow("error", "Phone Exists!");
+            notificationWindow("error", "Phone Exists!");
+            flag = true;
             }
+        return flag;
     }
 
-    private void fieldValidator(){
+    private boolean isFieldValid(){
+        boolean flag = true;
         if (!pwValidator(pwEntry, errorListPWPW)){
-                notificationWindow("error", stringFormatter(errorListPWPW));
+            notificationWindow("error", stringFormatter(errorListPWPW));
+            flag = false;
             }
         else if (!emailValidator(emailEntry)){
-                notificationWindow("error", emailErr);
+            notificationWindow("error", emailErr);
+            flag = false;
             }
         else if (!phoneLenValidator(phoneEntry)){
-                notificationWindow("error", phoneLenErr);
+            notificationWindow("error", phoneLenErr);
+            flag = false;
             }
         else if (!emailValidator(emailEntry)){
-                notificationWindow("error", emailErr);
+            notificationWindow("error", emailErr);
+            flag = false;
             }
+        return flag;
     }
     
 
