@@ -15,30 +15,16 @@ CREATE TABLE IF NOT EXISTS Customers
     PRIMARY KEY (customer_id)
 );
 
-CREATE TABLE IF NOT EXISTS Employees
-(
-    employee_id INT AUTO_INCREMENT NOT NULL UNIQUE,
-    first_name VARCHAR(50) NOT NULL,
-    last_name  VARCHAR(50) NOT NULL,
-    email  VARCHAR(50) NOT NULL UNIQUE,
-    phone  VARCHAR(50) NOT NULL UNIQUE, 
-    title  VARCHAR(50) NOT NULL,
-    PRIMARY KEY (employee_id)
-);
-
 CREATE TABLE IF NOT EXISTS Orders
 (
    orders_id INT NOT NULL AUTO_INCREMENT UNIQUE,
    orders_date DATE NOT NULL,
    number_of_items INT NOT NULL,
    customer_id INT NOT NULL,
-   employee_id INT NOT NULL,
-   order_status BOOLEAN NOT NULL DEFAULT FALSE,
+   order_status BOOLEAN NOT NULL DEFAULT FALSE,....
    PRIMARY KEY(orders_id),
    CONSTRAINT FK_Orders_Customer_Id
    FOREIGN KEY (customer_id) REFERENCES Customers(customer_id),
-   CONSTRAINT FK_Orders_Employee_Id
-   FOREIGN KEY (employee_id) REFERENCES Employees(employee_id) 
 );
 
 CREATE TABLE IF NOT EXISTS Coffee

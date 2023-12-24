@@ -3,9 +3,18 @@ package coffeeshop.Entities.Coffee;
 import java.util.List;
 
 public class CoffeeDAOService {
+    private static CoffeeDAO coffeeDAO = new CoffeeDAO();
+
+    private CoffeeDAOService(CoffeeDAO coffeeDAO){
+        CoffeeDAOService.coffeeDAO = coffeeDAO;
+    }
     
     public static void saveCoffee(Coffee coffee) {
-        CoffeeDAO.save(coffee);
+        coffeeDAO.save(coffee);
+    }
+
+    public void saveOrder(){
+
     }
 
     public static boolean coffeeListExistsDB() {
