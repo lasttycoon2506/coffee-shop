@@ -37,7 +37,7 @@ public class CustomerOrders {
 	@FXML
 	private ComboBox<Coffee> regionBox;
 	@FXML
-	private ComboBox<Integer> sizeBox;
+	private ComboBox<Coffee> sizeBox;
 	@FXML
 	private ObservableList<Customer> data;
 	@FXML
@@ -79,6 +79,13 @@ public class CustomerOrders {
 			setText(empty ? "Region" : item.getRegion());
 		}
 	};
+	Callback<ListView<Coffee>, ListCell<Coffee>> cellFactorySize = lv -> new ListCell<Coffee>() {
+		@Override
+		protected void updateItem(Coffee item, boolean empty) {
+			super.updateItem(item, empty);
+			setText(empty ? "Size" : Integer.toString(item.getCoffeeSize()));
+		}
+	};
 	public void initialize() throws NoSuchAlgorithmException, InvalidKeySpecException{
 		// data = FXCollections.observableArrayList(new Customer(customer.getUserName(), customer.getPassword(), customer.getFirstName(),
 		// 												customer.getLastName(), customer.getEmail(), customer.getPhone())
@@ -97,7 +104,9 @@ public class CustomerOrders {
 		regionBox.setButtonCell(cellFactoryRegion.call(null));
 		regionBox.setCellFactory(cellFactoryRegion);
 		regionBox.getItems().addAll(coffeeList);
-		sizeBox.getItems().addAll(12, 14, 16, 18);
+		sizeBox.setButtonCell(cellFactorySize.call(null));
+		sizeBox.setCellFactory(cellFactorySize);
+		sizeBox.getItems().addAll(coffeeList);
 		saveCoffeeToDB();	
     }
 	
@@ -145,17 +154,17 @@ public class CustomerOrders {
 	}
 	
 	@FXML
-	private void filtersByRoast(){
+	private void filterByRoast(){
 		final List<Coffee> listByRoast = CoffeeDAOService.getbyRoastList(roastBox.getValue());
 		brandBox.getItems().clear();
 		brandBox.getItems().addAll(listByRoast);
 		coffeeNameBox.getItems().clear();
 		coffeeNameBox.getItems().addAll(listByRoast);
-		// roastBox.getItems().addAll(listByRoast);
 		priceBox.getItems().clear();
 		priceBox.getItems().addAll(listByRoast);
 		regionBox.getItems().clear();
 		regionBox.getItems().addAll(listByRoast);
+		sizeBox.getItems().clear();
 		sizeBox.getItems().addAll(listByRoast);
 	}
 
