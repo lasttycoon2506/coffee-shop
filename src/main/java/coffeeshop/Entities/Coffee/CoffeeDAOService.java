@@ -27,7 +27,7 @@ public class CoffeeDAOService {
     public static List<String> getNames() {
         return CoffeeDAO.getNames();
     }
-    public static List<Float> getPrices() {
+    public static List<String> getPrices() {
         return CoffeeDAO.getPrices();
     }
     public static List<String> getRegions() {
@@ -43,7 +43,7 @@ public class CoffeeDAOService {
     public static Coffee searchByName(String name) {
         return CoffeeDAO.searchByName(name);
     }
-    public static Coffee searchByPrice(Float price) {
+    public static Coffee searchByPrice(String price) {
         return CoffeeDAO.searchByPrice(price);
     }
     public static Coffee searchByRegion(String name) {

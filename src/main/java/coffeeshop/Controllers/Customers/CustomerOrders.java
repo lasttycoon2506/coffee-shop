@@ -31,7 +31,7 @@ public class CustomerOrders {
 	@FXML
 	private ComboBox<String> roastBox;
 	@FXML
-	private ComboBox<Float> priceBox;
+	private ComboBox<String> priceBox;
 	@FXML
 	private ComboBox<String> regionBox;
 	@FXML
@@ -40,7 +40,7 @@ public class CustomerOrders {
 	private final ObservableList<Coffee> coffeeList = FXCollections.observableArrayList();
 	private static final List<String> brandsList = CoffeeDAOService.getBrands();
 	private static final List<String> namesList = CoffeeDAOService.getNames();
-	private static final List<Float> pricesList = CoffeeDAOService.getPrices();
+	private static final List<String> pricesList = CoffeeDAOService.getPrices();
 	private static final List<String> regionsList = CoffeeDAOService.getRegions();
 	private static final List<Integer> sizeList = CoffeeDAOService.getSizes();
 	@FXML
