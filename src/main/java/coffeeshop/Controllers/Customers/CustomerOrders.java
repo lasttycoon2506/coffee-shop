@@ -106,6 +106,9 @@ public class CustomerOrders {
 	}
 	@FXML
 	private void selectedByRegion(){
+		Coffee coffeeItem = CoffeeDAOService.searchByRegion(regionBox.getValue());
+		coffeeList.add(coffeeItem);
+		loadTable();
 	}
 	
 	@FXML

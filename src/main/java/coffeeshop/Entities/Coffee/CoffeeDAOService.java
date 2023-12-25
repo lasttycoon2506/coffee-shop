@@ -46,8 +46,8 @@ public class CoffeeDAOService {
     public static Coffee searchByPrice(String price) {
         return CoffeeDAO.searchByPrice(price);
     }
-    public static Coffee searchByRegion(String name) {
-        return CoffeeDAO.searchByName(name);
+    public static Coffee searchByRegion(String region) {
+        return CoffeeDAO.searchByRegion(region);
     }
 
     public static List<Coffee> filterByRoast(String roast) {
