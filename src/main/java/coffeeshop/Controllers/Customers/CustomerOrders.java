@@ -136,15 +136,7 @@ public class CustomerOrders {
 			}
 		}
 	}
-
-	@FXML
-	private void resetCoffeeFields(){
-		resetCoffeeName();
-		resetRoast();
-		resetPrice();
-		resetRegion();
-		resetSize();
-	}
+	
 	
 	private void resetChoiceBox(ComboBox<String> comboBox){
 		comboBox.setValue(null);
@@ -161,31 +153,7 @@ public class CustomerOrders {
     });
 	}
 
-	private void resetCoffeeName(){
-		nameBox.setOnShown(event -> nameBox.show());
-		nameBox.getSelectionModel().clearSelection();
-		nameBox.setPromptText("Name");
-	}
-	private void resetRoast(){
-		roastBox.setOnShown(event -> nameBox.show());
-		roastBox.getSelectionModel().clearSelection();
-		roastBox.setPromptText("Roast");
-	}
-	private void resetPrice(){
-		priceBox.setOnShown(event -> priceBox.show());
-		priceBox.valueProperty().set(null);
-		priceBox.setPromptText("Price");
-	}
-	private void resetRegion(){
-		regionBox.setOnShown(event -> regionBox.show());
-		regionBox.valueProperty().set(null);
-		regionBox.setPromptText("Region");
-	}
-	private void resetSize(){
-		sizeBox.setOnShown(event -> sizeBox.show());
-		sizeBox.valueProperty().set(null);
-		sizeBox.setPromptText("Size");
-	}
+
 
 
 	private void loadTable()  {
