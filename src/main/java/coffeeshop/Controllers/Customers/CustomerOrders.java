@@ -47,6 +47,7 @@ public class CustomerOrders {
 	private static final List<String> coffeeNamesList = CoffeeDAOService.getCoffeeNames();
 	private static final List<String> roastsList = CoffeeDAOService.getRoasts();
 	private static final List<Float> pricesList = CoffeeDAOService.getPrices();
+	private static final List<String> regionsList = CoffeeDAOService.getRegions();
 	@FXML
 	private TableColumn<Coffee, String> brandColumn;
 	@FXML
@@ -116,7 +117,7 @@ public class CustomerOrders {
 		priceBox.getItems().addAll(pricesList);
 		// regionBox.setButtonCell(cellFactoryRegion.call(null));
 		// regionBox.setCellFactory(cellFactoryRegion);
-		// regionBox.getItems().addAll(coffeeList);
+		regionBox.getItems().addAll(regionsList);
 		// sizeBox.setButtonCell(cellFactorySize.call(null));
 		// sizeBox.setCellFactory(cellFactorySize);
 		// sizeBox.getItems().addAll(coffeeList);

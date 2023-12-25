@@ -42,6 +42,10 @@ public class CoffeeDAO implements DAO<Coffee>{
         List<Float> pricesList =  entityManager.createQuery("SELECT prices.price FROM Coffee prices", Float.class).getResultList();
         return pricesList;
     }
+    public static List<String> getRegions(){
+        List<String> regionsList =  entityManager.createQuery("SELECT regions.region FROM Coffee regions", String.class).getResultList();
+        return regionsList;
+    }
 
     public static List<Coffee> filterByRoast(String roast){
         List<Coffee> roastList = entityManager.createQuery("SELECT roast from Coffee roast WHERE roast.roast = :roastType",
