@@ -32,19 +32,21 @@ public class CustomerOrders {
 	@FXML
 	private ComboBox<String> brandBox;
 	@FXML
-	private ComboBox<Coffee> coffeeNameBox;
+	private ComboBox<String> coffeeNameBox;
 	@FXML
 	private ComboBox<String> roastBox;
 	@FXML
-	private ComboBox<Coffee> priceBox;
+	private ComboBox<String> priceBox;
 	@FXML
-	private ComboBox<Coffee> regionBox;
+	private ComboBox<String> regionBox;
 	@FXML
-	private ComboBox<Coffee> sizeBox;
+	private ComboBox<String> sizeBox;
 	@FXML
 	private ObservableList<Coffee> data;
 	@FXML
 	private static final List<String> brandsList = CoffeeDAOService.getBrands();
+	@FXML
+	private static final List<String> coffeeNamesList = CoffeeDAOService.getCoffeeNames();
 	@FXML
 	private TableColumn<Coffee, String> brandColumn;
 	@FXML
@@ -107,7 +109,7 @@ public class CustomerOrders {
 		brandBox.getItems().addAll(brandsList);
 		// coffeeNameBox.setButtonCell(cellFactoryCoffeeName.call(null));
 		// coffeeNameBox.setCellFactory(cellFactoryCoffeeName);
-		// coffeeNameBox.getItems().addAll(coffeeList);
+		coffeeNameBox.getItems().addAll(coffeeNamesList);
 		roastBox.getItems().addAll("Light", "Medium", "Dark");
 		// priceBox.setButtonCell(cellFactoryPrice.call(null));
 		// priceBox.setCellFactory(cellFactoryPrice);
@@ -188,17 +190,17 @@ public class CustomerOrders {
 	
 	@FXML
 	private void filterByRoast(){
-		final List<Coffee> listByRoast = CoffeeDAOService.getbyRoastList(roastBox.getValue());
+		final List<Coffee> listByRoast = CoffeeDAOService.filterByRoast(roastBox.getValue());
 		// brandBox.getItems().clear();
 		// brandBox.getItems().addAll(listByRoast);
-		coffeeNameBox.getItems().clear();
-		coffeeNameBox.getItems().addAll(listByRoast);
-		priceBox.getItems().clear();
-		priceBox.getItems().addAll(listByRoast);
-		regionBox.getItems().clear();
-		regionBox.getItems().addAll(listByRoast);
-		sizeBox.getItems().clear();
-		sizeBox.getItems().addAll(listByRoast);
+		// coffeeNameBox.getItems().clear();
+		// coffeeNameBox.getItems().addAll(listByRoast);
+		// priceBox.getItems().clear();
+		// priceBox.getItems().addAll(listByRoast);
+		// regionBox.getItems().clear();
+		// regionBox.getItems().addAll(listByRoast);
+		// sizeBox.getItems().clear();
+		// sizeBox.getItems().addAll(listByRoast);
 	}
 
 	//saves coffee table to DB once only

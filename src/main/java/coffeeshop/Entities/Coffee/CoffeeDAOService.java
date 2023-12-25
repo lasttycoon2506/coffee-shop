@@ -25,7 +25,11 @@ public class CoffeeDAOService {
         return CoffeeDAO.getBrands();
     }
 
-    public static List<Coffee> getbyRoastList(String roast) {
-        return CoffeeDAO.getByRoastList(roast);
+    public static List<String> getCoffeeNames() {
+        return CoffeeDAO.getCoffeeNames();
+    }
+
+    public static List<Coffee> filterByRoast(String roast) {
+        return CoffeeDAO.filterByRoast(roast);
     }
 }
