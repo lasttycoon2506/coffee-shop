@@ -11,10 +11,12 @@ import coffeeshop.Models.Context;
 import coffeeshop.Entities.Coffee.Coffee;
 import coffeeshop.Entities.Coffee.CoffeeDAOService;
 import coffeeshop.Entities.Customers.Customer;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.util.Callback;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListCell;
@@ -40,15 +42,21 @@ public class CustomerOrders {
 	@FXML
 	private ComboBox<Coffee> sizeBox;
 	@FXML
-	private ObservableList<Customer> data;
+	private ObservableList<Coffee> data;
 	@FXML
 	private List<Coffee> coffeeList = CoffeeDAOService.getCoffeeList();
 	@FXML
-	private TableColumn<Customer, String> userColumn;
+	private TableColumn<Coffee, String> brandColumn;
 	@FXML
-	private TableColumn<Customer, String> pwColumn;
+	private TableColumn<Coffee, String> coffeeNameColumn;
 	@FXML
-	private TableColumn<Customer, String> firstNColumn;
+	private TableColumn<Coffee, String> roastColumn;
+	@FXML
+	private TableColumn<Coffee, String> priceColumn;
+	@FXML
+	private TableColumn<Coffee, String> regionColumn;
+	@FXML
+	private TableColumn<Coffee, String> sizeColumn;
 	@FXML
     private Button resetButton;
 	//inits list cells with coffee objects' specific property
@@ -88,10 +96,6 @@ public class CustomerOrders {
 		}
 	};
 	public void initialize() throws NoSuchAlgorithmException, InvalidKeySpecException{
-		// data = FXCollections.observableArrayList(new Customer(customer.getUserName(), customer.getPassword(), customer.getFirstName(),
-		// 												customer.getLastName(), customer.getEmail(), customer.getPhone())
-        // );
-		// loadTable();
 		saveCoffeeToDB();
 		fillComboBoxes();	
     }
@@ -138,6 +142,9 @@ public class CustomerOrders {
 		regionBox.setPromptText("");
 		sizeBox.setOnShown(event -> sizeBox.hide());
 		sizeBox.setPromptText("");
+		// data = FXCollections.observableArrayList(brandBox.getValue(), coffeeNameBox.getValue(), roastBox.getValue(),
+		// 										priceBox.getValue(), regionBox.getValue(), sizeBox.getValue());
+		loadTable();
 	}
 	@FXML
 	private void selectedByCoffeeName(){
@@ -246,14 +253,14 @@ public class CustomerOrders {
 
 
 	private void loadTable()  {
-		// table.setEditable(true);
-        // userColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>(Coffee.COFFEE1.getBrand()));
-        // pwColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("pWord"));
-        // firstNColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("firstName"));
-		// lastNColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("lastName"));
-        // emailColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("email"));
-        // phoneColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("phone"));
-        table.setItems(data);
+		table.setEditable(true);
+        brandColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("tt"));
+        coffeeNameColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("pWord"));
+        roastColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("firstName"));
+		priceColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("lastName"));
+        regionColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("email"));
+        sizeColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("phone"));
+        // table.setItems(data);
 		// private ObservableList<String> brands = FXCollections.observableArrayList(Coffee.COFFEE1.getBrand(), Coffee.COFFEE2.getBrand());
 	}
 
