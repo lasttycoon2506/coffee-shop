@@ -19,15 +19,15 @@ public class CoffeeDAO implements DAO<Coffee>{
     }
 
     public static boolean coffeeListExistsDB() {
-        List<Coffee> coffeeList = entityManager.createQuery("SELECT c from Coffee c", Coffee.class).getResultList();
+        List<Coffee> coffeeList = entityManager.createQuery("SELECT c FROM Coffee c", Coffee.class).getResultList();
         if (coffeeList.isEmpty()) {
             return false;
         }
         return true;
     }
 
-    public static List<Coffee> getCoffeeList(){
-        List<Coffee> coffeeList =  entityManager.createQuery("SELECT c from Coffee c", Coffee.class).getResultList();
+    public static List<String> getBrands(){
+        List<String> coffeeList =  entityManager.createQuery("SELECT brands.brand FROM Coffee brands", String.class).getResultList();
         return coffeeList;
     }
 

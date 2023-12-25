@@ -30,7 +30,7 @@ public class CustomerDAO implements DAO<Customer> {
     public static boolean userNameExists(String userName)  {
         try {
             executeInsideTransaction(entityManager -> 
-                                    entityManager.createQuery("SELECT u from Customer u WHERE u.user_name = :userName", 
+                                    entityManager.createQuery("SELECT u FROM Customer u WHERE u.user_name = :userName", 
                                     Customer.class).setParameter("userName", userName).getSingleResult());
             return true;
         }
@@ -42,7 +42,7 @@ public class CustomerDAO implements DAO<Customer> {
     public static boolean emailExists(String email)  {
         try {
             executeInsideTransaction(entityManager -> 
-                                    entityManager.createQuery("SELECT e from Customer e WHERE e.email = :email", 
+                                    entityManager.createQuery("SELECT e FROM Customer e WHERE e.email = :email", 
                                     Customer.class).setParameter("email", email).getSingleResult());
             return true;
         }
@@ -54,7 +54,7 @@ public class CustomerDAO implements DAO<Customer> {
     public static boolean phoneExists(String phone)  {
         try {
             executeInsideTransaction(entityManager -> 
-                entityManager.createQuery("SELECT p from Customer p WHERE p.phone = :phone", 
+                entityManager.createQuery("SELECT p FROM Customer p WHERE p.phone = :phone", 
                                         Customer.class).setParameter("phone", phone).getSingleResult());
             return true;
         }
@@ -64,7 +64,7 @@ public class CustomerDAO implements DAO<Customer> {
     }
 
     public static boolean login(String user, String pw) throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
-        Customer customer = entityManager.createQuery("SELECT pwHash from Customer pwHash WHERE user_name = :userName",
+        Customer customer = entityManager.createQuery("SELECT pwHash FROM Customer pwHash WHERE user_name = :userName",
                             Customer.class).setParameter("userName", user).getSingleResult();
         // gets pword field from customer obj
         Field pWordHash = customer.getClass().getDeclaredField("pword");

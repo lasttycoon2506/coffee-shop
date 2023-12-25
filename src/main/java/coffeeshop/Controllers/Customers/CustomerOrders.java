@@ -30,7 +30,7 @@ public class CustomerOrders {
 	@FXML
     private TableView<Customer> table;
 	@FXML
-	private ComboBox<Coffee> brandBox;
+	private ComboBox<String> brandBox;
 	@FXML
 	private ComboBox<Coffee> coffeeNameBox;
 	@FXML
@@ -44,7 +44,7 @@ public class CustomerOrders {
 	@FXML
 	private ObservableList<Coffee> data;
 	@FXML
-	private List<Coffee> coffeeList = CoffeeDAOService.getCoffeeList();
+	private static final List<String> brandsList = CoffeeDAOService.getBrands();
 	@FXML
 	private TableColumn<Coffee, String> brandColumn;
 	@FXML
@@ -60,41 +60,41 @@ public class CustomerOrders {
 	@FXML
     private Button resetButton;
 	//inits list cells with coffee objects' specific property
-	Callback<ListView<Coffee>, ListCell<Coffee>> cellFactoryBrand = lv -> new ListCell<Coffee>() {
-		@Override
-		protected void updateItem(Coffee item, boolean empty) {
-			super.updateItem(item, empty);
-			setText(empty ? "Brand" : item.getBrand());
-		}
-	};
-	Callback<ListView<Coffee>, ListCell<Coffee>> cellFactoryCoffeeName = lv -> new ListCell<Coffee>() {
-		@Override
-		protected void updateItem(Coffee item, boolean empty) {
-			super.updateItem(item, empty);
-			setText(empty ? "Name" : item.getCoffeeName());
-		}
-	};
-	Callback<ListView<Coffee>, ListCell<Coffee>> cellFactoryPrice = lv -> new ListCell<Coffee>() {
-		@Override
-		protected void updateItem(Coffee item, boolean empty) {
-			super.updateItem(item, empty);
-			setText(empty ? "Price" : Float.toString(item.getPrice()));
-		}
-	};
-	Callback<ListView<Coffee>, ListCell<Coffee>> cellFactoryRegion = lv -> new ListCell<Coffee>() {
-		@Override
-		protected void updateItem(Coffee item, boolean empty) {
-			super.updateItem(item, empty);
-			setText(empty ? "Region" : item.getRegion());
-		}
-	};
-	Callback<ListView<Coffee>, ListCell<Coffee>> cellFactorySize = lv -> new ListCell<Coffee>() {
-		@Override
-		protected void updateItem(Coffee item, boolean empty) {
-			super.updateItem(item, empty);
-			setText(empty ? "Size" : Integer.toString(item.getCoffeeSize()));
-		}
-	};
+	// Callback<ListView<Coffee>, ListCell<Coffee>> cellFactoryBrand = lv -> new ListCell<Coffee>() {
+	// 	@Override
+	// 	protected void updateItem(Coffee item, boolean empty) {
+	// 		super.updateItem(item, empty);
+	// 		setText(empty ? "Brand" : item.getBrand());
+	// 	}
+	// };
+	// Callback<ListView<Coffee>, ListCell<Coffee>> cellFactoryCoffeeName = lv -> new ListCell<Coffee>() {
+	// 	@Override
+	// 	protected void updateItem(Coffee item, boolean empty) {
+	// 		super.updateItem(item, empty);
+	// 		setText(empty ? "Name" : item.getCoffeeName());
+	// 	}
+	// };
+	// Callback<ListView<Coffee>, ListCell<Coffee>> cellFactoryPrice = lv -> new ListCell<Coffee>() {
+	// 	@Override
+	// 	protected void updateItem(Coffee item, boolean empty) {
+	// 		super.updateItem(item, empty);
+	// 		setText(empty ? "Price" : Float.toString(item.getPrice()));
+	// 	}
+	// };
+	// Callback<ListView<Coffee>, ListCell<Coffee>> cellFactoryRegion = lv -> new ListCell<Coffee>() {
+	// 	@Override
+	// 	protected void updateItem(Coffee item, boolean empty) {
+	// 		super.updateItem(item, empty);
+	// 		setText(empty ? "Region" : item.getRegion());
+	// 	}
+	// };
+	// Callback<ListView<Coffee>, ListCell<Coffee>> cellFactorySize = lv -> new ListCell<Coffee>() {
+	// 	@Override
+	// 	protected void updateItem(Coffee item, boolean empty) {
+	// 		super.updateItem(item, empty);
+	// 		setText(empty ? "Size" : Integer.toString(item.getCoffeeSize()));
+	// 	}
+	// };
 	public void initialize() throws NoSuchAlgorithmException, InvalidKeySpecException{
 		saveCoffeeToDB();
 		fillComboBoxes();	
@@ -102,30 +102,30 @@ public class CustomerOrders {
 	
 	//sets & fills combo boxes with coffee objects w/ chooseable properties
 	private void fillComboBoxes() {
-		brandBox.setButtonCell(cellFactoryBrand.call(null));
-		brandBox.setCellFactory(cellFactoryBrand);
-		brandBox.getItems().addAll(coffeeList);
-		coffeeNameBox.setButtonCell(cellFactoryCoffeeName.call(null));
-		coffeeNameBox.setCellFactory(cellFactoryCoffeeName);
-		coffeeNameBox.getItems().addAll(coffeeList);
+		// brandBox.setButtonCell(cellFactoryBrand.call(null));
+		// brandBox.setCellFactory(cellFactoryBrand);
+		brandBox.getItems().addAll(brandsList);
+		// coffeeNameBox.setButtonCell(cellFactoryCoffeeName.call(null));
+		// coffeeNameBox.setCellFactory(cellFactoryCoffeeName);
+		// coffeeNameBox.getItems().addAll(coffeeList);
 		roastBox.getItems().addAll("Light", "Medium", "Dark");
-		priceBox.setButtonCell(cellFactoryPrice.call(null));
-		priceBox.setCellFactory(cellFactoryPrice);
-		priceBox.getItems().addAll(coffeeList);
-		regionBox.setButtonCell(cellFactoryRegion.call(null));
-		regionBox.setCellFactory(cellFactoryRegion);
-		regionBox.getItems().addAll(coffeeList);
-		sizeBox.setButtonCell(cellFactorySize.call(null));
-		sizeBox.setCellFactory(cellFactorySize);
-		sizeBox.getItems().addAll(coffeeList);
+		// priceBox.setButtonCell(cellFactoryPrice.call(null));
+		// priceBox.setCellFactory(cellFactoryPrice);
+		// priceBox.getItems().addAll(coffeeList);
+		// regionBox.setButtonCell(cellFactoryRegion.call(null));
+		// regionBox.setCellFactory(cellFactoryRegion);
+		// regionBox.getItems().addAll(coffeeList);
+		// sizeBox.setButtonCell(cellFactorySize.call(null));
+		// sizeBox.setCellFactory(cellFactorySize);
+		// sizeBox.getItems().addAll(coffeeList);
 	}
 
 	@FXML
 	private void addToOrder() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException  {
-        Coffee coffeeItem = brandBox.getValue();
-		Field coffeeID = coffeeItem.getClass().getDeclaredField("coffee_id");
-		coffeeID.setAccessible(true);
-		System.out.println(coffeeID.get(coffeeItem));
+        // Coffee coffeeItem = brandBox.getValue();
+		// Field coffeeID = coffeeItem.getClass().getDeclaredField("coffee_id");
+		// coffeeID.setAccessible(true);
+		// System.out.println(coffeeID.get(coffeeItem));
 	}
 
 	@FXML // if unique coffee object is selected by property this prevents others from being selected
@@ -189,8 +189,8 @@ public class CustomerOrders {
 	@FXML
 	private void filterByRoast(){
 		final List<Coffee> listByRoast = CoffeeDAOService.getbyRoastList(roastBox.getValue());
-		brandBox.getItems().clear();
-		brandBox.getItems().addAll(listByRoast);
+		// brandBox.getItems().clear();
+		// brandBox.getItems().addAll(listByRoast);
 		coffeeNameBox.getItems().clear();
 		coffeeNameBox.getItems().addAll(listByRoast);
 		priceBox.getItems().clear();
