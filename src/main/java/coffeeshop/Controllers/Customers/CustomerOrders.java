@@ -58,6 +58,12 @@ public class CustomerOrders {
 	@FXML
     private Button resetButton;
 	public void initialize() throws NoSuchAlgorithmException, InvalidKeySpecException{
+		brandColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("brand"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("coffeeName"));
+        roastColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("roast"));
+		priceColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("price"));
+        regionColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("region"));
+        sizeColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("coffeeSize"));		
 		saveCoffeeToDB();
 		fillComboBoxes();	
     }
@@ -166,12 +172,6 @@ public class CustomerOrders {
 
 
 	private void loadTable()  {
-        brandColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("brand"));
-        nameColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("coffeeName"));
-        roastColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("roast"));
-		priceColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("price"));
-        regionColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("region"));
-        sizeColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("coffeeSize"));
         table.setItems(coffeeList);
 		// private ObservableList<String> brands = FXCollections.observableArrayList(Coffee.COFFEE1.getBrand(), Coffee.COFFEE2.getBrand());
 	}

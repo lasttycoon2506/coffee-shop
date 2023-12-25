@@ -22,9 +22,10 @@
           <TableColumn fx:id="brandColumn" prefWidth="93.33331036567688" text="Brand" />
           <TableColumn fx:id="nameColumn" prefWidth="121.33329010009766" text="Name" />
             <TableColumn fx:id="roastColumn" prefWidth="110.33335876464844" text="Roast" />
-            <TableColumn fx:id="priceColumn" prefWidth="85.33331298828125" text="Price" />
-            <TableColumn fx:id="regionColumn" prefWidth="91.66668701171875" text="Region" />
-            <TableColumn fx:id="sizeColumn" prefWidth="97.66671752929688" text="Size" />
+            <TableColumn fx:id="priceColumn" prefWidth="55.66668701171875" text="Price" />
+            <TableColumn fx:id="regionColumn" prefWidth="88.33331298828125" text="Region" />
+            <TableColumn fx:id="sizeColumn" prefWidth="82.00003051757812" text="Size" />
+            <TableColumn prefWidth="46.0" text="Delete" />
         </columns>
       </TableView>
       <Button layoutX="475.0" layoutY="108.0" mnemonicParsing="false" onAction="#addToOrder" prefHeight="25.0" prefWidth="62.0" text="ADD" />
