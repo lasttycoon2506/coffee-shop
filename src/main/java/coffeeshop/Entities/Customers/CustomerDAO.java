@@ -30,7 +30,7 @@ public class CustomerDAO implements DAO<Customer> {
     public static boolean userNameExists(String userName)  {
         try {
             executeInsideTransaction(entityManager -> 
-                                    entityManager.createQuery("SELECT u FROM Customer u WHERE u.user_name = :userName", 
+                                    entityManager.createQuery("SELECT user FROM Customer user WHERE user.user_name = :userName", 
                                     Customer.class).setParameter("userName", userName).getSingleResult());
             return true;
         }
@@ -42,7 +42,7 @@ public class CustomerDAO implements DAO<Customer> {
     public static boolean emailExists(String email)  {
         try {
             executeInsideTransaction(entityManager -> 
-                                    entityManager.createQuery("SELECT e FROM Customer e WHERE e.email = :email", 
+                                    entityManager.createQuery("SELECT email FROM Customer email WHERE email.email = :email", 
                                     Customer.class).setParameter("email", email).getSingleResult());
             return true;
         }
@@ -54,7 +54,7 @@ public class CustomerDAO implements DAO<Customer> {
     public static boolean phoneExists(String phone)  {
         try {
             executeInsideTransaction(entityManager -> 
-                entityManager.createQuery("SELECT p FROM Customer p WHERE p.phone = :phone", 
+                entityManager.createQuery("SELECT phone FROM Customer phone WHERE phone.phone = :phone", 
                                         Customer.class).setParameter("phone", phone).getSingleResult());
             return true;
         }
