@@ -33,8 +33,11 @@ public class CoffeeDAOService {
     public static List<Float> getPrices() {
         return CoffeeDAO.getPrices();
     }
-     public static List<String> getRegions() {
+    public static List<String> getRegions() {
         return CoffeeDAO.getRegions();
+    }
+    public static List<Integer> getSizes() {
+        return CoffeeDAO.getSizes();
     }
 
     public static List<Coffee> filterByRoast(String roast) {

@@ -46,6 +46,10 @@ public class CoffeeDAO implements DAO<Coffee>{
         List<String> regionsList =  entityManager.createQuery("SELECT regions.region FROM Coffee regions", String.class).getResultList();
         return regionsList;
     }
+    public static List<Integer> getSizes(){
+        List<Integer> sizesList =  entityManager.createQuery("SELECT DISTINCT sizes.coffee_size FROM Coffee sizes", Integer.class).getResultList();
+        return sizesList;
+    }
 
     public static List<Coffee> filterByRoast(String roast){
         List<Coffee> roastList = entityManager.createQuery("SELECT roast from Coffee roast WHERE roast.roast = :roastType",
