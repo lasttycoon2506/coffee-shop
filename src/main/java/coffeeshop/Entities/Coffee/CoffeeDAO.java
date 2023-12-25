@@ -27,11 +27,11 @@ public class CoffeeDAO implements DAO<Coffee>{
     }
 
     public static List<String> getBrands(){
-        List<String> brandList =  entityManager.createQuery("SELECT brands.brand FROM Coffee brands", String.class).getResultList();
+        List<String> brandList =  entityManager.createQuery("SELECT brands.brand FROM Coffee brands ORDER BY brands.brand", String.class).getResultList();
         return brandList;
     }
     public static List<String> getCoffeeNames(){
-        List<String> coffeeNamesList =  entityManager.createQuery("SELECT names.coffee_name FROM Coffee names", String.class).getResultList();
+        List<String> coffeeNamesList =  entityManager.createQuery("SELECT names.coffee_name FROM Coffee names ORDER BY names.coffee_name", String.class).getResultList();
         return coffeeNamesList;
     }
     public static List<String> getRoasts(){
@@ -39,15 +39,15 @@ public class CoffeeDAO implements DAO<Coffee>{
         return roastsList;
     }
     public static List<Float> getPrices(){
-        List<Float> pricesList =  entityManager.createQuery("SELECT prices.price FROM Coffee prices", Float.class).getResultList();
+        List<Float> pricesList =  entityManager.createQuery("SELECT prices.price FROM Coffee prices ORDER BY prices.price", Float.class).getResultList();
         return pricesList;
     }
     public static List<String> getRegions(){
-        List<String> regionsList =  entityManager.createQuery("SELECT regions.region FROM Coffee regions", String.class).getResultList();
+        List<String> regionsList =  entityManager.createQuery("SELECT regions.region FROM Coffee regions ORDER BY regions.region", String.class).getResultList();
         return regionsList;
     }
     public static List<Integer> getSizes(){
-        List<Integer> sizesList =  entityManager.createQuery("SELECT DISTINCT sizes.coffee_size FROM Coffee sizes", Integer.class).getResultList();
+        List<Integer> sizesList =  entityManager.createQuery("SELECT DISTINCT sizes.coffee_size FROM Coffee sizes ORDER BY sizes.coffee_size", Integer.class).getResultList();
         return sizesList;
     }
 
