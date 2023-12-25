@@ -36,16 +36,17 @@ public class CustomerOrders {
 	@FXML
 	private ComboBox<String> roastBox;
 	@FXML
-	private ComboBox<String> priceBox;
+	private ComboBox<Float> priceBox;
 	@FXML
 	private ComboBox<String> regionBox;
 	@FXML
-	private ComboBox<String> sizeBox;
+	private ComboBox<Integer> sizeBox;
 	@FXML
 	private ObservableList<Coffee> data;
 	private static final List<String> brandsList = CoffeeDAOService.getBrands();
 	private static final List<String> coffeeNamesList = CoffeeDAOService.getCoffeeNames();
 	private static final List<String> roastsList = CoffeeDAOService.getRoasts();
+	private static final List<Float> pricesList = CoffeeDAOService.getPrices();
 	@FXML
 	private TableColumn<Coffee, String> brandColumn;
 	@FXML
@@ -112,7 +113,7 @@ public class CustomerOrders {
 		roastBox.getItems().addAll(roastsList);
 		// priceBox.setButtonCell(cellFactoryPrice.call(null));
 		// priceBox.setCellFactory(cellFactoryPrice);
-		// priceBox.getItems().addAll(coffeeList);
+		priceBox.getItems().addAll(pricesList);
 		// regionBox.setButtonCell(cellFactoryRegion.call(null));
 		// regionBox.setCellFactory(cellFactoryRegion);
 		// regionBox.getItems().addAll(coffeeList);

@@ -30,7 +30,9 @@ public class CoffeeDAOService {
     public static List<String> getRoasts() {
         return CoffeeDAO.getRoasts();
     }
-
+    public static List<Float> getPrices() {
+        return CoffeeDAO.getPrices();
+    }
     public static List<Coffee> filterByRoast(String roast) {
         return CoffeeDAO.filterByRoast(roast);
     }
