@@ -80,62 +80,20 @@ public class CustomerOrders {
 		// System.out.println(coffeeID.get(coffeeItem));
 	}
 
-	@FXML // if unique coffee object is selected by property this prevents others from being selected
+	@FXML
 	private void selectedByBrand(){
-		brandBox.setOnShown(event -> coffeeNameBox.hide());
-		brandBox.setPromptText("");
-		coffeeNameBox.setOnShown(event -> coffeeNameBox.hide());
-		coffeeNameBox.setPromptText("");
-		roastBox.setOnShown(event -> roastBox.hide());
-		roastBox.setPromptText("");
-		priceBox.setOnShown(event -> priceBox.hide());
-		priceBox.setPromptText("");
-		regionBox.setOnShown(event -> regionBox.hide());
-		regionBox.setPromptText("");
-		sizeBox.setOnShown(event -> sizeBox.hide());
-		sizeBox.setPromptText("");
 		Coffee coffeeItem = CoffeeDAOService.searchByBrand(brandBox.getValue());
 		coffeeList.add(coffeeItem);
 		loadTable();
 	}
 	@FXML
 	private void selectedByCoffeeName(){
-		brandBox.setOnShown(event -> brandBox.hide());
-		brandBox.setPromptText("");
-		roastBox.setOnShown(event -> roastBox.hide());
-		roastBox.setPromptText("");
-		priceBox.setOnShown(event -> priceBox.hide());
-		priceBox.setPromptText("");
-		regionBox.setOnShown(event -> regionBox.hide());
-		regionBox.setPromptText("");
-		sizeBox.setOnShown(event -> sizeBox.hide());
-		sizeBox.setPromptText("");
 	}
 	@FXML
 	private void selectedByPrice(){
-		brandBox.setOnShown(event -> brandBox.hide());
-		brandBox.setPromptText("");
-		coffeeNameBox.setOnShown(event -> coffeeNameBox.hide());
-		coffeeNameBox.setPromptText("");
-		roastBox.setOnShown(event -> roastBox.hide());
-		roastBox.setPromptText("");
-		regionBox.setOnShown(event -> regionBox.hide());
-		regionBox.setPromptText("");
-		sizeBox.setOnShown(event -> sizeBox.hide());
-		sizeBox.setPromptText("");
 	}
 	@FXML
 	private void selectedByRegion(){
-		brandBox.setOnShown(event -> brandBox.hide());
-		brandBox.setPromptText("");
-		coffeeNameBox.setOnShown(event -> coffeeNameBox.hide());
-		coffeeNameBox.setPromptText("");
-		roastBox.setOnShown(event -> roastBox.hide());
-		roastBox.setPromptText("");
-		priceBox.setOnShown(event -> priceBox.hide());
-		priceBox.setPromptText("");
-		sizeBox.setOnShown(event -> sizeBox.hide());
-		sizeBox.setPromptText("");
 	}
 	
 	@FXML
@@ -205,7 +163,6 @@ public class CustomerOrders {
 
 
 	private void loadTable()  {
-		// table.setEditable(true);
         brandColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("brand"));
         coffeeNameColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("coffeeName"));
         roastColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("roast"));
