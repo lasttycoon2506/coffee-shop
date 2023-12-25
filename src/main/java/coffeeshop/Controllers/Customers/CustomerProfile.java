@@ -28,9 +28,7 @@ public class CustomerProfile {
     private static List<String> errorListPW = new ArrayList<String>();
     private static String emailErr;
     private static String phoneLenErr;
-    @FXML
     private Customer customer;
-    @FXML
 	private Customer data;
     @FXML
 	private TextField userEntry;

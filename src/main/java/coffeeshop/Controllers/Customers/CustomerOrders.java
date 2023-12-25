@@ -43,9 +43,7 @@ public class CustomerOrders {
 	private ComboBox<String> sizeBox;
 	@FXML
 	private ObservableList<Coffee> data;
-	@FXML
 	private static final List<String> brandsList = CoffeeDAOService.getBrands();
-	@FXML
 	private static final List<String> coffeeNamesList = CoffeeDAOService.getCoffeeNames();
 	@FXML
 	private TableColumn<Coffee, String> brandColumn;
