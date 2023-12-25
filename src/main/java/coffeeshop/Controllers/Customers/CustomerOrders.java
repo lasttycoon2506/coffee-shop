@@ -100,6 +100,9 @@ public class CustomerOrders {
 	}
 	@FXML
 	private void selectedByPrice(){
+		Coffee coffeeItem = CoffeeDAOService.searchByPrice(priceBox.getValue());
+		coffeeList.add(coffeeItem);
+		loadTable();
 	}
 	@FXML
 	private void selectedByRegion(){

@@ -16,13 +16,13 @@ public class Coffee {
     private String brand;
     private String coffee_name;
     private String roast;
-    private float price;
+    private String price;
     private String region;
     private int coffee_size;
 
     public Coffee(){
     }
-    public Coffee (String brand, String coffee_name, String roast, float price, String region, int coffee_size) {
+    public Coffee (String brand, String coffee_name, String roast, String price, String region, int coffee_size) {
         this.brand = brand;
         this.coffee_name = coffee_name;
         this.roast = roast;
@@ -40,7 +40,7 @@ public class Coffee {
     public String getRoast(){
         return roast;
     }
-    public float getPrice(){
+    public String getPrice(){
         return price;
     }
     public String getRegion(){

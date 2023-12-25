@@ -43,6 +43,12 @@ public class CoffeeDAOService {
     public static Coffee searchByName(String name) {
         return CoffeeDAO.searchByName(name);
     }
+    public static Coffee searchByPrice(Float price) {
+        return CoffeeDAO.searchByPrice(price);
+    }
+    public static Coffee searchByRegion(String name) {
+        return CoffeeDAO.searchByName(name);
+    }
 
     public static List<Coffee> filterByRoast(String roast) {
         return CoffeeDAO.filterByRoast(roast);
