@@ -40,7 +40,6 @@ public class CustomerOrders {
 	private ObservableList<Coffee> data;
 	private static final List<String> brandsList = CoffeeDAOService.getBrands();
 	private static final List<String> coffeeNamesList = CoffeeDAOService.getCoffeeNames();
-	private static final List<String> roastsList = CoffeeDAOService.getRoasts();
 	private static final List<Float> pricesList = CoffeeDAOService.getPrices();
 	private static final List<String> regionsList = CoffeeDAOService.getRegions();
 	private static final List<Integer> sizeList = CoffeeDAOService.getSizes();
@@ -67,7 +66,7 @@ public class CustomerOrders {
 	private void fillComboBoxes() {
 		brandBox.getItems().addAll(brandsList);
 		coffeeNameBox.getItems().addAll(coffeeNamesList);
-		roastBox.getItems().addAll(roastsList);
+		roastBox.getItems().addAll("Light", "Medium", "Dark");
 		priceBox.getItems().addAll(pricesList);
 		regionBox.getItems().addAll(regionsList);
 		sizeBox.getItems().addAll(sizeList);
