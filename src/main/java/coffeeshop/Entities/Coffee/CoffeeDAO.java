@@ -30,10 +30,13 @@ public class CoffeeDAO implements DAO<Coffee>{
         List<String> brandList =  entityManager.createQuery("SELECT brands.brand FROM Coffee brands", String.class).getResultList();
         return brandList;
     }
-
     public static List<String> getCoffeeNames(){
         List<String> coffeeNamesList =  entityManager.createQuery("SELECT names.coffee_name FROM Coffee names", String.class).getResultList();
         return coffeeNamesList;
+    }
+    public static List<String> getRoasts(){
+        List<String> roastsList =  entityManager.createQuery("SELECT DISTINCT roasts.roast FROM Coffee roasts", String.class).getResultList();
+        return roastsList;
     }
 
     public static List<Coffee> filterByRoast(String roast){

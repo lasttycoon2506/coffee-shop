@@ -45,6 +45,7 @@ public class CustomerOrders {
 	private ObservableList<Coffee> data;
 	private static final List<String> brandsList = CoffeeDAOService.getBrands();
 	private static final List<String> coffeeNamesList = CoffeeDAOService.getCoffeeNames();
+	private static final List<String> roastsList = CoffeeDAOService.getRoasts();
 	@FXML
 	private TableColumn<Coffee, String> brandColumn;
 	@FXML
@@ -108,7 +109,7 @@ public class CustomerOrders {
 		// coffeeNameBox.setButtonCell(cellFactoryCoffeeName.call(null));
 		// coffeeNameBox.setCellFactory(cellFactoryCoffeeName);
 		coffeeNameBox.getItems().addAll(coffeeNamesList);
-		roastBox.getItems().addAll("Light", "Medium", "Dark");
+		roastBox.getItems().addAll(roastsList);
 		// priceBox.setButtonCell(cellFactoryPrice.call(null));
 		// priceBox.setCellFactory(cellFactoryPrice);
 		// priceBox.getItems().addAll(coffeeList);

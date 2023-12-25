@@ -24,9 +24,11 @@ public class CoffeeDAOService {
     public static List<String> getBrands() {
         return CoffeeDAO.getBrands();
     }
-
     public static List<String> getCoffeeNames() {
         return CoffeeDAO.getCoffeeNames();
+    }
+    public static List<String> getRoasts() {
+        return CoffeeDAO.getRoasts();
     }
 
     public static List<Coffee> filterByRoast(String roast) {
