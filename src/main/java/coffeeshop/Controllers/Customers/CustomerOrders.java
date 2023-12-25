@@ -126,6 +126,8 @@ public class CustomerOrders {
 
 	@FXML // if unique coffee object is selected by property this prevents others from being selected
 	private void selectedByBrand(){
+		brandBox.setOnShown(event -> coffeeNameBox.hide());
+		brandBox.setPromptText("");
 		coffeeNameBox.setOnShown(event -> coffeeNameBox.hide());
 		coffeeNameBox.setPromptText("");
 		roastBox.setOnShown(event -> roastBox.hide());
@@ -208,6 +210,7 @@ public class CustomerOrders {
 		resetRoast();
 		resetPrice();
 		resetRegion();
+		resetSize();
 	}
 
 	private void resetBrand(){
@@ -221,9 +224,9 @@ public class CustomerOrders {
 		coffeeNameBox.setPromptText("Name");
 	}
 	private void resetRoast(){
-		// roastBox.setOnShown(event -> coffeeNameBox.show());
+		roastBox.setOnShown(event -> coffeeNameBox.show());
 		roastBox.getSelectionModel().clearSelection();
-		roastBox.setPromptText("Light");
+		roastBox.setPromptText("Roast");
 	}
 	private void resetPrice(){
 		priceBox.setOnShown(event -> priceBox.show());
@@ -235,10 +238,15 @@ public class CustomerOrders {
 		regionBox.valueProperty().set(null);
 		regionBox.setPromptText("Region");
 	}
+	private void resetSize(){
+		sizeBox.setOnShown(event -> sizeBox.show());
+		sizeBox.valueProperty().set(null);
+		sizeBox.setPromptText("Size");
+	}
 
 
 	private void loadTable()  {
-		table.setEditable(true);
+		// table.setEditable(true);
         // userColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>(Coffee.COFFEE1.getBrand()));
         // pwColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("pWord"));
         // firstNColumn.setCellValueFactory(new PropertyValueFactory<Customer, String>("firstName"));
