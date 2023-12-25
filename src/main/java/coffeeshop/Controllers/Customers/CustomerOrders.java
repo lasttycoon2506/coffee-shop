@@ -99,18 +99,21 @@ public class CustomerOrders {
 		Coffee coffeeItem = CoffeeDAOService.searchByName(nameBox.getValue());
 		coffeeList.add(coffeeItem);
 		loadTable();
+		resetChoiceBox(nameBox);
 	}
 	@FXML
 	private void selectedByPrice(){
 		Coffee coffeeItem = CoffeeDAOService.searchByPrice(priceBox.getValue());
 		coffeeList.add(coffeeItem);
 		loadTable();
+		resetChoiceBox(priceBox);
 	}
 	@FXML
 	private void selectedByRegion(){
 		Coffee coffeeItem = CoffeeDAOService.searchByRegion(regionBox.getValue());
 		coffeeList.add(coffeeItem);
 		loadTable();
+		resetChoiceBox(regionBox);
 	}
 	
 	@FXML
