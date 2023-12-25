@@ -27,7 +27,7 @@ public class CustomerOrders {
 	@FXML
 	private ComboBox<String> brandBox;
 	@FXML
-	private ComboBox<String> coffeeNameBox;
+	private ComboBox<String> nameBox;
 	@FXML
 	private ComboBox<String> roastBox;
 	@FXML
@@ -39,14 +39,14 @@ public class CustomerOrders {
 	@FXML
 	private final ObservableList<Coffee> coffeeList = FXCollections.observableArrayList();
 	private static final List<String> brandsList = CoffeeDAOService.getBrands();
-	private static final List<String> coffeeNamesList = CoffeeDAOService.getCoffeeNames();
+	private static final List<String> namesList = CoffeeDAOService.getNames();
 	private static final List<Float> pricesList = CoffeeDAOService.getPrices();
 	private static final List<String> regionsList = CoffeeDAOService.getRegions();
 	private static final List<Integer> sizeList = CoffeeDAOService.getSizes();
 	@FXML
 	private TableColumn<Coffee, String> brandColumn;
 	@FXML
-	private TableColumn<Coffee, String> coffeeNameColumn;
+	private TableColumn<Coffee, String> nameColumn;
 	@FXML
 	private TableColumn<Coffee, String> roastColumn;
 	@FXML
@@ -65,7 +65,7 @@ public class CustomerOrders {
 	//sets combo boxes w/ chooseable properties
 	private void fillComboBoxes() {
 		brandBox.getItems().addAll(brandsList);
-		coffeeNameBox.getItems().addAll(coffeeNamesList);
+		nameBox.getItems().addAll(namesList);
 		roastBox.getItems().addAll("Light", "Medium", "Dark");
 		priceBox.getItems().addAll(pricesList);
 		regionBox.getItems().addAll(regionsList);
@@ -87,7 +87,10 @@ public class CustomerOrders {
 		loadTable();
 	}
 	@FXML
-	private void selectedByCoffeeName(){
+	private void selectedByName(){
+		Coffee coffeeItem = CoffeeDAOService.searchByName(nameBox.getValue());
+		coffeeList.add(coffeeItem);
+		loadTable();
 	}
 	@FXML
 	private void selectedByPrice(){
@@ -101,8 +104,8 @@ public class CustomerOrders {
 		final List<Coffee> listByRoast = CoffeeDAOService.filterByRoast(roastBox.getValue());
 		// brandBox.getItems().clear();
 		// brandBox.getItems().addAll(listByRoast);
-		// coffeeNameBox.getItems().clear();
-		// coffeeNameBox.getItems().addAll(listByRoast);
+		// nameBox.getItems().clear();
+		// nameBox.getItems().addAll(listByRoast);
 		// priceBox.getItems().clear();
 		// priceBox.getItems().addAll(listByRoast);
 		// regionBox.getItems().clear();
@@ -136,12 +139,12 @@ public class CustomerOrders {
 		brandBox.setPromptText("Brand");
 	}
 	private void resetCoffeeName(){
-		coffeeNameBox.setOnShown(event -> coffeeNameBox.show());
-		coffeeNameBox.getSelectionModel().clearSelection();
-		coffeeNameBox.setPromptText("Name");
+		nameBox.setOnShown(event -> nameBox.show());
+		nameBox.getSelectionModel().clearSelection();
+		nameBox.setPromptText("Name");
 	}
 	private void resetRoast(){
-		roastBox.setOnShown(event -> coffeeNameBox.show());
+		roastBox.setOnShown(event -> nameBox.show());
 		roastBox.getSelectionModel().clearSelection();
 		roastBox.setPromptText("Roast");
 	}
@@ -164,7 +167,7 @@ public class CustomerOrders {
 
 	private void loadTable()  {
         brandColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("brand"));
-        coffeeNameColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("coffeeName"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("coffeeName"));
         roastColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("roast"));
 		priceColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("price"));
         regionColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("region"));
