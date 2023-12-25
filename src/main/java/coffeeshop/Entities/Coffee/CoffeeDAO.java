@@ -47,6 +47,12 @@ public class CoffeeDAO implements DAO<Coffee>{
         return sizesList;
     }
 
+    public static Coffee searchByBrand(String brand){
+        Coffee coffeeItem = entityManager.createQuery("SELECT coffeeItem FROM Coffee coffeeItem WHERE brand = :brand",
+                            Coffee.class).setParameter("brand", brand).getSingleResult();
+        return coffeeItem;
+    }
+
     public static List<Coffee> filterByRoast(String roast){
         List<Coffee> roastList = entityManager.createQuery("SELECT roast from Coffee roast WHERE roast.roast = :roastType",
                             Coffee.class).setParameter("roastType", roast).getResultList();

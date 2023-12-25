@@ -37,6 +37,10 @@ public class CoffeeDAOService {
         return CoffeeDAO.getSizes();
     }
 
+    public static Coffee searchByBrand(String brand) {
+        return CoffeeDAO.searchByBrand(brand);
+    }
+
     public static List<Coffee> filterByRoast(String roast) {
         return CoffeeDAO.filterByRoast(roast);
     }
