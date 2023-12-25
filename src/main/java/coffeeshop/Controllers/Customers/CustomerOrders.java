@@ -17,6 +17,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.TableColumn;
 
 
@@ -91,6 +92,7 @@ public class CustomerOrders {
 		Coffee coffeeItem = CoffeeDAOService.searchByBrand(brandBox.getValue());
 		coffeeList.add(coffeeItem);
 		loadTable();
+		resetChoiceBox(brandBox);
 	}
 	@FXML
 	private void selectedByName(){
@@ -137,19 +139,28 @@ public class CustomerOrders {
 
 	@FXML
 	private void resetCoffeeFields(){
-		resetBrand();
 		resetCoffeeName();
 		resetRoast();
 		resetPrice();
 		resetRegion();
 		resetSize();
 	}
-
-	private void resetBrand(){
-		brandBox.setOnShown(event -> brandBox.show());
-		brandBox.getSelectionModel().clearSelection();
-		brandBox.setPromptText("Brand");
+	
+	private void resetChoiceBox(ComboBox<String> comboBox){
+		comboBox.setValue(null);
+		comboBox.setButtonCell(new ListCell<>() {
+        @Override
+        protected void updateItem(String item, boolean empty) {
+            super.updateItem(item, empty);
+            if (item == null || empty) {
+                setText(comboBox.getPromptText());
+            } else {
+                setText(item);
+            }
+        }
+    });
 	}
+
 	private void resetCoffeeName(){
 		nameBox.setOnShown(event -> nameBox.show());
 		nameBox.getSelectionModel().clearSelection();
