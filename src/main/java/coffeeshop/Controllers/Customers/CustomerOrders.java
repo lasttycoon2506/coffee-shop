@@ -84,17 +84,14 @@ public class CustomerOrders {
         sizeColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("coffeeSize"));
 		deleteColumn.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
 		deleteColumn.setCellFactory(param -> new TableCell<Coffee, Coffee>() {
-			private final Button deleteButton = new Button("Delete");
-
+			private final Button deleteButton = new Button("X");
 			@Override
 			protected void updateItem(Coffee coffee, boolean empty) {
 				super.updateItem(coffee, empty);
-
 				if (coffee == null) {
 					setGraphic(null);
 					return;
 				}
-
 				setGraphic(deleteButton);
 				deleteButton.setOnAction(
 					event -> getTableView().getItems().remove(coffee)
