@@ -10,7 +10,7 @@ import coffeeshop.Models.Context;
 import coffeeshop.Entities.Coffee.Coffee;
 import coffeeshop.Entities.Coffee.CoffeeDAOService;
 import coffeeshop.Entities.Customers.Customer;
-import javafx.beans.binding.Bindings;
+import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -19,6 +19,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListCell;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 
 
@@ -61,6 +62,8 @@ public class CustomerOrders {
 	@FXML
 	private TableColumn<Coffee, String> sizeColumn;
 	@FXML
+	private TableColumn<Coffee, Coffee> deleteColumn;
+	@FXML
 	private TableColumn<Coffee, String> brandColumnFilterTable;
 	@FXML
 	private TableColumn<Coffee, String> nameColumnFilterTable;
@@ -79,6 +82,25 @@ public class CustomerOrders {
 		priceColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("price"));
         regionColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("region"));
         sizeColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("coffeeSize"));
+		deleteColumn.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
+		deleteColumn.setCellFactory(param -> new TableCell<Coffee, Coffee>() {
+			private final Button deleteButton = new Button("Delete");
+
+			@Override
+			protected void updateItem(Coffee coffee, boolean empty) {
+				super.updateItem(coffee, empty);
+
+				if (coffee == null) {
+					setGraphic(null);
+					return;
+				}
+
+				setGraphic(deleteButton);
+				deleteButton.setOnAction(
+					event -> getTableView().getItems().remove(coffee)
+				);
+			}
+		});
 		brandColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("brand"));
         nameColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("coffeeName"));
         roastColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("roast"));
@@ -176,6 +198,9 @@ public class CustomerOrders {
         }
     });
 	}
+
+	
+
 
 	private void loadOrderTable()  {
         orderTable.setItems(coffeeList);
