@@ -119,21 +119,21 @@ public class CustomerOrders {
         regionColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("region"));
         sizeColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("coffeeSize"));	
 		addColumnFilterTable.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
-		// addColumnFilterTable.setCellFactory(param -> new TableCell<Coffee, Coffee>() {
-		// 	private final Button addButton = new Button("ADD");
-		// 	@Override
-		// 	protected void updateItem(Coffee coffee, boolean empty) {
-		// 		super.updateItem(coffee, empty);
-		// 		if (coffee == null) {
-		// 			setGraphic(null);
-		// 			return;
-		// 		}
-		// 		setGraphic(addButton);
-		// 		addButton.setOnAction(
-		// 			event -> getTableView().getItems().remove(coffee)
-		// 		);
-		// 	}
-		// });
+		addColumnFilterTable.setCellFactory(param -> new TableCell<Coffee, Coffee>() {
+			private final Button addButton = new Button("ADD");
+			@Override
+			protected void updateItem(Coffee coffee, boolean empty) {
+				super.updateItem(coffee, empty);
+				if (coffee == null) {
+					setGraphic(null);
+					return;
+				}
+				setGraphic(addButton);
+				addButton.setOnAction(
+					event -> getTableView().getItems().remove(coffee)
+				);
+			}
+		});
 	}
 	
 	
