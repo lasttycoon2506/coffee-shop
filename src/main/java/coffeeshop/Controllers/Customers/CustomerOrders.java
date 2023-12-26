@@ -10,6 +10,7 @@ import coffeeshop.Models.Context;
 import coffeeshop.Entities.Coffee.Coffee;
 import coffeeshop.Entities.Coffee.CoffeeDAOService;
 import coffeeshop.Entities.Customers.Customer;
+import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -137,10 +138,10 @@ public class CustomerOrders {
 	
 	@FXML
 	private void filterByRoast(){
+		clearFilterTable();
 		final List<Coffee> listByRoast = CoffeeDAOService.filterByRoast(roastBox.getValue());
 		filterList.addAll(listByRoast);
 		loadFilterTable();
-		resetChoiceBox(roastBox);
 	}
 
 	//saves coffee table to DB once only
@@ -173,6 +174,12 @@ public class CustomerOrders {
 	}
 	private void loadFilterTable()  {
         filterTable.setItems(filterList);
+	}
+	private void clearFilterTable() {
+		if (filterTable.getItems().isEmpty()){
+			return;
+		}
+		filterTable.getItems().clear();
 	}
 
     @FXML
