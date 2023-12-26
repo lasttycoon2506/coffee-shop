@@ -145,7 +145,7 @@ public class CustomerOrders {
 	}
 
 	@FXML
-	private void filterByPrice(){
+	private void filterBySize(){
 		clearFilterTable();
 		final List<Coffee> listBySize = CoffeeDAOService.filterBySize(sizeBox.getValue());
 		filterList.addAll(listBySize);
