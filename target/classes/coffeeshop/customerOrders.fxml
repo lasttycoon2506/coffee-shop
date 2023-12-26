@@ -47,8 +47,8 @@
             <TableColumn fx:id="roastColumnFilterTable" prefWidth="110.33335876464844" text="Roast" />
             <TableColumn fx:id="priceColumnFilterTable" prefWidth="55.66668701171875" text="Price" />
             <TableColumn fx:id="regionColumnFilterTable" prefWidth="88.33331298828125" text="Region" />
-            <TableColumn fx:id="sizeColumnFilterTable" prefWidth="82.00003051757812" text="Size" />
-            <TableColumn fx:id="addColumnFilterTable" prefWidth="52.33331298828125" text="ADD" />
+            <TableColumn fx:id="sizeColumnFilterTable" prefWidth="51.000030517578125" text="Size" />
+            <TableColumn fx:id="addColumnFilterTable" prefWidth="83.66668701171875" text="ADD" />
          </columns>
       </TableView>
       <Label alignment="CENTER" layoutX="397.0" layoutY="91.0" prefHeight="17.0" prefWidth="80.0" text="Filter By:" />
