@@ -140,6 +140,7 @@ public class CustomerOrders {
 		final List<Coffee> listByRoast = CoffeeDAOService.filterByRoast(roastBox.getValue());
 		filterList.addAll(listByRoast);
 		loadFilterTable();
+		resetChoiceBox(roastBox);
 	}
 
 	//saves coffee table to DB once only
