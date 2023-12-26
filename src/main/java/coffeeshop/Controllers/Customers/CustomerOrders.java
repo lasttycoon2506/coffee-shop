@@ -130,8 +130,9 @@ public class CustomerOrders {
 				}
 				setGraphic(addButton);
 				addButton.setOnAction(
-					event -> getTableView().getItems().add(coffee)
+					event -> orderList.add(coffee)
 				);
+				loadOrderTable();
 			}
 		});
 	}
