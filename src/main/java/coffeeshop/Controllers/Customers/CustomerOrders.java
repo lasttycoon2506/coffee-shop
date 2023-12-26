@@ -75,14 +75,11 @@ public class CustomerOrders {
 	private TableColumn<Coffee, String> regionColumnFilterTable;
 	@FXML
 	private TableColumn<Coffee, String> sizeColumnFilterTable;
+	@FXML
+	private TableColumn<Coffee, Coffee> addColumnFilterTable;
 	public void initialize() throws NoSuchAlgorithmException, InvalidKeySpecException{
-		initOrderTable();
-		brandColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("brand"));
-        nameColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("coffeeName"));
-        roastColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("roast"));
-		priceColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("price"));
-        regionColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("region"));
-        sizeColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("coffeeSize"));				
+		initOrderTable();	
+		initFilterTable();		
 		saveCoffeeToDB();
 		fillComboBoxes();	
     }
@@ -112,6 +109,33 @@ public class CustomerOrders {
 			}
 		});
 	}
+
+
+	private void initFilterTable() {
+		brandColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("brand"));
+        nameColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("coffeeName"));
+        roastColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("roast"));
+		priceColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("price"));
+        regionColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("region"));
+        sizeColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("coffeeSize"));	
+		addColumnFilterTable.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
+		// addColumnFilterTable.setCellFactory(param -> new TableCell<Coffee, Coffee>() {
+		// 	private final Button addButton = new Button("ADD");
+		// 	@Override
+		// 	protected void updateItem(Coffee coffee, boolean empty) {
+		// 		super.updateItem(coffee, empty);
+		// 		if (coffee == null) {
+		// 			setGraphic(null);
+		// 			return;
+		// 		}
+		// 		setGraphic(addButton);
+		// 		addButton.setOnAction(
+		// 			event -> getTableView().getItems().remove(coffee)
+		// 		);
+		// 	}
+		// });
+	}
+	
 	
 	//sets combo boxes w/ chooseable properties
 	private void fillComboBoxes() {
