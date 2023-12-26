@@ -24,7 +24,9 @@ import javafx.scene.control.TableColumn;
 public class CustomerOrders {
 	private Customer customer = Context.getInstance().getCustomer();
 	@FXML
-    private TableView<Coffee> table;
+    private TableView<Coffee> orderTable;
+	@FXML
+    private TableView<Coffee> filterTable;
 	@FXML
 	private ComboBox<String> brandBox;
 	@FXML
@@ -39,6 +41,7 @@ public class CustomerOrders {
 	private ComboBox<Integer> sizeBox;
 	@FXML
 	private final ObservableList<Coffee> coffeeList = FXCollections.observableArrayList();
+	private final ObservableList<Coffee> filterList = FXCollections.observableArrayList();
 	private static final List<String> brandsList = CoffeeDAOService.getBrands();
 	private static final List<String> namesList = CoffeeDAOService.getNames();
 	private static final List<String> pricesList = CoffeeDAOService.getPrices();
@@ -57,14 +60,30 @@ public class CustomerOrders {
 	@FXML
 	private TableColumn<Coffee, String> sizeColumn;
 	@FXML
-    private Button resetButton;
+	private TableColumn<Coffee, String> brandColumnFilterTable;
+	@FXML
+	private TableColumn<Coffee, String> nameColumnFilterTable;
+	@FXML
+	private TableColumn<Coffee, String> roastColumnFilterTable;
+	@FXML
+	private TableColumn<Coffee, String> priceColumnFilterTable;
+	@FXML
+	private TableColumn<Coffee, String> regionColumnFilterTable;
+	@FXML
+	private TableColumn<Coffee, String> sizeColumnFilterTable;
 	public void initialize() throws NoSuchAlgorithmException, InvalidKeySpecException{
 		brandColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("brand"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("coffeeName"));
         roastColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("roast"));
 		priceColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("price"));
         regionColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("region"));
-        sizeColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("coffeeSize"));		
+        sizeColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("coffeeSize"));
+		brandColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("brand"));
+        nameColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("coffeeName"));
+        roastColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("roast"));
+		priceColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("price"));
+        regionColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("region"));
+        sizeColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("coffeeSize"));				
 		saveCoffeeToDB();
 		fillComboBoxes();	
     }
@@ -91,44 +110,36 @@ public class CustomerOrders {
 	private void selectedByBrand(){
 		Coffee coffeeItem = CoffeeDAOService.searchByBrand(brandBox.getValue());
 		coffeeList.add(coffeeItem);
-		loadTable();
+		loadOrderTable();
 		resetChoiceBox(brandBox);
 	}
 	@FXML
 	private void selectedByName(){
 		Coffee coffeeItem = CoffeeDAOService.searchByName(nameBox.getValue());
 		coffeeList.add(coffeeItem);
-		loadTable();
+		loadOrderTable();
 		resetChoiceBox(nameBox);
 	}
 	@FXML
 	private void selectedByPrice(){
 		Coffee coffeeItem = CoffeeDAOService.searchByPrice(priceBox.getValue());
 		coffeeList.add(coffeeItem);
-		loadTable();
+		loadOrderTable();
 		resetChoiceBox(priceBox);
 	}
 	@FXML
 	private void selectedByRegion(){
 		Coffee coffeeItem = CoffeeDAOService.searchByRegion(regionBox.getValue());
 		coffeeList.add(coffeeItem);
-		loadTable();
+		loadOrderTable();
 		resetChoiceBox(regionBox);
 	}
 	
 	@FXML
 	private void filterByRoast(){
 		final List<Coffee> listByRoast = CoffeeDAOService.filterByRoast(roastBox.getValue());
-		// brandBox.getItems().clear();
-		// brandBox.getItems().addAll(listByRoast);
-		// nameBox.getItems().clear();
-		// nameBox.getItems().addAll(listByRoast);
-		// priceBox.getItems().clear();
-		// priceBox.getItems().addAll(listByRoast);
-		// regionBox.getItems().clear();
-		// regionBox.getItems().addAll(listByRoast);
-		// sizeBox.getItems().clear();
-		// sizeBox.getItems().addAll(listByRoast);
+		filterList.addAll(listByRoast);
+		loadFilterTable();
 	}
 
 	//saves coffee table to DB once only
@@ -156,12 +167,11 @@ public class CustomerOrders {
     });
 	}
 
-
-
-
-	private void loadTable()  {
-        table.setItems(coffeeList);
-		// private ObservableList<String> brands = FXCollections.observableArrayList(Coffee.COFFEE1.getBrand(), Coffee.COFFEE2.getBrand());
+	private void loadOrderTable()  {
+        orderTable.setItems(coffeeList);
+	}
+	private void loadFilterTable()  {
+        filterTable.setItems(filterList);
 	}
 
     @FXML
