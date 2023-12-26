@@ -42,8 +42,8 @@ public class CustomerOrders {
 	@FXML
 	private ComboBox<Integer> sizeBox;
 	@FXML
-	private final ObservableList<Coffee> coffeeList = FXCollections.observableArrayList();
-	private final ObservableList<Coffee> filterList = FXCollections.observableArrayList();
+	private final ObservableList<Coffee> orderList = FXCollections.observableArrayList();
+	private final ObservableList<Coffee> filteredList = FXCollections.observableArrayList();
 	private static final List<String> brandsList = CoffeeDAOService.getBrands();
 	private static final List<String> namesList = CoffeeDAOService.getNames();
 	private static final List<String> pricesList = CoffeeDAOService.getPrices();
@@ -130,7 +130,7 @@ public class CustomerOrders {
 				}
 				setGraphic(addButton);
 				addButton.setOnAction(
-					event -> getTableView().getItems().remove(coffee)
+					event -> getTableView().getItems().add(coffee)
 				);
 			}
 		});
@@ -158,28 +158,28 @@ public class CustomerOrders {
 	@FXML
 	private void selectedByBrand(){
 		Coffee coffeeItem = CoffeeDAOService.searchByBrand(brandBox.getValue());
-		coffeeList.add(coffeeItem);
+		orderList.add(coffeeItem);
 		loadOrderTable();
 		resetChoiceBox(brandBox);
 	}
 	@FXML
 	private void selectedByName(){
 		Coffee coffeeItem = CoffeeDAOService.searchByName(nameBox.getValue());
-		coffeeList.add(coffeeItem);
+		orderList.add(coffeeItem);
 		loadOrderTable();
 		resetChoiceBox(nameBox);
 	}
 	@FXML
 	private void selectedByPrice(){
 		Coffee coffeeItem = CoffeeDAOService.searchByPrice(priceBox.getValue());
-		coffeeList.add(coffeeItem);
+		orderList.add(coffeeItem);
 		loadOrderTable();
 		resetChoiceBox(priceBox);
 	}
 	@FXML
 	private void selectedByRegion(){
 		Coffee coffeeItem = CoffeeDAOService.searchByRegion(regionBox.getValue());
-		coffeeList.add(coffeeItem);
+		orderList.add(coffeeItem);
 		loadOrderTable();
 		resetChoiceBox(regionBox);
 	}
@@ -188,7 +188,7 @@ public class CustomerOrders {
 	private void filterByRoast(){
 		clearFilterTable();
 		final List<Coffee> listByRoast = CoffeeDAOService.filterByRoast(roastBox.getValue());
-		filterList.addAll(listByRoast);
+		filteredList.addAll(listByRoast);
 		loadFilterTable();
 	}
 
@@ -196,7 +196,7 @@ public class CustomerOrders {
 	private void filterBySize(){
 		clearFilterTable();
 		final List<Coffee> listBySize = CoffeeDAOService.filterBySize(sizeBox.getValue());
-		filterList.addAll(listBySize);
+		filteredList.addAll(listBySize);
 		loadFilterTable();
 	}
 
@@ -229,10 +229,10 @@ public class CustomerOrders {
 
 
 	private void loadOrderTable()  {
-        orderTable.setItems(coffeeList);
+        orderTable.setItems(orderList);
 	}
 	private void loadFilterTable()  {
-        filterTable.setItems(filterList);
+        filterTable.setItems(filteredList);
 	}
 	private void clearFilterTable() {
 		if (filterTable.getItems().isEmpty()){
