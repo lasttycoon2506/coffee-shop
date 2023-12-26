@@ -53,4 +53,7 @@ public class CoffeeDAOService {
     public static List<Coffee> filterByRoast(String roast) {
         return CoffeeDAO.filterByRoast(roast);
     }
+    public static List<Coffee> filterBySize(Integer size) {
+        return CoffeeDAO.filterBySize(size);
+    }
 }

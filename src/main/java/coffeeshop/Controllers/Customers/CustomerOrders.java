@@ -144,6 +144,14 @@ public class CustomerOrders {
 		loadFilterTable();
 	}
 
+	@FXML
+	private void filterByPrice(){
+		clearFilterTable();
+		final List<Coffee> listBySize = CoffeeDAOService.filterBySize(sizeBox.getValue());
+		filterList.addAll(listBySize);
+		loadFilterTable();
+	}
+
 	//saves coffee table to DB once only
 	private void saveCoffeeToDB() {
 		if (!CoffeeDAOService.coffeeListExistsDB()) {
