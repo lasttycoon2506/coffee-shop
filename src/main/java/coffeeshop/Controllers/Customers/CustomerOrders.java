@@ -76,6 +76,19 @@ public class CustomerOrders {
 	@FXML
 	private TableColumn<Coffee, String> sizeColumnFilterTable;
 	public void initialize() throws NoSuchAlgorithmException, InvalidKeySpecException{
+		initOrderTable();
+		brandColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("brand"));
+        nameColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("coffeeName"));
+        roastColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("roast"));
+		priceColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("price"));
+        regionColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("region"));
+        sizeColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("coffeeSize"));				
+		saveCoffeeToDB();
+		fillComboBoxes();	
+    }
+
+
+	private void initOrderTable(){
 		brandColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("brand"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("coffeeName"));
         roastColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("roast"));
@@ -98,15 +111,7 @@ public class CustomerOrders {
 				);
 			}
 		});
-		brandColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("brand"));
-        nameColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("coffeeName"));
-        roastColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("roast"));
-		priceColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("price"));
-        regionColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("region"));
-        sizeColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("coffeeSize"));				
-		saveCoffeeToDB();
-		fillComboBoxes();	
-    }
+	}
 	
 	//sets combo boxes w/ chooseable properties
 	private void fillComboBoxes() {
