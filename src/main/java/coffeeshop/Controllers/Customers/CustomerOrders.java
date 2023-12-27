@@ -17,8 +17,6 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.control.cell.TextFieldTableCell;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListCell;
@@ -57,17 +55,8 @@ public class CustomerOrders {
 	@FXML
 	private TableColumn<Coffee, Coffee> deleteColumn;
 	@FXML
-	private TableColumn<Coffee, String> brandColumnFilterTable;
-	@FXML
-	private TableColumn<Coffee, String> nameColumnFilterTable;
-	@FXML
-	private TableColumn<Coffee, String> roastColumnFilterTable;
-	@FXML
-	private TableColumn<Coffee, String> priceColumnFilterTable;
-	@FXML
-	private TableColumn<Coffee, String> regionColumnFilterTable;
-	@FXML
-	private TableColumn<Coffee, String> sizeColumnFilterTable;
+	private TableColumn<Coffee, String> brandColumnFilterTable, nameColumnFilterTable, roastColumnFilterTable, priceColumnFilterTable,
+										regionColumnFilterTable, sizeColumnFilterTable;
 	@FXML
 	private TableColumn<Coffee, Coffee> addColumnFilterTable;
 	public void initialize() throws NoSuchAlgorithmException, InvalidKeySpecException{
