@@ -63,6 +63,8 @@ public class CustomerOrders {
 	@FXML
 	private TableColumn<Coffee, String> sizeColumn;
 	@FXML
+	private TableColumn<Coffee, Coffee> quantityColumn;
+	@FXML
 	private TableColumn<Coffee, Coffee> deleteColumn;
 	@FXML
 	private TableColumn<Coffee, String> brandColumnFilterTable;
