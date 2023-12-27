@@ -13,6 +13,8 @@ import coffeeshop.Models.Context;
 import coffeeshop.Entities.Coffee.Coffee;
 import coffeeshop.Entities.Coffee.CoffeeDAOService;
 import coffeeshop.Entities.Customers.Customer;
+import coffeeshop.Entities.Orders.Order;
+import coffeeshop.Entities.Orders.OrderDAOService;
 import javafx.animation.AnimationTimer;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
@@ -31,6 +33,7 @@ import javafx.scene.control.TableColumn;
 
 public class CustomerOrders {
 	private Customer customer = Context.getInstance().getCustomer();
+	private Order newOrder = new Order();
 	@FXML
     private TableView<Coffee> orderTable, filterTable;
 	@FXML
@@ -134,6 +137,8 @@ public class CustomerOrders {
 			Field coffeeID = coffee.getClass().getDeclaredField("coffee_id");
 			coffeeID.setAccessible(true);
 			coffeeID.get(coffee);
+			// newOrder.add("t");
+			// OrderDAOService.saveOrder(order);
 			// CoffeeDAOService.saveCoffee(coffee);
 		}
 	}
