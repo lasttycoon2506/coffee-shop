@@ -26,4 +26,14 @@ public class Order {
         this.number_of_items = numberOfItems;
         this.customer_id = customerID;
     }
+
+    public void setOrdersDate(Date ordersDate) {
+        this.orders_date = ordersDate;
+    }
+    public void setNumberOfItems(int numberOfItems) {
+        this.number_of_items = numberOfItems;
+    }
+    public void setCustomerID(int customerID) {
+        this.customer_id = customerID;
+    }
 }
