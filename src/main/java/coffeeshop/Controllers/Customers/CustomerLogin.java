@@ -15,9 +15,7 @@ import javafx.scene.control.TextFormatter;
 
 public class CustomerLogin {
     @FXML
-	private TextField userLogin;
-    @FXML
-	private TextField pwLogin;
+	private TextField userLogin, pwLogin;
     
     UnaryOperator<TextFormatter.Change> spaceFilter = change -> {
         if (change.getText().equals(" ")) {
