@@ -85,7 +85,6 @@ public class CoffeeDAO implements DAO<Coffee>{
         return sizeList;
     }
 
-
     private static void executeInsideTransaction(Consumer<EntityManager> action) {
         EntityTransaction transaction = entityManager.getTransaction();
         try {
