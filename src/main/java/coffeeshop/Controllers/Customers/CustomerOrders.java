@@ -24,7 +24,10 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Labeled;
@@ -148,6 +151,7 @@ public class CustomerOrders {
 		newOrder.setCustomerID(customer.getCustomerID());
 		OrderDAOService.saveOrder(newOrder);
 		switchToCustomerPg();
+		notificationWindow("confirmation", null);
 		// for (Coffee coffee: orderList){
 		// 	Field coffeeID = coffee.getClass().getDeclaredField("coffee_id");
 		// 	coffeeID.setAccessible(true);
@@ -246,5 +250,15 @@ public class CustomerOrders {
         App.setRoot("home");
     }
 
+	private static void notificationWindow(String windowType, String message) {
+        Alert dialog;
+        if (windowType.equals("confirmation")) {
+            dialog = new Alert(AlertType.CONFIRMATION, "Your Order Has Been Placed!", ButtonType.OK);
+        }
+        else {
+            dialog = new Alert(AlertType.ERROR, message, ButtonType.OK);
+        }
+        dialog.show();
+    }
 }
 
