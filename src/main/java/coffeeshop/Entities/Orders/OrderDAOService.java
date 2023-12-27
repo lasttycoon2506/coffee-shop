@@ -8,7 +8,7 @@ public class OrderDAOService {
         OrderDAOService.orderDAO = orderDAO;
     }
 
-    public void saveOrder(Order order){
+    public static void saveOrder(Order order){
         orderDAO.save(order);
     }
 }
