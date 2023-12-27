@@ -4,8 +4,10 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 import coffeeshop.App;
 import coffeeshop.Data.CoffeeList;
@@ -59,6 +61,14 @@ public class CustomerOrders {
 										regionColumnFilterTable, sizeColumnFilterTable;
 	@FXML
 	private TableColumn<Coffee, Coffee> addColumnFilterTable;
+	private LocalDate currentDate;
+	AnimationTimer timer = new AnimationTimer() {
+		@Override
+		public void handle(long now) {
+			timeDisplay.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd      HH:mm:ss")));
+			currentDate = LocalDate.now();
+		}
+	};
 	public void initialize() throws NoSuchAlgorithmException, InvalidKeySpecException{
 		timer.start();
 		initOrderTable();	
@@ -133,10 +143,9 @@ public class CustomerOrders {
 
 	@FXML
 	private void addToOrder() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException   {
-		// newOrder.setOrdersDate("33");
-		newOrder.setNumberOfItems(0);
+		newOrder.setOrdersDate(currentDate);
+		newOrder.setNumberOfItems(orderList.size());
 		newOrder.setCustomerID(customer.getCustomerID());
-		System.out.println("hh");
 		// for (Coffee coffee: orderList){
 		// 	Field coffeeID = coffee.getClass().getDeclaredField("coffee_id");
 		// 	coffeeID.setAccessible(true);
@@ -226,12 +235,6 @@ public class CustomerOrders {
 		filterTable.getItems().clear();
 	}
 
-	AnimationTimer timer = new AnimationTimer() {
-		@Override
-		public void handle(long now) {
-			timeDisplay.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd      HH:mm:ss")));
-		}
-	};
     @FXML
     private void switchToCustomerPg() throws IOException {
         App.setRoot("customer");
