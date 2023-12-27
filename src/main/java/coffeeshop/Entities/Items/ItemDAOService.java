@@ -1,7 +1,6 @@
 package coffeeshop.Entities.Items;
 
 
-
 public class ItemDAOService {
      private static ItemDAO itemDAO = new ItemDAO();
 
