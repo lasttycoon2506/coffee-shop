@@ -17,6 +17,7 @@ public class CoffeeDAO implements DAO<Coffee>{
     public void save(Coffee coffee) {
         executeInsideTransaction(entityManager -> entityManager.persist(coffee));
     }
+    
 
     public static boolean coffeeListExistsDB() {
         List<Coffee> coffeeList = entityManager.createQuery("SELECT c FROM Coffee c", Coffee.class).getResultList();

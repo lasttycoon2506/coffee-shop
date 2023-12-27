@@ -155,6 +155,7 @@ public class CustomerOrders {
 			Field coffeeID = coffee.getClass().getDeclaredField("coffee_id");
 			coffeeID.setAccessible(true);
 			coffeeID.get(coffee);
+			// CoffeeDAOService.saveCoffee(coffee);
 		}
 	}
 
@@ -207,7 +208,7 @@ public class CustomerOrders {
 	private void saveCoffeeToDB() {
 		if (!CoffeeDAOService.coffeeListExistsDB()) {
 			for (Coffee coffee : CoffeeList.getCoffeeList()) {
-				CoffeeDAOService.saveCoffee(coffee);
+				CoffeeDAOService.saveCoffeeTableToDB(coffee);
 			}
 		}
 	}

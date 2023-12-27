@@ -8,13 +8,13 @@ public class CoffeeDAOService {
     private CoffeeDAOService(CoffeeDAO coffeeDAO){
         CoffeeDAOService.coffeeDAO = coffeeDAO;
     }
-    
-    public static void saveCoffee(Coffee coffee) {
+
+    public static void saveCoffeeTableToDB(Coffee coffee){
         coffeeDAO.save(coffee);
     }
 
-    public void saveOrder(){
-
+    public void saveOrder(Coffee coffeeID){
+        coffeeDAO.save(coffeeID);
     }
 
     public static boolean coffeeListExistsDB() {
