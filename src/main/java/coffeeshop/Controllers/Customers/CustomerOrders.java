@@ -133,14 +133,15 @@ public class CustomerOrders {
 
 	@FXML
 	private void addToOrder() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException   {
-		for (Coffee coffee: orderList){
-			Field coffeeID = coffee.getClass().getDeclaredField("coffee_id");
-			coffeeID.setAccessible(true);
-			coffeeID.get(coffee);
-			// newOrder.add("t");
-			// OrderDAOService.saveOrder(order);
-			// CoffeeDAOService.saveCoffee(coffee);
-		}
+		// newOrder.setOrdersDate("33");
+		newOrder.setNumberOfItems(0);
+		newOrder.setCustomerID(customer.getCustomerID());
+		System.out.println("hh");
+		// for (Coffee coffee: orderList){
+		// 	Field coffeeID = coffee.getClass().getDeclaredField("coffee_id");
+		// 	coffeeID.setAccessible(true);
+		// 	coffeeID.get(coffee);
+		// }
 	}
 
 	@FXML
