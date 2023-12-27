@@ -160,7 +160,7 @@ public class CustomerOrders {
 			// }
 		}
 	}
-
+	
 	@FXML
 	private void selectedByBrand(){
 		Coffee coffeeItem = CoffeeDAOService.searchByBrand(brandBox.getValue());
