@@ -19,7 +19,6 @@ public class Item {
 
     private Item() {
     }
-
     private Item(int quantity, int coffeeID, int ordersID) {
         this.quantity = quantity;
         this.coffee_id = coffeeID;
