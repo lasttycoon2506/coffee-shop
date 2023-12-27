@@ -7,8 +7,8 @@ import javafx.fxml.FXML;
 
 public class Customer {
     @FXML
-    private void switchToCustomerOrdersPg() throws IOException {
-        App.setRoot("customerOrders");
+    private void switchToCustomerNewOrdersPg() throws IOException {
+        App.setRoot("customerNewOrders");
     }
     @FXML
     private void switchToCustomerProfilePg() throws IOException {
