@@ -11,4 +11,8 @@ public class OrderDAOService {
     public static void saveOrder(Order order){
         orderDAO.save(order);
     }
+
+    public static int getMostRecentOrderID() {
+        return OrderDAO.getMostRecentOrderID();
+    }
 }

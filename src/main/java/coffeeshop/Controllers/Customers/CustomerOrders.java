@@ -170,8 +170,9 @@ public class CustomerOrders {
 					coffeeQuantityHash.put((Integer) coffeeID.get(coffee), coffeeQuantityHash.get(coffeeID.get(coffee)) + 1);
 				}
 			}
-			coffeeQuantityHash.forEach((coffeeID, quantity) -> newItemsList.add(new Item(coffeeID, quantity, 3)));
-			// ItemDAOService.saveItem(null);
+			coffeeQuantityHash.forEach((coffeeID, quantity) -> newItemsList.add(new Item(coffeeID, quantity, 
+																						OrderDAOService.getMostRecentOrderID())));
+			ItemDAOService.saveItem(null);
 		}
 	}
 	

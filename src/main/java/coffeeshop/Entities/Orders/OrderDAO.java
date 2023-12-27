@@ -23,6 +23,13 @@ public class OrderDAO implements DAO<Order>{
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getAll'");
     }
+
+    public static int getMostRecentOrderID() {
+        Integer orderID = entityManager.createQuery("SELECT MAX(orders_id) FROM Order",
+                            Integer.class).getSingleResult();
+        return orderID;
+    }
+
     public void save(Order order) {
         executeInsideTransaction(entityManager -> entityManager.persist(order));
     }
