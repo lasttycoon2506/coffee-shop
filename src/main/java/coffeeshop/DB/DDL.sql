@@ -21,7 +21,6 @@ CREATE TABLE IF NOT EXISTS Orders
    orders_date DATE NOT NULL,
    number_of_items INT NOT NULL,
    customer_id INT NOT NULL,
-   order_status BOOLEAN NOT NULL DEFAULT FALSE,....
    PRIMARY KEY(orders_id),
    CONSTRAINT FK_Orders_Customer_Id
    FOREIGN KEY (customer_id) REFERENCES Customers(customer_id),
