@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import coffeeshop.App;
 import coffeeshop.Data.CoffeeList;
@@ -11,6 +13,7 @@ import coffeeshop.Models.Context;
 import coffeeshop.Entities.Coffee.Coffee;
 import coffeeshop.Entities.Coffee.CoffeeDAOService;
 import coffeeshop.Entities.Customers.Customer;
+import javafx.animation.AnimationTimer;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -19,6 +22,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.Labeled;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
@@ -32,6 +37,8 @@ public class CustomerOrders {
 	private ComboBox<String> brandBox, nameBox, roastBox, priceBox, regionBox;
 	@FXML
 	private ComboBox<Integer> sizeBox;
+	@FXML
+	private Label timeDisplay;
 	@FXML
 	private final ObservableList<Coffee> orderList = FXCollections.observableArrayList();
 	private final ObservableList<Coffee> filteredList = FXCollections.observableArrayList();
@@ -50,6 +57,7 @@ public class CustomerOrders {
 	@FXML
 	private TableColumn<Coffee, Coffee> addColumnFilterTable;
 	public void initialize() throws NoSuchAlgorithmException, InvalidKeySpecException{
+		timer.start();
 		initOrderTable();	
 		initFilterTable();		
 		saveCoffeeToDB();
@@ -184,7 +192,6 @@ public class CustomerOrders {
 		}
 	}
 	
-	
 	private void resetChoiceBox(ComboBox<String> comboBox){
 		comboBox.setValue(null);
 		comboBox.setButtonCell(new ListCell<>() {
@@ -200,9 +207,6 @@ public class CustomerOrders {
     });
 	}
 
-	
-
-
 	private void loadOrderTable()  {
         orderTable.setItems(orderList);
 	}
@@ -216,6 +220,12 @@ public class CustomerOrders {
 		filterTable.getItems().clear();
 	}
 
+	AnimationTimer timer = new AnimationTimer() {
+		@Override
+		public void handle(long now) {
+			timeDisplay.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd      HH:mm:ss")));
+		}
+	};
     @FXML
     private void switchToCustomerPg() throws IOException {
         App.setRoot("customer");
