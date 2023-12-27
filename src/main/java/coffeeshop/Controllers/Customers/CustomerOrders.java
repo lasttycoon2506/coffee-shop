@@ -57,17 +57,15 @@ public class CustomerOrders {
     }
 
 
-	private void initOrderTable(){
+	private void initOrderTable() {
 		brandColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("brand"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("coffeeName"));
         roastColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("roast"));
 		priceColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("price"));
         regionColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("region"));
         sizeColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("coffeeSize"));
-		// quantityColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-    	// column_notes.setOnEditCommit(e->e.getTableView().getItems().get(e.getTablePosition().getRow()).setNotes(e.getNewValue()));
-		deleteColumn.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
-		deleteColumn.setCellFactory(param -> new TableCell<Coffee, Coffee>() {
+		deleteColumn.setCellValueFactory(column -> new ReadOnlyObjectWrapper<>(column.getValue()));
+		deleteColumn.setCellFactory(column -> new TableCell<Coffee, Coffee>() {
 			private final Button deleteButton = new Button("X");
 			@Override
 			protected void updateItem(Coffee coffee, boolean empty) {
@@ -83,7 +81,7 @@ public class CustomerOrders {
 			}
 		});
 	}
-
+	
 
 	private void initFilterTable() {
 		brandColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("brand"));
