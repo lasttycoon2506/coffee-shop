@@ -1,6 +1,7 @@
 package coffeeshop.Controllers.Customers;
 
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.List;
@@ -149,11 +150,12 @@ public class CustomerOrders {
 	}
 
 	@FXML
-	private void addToOrder() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException  {
-        // Coffee coffeeItem = brandBox.getValue();
-		// Field coffeeID = coffeeItem.getClass().getDeclaredField("coffee_id");
-		// coffeeID.setAccessible(true);
-		// System.out.println(coffeeID.get(coffeeItem));
+	private void addToOrder() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException   {
+		for (Coffee coffee: orderList){
+			Field coffeeID = coffee.getClass().getDeclaredField("coffee_id");
+			coffeeID.setAccessible(true);
+			coffeeID.get(coffee);
+		}
 	}
 
 	@FXML
