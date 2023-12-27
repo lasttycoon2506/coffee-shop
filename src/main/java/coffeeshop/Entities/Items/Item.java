@@ -26,4 +26,13 @@ public class Item {
         this.orders_id = ordersID;
     }
 
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+    public void setCoffeeID(int coffeeID) {
+        this.coffee_id = coffeeID;
+    }
+    public void setOrdersID(int ordersID) {
+        this.orders_id = ordersID;
+    }
 }
