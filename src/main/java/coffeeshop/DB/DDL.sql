@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS Orders
 (
    orders_id INT NOT NULL AUTO_INCREMENT UNIQUE,
    orders_date DATE NOT NULL,
-   number_of_items INT NOT NULL,
+   number_of_total_items INT NOT NULL,
    customer_id INT NOT NULL,
    PRIMARY KEY(orders_id),
    CONSTRAINT FK_Orders_Customer_Id
