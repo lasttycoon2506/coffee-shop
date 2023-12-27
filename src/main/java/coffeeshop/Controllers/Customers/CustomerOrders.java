@@ -27,19 +27,9 @@ import javafx.scene.control.TableColumn;
 public class CustomerOrders {
 	private Customer customer = Context.getInstance().getCustomer();
 	@FXML
-    private TableView<Coffee> orderTable;
+    private TableView<Coffee> orderTable, filterTable;
 	@FXML
-    private TableView<Coffee> filterTable;
-	@FXML
-	private ComboBox<String> brandBox;
-	@FXML
-	private ComboBox<String> nameBox;
-	@FXML
-	private ComboBox<String> roastBox;
-	@FXML
-	private ComboBox<String> priceBox;
-	@FXML
-	private ComboBox<String> regionBox;
+	private ComboBox<String> brandBox, nameBox, roastBox, priceBox, regionBox;
 	@FXML
 	private ComboBox<Integer> sizeBox;
 	@FXML
