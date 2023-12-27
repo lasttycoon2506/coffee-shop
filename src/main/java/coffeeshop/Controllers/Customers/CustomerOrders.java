@@ -15,6 +15,8 @@ import coffeeshop.Models.Context;
 import coffeeshop.Entities.Coffee.Coffee;
 import coffeeshop.Entities.Coffee.CoffeeDAOService;
 import coffeeshop.Entities.Customers.Customer;
+import coffeeshop.Entities.Items.Item;
+import coffeeshop.Entities.Items.ItemDAOService;
 import coffeeshop.Entities.Orders.Order;
 import coffeeshop.Entities.Orders.OrderDAOService;
 import javafx.animation.AnimationTimer;
@@ -38,6 +40,7 @@ import javafx.scene.control.TableColumn;
 public class CustomerOrders {
 	private Customer customer = Context.getInstance().getCustomer();
 	private Order newOrder = new Order();
+	private Item newItem = new Item();
 	private HashMap<Integer, Integer> coffeeQuantityHash = new HashMap<>();
 	@FXML
     private TableView<Coffee> orderTable, filterTable;
@@ -166,6 +169,9 @@ public class CustomerOrders {
 					coffeeQuantityHash.put((Integer) coffeeID.get(coffee), coffeeQuantityHash.get(coffeeID.get(coffee)) + 1);
 				}
 			}
+			coffeeQuantityHash.size();
+			// Item newItem = new Item(coffeeID.get(coffee), );
+			ItemDAOService.saveItem(null);
 		}
 	}
 	

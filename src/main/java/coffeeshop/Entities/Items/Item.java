@@ -13,23 +13,23 @@ public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int items_id;
-    private int quantity;
     private int coffee_id;
+    private int quantity;
     private int orders_id;
 
-    private Item() {
+    public Item() {
     }
-    private Item(int quantity, int coffeeID, int ordersID) {
-        this.quantity = quantity;
+    public Item(int coffeeID, int quantity, int ordersID) {
         this.coffee_id = coffeeID;
+        this.quantity = quantity;
         this.orders_id = ordersID;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
     public void setCoffeeID(int coffeeID) {
         this.coffee_id = coffeeID;
+    }
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
     public void setOrdersID(int ordersID) {
         this.orders_id = ordersID;
