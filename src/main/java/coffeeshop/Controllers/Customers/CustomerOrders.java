@@ -7,6 +7,7 @@ import java.security.spec.InvalidKeySpecException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import coffeeshop.App;
@@ -40,8 +41,8 @@ import javafx.scene.control.TableColumn;
 public class CustomerOrders {
 	private Customer customer = Context.getInstance().getCustomer();
 	private Order newOrder = new Order();
-	private Item newItem = new Item();
 	private HashMap<Integer, Integer> coffeeQuantityHash = new HashMap<>();
+	private List<Item> newItemsList = new ArrayList<Item>();
 	@FXML
     private TableView<Coffee> orderTable, filterTable;
 	@FXML
@@ -51,8 +52,8 @@ public class CustomerOrders {
 	@FXML
 	private Label timeDisplay;
 	@FXML
-	private final ObservableList<Coffee> orderList = FXCollections.observableArrayList();
-	private final ObservableList<Coffee> filteredList = FXCollections.observableArrayList();
+	private ObservableList<Coffee> orderList = FXCollections.observableArrayList();
+	private ObservableList<Coffee> filteredList = FXCollections.observableArrayList();
 	private static final List<String> brandsList = CoffeeDAOService.getBrands();
 	private static final List<String> namesList = CoffeeDAOService.getNames();
 	private static final List<String> pricesList = CoffeeDAOService.getPrices();
@@ -169,9 +170,8 @@ public class CustomerOrders {
 					coffeeQuantityHash.put((Integer) coffeeID.get(coffee), coffeeQuantityHash.get(coffeeID.get(coffee)) + 1);
 				}
 			}
-			coffeeQuantityHash.size();
-			// Item newItem = new Item(coffeeID.get(coffee), );
-			ItemDAOService.saveItem(null);
+			coffeeQuantityHash.forEach((coffeeID, quantity) -> newItemsList.add(new Item(coffeeID, quantity, 3)));
+			// ItemDAOService.saveItem(null);
 		}
 	}
 	
