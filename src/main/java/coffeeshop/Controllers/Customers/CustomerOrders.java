@@ -17,6 +17,8 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListCell;
@@ -51,19 +53,7 @@ public class CustomerOrders {
 	private static final List<String> regionsList = CoffeeDAOService.getRegions();
 	private static final List<Integer> sizeList = CoffeeDAOService.getSizes();
 	@FXML
-	private TableColumn<Coffee, String> brandColumn;
-	@FXML
-	private TableColumn<Coffee, String> nameColumn;
-	@FXML
-	private TableColumn<Coffee, String> roastColumn;
-	@FXML
-	private TableColumn<Coffee, String> priceColumn;
-	@FXML
-	private TableColumn<Coffee, String> regionColumn;
-	@FXML
-	private TableColumn<Coffee, String> sizeColumn;
-	@FXML
-	private TableColumn<Coffee, Coffee> quantityColumn;
+	private TableColumn<Coffee, String> brandColumn, nameColumn, roastColumn, priceColumn, regionColumn, sizeColumn;
 	@FXML
 	private TableColumn<Coffee, Coffee> deleteColumn;
 	@FXML
@@ -95,6 +85,8 @@ public class CustomerOrders {
 		priceColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("price"));
         regionColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("region"));
         sizeColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("coffeeSize"));
+		// quantityColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+    	// column_notes.setOnEditCommit(e->e.getTableView().getItems().get(e.getTablePosition().getRow()).setNotes(e.getNewValue()));
 		deleteColumn.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
 		deleteColumn.setCellFactory(param -> new TableCell<Coffee, Coffee>() {
 			private final Button deleteButton = new Button("X");
