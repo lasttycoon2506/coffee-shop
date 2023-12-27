@@ -23,20 +23,9 @@ import javafx.scene.control.TextFormatter;
 
 public class NewCustomer {
     private static List<String> errorListPWPW = new ArrayList<String>();
-    private static String emailErr;
-    private static String phoneLenErr;
+    private static String emailErr, phoneLenErr;
     @FXML
-	private TextField userEntry;
-    @FXML
-	private TextField pwEntry;
-	@FXML
-	private TextField fNameEntry;
-    @FXML
-	private TextField lNameEntry;
-    @FXML
-	private TextField emailEntry;
-    @FXML
-    private TextField phoneEntry;
+	private TextField userEntry, pwEntry, fNameEntry, lNameEntry, emailEntry, phoneEntry;
 
     // pw doesnt accept space
     UnaryOperator<TextFormatter.Change> spaceFilter = change -> {
