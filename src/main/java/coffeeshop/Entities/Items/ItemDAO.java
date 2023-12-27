@@ -3,12 +3,12 @@ package coffeeshop.Entities.Items;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
-
 import coffeeshop.Models.DAO;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
+
 
 public class ItemDAO implements DAO<Item>{
     private static final EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa-hibernate-mysql");

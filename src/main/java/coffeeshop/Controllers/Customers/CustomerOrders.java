@@ -1,11 +1,13 @@
 package coffeeshop.Controllers.Customers;
 
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
 import java.util.List;
 import coffeeshop.App;
 import coffeeshop.Data.CoffeeList;
@@ -36,6 +38,7 @@ import javafx.scene.control.TableColumn;
 public class CustomerOrders {
 	private Customer customer = Context.getInstance().getCustomer();
 	private Order newOrder = new Order();
+	private HashMap<Integer, Integer> coffeeQuantityHash = new HashMap<>();
 	@FXML
     private TableView<Coffee> orderTable, filterTable;
 	@FXML
@@ -153,11 +156,16 @@ public class CustomerOrders {
 			OrderDAOService.saveOrder(newOrder);
 			switchToCustomerPg();
 			notificationWindow("confirmation", null);
-			// for (Coffee coffee: orderList){
-			// 	Field coffeeID = coffee.getClass().getDeclaredField("coffee_id");
-			// 	coffeeID.setAccessible(true);
-			// 	coffeeID.get(coffee);
-			// }
+			for (Coffee coffee: orderList){
+				Field coffeeID = coffee.getClass().getDeclaredField("coffee_id");
+				coffeeID.setAccessible(true);
+				if (coffeeQuantityHash.get(coffeeID.get(coffee)) == null) {
+					coffeeQuantityHash.put((Integer) coffeeID.get(coffee), 1);
+				}
+				else {
+					coffeeQuantityHash.put((Integer) coffeeID.get(coffee), coffeeQuantityHash.get(coffeeID.get(coffee)) + 1);
+				}
+			}
 		}
 	}
 	
