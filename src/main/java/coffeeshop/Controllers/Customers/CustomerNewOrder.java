@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import coffeeshop.App;
-import coffeeshop.Data.CoffeeList;
 import coffeeshop.Models.Context;
 import coffeeshop.Entities.Coffee.Coffee;
 import coffeeshop.Entities.Coffee.CoffeeDAOService;
@@ -80,7 +79,6 @@ public class CustomerNewOrder {
 		filterTable.setPlaceholder(new Label("FILTERED RESULTS"));
 		initOrderTable();	
 		initFilterTable();		
-		saveCoffeeToDB();
 		fillComboBoxes();	
     }
 
@@ -224,15 +222,6 @@ public class CustomerNewOrder {
 		final List<Coffee> listBySize = CoffeeDAOService.filterBySize(sizeBox.getValue());
 		filteredList.addAll(listBySize);
 		loadFilterTable();
-	}
-
-	//saves coffee constants to DB upon first program start only
-	private void saveCoffeeToDB() {
-		if (!CoffeeDAOService.coffeeListExistsDB()) {
-			for (Coffee coffee : CoffeeList.getCoffeeList()) {
-				CoffeeDAOService.saveCoffeeTableToDB(coffee);
-			}
-		}
 	}
 	
 	private void resetChoiceBox(ComboBox<String> comboBox){
