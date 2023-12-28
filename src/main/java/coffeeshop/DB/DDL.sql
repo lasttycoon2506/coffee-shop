@@ -30,10 +30,8 @@ CREATE TABLE IF NOT EXISTS Coffee
 (
    coffee_id INT NOT NULL AUTO_INCREMENT UNIQUE,
    brand VARCHAR(50) NOT NULL,
-   coffee_name VARCHAR(50) NOT NULL,
    roast VARCHAR(50) NOT NULL,
    price VARCHAR(50) NOT NULL,
-   region VARCHAR(50) NOT NULL,
    coffee_size INT NOT NULL,
    PRIMARY KEY(coffee_id)
 );

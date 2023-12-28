@@ -7,8 +7,8 @@ SET sql_mode = 'STRICT_ALL_TABLES';
 INSERT INTO Customers (user_name, pword, first_name, last_name, email, phone) 
 VALUES (:userName, :pword, :firstName, :lastName, :email, :phone);
 
-INSERT INTO Coffee (brand, coffee_name, roast, price, region, coffee_size) 
-VALUES (:brand, :coffeeName, :roast, :price, :region, :coffeeSize);
+INSERT INTO Coffee (brand, roast, price, coffee_size) 
+VALUES (:brand, :roast, :price, :coffeeSize);
 
 INSERT INTO Orders (order_date, total_items, customer_id) 
 VALUES (:orderDate, :totalItems, :customerId);
