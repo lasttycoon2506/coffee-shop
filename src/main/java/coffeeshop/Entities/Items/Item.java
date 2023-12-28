@@ -13,12 +13,12 @@ import jakarta.persistence.Table;
 public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "items_id")
+    @Column(name = "item_id")
     private int itemId;
     @Column(name = "coffee_id")
     private int coffeeId;
     private int quantity;
-    @Column(name = "orders_id")
+    @Column(name = "order_id")
     private int orderId;
 
     public Item() {

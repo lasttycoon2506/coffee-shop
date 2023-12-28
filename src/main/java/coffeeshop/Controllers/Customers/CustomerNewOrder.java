@@ -147,7 +147,7 @@ public class CustomerNewOrder {
 	}
 
 	@FXML
-	private void addToOrder() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, IOException   {
+	private void order() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, IOException   {
 		if (orderList.isEmpty()) {
 			notificationWindow("error", "Empty Order!");
 		}

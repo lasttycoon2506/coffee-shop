@@ -29,7 +29,7 @@
             <TableColumn fx:id="deleteColumn" prefWidth="99.00003051757812" text="Delete" />
         </columns>
       </TableView>
-      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="499.0" layoutY="87.0" mnemonicParsing="false" onAction="#addToOrder" prefHeight="39.0" prefWidth="91.0" text="ORDER">
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="499.0" layoutY="87.0" mnemonicParsing="false" onAction="#order" prefHeight="39.0" prefWidth="91.0" text="ORDER">
          <effect>
             <DropShadow />
          </effect></Button>

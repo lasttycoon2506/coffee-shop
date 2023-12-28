@@ -1,7 +1,6 @@
 package coffeeshop.Controllers.Customers;
 
 import java.io.IOException;
-import java.time.LocalDate;
 import coffeeshop.App;
 import coffeeshop.Entities.Orders.Order;
 import coffeeshop.Entities.Orders.OrderDAOService;
@@ -20,23 +19,26 @@ public class CustomerOrders {
     @FXML
     private TableView<Order> ordersTable;
     @FXML
-	private TableColumn<Order, LocalDate> orderDateColumn;
+	private TableColumn<Order, String> orderDateColumn;
     @FXML
-	private TableColumn<Order, Integer> totalItemsColumn;
+	private TableColumn<Order, String> totalItemsColumn;
     private ObservableList<Order> ordersList = FXCollections.observableArrayList();
+    @FXML
     public void initialize() {
-        orderDateColumn.setCellValueFactory(new PropertyValueFactory<Order, LocalDate>("orders_date"));
-        totalItemsColumn.setCellValueFactory(new PropertyValueFactory<Order, Integer>("total_items"));
+        orderDateColumn.setCellValueFactory(new PropertyValueFactory<Order, String>("orderDate"));
+        totalItemsColumn.setCellValueFactory(new PropertyValueFactory<Order, String>("totalItems"));
+
         // ordersTable.setPlaceholder(new Label("NO ORDERS!"));
         getAllOrdersByCustomerID(customer.getCustomerID());
         loadOrdersTable();
     }
-
-
+    
+    @FXML
     private void getAllOrdersByCustomerID(int customerID) {
         ordersList.addAll(OrderDAOService.getAllOrdersByCustomerID(customerID));
     }
 
+    @FXML
     private void loadOrdersTable() {
         ordersTable.setItems(ordersList);
     }

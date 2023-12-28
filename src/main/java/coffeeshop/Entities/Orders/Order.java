@@ -15,9 +15,9 @@ import jakarta.persistence.Table;
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "orders_id")
+    @Column(name = "order_id")
     private int orderId;
-    @Column(name = "orders_date")
+    @Column(name = "order_date")
     private LocalDate orderDate;
     @Column(name = "total_items")
     private int totalItems;
