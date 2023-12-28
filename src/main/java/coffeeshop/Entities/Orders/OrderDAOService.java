@@ -1,5 +1,6 @@
 package coffeeshop.Entities.Orders;
 
+import java.util.List;
 
 public class OrderDAOService {
     private static OrderDAO orderDAO = new OrderDAO();
@@ -15,4 +16,9 @@ public class OrderDAOService {
     public static int getMostRecentOrderID() {
         return OrderDAO.getMostRecentOrderID();
     }
+
+    public static List<Order> getAllOrdersForCustomer(int customerID) {
+        return OrderDAOService.getAllOrdersForCustomer(customerID);
+    }
+
 }

@@ -16,7 +16,7 @@
       </Label>
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToCustomerPg" prefHeight="39.0" prefWidth="80.0" text="BACK" />
       <Button layoutX="506.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToHomePg" prefHeight="39.0" prefWidth="80.0" text="HOME" />
-      <TableView layoutY="137.0" prefHeight="263.0" prefWidth="200.0">
+      <TableView fx:id="ordersTable" layoutY="137.0" prefHeight="263.0" prefWidth="200.0">
         <columns>
           <TableColumn fx:id="orderDateColumn" prefWidth="96.66668450832367" text="Order Date" />
           <TableColumn fx:id="totalItemsColumn" prefWidth="102.33329010009766" text="Total Item(s)" />

@@ -30,6 +30,12 @@ public class OrderDAO implements DAO<Order>{
         return orderID;
     }
 
+    public static List<Order> getAllOrdersForCustomer(int customerID) {
+        List<Order> customersOrders = entityManager.createQuery("SELECT customersOrders FROM Order customersOrders WHERE customer_id = :customerID", 
+                                                    Order.class).setParameter("customerID", customerID).getResultList();
+        return customersOrders;                                            
+    }
+
     public void save(Order order) {
         executeInsideTransaction(entityManager -> entityManager.persist(order));
     }
