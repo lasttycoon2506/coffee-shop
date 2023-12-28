@@ -156,12 +156,14 @@ public class CustomerOrders {
 			notificationWindow("error", "Empty Order!");
 		}
 		else {
+			//first saves order object to Orders table
 			newOrder.setOrdersDate(currentDate);
 			newOrder.setNumberOfItems(orderList.size());
 			newOrder.setCustomerID(customer.getCustomerID());
 			OrderDAOService.saveOrder(newOrder);
 			switchToCustomerPg();
 			notificationWindow("confirmation", null);
+			//each coffee item stored in hash as coffeeID tallying quantity
 			for (Coffee coffee: orderList){
 				Field coffeeID = coffee.getClass().getDeclaredField("coffee_id");
 				coffeeID.setAccessible(true);
@@ -172,6 +174,7 @@ public class CustomerOrders {
 					coffeeQuantityHash.put((Integer) coffeeID.get(coffee), coffeeQuantityHash.get(coffeeID.get(coffee)) + 1);
 				}
 			}
+			//loops through coffeehash adding item object for each quantity of coffeeID
 			coffeeQuantityHash.forEach((coffeeID, quantity) -> newItemsList.add(new Item(coffeeID, quantity, 
 																						OrderDAOService.getMostRecentOrderID())));
 			for (Item newItem : newItemsList) {
@@ -180,6 +183,7 @@ public class CustomerOrders {
 		}
 	}
 	
+	//choicebox selected by property displayed in orders table
 	@FXML
 	private void selectedByBrand(){
 		Coffee coffeeItem = CoffeeDAOService.searchByBrand(brandBox.getValue());
@@ -216,7 +220,6 @@ public class CustomerOrders {
 		filteredList.addAll(listByRoast);
 		loadFilterTable();
 	}
-
 	@FXML
 	private void filterBySize(){
 		clearFilterTable();
@@ -225,7 +228,7 @@ public class CustomerOrders {
 		loadFilterTable();
 	}
 
-	//saves coffee table to DB once only
+	//saves coffee constants to DB upon first program start only
 	private void saveCoffeeToDB() {
 		if (!CoffeeDAOService.coffeeListExistsDB()) {
 			for (Coffee coffee : CoffeeList.getCoffeeList()) {
