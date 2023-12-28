@@ -16,9 +16,9 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "orders_id")
-    private int ordersId;
+    private int orderId;
     @Column(name = "orders_date")
-    private LocalDate ordersDate;
+    private LocalDate orderDate;
     @Column(name = "total_items")
     private int totalItems;
     @Column(name = "customer_id")
@@ -26,15 +26,15 @@ public class Order {
 
     public Order(){
     }
-    public Order (int ordersID, LocalDate ordersDate, int numberOfItems, int customerID) {
-        this.ordersId = ordersID;
-        this.ordersDate = ordersDate;
+    public Order (int orderId, LocalDate orderDate, int numberOfItems, int customerID) {
+        this.orderId = orderId;
+        this.orderDate = orderDate;
         this.totalItems = numberOfItems;
         this.customerId = customerID;
     }
 
-    public void setOrdersDate(LocalDate ordersDate) {
-        this.ordersDate = ordersDate;
+    public void setOrdersDate(LocalDate orderDate) {
+        this.orderDate = orderDate;
     }
     public void setNumberOfItems(int numberOfItems) {
         this.totalItems = numberOfItems;
