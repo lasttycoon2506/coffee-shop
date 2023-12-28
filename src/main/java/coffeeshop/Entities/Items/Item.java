@@ -14,19 +14,19 @@ public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "items_id")
-    private int itemsId;
+    private int itemId;
     @Column(name = "coffee_id")
     private int coffeeId;
     private int quantity;
     @Column(name = "orders_id")
-    private int ordersId;
+    private int orderId;
 
     public Item() {
     }
-    public Item(int coffeeID, int quantity, int ordersID) {
+    public Item(int coffeeID, int quantity, int orderId) {
         this.coffeeId = coffeeID;
         this.quantity = quantity;
-        this.ordersId = ordersID;
+        this.orderId = orderId;
     }
 
     public void setCoffeeID(int coffeeID) {
@@ -35,7 +35,7 @@ public class Item {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-    public void setOrdersID(int ordersID) {
-        this.ordersId = ordersID;
+    public void setOrdersID(int orderId) {
+        this.orderId = orderId;
     }
 }
