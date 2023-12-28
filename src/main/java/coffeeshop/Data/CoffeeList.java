@@ -13,6 +13,11 @@ public class CoffeeList {
         coffeeList.add(new Coffee("Berbers", "Light", "10.99", 14));
         coffeeList.add(new Coffee("Wonka's", "Medium", "9.99", 14));
         coffeeList.add(new Coffee("Smurfs", "Dark", "11.99", 16));
+        coffeeList.add(new Coffee("Willy's", "Dark", "9.99", 18));
+        coffeeList.add(new Coffee("Rocky Road", "Light", "11.99", 18));
+        coffeeList.add(new Coffee("Surfs Up", "Medium", "13.99", 18));
+        coffeeList.add(new Coffee("Z", "Dark", "8.99", 12));
+        coffeeList.add(new Coffee("Everyday", "Light", "12.99", 12));
         return coffeeList;
     }
 
