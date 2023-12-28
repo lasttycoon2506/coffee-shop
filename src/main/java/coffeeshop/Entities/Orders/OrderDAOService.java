@@ -17,8 +17,8 @@ public class OrderDAOService {
         return OrderDAO.getMostRecentOrderID();
     }
 
-    public static List<Order> getAllOrdersForCustomer(int customerID) {
-        return OrderDAOService.getAllOrdersForCustomer(customerID);
+    public static List<Order> getAllOrdersByCustomerID(int customerID) {
+        return OrderDAO.getAllOrdersByCustomerID(customerID);
     }
 
 }
