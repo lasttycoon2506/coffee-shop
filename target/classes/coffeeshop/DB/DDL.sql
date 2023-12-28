@@ -17,11 +17,11 @@ CREATE TABLE IF NOT EXISTS Customers
 
 CREATE TABLE IF NOT EXISTS Orders
 (
-   orders_id INT NOT NULL AUTO_INCREMENT UNIQUE,
-   orders_date DATE NOT NULL,
+   order_id INT NOT NULL AUTO_INCREMENT UNIQUE,
+   order_date DATE NOT NULL,
    total_items INT NOT NULL,
    customer_id INT NOT NULL,
-   PRIMARY KEY(orders_id),
+   PRIMARY KEY(order_id),
    CONSTRAINT FK_Orders_Customer_Id
    FOREIGN KEY (customer_id) REFERENCES Customers(customer_id),
 );
@@ -41,15 +41,15 @@ CREATE TABLE IF NOT EXISTS Coffee
 -- /*Intersection Table */ 
 CREATE TABLE IF NOT EXISTS Items
 (
-   items_id INT NOT NULL AUTO_INCREMENT UNIQUE,
+   item_id INT NOT NULL AUTO_INCREMENT UNIQUE,
    quantity INT NOT NULL,
    coffee_id INT, 
-   orders_id INT NOT NULL,
-   PRIMARY KEY(items_id),
+   order_id INT NOT NULL,
+   PRIMARY KEY(item_id),
    CONSTRAINT FK_Items_Coffee_Id
    FOREIGN KEY (coffee_id) REFERENCES Coffee(coffee_id),
    CONSTRAINT FK_Orders_Order_Id
-   FOREIGN KEY (orders_id) REFERENCES Orders(orders_id) ON DELETE CASCADE
+   FOREIGN KEY (order_id) REFERENCES Orders(order_id) ON DELETE CASCADE
 );
 
 
