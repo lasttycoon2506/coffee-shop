@@ -1,7 +1,6 @@
 package coffeeshop.Entities.Orders;
 
 import java.time.LocalDate;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -31,6 +30,19 @@ public class Order {
         this.orderDate = orderDate;
         this.totalItems = numberOfItems;
         this.customerId = customerID;
+    }
+    
+    public int getOrderId() {
+        return orderId;
+    }
+    public LocalDate getOrderDate() {
+        return orderDate;
+    }
+    public int getTotalItems() {
+        return totalItems;
+    }
+    public int getCustomerId() {
+        return customerId;
     }
 
     public void setOrdersDate(LocalDate orderDate) {
