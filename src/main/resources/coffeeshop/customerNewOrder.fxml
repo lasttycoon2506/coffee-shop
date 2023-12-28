@@ -21,10 +21,8 @@
       <TableView fx:id="orderTable" layoutX="-2.0" layoutY="133.0" prefHeight="149.0" prefWidth="600.0">
         <columns>
           <TableColumn fx:id="brandColumn" prefWidth="93.33331036567688" text="Brand" />
-          <TableColumn fx:id="nameColumn" prefWidth="109.9999771118164" text="Name" />
             <TableColumn fx:id="roastColumn" prefWidth="68.99992370605469" text="Roast" />
             <TableColumn fx:id="priceColumn" prefWidth="67.33331298828125" text="Price" />
-            <TableColumn fx:id="regionColumn" prefWidth="108.66668701171875" text="Region" />
             <TableColumn fx:id="sizeColumn" prefWidth="51.6666259765625" text="Size" />
             <TableColumn fx:id="deleteColumn" prefWidth="99.00003051757812" text="Delete" />
         </columns>
@@ -33,28 +31,24 @@
          <effect>
             <DropShadow />
          </effect></Button>
-      <ComboBox fx:id="brandBox" layoutX="-3.0" layoutY="108.0" onAction="#selectedByBrand" prefHeight="25.0" prefWidth="80.0" promptText="Brand" />
-      <ComboBox fx:id="nameBox" layoutX="77.0" layoutY="108.0" onAction="#selectedByName" prefHeight="25.0" prefWidth="80.0" promptText="Name" />
-      <ComboBox fx:id="roastBox" layoutX="157.0" layoutY="108.0" onAction="#filterByRoast" prefHeight="25.0" prefWidth="80.0" promptText="Roast" />
-      <ComboBox fx:id="priceBox" layoutX="237.0" layoutY="108.0" onAction="#selectedByPrice" prefHeight="25.0" prefWidth="80.0" promptText="Price" />
-      <ComboBox fx:id="regionBox" layoutX="317.0" layoutY="108.0" onAction="#selectedByRegion" prefHeight="25.0" prefWidth="80.0" promptText="Region" />
-      <ComboBox fx:id="sizeBox" layoutX="397.0" layoutY="108.0" onAction="#filterBySize" prefHeight="25.0" prefWidth="80.0" promptText="Size" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="158.0" layoutY="91.0" prefHeight="17.0" prefWidth="80.0" text="Filter By:">
+      <ComboBox fx:id="brandBox" layoutX="-3.0" layoutY="108.0" onAction="#selectedByBrand" prefHeight="25.0" prefWidth="115.0" promptText="Brand" />
+      <ComboBox fx:id="roastBox" layoutX="113.0" layoutY="108.0" onAction="#filterByRoast" prefHeight="25.0" prefWidth="124.0" promptText="Roast" />
+      <ComboBox fx:id="priceBox" layoutX="237.0" layoutY="108.0" onAction="#selectedByPrice" prefHeight="25.0" prefWidth="124.0" promptText="Price" />
+      <ComboBox fx:id="sizeBox" layoutX="362.0" layoutY="108.0" onAction="#filterBySize" prefHeight="25.0" prefWidth="133.0" promptText="Size" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="135.0" layoutY="91.0" prefHeight="17.0" prefWidth="80.0" text="Filter By:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
       <TableView fx:id="filterTable" layoutX="-2.0" layoutY="282.0" prefHeight="119.0" prefWidth="606.0">
          <columns>
             <TableColumn fx:id="brandColumnFilterTable" prefWidth="93.33331036567688" text="Brand" />
-            <TableColumn fx:id="nameColumnFilterTable" prefWidth="121.33329010009766" text="Name" />
             <TableColumn fx:id="roastColumnFilterTable" prefWidth="110.33335876464844" text="Roast" />
             <TableColumn fx:id="priceColumnFilterTable" prefWidth="55.66668701171875" text="Price" />
-            <TableColumn fx:id="regionColumnFilterTable" prefWidth="88.33331298828125" text="Region" />
             <TableColumn fx:id="sizeColumnFilterTable" prefWidth="51.000030517578125" text="Size" />
             <TableColumn fx:id="addColumnFilterTable" prefWidth="83.66668701171875" text="ADD" />
          </columns>
       </TableView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="397.0" layoutY="91.0" prefHeight="17.0" prefWidth="80.0" text="Filter By:">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="389.0" layoutY="91.0" prefHeight="17.0" prefWidth="80.0" text="Filter By:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
