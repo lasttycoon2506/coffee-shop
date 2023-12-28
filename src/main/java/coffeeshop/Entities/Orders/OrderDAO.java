@@ -25,7 +25,7 @@ public class OrderDAO implements DAO<Order>{
     }
 
     public static int getMostRecentOrderID() {
-        Integer orderID = entityManager.createQuery("SELECT MAX(ordersId) FROM Order",
+        Integer orderID = entityManager.createQuery("SELECT MAX(orderId) FROM Order",
                             Integer.class).getSingleResult();
         return orderID;
     }

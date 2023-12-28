@@ -161,7 +161,7 @@ public class CustomerNewOrder {
 			notificationWindow("confirmation", null);
 			//each coffee item stored in hash as coffeeID tallying quantity
 			for (Coffee coffee: orderList){
-				Field coffeeID = coffee.getClass().getDeclaredField("coffee_id");
+				Field coffeeID = coffee.getClass().getDeclaredField("coffeeId");
 				coffeeID.setAccessible(true);
 				if (coffeeQuantityHash.get(coffeeID.get(coffee)) == null) {
 					coffeeQuantityHash.put((Integer) coffeeID.get(coffee), 1);

@@ -23,8 +23,8 @@ public class Item {
 
     public Item() {
     }
-    public Item(int coffeeID, int quantity, int orderId) {
-        this.coffeeId = coffeeID;
+    public Item(int coffeeId, int quantity, int orderId) {
+        this.coffeeId = coffeeId;
         this.quantity = quantity;
         this.orderId = orderId;
     }
