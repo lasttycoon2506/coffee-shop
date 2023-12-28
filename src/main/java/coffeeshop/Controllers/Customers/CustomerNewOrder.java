@@ -87,6 +87,7 @@ public class CustomerNewOrder {
 		priceColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("price"));
         sizeColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("coffeeSize"));
 		deleteColumn.setCellValueFactory(column -> new ReadOnlyObjectWrapper<>(column.getValue()));
+		deleteColumn.setStyle("-fx-alignment: CENTER;");
 		deleteColumn.setCellFactory(column -> new TableCell<Coffee, Coffee>() {
 			private final Button deleteButton = new Button("X");
 			@Override
@@ -111,6 +112,7 @@ public class CustomerNewOrder {
 		priceColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("price"));
         sizeColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("coffeeSize"));	
 		addColumnFilterTable.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
+		addColumnFilterTable.setStyle("-fx-alignment: CENTER;");
 		addColumnFilterTable.setCellFactory(param -> new TableCell<Coffee, Coffee>() {
 			private final Button addButton = new Button("ADD");
 			@Override
