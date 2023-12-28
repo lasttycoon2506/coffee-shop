@@ -15,15 +15,18 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "Customers")
 public class Customer {
-    //@ = JPA interfacing / customer_id handled by mysql
+    //@ = JPA interfacing / customerId handled by mysql
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int customer_id;
-    @Column(unique = true)
-    private String user_name;
+    @Column(name = "customer_id")
+    private int customerId;
+    @Column(name = "user_name", unique = true)
+    private String userName;
     private String pword;
-    private String first_name;
-    private String last_name;
+    @Column(name = "first_name")
+    private String firstName;
+    @Column(name = "last_name")
+    private String lastName;
     @Column(unique = true)
     private String email;
     @Column(unique = true)
@@ -31,29 +34,29 @@ public class Customer {
 
     public Customer(){
     }
-    public Customer (String user_name, String pword, String first_name, String last_name, String email, String phone) throws NoSuchAlgorithmException, InvalidKeySpecException{
-        this.user_name = user_name;
+    public Customer (String userName, String pword, String firstName, String lastName, String email, String phone) throws NoSuchAlgorithmException, InvalidKeySpecException{
+        this.userName = userName;
         this.pword = PasswordGen.getHashedPw(pword);
-        this.first_name = first_name;
-        this.last_name = last_name;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
         this.phone = phone;
     }
 
     public int getCustomerID(){
-        return customer_id;
+        return customerId;
     }
     public String getUserName(){
-        return user_name;
+        return userName;
     }
     public String getPassword(){
         return pword;
     }
     public String getFirstName(){
-        return first_name;
+        return firstName;
     }
     public String getLastName(){
-        return last_name;
+        return lastName;
     }
     public String getEmail(){
         return email;
@@ -63,16 +66,16 @@ public class Customer {
     }
 
     public void setUserName(String newUserName){
-        this.user_name = newUserName;
+        this.userName = newUserName;
     }
     public void setPassword(String newPW){
         this.pword = newPW;
     }
     public void setFirstName(String newFirstName){
-        this.first_name = newFirstName;
+        this.firstName = newFirstName;
     }
     public void setLastName(String newLastName){
-        this.last_name = newLastName;
+        this.lastName = newLastName;
     }
     public void setEmail(String newEmail){
         this.email = newEmail;

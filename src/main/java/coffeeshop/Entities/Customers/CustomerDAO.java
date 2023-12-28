@@ -30,7 +30,7 @@ public class CustomerDAO implements DAO<Customer> {
     public static boolean userNameExists(String userName)  {
         try {
             executeInsideTransaction(entityManager -> 
-                                    entityManager.createQuery("SELECT user FROM Customer user WHERE user.user_name = :userName", 
+                                    entityManager.createQuery("SELECT user FROM Customer user WHERE user.userName = :userName", 
                                     Customer.class).setParameter("userName", userName).getSingleResult());
             return true;
         }
@@ -64,7 +64,7 @@ public class CustomerDAO implements DAO<Customer> {
     }
 
     public static boolean login(String user, String pw) throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
-        Customer customer = entityManager.createQuery("SELECT pwHash FROM Customer pwHash WHERE user_name = :userName",
+        Customer customer = entityManager.createQuery("SELECT pwHash FROM Customer pwHash WHERE userName = :userName",
                             Customer.class).setParameter("userName", user).getSingleResult();
         // gets pword field from customer obj
         Field pWordHash = customer.getClass().getDeclaredField("pword");
