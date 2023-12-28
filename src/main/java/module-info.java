@@ -12,7 +12,7 @@ module coffeeshop {
     opens coffeeshop.Controllers.Customers to javafx.fxml, org.hibernate.orm.core;
     opens coffeeshop.Entities.Customers to org.hibernate.orm.core, javafx.base;
     opens coffeeshop.Entities.Coffee to org.hibernate.orm.core, javafx.base;
-    opens coffeeshop.Entities.Orders to org.hibernate.orm.core;
+    opens coffeeshop.Entities.Orders to org.hibernate.orm.core, javafx.base;
     opens coffeeshop.Entities.Items to org.hibernate.orm.core;
 }
 
