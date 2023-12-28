@@ -20,11 +20,11 @@
       <Button layoutX="506.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToHomePg" prefHeight="39.0" prefWidth="80.0" text="HOME" />
       <TableView fx:id="orderTable" layoutX="-2.0" layoutY="133.0" prefHeight="149.0" prefWidth="600.0">
         <columns>
-          <TableColumn fx:id="brandColumn" prefWidth="93.33331036567688" text="Brand" />
-            <TableColumn fx:id="roastColumn" prefWidth="68.99992370605469" text="Roast" />
-            <TableColumn fx:id="priceColumn" prefWidth="67.33331298828125" text="Price" />
-            <TableColumn fx:id="sizeColumn" prefWidth="51.6666259765625" text="Size" />
-            <TableColumn fx:id="deleteColumn" prefWidth="99.00003051757812" text="Delete" />
+          <TableColumn fx:id="brandColumn" prefWidth="162.00000500679016" text="Brand" />
+            <TableColumn fx:id="roastColumn" prefWidth="123.33332824707031" text="Roast" />
+            <TableColumn fx:id="priceColumn" prefWidth="109.0" text="Price" />
+            <TableColumn fx:id="sizeColumn" prefWidth="93.3333740234375" text="Size" />
+            <TableColumn fx:id="deleteColumn" prefWidth="113.99996948242188" text="Delete" />
         </columns>
       </TableView>
       <Button alignment="CENTER" contentDisplay="CENTER" layoutX="499.0" layoutY="87.0" mnemonicParsing="false" onAction="#order" prefHeight="39.0" prefWidth="91.0" text="ORDER">
@@ -41,11 +41,11 @@
          </font></Label>
       <TableView fx:id="filterTable" layoutX="-2.0" layoutY="282.0" prefHeight="119.0" prefWidth="606.0">
          <columns>
-            <TableColumn fx:id="brandColumnFilterTable" prefWidth="93.33331036567688" text="Brand" />
-            <TableColumn fx:id="roastColumnFilterTable" prefWidth="110.33335876464844" text="Roast" />
-            <TableColumn fx:id="priceColumnFilterTable" prefWidth="55.66668701171875" text="Price" />
-            <TableColumn fx:id="sizeColumnFilterTable" prefWidth="51.000030517578125" text="Size" />
-            <TableColumn fx:id="addColumnFilterTable" prefWidth="83.66668701171875" text="ADD" />
+            <TableColumn fx:id="brandColumnFilterTable" prefWidth="162.3333179950714" text="Brand" />
+            <TableColumn fx:id="roastColumnFilterTable" prefWidth="123.99995422363281" text="Roast" />
+            <TableColumn fx:id="priceColumnFilterTable" prefWidth="107.66668701171875" text="Price" />
+            <TableColumn fx:id="sizeColumnFilterTable" prefWidth="93.66668701171875" text="Size" />
+            <TableColumn fx:id="addColumnFilterTable" prefWidth="114.00003051757812" text="ADD" />
          </columns>
       </TableView>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="389.0" layoutY="91.0" prefHeight="17.0" prefWidth="80.0" text="Filter By:">
