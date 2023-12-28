@@ -78,6 +78,8 @@ public class CustomerOrders {
 	};
 	public void initialize() throws NoSuchAlgorithmException, InvalidKeySpecException{
 		timer.start();
+		orderTable.setPlaceholder(new Label("CURRENT ORDER"));
+		filterTable.setPlaceholder(new Label("FILTERED RESULTS"));
 		initOrderTable();	
 		initFilterTable();		
 		saveCoffeeToDB();
