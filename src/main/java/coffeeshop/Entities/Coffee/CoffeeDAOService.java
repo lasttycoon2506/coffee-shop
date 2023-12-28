@@ -24,14 +24,8 @@ public class CoffeeDAOService {
     public static List<String> getBrands() {
         return CoffeeDAO.getBrands();
     }
-    public static List<String> getNames() {
-        return CoffeeDAO.getNames();
-    }
     public static List<String> getPrices() {
         return CoffeeDAO.getPrices();
-    }
-    public static List<String> getRegions() {
-        return CoffeeDAO.getRegions();
     }
     public static List<Integer> getSizes() {
         return CoffeeDAO.getSizes();
@@ -40,14 +34,8 @@ public class CoffeeDAOService {
     public static Coffee searchByBrand(String brand) {
         return CoffeeDAO.searchByBrand(brand);
     }
-    public static Coffee searchByName(String name) {
-        return CoffeeDAO.searchByName(name);
-    }
     public static Coffee searchByPrice(String price) {
         return CoffeeDAO.searchByPrice(price);
-    }
-    public static Coffee searchByRegion(String region) {
-        return CoffeeDAO.searchByRegion(region);
     }
 
     public static List<Coffee> filterByRoast(String roast) {

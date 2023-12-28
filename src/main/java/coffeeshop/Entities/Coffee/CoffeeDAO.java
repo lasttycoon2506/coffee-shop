@@ -32,20 +32,10 @@ public class CoffeeDAO implements DAO<Coffee>{
                                                             String.class).getResultList();
         return brandList;
     }
-    public static List<String> getNames(){
-        List<String> namesList =  entityManager.createQuery("SELECT names.coffeeName FROM Coffee names ORDER BY names.coffeeName",
-                                                                 String.class).getResultList();
-        return namesList;
-    }
     public static List<String> getPrices(){
         List<String> pricesList =  entityManager.createQuery("SELECT prices.price FROM Coffee prices ORDER BY prices.price", 
                                                             String.class).getResultList();
         return pricesList;
-    }
-    public static List<String> getRegions(){
-        List<String> regionsList =  entityManager.createQuery("SELECT regions.region FROM Coffee regions ORDER BY regions.region", 
-                                                            String.class).getResultList();
-        return regionsList;
     }
     public static List<Integer> getSizes(){
         List<Integer> sizesList =  entityManager.createQuery("SELECT DISTINCT sizes.coffeeSize FROM Coffee sizes ORDER BY sizes.coffeeSize", 
@@ -58,19 +48,9 @@ public class CoffeeDAO implements DAO<Coffee>{
                             Coffee.class).setParameter("brand", brand).getSingleResult();
         return coffeeItem;
     }
-    public static Coffee searchByName(String name){
-        Coffee coffeeItem = entityManager.createQuery("SELECT coffeeItem FROM Coffee coffeeItem WHERE coffeeName = :name",
-                            Coffee.class).setParameter("name", name).getSingleResult();
-        return coffeeItem;
-    }
     public static Coffee searchByPrice(String price){
         Coffee coffeeItem = entityManager.createQuery("SELECT coffeeItem FROM Coffee coffeeItem WHERE price = :price",
                             Coffee.class).setParameter("price", price).getSingleResult();
-        return coffeeItem;
-    }
-    public static Coffee searchByRegion(String region){
-        Coffee coffeeItem = entityManager.createQuery("SELECT coffeeItem FROM Coffee coffeeItem WHERE region = :region",
-                            Coffee.class).setParameter("region", region).getSingleResult();
         return coffeeItem;
     }
 

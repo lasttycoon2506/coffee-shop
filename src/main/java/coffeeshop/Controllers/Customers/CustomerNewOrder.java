@@ -43,7 +43,7 @@ public class CustomerNewOrder {
 	@FXML
     private TableView<Coffee> orderTable, filterTable;
 	@FXML
-	private ComboBox<String> brandBox, nameBox, roastBox, priceBox, regionBox;
+	private ComboBox<String> brandBox, roastBox, priceBox;
 	@FXML
 	private ComboBox<Integer> sizeBox;
 	@FXML
@@ -52,9 +52,7 @@ public class CustomerNewOrder {
 	private ObservableList<Coffee> orderList = FXCollections.observableArrayList();
 	private ObservableList<Coffee> filteredList = FXCollections.observableArrayList();
 	private static final List<String> brandsList = CoffeeDAOService.getBrands();
-	private static final List<String> namesList = CoffeeDAOService.getNames();
 	private static final List<String> pricesList = CoffeeDAOService.getPrices();
-	private static final List<String> regionsList = CoffeeDAOService.getRegions();
 	private static final List<Integer> sizeList = CoffeeDAOService.getSizes();
 	@FXML
 	private TableColumn<Coffee, String> brandColumn, nameColumn, roastColumn, priceColumn, regionColumn, sizeColumn;
@@ -85,10 +83,8 @@ public class CustomerNewOrder {
 
 	private void initOrderTable() {
 		brandColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("brand"));
-        nameColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("coffeeName"));
         roastColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("roast"));
 		priceColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("price"));
-        regionColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("region"));
         sizeColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("coffeeSize"));
 		deleteColumn.setCellValueFactory(column -> new ReadOnlyObjectWrapper<>(column.getValue()));
 		deleteColumn.setCellFactory(column -> new TableCell<Coffee, Coffee>() {
@@ -111,10 +107,8 @@ public class CustomerNewOrder {
 
 	private void initFilterTable() {
 		brandColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("brand"));
-        nameColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("coffeeName"));
         roastColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("roast"));
 		priceColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("price"));
-        regionColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("region"));
         sizeColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("coffeeSize"));	
 		addColumnFilterTable.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
 		addColumnFilterTable.setCellFactory(param -> new TableCell<Coffee, Coffee>() {
@@ -139,10 +133,8 @@ public class CustomerNewOrder {
 	//sets combo boxes w/ chooseable properties
 	private void fillComboBoxes() {
 		brandBox.getItems().addAll(brandsList);
-		nameBox.getItems().addAll(namesList);
 		roastBox.getItems().addAll("Light", "Medium", "Dark");
 		priceBox.getItems().addAll(pricesList);
-		regionBox.getItems().addAll(regionsList);
 		sizeBox.getItems().addAll(sizeList);
 	}
 
@@ -188,25 +180,11 @@ public class CustomerNewOrder {
 		resetChoiceBox(brandBox);
 	}
 	@FXML
-	private void selectedByName(){
-		Coffee coffeeItem = CoffeeDAOService.searchByName(nameBox.getValue());
-		orderList.add(coffeeItem);
-		loadOrderTable();
-		resetChoiceBox(nameBox);
-	}
-	@FXML
 	private void selectedByPrice(){
 		Coffee coffeeItem = CoffeeDAOService.searchByPrice(priceBox.getValue());
 		orderList.add(coffeeItem);
 		loadOrderTable();
 		resetChoiceBox(priceBox);
-	}
-	@FXML
-	private void selectedByRegion(){
-		Coffee coffeeItem = CoffeeDAOService.searchByRegion(regionBox.getValue());
-		orderList.add(coffeeItem);
-		loadOrderTable();
-		resetChoiceBox(regionBox);
 	}
 	
 	@FXML
