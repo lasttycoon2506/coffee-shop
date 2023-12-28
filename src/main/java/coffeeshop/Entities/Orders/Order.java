@@ -1,6 +1,8 @@
 package coffeeshop.Entities.Orders;
 
 import java.time.LocalDate;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,27 +15,31 @@ import jakarta.persistence.Table;
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int orders_id;
-    private LocalDate orders_date;
-    private int total_items;
-    private int customer_id;
+    @Column(name = "orders_id")
+    private int ordersId;
+    @Column(name = "orders_date")
+    private LocalDate ordersDate;
+    @Column(name = "total_items")
+    private int totalItems;
+    @Column(name = "customer_id")
+    private int customerId;
 
     public Order(){
     }
     public Order (int ordersID, LocalDate ordersDate, int numberOfItems, int customerID) {
-        this.orders_id = ordersID;
-        this.orders_date = ordersDate;
-        this.total_items = numberOfItems;
-        this.customer_id = customerID;
+        this.ordersId = ordersID;
+        this.ordersDate = ordersDate;
+        this.totalItems = numberOfItems;
+        this.customerId = customerID;
     }
 
     public void setOrdersDate(LocalDate ordersDate) {
-        this.orders_date = ordersDate;
+        this.ordersDate = ordersDate;
     }
     public void setNumberOfItems(int numberOfItems) {
-        this.total_items = numberOfItems;
+        this.totalItems = numberOfItems;
     }
     public void setCustomerID(int customerID) {
-        this.customer_id = customerID;
+        this.customerId = customerID;
     }
 }

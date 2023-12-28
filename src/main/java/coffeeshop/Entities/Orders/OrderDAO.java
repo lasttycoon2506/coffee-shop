@@ -25,13 +25,13 @@ public class OrderDAO implements DAO<Order>{
     }
 
     public static int getMostRecentOrderID() {
-        Integer orderID = entityManager.createQuery("SELECT MAX(orders_id) FROM Order",
+        Integer orderID = entityManager.createQuery("SELECT MAX(ordersId) FROM Order",
                             Integer.class).getSingleResult();
         return orderID;
     }
 
     public static List<Order> getAllOrdersByCustomerID (int customerID) {
-        List<Order> customersOrders = entityManager.createQuery("SELECT customersOrders FROM Order customersOrders WHERE customer_id = :customerID", 
+        List<Order> customersOrders = entityManager.createQuery("SELECT customersOrders FROM Order customersOrders WHERE customerId = :customerID", 
                                                     Order.class).setParameter("customerID", customerID).getResultList();
         return customersOrders;                                            
     }
