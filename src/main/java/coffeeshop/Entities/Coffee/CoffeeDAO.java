@@ -33,7 +33,7 @@ public class CoffeeDAO implements DAO<Coffee>{
         return brandList;
     }
     public static List<String> getNames(){
-        List<String> namesList =  entityManager.createQuery("SELECT names.coffee_name FROM Coffee names ORDER BY names.coffee_name",
+        List<String> namesList =  entityManager.createQuery("SELECT names.coffeeName FROM Coffee names ORDER BY names.coffeeName",
                                                                  String.class).getResultList();
         return namesList;
     }
@@ -48,7 +48,7 @@ public class CoffeeDAO implements DAO<Coffee>{
         return regionsList;
     }
     public static List<Integer> getSizes(){
-        List<Integer> sizesList =  entityManager.createQuery("SELECT DISTINCT sizes.coffee_size FROM Coffee sizes ORDER BY sizes.coffee_size", 
+        List<Integer> sizesList =  entityManager.createQuery("SELECT DISTINCT sizes.coffeeSize FROM Coffee sizes ORDER BY sizes.coffeeSize", 
                                                             Integer.class).getResultList();
         return sizesList;
     }
@@ -59,7 +59,7 @@ public class CoffeeDAO implements DAO<Coffee>{
         return coffeeItem;
     }
     public static Coffee searchByName(String name){
-        Coffee coffeeItem = entityManager.createQuery("SELECT coffeeItem FROM Coffee coffeeItem WHERE coffee_name = :name",
+        Coffee coffeeItem = entityManager.createQuery("SELECT coffeeItem FROM Coffee coffeeItem WHERE coffeeName = :name",
                             Coffee.class).setParameter("name", name).getSingleResult();
         return coffeeItem;
     }
@@ -80,7 +80,7 @@ public class CoffeeDAO implements DAO<Coffee>{
         return roastList;
     }
     public static List<Coffee> filterBySize(Integer size){
-        List<Coffee> sizeList = entityManager.createQuery("SELECT size FROM Coffee size WHERE size.coffee_size = :size",
+        List<Coffee> sizeList = entityManager.createQuery("SELECT size FROM Coffee size WHERE size.coffeeSize = :size",
                             Coffee.class).setParameter("size", size).getResultList();
         return sizeList;
     }

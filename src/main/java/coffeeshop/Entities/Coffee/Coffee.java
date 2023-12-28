@@ -1,5 +1,6 @@
 package coffeeshop.Entities.Coffee;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,30 +13,33 @@ import jakarta.persistence.Table;
 public class Coffee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int coffee_id;
+    @Column(name = "coffee_id")
+    private int coffeeId;
     private String brand;
-    private String coffee_name;
+    @Column(name = "coffee_name")
+    private String coffeeName;
     private String roast;
     private String price;
     private String region;
-    private int coffee_size;
+    @Column(name = "coffee_size")
+    private int coffeeSize;
 
     public Coffee(){
     }
-    public Coffee (String brand, String coffee_name, String roast, String price, String region, int coffee_size) {
+    public Coffee (String brand, String coffeeName, String roast, String price, String region, int coffeeSize) {
         this.brand = brand;
-        this.coffee_name = coffee_name;
+        this.coffeeName = coffeeName;
         this.roast = roast;
         this.price = price;
         this.region = region;
-        this.coffee_size = coffee_size;
+        this.coffeeSize = coffeeSize;
     }
 
     public String getBrand(){
         return brand;
     }
     public String getCoffeeName(){
-        return coffee_name;
+        return coffeeName;
     }
     public String getRoast(){
         return roast;
@@ -47,7 +51,7 @@ public class Coffee {
         return region;
     }
     public int getCoffeeSize(){
-        return coffee_size;
+        return coffeeSize;
     }
 }
     
