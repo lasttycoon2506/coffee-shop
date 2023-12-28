@@ -5,32 +5,29 @@ SET sql_mode = 'STRICT_ALL_TABLES';
 
 /* Insertion of Data into Tables */
 INSERT INTO Customers (user_name, pword, first_name, last_name, email, phone) 
-VALUES (:user_name, :pword, :first_name, :last_name, :email, :phone);
+VALUES (:userName, :pword, :firstName, :lastName, :email, :phone);
 
-INSERT INTO Employees (first_name, last_name, email, phone, title) 
-VALUES (:first_name, :last_name, :email, :phone, :title);
+INSERT INTO Coffee (brand, coffee_name, roast, price, region, coffee_size) 
+VALUES (:brand, :coffeeName, :roast, :price, :region, :coffeeSize);
 
-INSERT INTO Coffee (brand, coffee_name, roast_type, price, region, coffee_size) 
-VALUES (:brand, :coffee_name, :roast_type, :price, :region, :coffee_size);
+INSERT INTO Orders (order_date, total_items, customer_id) 
+VALUES (:orderDate, :totalItems, :customerId);
 
-INSERT INTO Orders (orders_date, customer_id, employee_id, order_status) 
-VALUES (:orders_date, :customer_id, :employee_id, :order_status);
-
-INSERT INTO Items (quantity, coffee_id, orders_id) 
-VALUES (:quantity, :coffee_id, :orders_id);
+INSERT INTO Items (coffee_id, quantity, order_id) 
+VALUES (:coffeeId, :quantity, :orderId);
 
 /* SQL & corresponding JPA query */
-SELECT user_name from Customers WHERE user_name LIKE :userName;
-SELECT u from Customer u WHERE u.user_name = :userName
+SELECT user_name FROM Customers WHERE user_name LIKE :userName;
+SELECT user FROM Customer user WHERE user.userName = :userName
 
-SELECT email from Customers WHERE email LIKE :email;
-SELECT e from Customer e WHERE e.email = :email
+SELECT email FROM Customers WHERE email LIKE :email;
+SELECT email FROM Customer email WHERE email.email = :email
 
-SELECT phone from Customers WHERE phone LIKE :phone;
-SELECT p from Customer p WHERE p.phone = :phone
+SELECT phone FROM Customers WHERE phone LIKE :phone;
+SELECT phone FROM Customer phone WHERE phone.phone = :phone
 
-SELECT pword from Customers WHERE user_name LIKE :userName
-SELECT pwHash from Customer pwHash WHERE user_name = :userName
+SELECT pword FROM Customers WHERE user_name LIKE :userName
+SELECT pwHash FROM Customer pwHash WHERE userName = :userName
 
 
 SET FOREIGN_KEY_CHECKS=1;

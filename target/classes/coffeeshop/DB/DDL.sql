@@ -42,8 +42,8 @@ CREATE TABLE IF NOT EXISTS Coffee
 CREATE TABLE IF NOT EXISTS Items
 (
    item_id INT NOT NULL AUTO_INCREMENT UNIQUE,
-   quantity INT NOT NULL,
    coffee_id INT, 
+   quantity INT NOT NULL,
    order_id INT NOT NULL,
    PRIMARY KEY(item_id),
    CONSTRAINT FK_Items_Coffee_Id
