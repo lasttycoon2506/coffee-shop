@@ -2,8 +2,6 @@ package coffeeshop.Controllers.Customers;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -76,7 +74,7 @@ public class CustomerNewOrder {
 			currentDate = LocalDate.now();
 		}
 	};
-	public void initialize() throws NoSuchAlgorithmException, InvalidKeySpecException{
+	public void initialize() {
 		timer.start();
 		orderTable.setPlaceholder(new Label("CURRENT ORDER"));
 		filterTable.setPlaceholder(new Label("FILTERED RESULTS"));
