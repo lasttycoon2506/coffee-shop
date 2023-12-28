@@ -1,5 +1,6 @@
 package coffeeshop.Entities.Items;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,26 +13,29 @@ import jakarta.persistence.Table;
 public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int items_id;
-    private int coffee_id;
+    @Column(name = "items_id")
+    private int itemsId;
+    @Column(name = "coffee_id")
+    private int coffeeId;
     private int quantity;
-    private int orders_id;
+    @Column(name = "orders_id")
+    private int ordersId;
 
     public Item() {
     }
     public Item(int coffeeID, int quantity, int ordersID) {
-        this.coffee_id = coffeeID;
+        this.coffeeId = coffeeID;
         this.quantity = quantity;
-        this.orders_id = ordersID;
+        this.ordersId = ordersID;
     }
 
     public void setCoffeeID(int coffeeID) {
-        this.coffee_id = coffeeID;
+        this.coffeeId = coffeeID;
     }
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
     public void setOrdersID(int ordersID) {
-        this.orders_id = ordersID;
+        this.ordersId = ordersID;
     }
 }
