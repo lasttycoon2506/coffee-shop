@@ -20,10 +20,12 @@ public class CoffeeList {
         coffeeList.add(new Coffee("Z", "Dark", castBigDecimal("9.99"), 12));
         coffeeList.add(new Coffee("Everyday", "Light", castBigDecimal("12.99"), 12));
         return coffeeList;
+        
     }
 
-    private static BigDecimal castBigDecimal(String string) {
-        return null;
+    private static BigDecimal castBigDecimal(String str) {
+        BigDecimal bigDecimal = new BigDecimal(str);
+        return bigDecimal;
     }
 
     public static ArrayList<Coffee> getCoffeeList() {
