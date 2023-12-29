@@ -27,7 +27,6 @@ public class CustomerOrders {
     public void initialize() {
         orderDateColumn.setCellValueFactory(new PropertyValueFactory<Order, String>("orderDate"));
         totalItemsColumn.setCellValueFactory(new PropertyValueFactory<Order, String>("totalItems"));
-
         // ordersTable.setPlaceholder(new Label("NO ORDERS!"));
         getAllOrdersByCustomerID(customer.getCustomerID());
         loadOrdersTable();

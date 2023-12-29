@@ -1,5 +1,7 @@
 package coffeeshop.Entities.Coffee;
 
+import java.math.BigDecimal;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,13 +19,13 @@ public class Coffee {
     private int coffeeId;
     private String brand;
     private String roast;
-    private float price;
+    private BigDecimal price;
     @Column(name = "coffee_size")
     private int coffeeSize;
 
     public Coffee(){
     }
-    public Coffee (String brand, String roast, float price, int coffeeSize) {
+    public Coffee (String brand, String roast, BigDecimal price, int coffeeSize) {
         this.brand = brand;
         this.roast = roast;
         this.price = price;
@@ -36,7 +38,7 @@ public class Coffee {
     public String getRoast(){
         return roast;
     }
-    public float getPrice(){
+    public BigDecimal getPrice(){
         return price;
     }
     public int getCoffeeSize(){
