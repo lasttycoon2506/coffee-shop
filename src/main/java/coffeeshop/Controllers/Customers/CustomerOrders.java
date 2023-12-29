@@ -35,18 +35,20 @@ public class CustomerOrders {
     private ObservableList<Coffee> itemsList = FXCollections.observableArrayList();
     @FXML
     public void initialize() {
+        initOrdersTable();
+    }
+
+    private void initOrdersTable() {
         orderDateColumn.setCellValueFactory(new PropertyValueFactory<Order, String>("orderDate"));
         totalItemsColumn.setCellValueFactory(new PropertyValueFactory<Order, String>("totalItems"));
         getAllOrdersByCustomerID(customer.getCustomerID());
         loadOrdersTable();
     }
     
-    @FXML
     private void getAllOrdersByCustomerID(int customerID) {
         ordersList.addAll(OrderDAOService.getAllOrdersByCustomerID(customerID));
     }
 
-    @FXML
     private void loadOrdersTable() {
         if (ordersList.isEmpty()) {
             ordersTable.setPlaceholder(new Label("NO ORDERS!"));
@@ -55,7 +57,6 @@ public class CustomerOrders {
             ordersTable.setItems(ordersList);
         }
     }
-    @FXML
     private void loadItemsTable() {
         if (itemsList.isEmpty()) {
             itemsTable.setPlaceholder(new Label("NO ITEMS!"));
