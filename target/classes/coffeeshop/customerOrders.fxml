@@ -22,12 +22,12 @@
           <TableColumn fx:id="totalItemsColumn" prefWidth="102.33329010009766" text="Total Item(s)" />
         </columns>
       </TableView>
-      <TableView layoutX="200.0" layoutY="137.0" prefHeight="263.0" prefWidth="401.0">
+      <TableView fx:id="itemsTable" layoutX="200.0" layoutY="137.0" prefHeight="263.0" prefWidth="401.0">
          <columns>
-            <TableColumn prefWidth="75.0" text="Brand" />
-            <TableColumn prefWidth="75.0" text="Roast" />
-            <TableColumn prefWidth="75.0" text="Price" />
-            <TableColumn prefWidth="75.0" text="Size" />
+            <TableColumn fx:id="brandColumn" prefWidth="75.0" text="Brand" />
+            <TableColumn fx:id="roastColumn" prefWidth="75.0" text="Roast" />
+            <TableColumn fx:id="priceColumn" prefWidth="75.0" text="Price" />
+            <TableColumn fx:id="sizeColumn" prefWidth="75.0" text="Size" />
             <TableColumn prefWidth="53.333404541015625" text="Edit" />
             <TableColumn prefWidth="44.66668701171875" text="Delete" />
          </columns>

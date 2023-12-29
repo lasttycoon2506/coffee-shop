@@ -1,9 +1,11 @@
 package coffeeshop.Controllers.Customers;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import coffeeshop.App;
 import coffeeshop.Entities.Orders.Order;
 import coffeeshop.Entities.Orders.OrderDAOService;
+import coffeeshop.Entities.Coffee.Coffee;
 import coffeeshop.Entities.Customers.Customer;
 import coffeeshop.Models.Context;
 import javafx.collections.FXCollections;
@@ -20,10 +22,17 @@ public class CustomerOrders {
     @FXML
     private TableView<Order> ordersTable;
     @FXML
-	private TableColumn<Order, String> orderDateColumn;
-    @FXML
-	private TableColumn<Order, String> totalItemsColumn;
+	private TableColumn<Order, String> orderDateColumn, totalItemsColumn;
     private ObservableList<Order> ordersList = FXCollections.observableArrayList();
+    @FXML
+    private TableView<Coffee> itemsTable;
+    @FXML
+	private TableColumn<Coffee, String> brandColumn, roastColumn;
+    @FXML
+	private TableColumn<Coffee, BigDecimal> priceColumn;
+    @FXML
+	private TableColumn<Coffee, Integer> sizeColumn;
+    private ObservableList<Coffee> itemsList = FXCollections.observableArrayList();
     @FXML
     public void initialize() {
         orderDateColumn.setCellValueFactory(new PropertyValueFactory<Order, String>("orderDate"));
@@ -44,6 +53,15 @@ public class CustomerOrders {
         }
         else {
             ordersTable.setItems(ordersList);
+        }
+    }
+    @FXML
+    private void loadItemsTable() {
+        if (itemsList.isEmpty()) {
+            itemsTable.setPlaceholder(new Label("NO ITEMS!"));
+        }
+        else {
+            itemsTable.setItems(itemsList);
         }
     }
 	
