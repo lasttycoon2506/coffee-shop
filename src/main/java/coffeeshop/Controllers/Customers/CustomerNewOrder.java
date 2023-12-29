@@ -45,14 +45,16 @@ public class CustomerNewOrder {
 	@FXML
 	private ComboBox<String> brandBox, roastBox;
 	@FXML
-	private ComboBox<Integer> priceBox, sizeBox;
+	private ComboBox<Float> priceBox;
+	@FXML
+	private ComboBox<Integer> sizeBox;
 	@FXML
 	private Label timeDisplay;
 	@FXML
 	private ObservableList<Coffee> orderList = FXCollections.observableArrayList();
 	private ObservableList<Coffee> filteredList = FXCollections.observableArrayList();
 	private static final List<String> brandsList = CoffeeDAOService.getBrands();
-	private static final List<Integer> pricesList = CoffeeDAOService.getPrices();
+	private static final List<Float> pricesList = CoffeeDAOService.getPrices();
 	private static final List<Integer> sizeList = CoffeeDAOService.getSizes();
 	@FXML
 	private TableColumn<Coffee, String> brandColumn, nameColumn, roastColumn, priceColumn, regionColumn, sizeColumn;

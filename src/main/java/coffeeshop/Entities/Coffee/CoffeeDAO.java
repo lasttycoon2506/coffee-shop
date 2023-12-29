@@ -32,9 +32,9 @@ public class CoffeeDAO implements DAO<Coffee>{
                                                             String.class).getResultList();
         return brandsList;
     }
-    public static List<Integer> getPrices(){
-        List<Integer> pricesList =  entityManager.createQuery("SELECT DISTINCT prices.price FROM Coffee prices ORDER BY prices.price", 
-                                                            Integer.class).getResultList();
+    public static List<Float> getPrices(){
+        List<Float> pricesList =  entityManager.createQuery("SELECT DISTINCT prices.price FROM Coffee prices ORDER BY prices.price", 
+                                                            Float.class).getResultList();
         return pricesList;
     }
     public static List<Integer> getSizes(){
@@ -50,19 +50,19 @@ public class CoffeeDAO implements DAO<Coffee>{
     }
 
     public static List<Coffee> filterByRoast(String roast){
-        List<Coffee> roastList = entityManager.createQuery("SELECT roast FROM Coffee roast WHERE roast.roast = :roastType",
+        List<Coffee> filteredRoastList = entityManager.createQuery("SELECT roast FROM Coffee roast WHERE roast.roast = :roastType",
                             Coffee.class).setParameter("roastType", roast).getResultList();
-        return roastList;
+        return filteredRoastList;
     }
-    public static List<Coffee> filterByPrice(int price){
-        List<Coffee> coffeeItem = entityManager.createQuery("SELECT coffeeItem FROM Coffee coffeeItem WHERE price = :price",
+    public static List<Coffee> filterByPrice(float price){
+        List<Coffee> filteredPriceList = entityManager.createQuery("SELECT coffeeItem FROM Coffee coffeeItem WHERE price = :price",
                             Coffee.class).setParameter("price", price).getResultList();
-        return coffeeItem;
+        return filteredPriceList;
     }
     public static List<Coffee> filterBySize(int size){
-        List<Coffee> sizeList = entityManager.createQuery("SELECT size FROM Coffee size WHERE size.coffeeSize = :size",
+        List<Coffee> filteredSizeList = entityManager.createQuery("SELECT size FROM Coffee size WHERE size.coffeeSize = :size",
                             Coffee.class).setParameter("size", size).getResultList();
-        return sizeList;
+        return filteredSizeList;
     }
 
     private static void executeInsideTransaction(Consumer<EntityManager> action) {

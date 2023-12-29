@@ -24,7 +24,7 @@ public class CoffeeDAOService {
     public static List<String> getBrands() {
         return CoffeeDAO.getBrands();
     }
-    public static List<Integer> getPrices() {
+    public static List<Float> getPrices() {
         return CoffeeDAO.getPrices();
     }
     public static List<Integer> getSizes() {
@@ -38,7 +38,7 @@ public class CoffeeDAOService {
     public static List<Coffee> filterByRoast(String roast) {
         return CoffeeDAO.filterByRoast(roast);
     }
-    public static List<Coffee> filterByPrice(Integer price) {
+    public static List<Coffee> filterByPrice(float price) {
         return CoffeeDAO.filterByPrice(price);
     }
     public static List<Coffee> filterBySize(int size) {
