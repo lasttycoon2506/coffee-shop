@@ -1,5 +1,6 @@
 package coffeeshop.Entities.Coffee;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public class CoffeeDAOService {
@@ -24,7 +25,7 @@ public class CoffeeDAOService {
     public static List<String> getBrands() {
         return CoffeeDAO.getBrands();
     }
-    public static List<Float> getPrices() {
+    public static List<BigDecimal> getPrices() {
         return CoffeeDAO.getPrices();
     }
     public static List<Integer> getSizes() {
@@ -38,7 +39,7 @@ public class CoffeeDAOService {
     public static List<Coffee> filterByRoast(String roast) {
         return CoffeeDAO.filterByRoast(roast);
     }
-    public static List<Coffee> filterByPrice(float price) {
+    public static List<Coffee> filterByPrice(BigDecimal price) {
         return CoffeeDAO.filterByPrice(price);
     }
     public static List<Coffee> filterBySize(int size) {

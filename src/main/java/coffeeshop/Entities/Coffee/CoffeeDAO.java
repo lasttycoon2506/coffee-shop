@@ -1,5 +1,6 @@
 package coffeeshop.Entities.Coffee;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
@@ -32,9 +33,9 @@ public class CoffeeDAO implements DAO<Coffee>{
                                                             String.class).getResultList();
         return brandsList;
     }
-    public static List<Float> getPrices(){
-        List<Float> pricesList =  entityManager.createQuery("SELECT DISTINCT prices.price FROM Coffee prices ORDER BY prices.price", 
-                                                            Float.class).getResultList();
+    public static List<BigDecimal> getPrices(){
+        List<BigDecimal> pricesList =  entityManager.createQuery("SELECT DISTINCT prices.price FROM Coffee prices ORDER BY prices.price", 
+                                                            BigDecimal.class).getResultList();
         return pricesList;
     }
     public static List<Integer> getSizes(){
@@ -54,7 +55,7 @@ public class CoffeeDAO implements DAO<Coffee>{
                             Coffee.class).setParameter("roastType", roast).getResultList();
         return filteredRoastList;
     }
-    public static List<Coffee> filterByPrice(float price){
+    public static List<Coffee> filterByPrice(BigDecimal price){
         List<Coffee> filteredPriceList = entityManager.createQuery("SELECT coffeeItem FROM Coffee coffeeItem WHERE price = :price",
                             Coffee.class).setParameter("price", price).getResultList();
         return filteredPriceList;
