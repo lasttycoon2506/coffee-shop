@@ -9,6 +9,7 @@ import coffeeshop.Models.Context;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -27,7 +28,6 @@ public class CustomerOrders {
     public void initialize() {
         orderDateColumn.setCellValueFactory(new PropertyValueFactory<Order, String>("orderDate"));
         totalItemsColumn.setCellValueFactory(new PropertyValueFactory<Order, String>("totalItems"));
-        // ordersTable.setPlaceholder(new Label("NO ORDERS!"));
         getAllOrdersByCustomerID(customer.getCustomerID());
         loadOrdersTable();
     }
@@ -39,7 +39,12 @@ public class CustomerOrders {
 
     @FXML
     private void loadOrdersTable() {
-        ordersTable.setItems(ordersList);
+        if (ordersList.isEmpty()) {
+            ordersTable.setPlaceholder(new Label("NO ORDERS!"));
+        }
+        else {
+            ordersTable.setItems(ordersList);
+        }
     }
 	
     @FXML
