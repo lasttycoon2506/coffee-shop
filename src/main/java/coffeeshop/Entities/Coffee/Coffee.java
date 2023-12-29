@@ -17,13 +17,13 @@ public class Coffee {
     private int coffeeId;
     private String brand;
     private String roast;
-    private String price;
+    private float price;
     @Column(name = "coffee_size")
     private int coffeeSize;
 
     public Coffee(){
     }
-    public Coffee (String brand, String roast, String price, int coffeeSize) {
+    public Coffee (String brand, String roast, float price, int coffeeSize) {
         this.brand = brand;
         this.roast = roast;
         this.price = price;
@@ -36,7 +36,7 @@ public class Coffee {
     public String getRoast(){
         return roast;
     }
-    public String getPrice(){
+    public float getPrice(){
         return price;
     }
     public int getCoffeeSize(){

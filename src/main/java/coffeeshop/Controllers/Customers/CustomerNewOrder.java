@@ -183,17 +183,17 @@ public class CustomerNewOrder {
 	}
 
 	@FXML
-	private void filterByPrice(){
-		clearFilterTable();
-		List<Coffee> listbyPrice = CoffeeDAOService.filterByPrice(priceBox.getValue());
-		filteredList.addAll(listbyPrice);
-		loadOrderTable();
-	}
-	@FXML
 	private void filterByRoast(){
 		clearFilterTable();
 		List<Coffee> listByRoast = CoffeeDAOService.filterByRoast(roastBox.getValue());
 		filteredList.addAll(listByRoast);
+		loadFilterTable();
+	}
+	@FXML
+	private void filterByPrice(){
+		clearFilterTable();
+		List<Coffee> listbyPrice = CoffeeDAOService.filterByPrice(priceBox.getValue());
+		filteredList.addAll(listbyPrice);
 		loadFilterTable();
 	}
 	@FXML

@@ -34,14 +34,14 @@ public class CoffeeDAOService {
     public static Coffee searchByBrand(String brand) {
         return CoffeeDAO.searchByBrand(brand);
     }
-    public static List<Coffee> filterByPrice(int price) {
-        return CoffeeDAO.filterByPrice(price);
-    }
 
     public static List<Coffee> filterByRoast(String roast) {
         return CoffeeDAO.filterByRoast(roast);
     }
-    public static List<Coffee> filterBySize(Integer size) {
+    public static List<Coffee> filterByPrice(Integer price) {
+        return CoffeeDAO.filterByPrice(price);
+    }
+    public static List<Coffee> filterBySize(int size) {
         return CoffeeDAO.filterBySize(size);
     }
 }

@@ -59,7 +59,7 @@ public class CoffeeDAO implements DAO<Coffee>{
                             Coffee.class).setParameter("price", price).getResultList();
         return coffeeItem;
     }
-    public static List<Coffee> filterBySize(Integer size){
+    public static List<Coffee> filterBySize(int size){
         List<Coffee> sizeList = entityManager.createQuery("SELECT size FROM Coffee size WHERE size.coffeeSize = :size",
                             Coffee.class).setParameter("size", size).getResultList();
         return sizeList;
