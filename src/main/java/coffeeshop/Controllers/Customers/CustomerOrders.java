@@ -2,12 +2,13 @@ package coffeeshop.Controllers.Customers;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.time.LocalDate;
+
 import coffeeshop.App;
 import coffeeshop.Entities.Orders.Order;
 import coffeeshop.Entities.Orders.OrderDAOService;
 import coffeeshop.Entities.Coffee.Coffee;
 import coffeeshop.Entities.Customers.Customer;
-import coffeeshop.Entities.Items.Item;
 import coffeeshop.Models.Context;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
@@ -27,7 +28,9 @@ public class CustomerOrders {
     @FXML
     private TableView<Order> ordersTable;
     @FXML
-	private TableColumn<Order, Order> orderDateColumn, totalItemsColumn;
+	private TableColumn<Order, LocalDate> orderDateColumn;
+    @FXML
+	private TableColumn<Order, Order> totalItemsColumn; 
     private ObservableList<Order> ordersList = FXCollections.observableArrayList();
     @FXML
     private TableView<Coffee> itemsTable;
@@ -46,28 +49,34 @@ public class CustomerOrders {
     
 
     private void initOrdersTable() {
-        orderDateColumn.setCellValueFactory(new PropertyValueFactory<Order, Order>("orderDate"));
-        totalItemsColumn.setCellValueFactory(new PropertyValueFactory<Order, Order>("totalItems"));
-        // orderDateColumn.setCellFactory(param -> new TableCell<Order, Order>() {
-        //     @Override 
-        //     protected void updateItem(Order item, boolean empty) {
-        //         super.updateItem(item, empty);
+        orderDateColumn.setCellValueFactory(new PropertyValueFactory<Order, LocalDate>("orderDate"));
+        // totalItemsColumn.setCellValueFactory(new PropertyValueFactory<Order, Order>("totalItems"));
+        		totalItemsColumn.setCellValueFactory(column -> new ReadOnlyObjectWrapper<>(column.getValue()));
 
-        //         //Various code to set up the custom CellFactory has been removed.
+        totalItemsColumn.setCellFactory(param -> new TableCell<Order, Order>() {
+            @Override 
+            protected void updateItem(Order order, boolean empty) {
+                super.updateItem(order, empty);
+                if (empty || order == null) {
+                    setText(null);
+                }
+                else {
+                    setText(String.valueOf(order.getTotalItems()));
+                    setOnMouseClicked((MouseEvent e) -> {
+                        Order orderDetails = getItem();
+                        if (e.getButton() == MouseButton.PRIMARY && orderDetails != null) {
+                            // ObservableList<Order> row = (ObservableList<Order>) getTableRow().getItem();
+                            // row.set(columnIndex, newOrder);
+                            System.out.println(OrderDAOService.getAllItemsForOrder(orderDetails.getOrderId()));
+                        }
+                    });
+                }
+                }
+            }); 
 
-        //         this.setOnMouseClicked((MouseEvent e) -> {
-        //             Order newItem = getItem();
-        //             if (e.getButton() == MouseButton.PRIMARY && newItem != null) {
-        //                 // Code to set the underlying data item to the new item
-        //                 ObservableList<Item> row = (ObservableList<Item>) getTableRow().getItem();
-        //                 row.set(columnIndex, newItem);
-        //             }
-        //         });
-        //         }
-        //     });
-		System.out.println(OrderDAOService.getAllItemsForOrder(2));
+
         
-        getAllOrdersByCustomerID(customer.getCustomerID());
+        getAllOrdersForCustomer(customer.getCustomerID());
         loadOrdersTable();
     }
 
@@ -79,7 +88,7 @@ public class CustomerOrders {
         loadItemsTable();
     }
     
-    private void getAllOrdersByCustomerID(int customerID) {
+    private void getAllOrdersForCustomer(int customerID) {
         ordersList.addAll(OrderDAOService.getAllOrdersForCustomer(customerID));
     }
 
