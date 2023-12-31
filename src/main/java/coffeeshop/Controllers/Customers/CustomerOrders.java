@@ -3,7 +3,7 @@ package coffeeshop.Controllers.Customers;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-
+import java.util.Optional;
 import coffeeshop.App;
 import coffeeshop.Entities.Orders.Order;
 import coffeeshop.Entities.Orders.OrderDAOService;
@@ -35,7 +35,7 @@ public class CustomerOrders {
 	private TableColumn<Order, Order> totalItemsColumn; 
     private ObservableList<Order> ordersList = FXCollections.observableArrayList();
     @FXML
-    private TableView<Coffee> itemsTable;
+    private TableView<Optional<Coffee>> itemsTable;
     @FXML
 	private TableColumn<Coffee, String> brandColumn, roastColumn;
     @FXML
@@ -43,7 +43,7 @@ public class CustomerOrders {
     @FXML
 	private TableColumn<Coffee, Integer> sizeColumn;
     private ObservableList<Item> itemsList = FXCollections.observableArrayList();
-    private ObservableList<Coffee> coffeeList = FXCollections.observableArrayList();
+    private ObservableList<Optional<Coffee>> coffeeList = FXCollections.observableArrayList();
     private CoffeeDAOService coffeeDAOService = new CoffeeDAOService();
     @FXML
     public void initialize() {
@@ -71,8 +71,9 @@ public class CustomerOrders {
                             // row.set(columnIndex, newOrder);
                             itemsList.addAll(OrderDAOService.getAllItemsForOrder(orderItems.getOrderId()));
                             for (Item item : itemsList) {
-                                coffeeDAOService.get(item.getCoffeeID());
+                                coffeeList.add(coffeeDAOService.get(item.getCoffeeID()));
                             }
+                            
                         }
                     });
                 }

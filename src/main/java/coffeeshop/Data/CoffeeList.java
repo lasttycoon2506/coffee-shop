@@ -2,6 +2,8 @@ package coffeeshop.Data;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Optional;
+
 import coffeeshop.Entities.Coffee.Coffee;
 
 

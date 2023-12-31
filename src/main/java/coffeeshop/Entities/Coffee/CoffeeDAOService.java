@@ -9,9 +9,9 @@ public class CoffeeDAOService {
 
     public CoffeeDAOService(){
     }
-    private CoffeeDAOService(CoffeeDAO coffeeDAO){
-        CoffeeDAOService.coffeeDAO = coffeeDAO;
-    }
+    // private CoffeeDAOService(CoffeeDAO coffeeDAO){
+    //     CoffeeDAOService.coffeeDAO = coffeeDAO;
+    // }
 
     public Optional<Coffee> get(Integer coffeeID) {
         return coffeeDAO.get(coffeeID);
