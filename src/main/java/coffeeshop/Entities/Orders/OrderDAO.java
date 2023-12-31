@@ -32,12 +32,12 @@ public class OrderDAO implements DAO<Order>{
         return orderID;
     }
 
-    public static List<Order> getAllOrdersForCustomer (int customerID) {
+    public static List<Order> getAllOrdersForCustomer (Integer customerID) {
         List<Order> customersOrders = entityManager.createQuery("SELECT customersOrders FROM Order customersOrders WHERE customerId = :customerID", 
                                                     Order.class).setParameter("customerID", customerID).getResultList();
         return customersOrders;                                            
     }
-    public static List<Item> getAllItemsForOrder (int orderID) {
+    public static List<Item> getAllItemsForOrder (Integer orderID) {
         List<Item> items = entityManager.createQuery("SELECT items FROM Item items WHERE orderId = :orderID", 
                                                     Item.class).setParameter("orderID", orderID).getResultList();
         return items;                                            

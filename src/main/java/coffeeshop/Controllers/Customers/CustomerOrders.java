@@ -9,6 +9,7 @@ import coffeeshop.Entities.Orders.Order;
 import coffeeshop.Entities.Orders.OrderDAOService;
 import coffeeshop.Entities.Coffee.Coffee;
 import coffeeshop.Entities.Customers.Customer;
+import coffeeshop.Entities.Items.Item;
 import coffeeshop.Models.Context;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
@@ -40,7 +41,8 @@ public class CustomerOrders {
 	private TableColumn<Coffee, BigDecimal> priceColumn;
     @FXML
 	private TableColumn<Coffee, Integer> sizeColumn;
-    private ObservableList<Coffee> itemsList = FXCollections.observableArrayList();
+    private ObservableList<Item> itemsList = FXCollections.observableArrayList();
+    private ObservableList<Coffee> coffeeList = FXCollections.observableArrayList();
     @FXML
     public void initialize() {
         initOrdersTable();
@@ -50,9 +52,7 @@ public class CustomerOrders {
 
     private void initOrdersTable() {
         orderDateColumn.setCellValueFactory(new PropertyValueFactory<Order, LocalDate>("orderDate"));
-        // totalItemsColumn.setCellValueFactory(new PropertyValueFactory<Order, Order>("totalItems"));
         		totalItemsColumn.setCellValueFactory(column -> new ReadOnlyObjectWrapper<>(column.getValue()));
-
         totalItemsColumn.setCellFactory(param -> new TableCell<Order, Order>() {
             @Override 
             protected void updateItem(Order order, boolean empty) {
@@ -63,19 +63,19 @@ public class CustomerOrders {
                 else {
                     setText(String.valueOf(order.getTotalItems()));
                     setOnMouseClicked((MouseEvent e) -> {
-                        Order orderDetails = getItem();
-                        if (e.getButton() == MouseButton.PRIMARY && orderDetails != null) {
+                        Order orderItems = getItem();
+                        if (e.getButton() == MouseButton.PRIMARY && orderItems != null) {
                             // ObservableList<Order> row = (ObservableList<Order>) getTableRow().getItem();
                             // row.set(columnIndex, newOrder);
-                            System.out.println(OrderDAOService.getAllItemsForOrder(orderDetails.getOrderId()));
+                            itemsList.addAll(OrderDAOService.getAllItemsForOrder(orderItems.getOrderId()));
+                            for (Item item : itemsList) {
+                                
+                            }
                         }
                     });
                 }
                 }
             }); 
-
-
-        
         getAllOrdersForCustomer(customer.getCustomerID());
         loadOrdersTable();
     }
@@ -101,11 +101,11 @@ public class CustomerOrders {
         }
     }
     private void loadItemsTable() {
-        if (itemsList.isEmpty()) {
+        if (coffeeList.isEmpty()) {
             itemsTable.setPlaceholder(new Label("NO ITEMS!"));
         }
         else {
-            itemsTable.setItems(itemsList);
+            itemsTable.setItems(coffeeList);
         }
     }
 	

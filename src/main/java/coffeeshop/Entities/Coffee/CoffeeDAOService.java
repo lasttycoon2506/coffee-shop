@@ -2,6 +2,7 @@ package coffeeshop.Entities.Coffee;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 
 public class CoffeeDAOService {
     private static CoffeeDAO coffeeDAO = new CoffeeDAO();
@@ -10,6 +11,9 @@ public class CoffeeDAOService {
         CoffeeDAOService.coffeeDAO = coffeeDAO;
     }
 
+    public Optional<Coffee> get(Integer coffeeID) {
+        return coffeeDAO.get(coffeeID);
+    }
     public static void saveCoffeeTableToDB(Coffee coffee){
         coffeeDAO.save(coffee);
     }
@@ -42,7 +46,7 @@ public class CoffeeDAOService {
     public static List<Coffee> filterByPrice(BigDecimal price) {
         return CoffeeDAO.filterByPrice(price);
     }
-    public static List<Coffee> filterBySize(int size) {
+    public static List<Coffee> filterBySize(Integer size) {
         return CoffeeDAO.filterBySize(size);
     }
 }

@@ -15,11 +15,14 @@ public class CoffeeDAO implements DAO<Coffee>{
     private static final EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa-hibernate-mysql");
     private static final EntityManager entityManager = factory.createEntityManager();
 
+     public Optional<Coffee> get(Integer id) {
+        return Optional.ofNullable(entityManager.find(Coffee.class, id));
+    }
+
     public void save(Coffee coffee) {
         executeInsideTransaction(entityManager -> entityManager.persist(coffee));
     }
     
-
     public static boolean coffeeListExistsDB() {
         List<Coffee> coffeeList = entityManager.createQuery("SELECT c FROM Coffee c", Coffee.class).getResultList();
         if (coffeeList.isEmpty()) {
@@ -60,7 +63,7 @@ public class CoffeeDAO implements DAO<Coffee>{
                             Coffee.class).setParameter("price", price).getResultList();
         return filteredPriceList;
     }
-    public static List<Coffee> filterBySize(int size){
+    public static List<Coffee> filterBySize(Integer size){
         List<Coffee> filteredSizeList = entityManager.createQuery("SELECT size FROM Coffee size WHERE size.coffeeSize = :size",
                             Coffee.class).setParameter("size", size).getResultList();
         return filteredSizeList;
@@ -77,12 +80,6 @@ public class CoffeeDAO implements DAO<Coffee>{
             transaction.rollback();
             throw e;
         }
-    }
-
-    @Override
-    public Optional<Coffee> get(Integer id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'get'");
     }
 
     @Override
