@@ -66,10 +66,7 @@ public class CustomerDAO implements DAO<Customer> {
     public static boolean login(String user, String pw) throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
         Customer customer = entityManager.createQuery("SELECT pwHash FROM Customer pwHash WHERE userName = :userName",
                             Customer.class).setParameter("userName", user).getSingleResult();
-        // gets pword field from customer obj
-        Field pWordHash = customer.getClass().getDeclaredField("pword");
-        pWordHash.setAccessible(true);
-        BCrypt.Result result = BCrypt.verifyer().verify(pw.toCharArray(), pWordHash.get(customer).toString().trim());
+        BCrypt.Result result = BCrypt.verifyer().verify(pw.toCharArray(), customer.getPassword().trim());
         if (result.verified) {
             //sets current customer for future display/operations
             Context.getInstance().setCustomer(customer);
