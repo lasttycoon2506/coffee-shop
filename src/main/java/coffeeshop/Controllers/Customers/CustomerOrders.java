@@ -96,22 +96,22 @@ public class CustomerOrders {
     }
 
     private void loadOrdersTable() {
-        if (isTableEmpty(ordersTable, ordersList, "NO ORDERS!")) {
+        if (isTableEmpty(ordersTable, "NO ORDERS!")) {
         }
         else {
             ordersTable.setItems(ordersList);
         }
     }
     private void loadItemsTable() {
-        if (isTableEmpty(itemsTable, itemsList, "NO ITEMS!")){
+        if (isTableEmpty(itemsTable, "NO ITEMS!")){
         }
         else {
             itemsTable.setItems(coffeeList);
         }
     }
 
-    private boolean isTableEmpty(TableView table, List lst, String msg) {
-        if (lst.isEmpty()) {
+    private boolean isTableEmpty(TableView table, String msg) {
+        if (table.getItems().isEmpty()) {
             table.setPlaceholder(new Label(msg));
             return true;
         }
