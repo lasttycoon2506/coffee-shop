@@ -3,6 +3,7 @@ package coffeeshop.Controllers.Customers;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 import coffeeshop.App;
 import coffeeshop.Entities.Orders.Order;
@@ -96,20 +97,26 @@ public class CustomerOrders {
     }
 
     private void loadOrdersTable() {
-        if (ordersList.isEmpty()) {
-            ordersTable.setPlaceholder(new Label("NO ORDERS!"));
+        if (isTableEmpty(ordersTable, ordersList, "NO ORDERS!")) {
         }
         else {
             ordersTable.setItems(ordersList);
         }
     }
     private void loadItemsTable() {
-        if (coffeeList.isEmpty()) {
-            itemsTable.setPlaceholder(new Label("NO ITEMS!"));
+        if (isTableEmpty(itemsTable, itemsList, "NO ITEMS!")){
         }
         else {
             itemsTable.setItems(coffeeList);
         }
+    }
+
+    private boolean isTableEmpty(TableView table, List lst, String msg) {
+        if (lst.isEmpty()) {
+            table.setPlaceholder(new Label(msg));
+            return true;
+        }
+        return false;
     }
 	
     @FXML
