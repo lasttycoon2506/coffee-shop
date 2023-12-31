@@ -3,6 +3,8 @@ package coffeeshop.Entities.Orders;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
+
+import coffeeshop.Entities.Items.Item;
 import coffeeshop.Models.DAO;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -24,23 +26,28 @@ public class OrderDAO implements DAO<Order>{
         throw new UnsupportedOperationException("Unimplemented method 'getAll'");
     }
 
-    public static int getMostRecentOrderID() {
+    public static int getMostRecentOrder() {
         Integer orderID = entityManager.createQuery("SELECT MAX(orderId) FROM Order",
                             Integer.class).getSingleResult();
         return orderID;
     }
 
-    public static List<Order> getAllOrdersByCustomerID (int customerID) {
+    public static List<Order> getAllOrdersForCustomer (int customerID) {
         List<Order> customersOrders = entityManager.createQuery("SELECT customersOrders FROM Order customersOrders WHERE customerId = :customerID", 
                                                     Order.class).setParameter("customerID", customerID).getResultList();
         return customersOrders;                                            
+    }
+    public static List<Item> getAllItemsForOrder (int orderID) {
+        List<Item> items = entityManager.createQuery("SELECT items FROM Item items WHERE orderId = :orderID", 
+                                                    Item.class).setParameter("orderID", orderID).getResultList();
+        return items;                                            
     }
 
     public void save(Order order) {
         executeInsideTransaction(entityManager -> entityManager.persist(order));
     }
     
-    public void edit(Order t) {
+    public void edit (Order t) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'edit'");
     }

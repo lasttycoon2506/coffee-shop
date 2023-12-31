@@ -134,7 +134,6 @@ public class CustomerNewOrder {
 		});
 	}
 	
-	
 	//sets combo boxes w/ chooseable properties
 	private void fillComboBoxes() {
 		brandBox.getItems().addAll(brandsList);
@@ -169,7 +168,7 @@ public class CustomerNewOrder {
 			}
 			//loops through coffeehash adding item object for each quantity of coffeeID
 			coffeeQuantityHash.forEach((coffeeID, quantity) -> newItemsList.add(new Item(coffeeID, quantity, 
-																						OrderDAOService.getMostRecentOrderID())));
+																						OrderDAOService.getMostRecentOrder())));
 			for (Item newItem : newItemsList) {
 				ItemDAOService.saveItem(newItem);
 			}

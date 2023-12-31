@@ -2,6 +2,8 @@ package coffeeshop.Entities.Orders;
 
 import java.util.List;
 
+import coffeeshop.Entities.Items.Item;
+
 public class OrderDAOService {
     private static OrderDAO orderDAO = new OrderDAO();
 
@@ -13,12 +15,16 @@ public class OrderDAOService {
         orderDAO.save(order);
     }
 
-    public static int getMostRecentOrderID() {
-        return OrderDAO.getMostRecentOrderID();
+    public static int getMostRecentOrder() {
+        return OrderDAO.getMostRecentOrder();
     }
 
-    public static List<Order> getAllOrdersByCustomerID(int customerID) {
-        return OrderDAO.getAllOrdersByCustomerID(customerID);
+    public static List<Order> getAllOrdersForCustomer(int customerID) {
+        return OrderDAO.getAllOrdersForCustomer(customerID);
+    }
+
+    public static List<Item> getAllItemsForOrder(int orderID) {
+        return OrderDAO.getAllItemsForOrder(orderID);
     }
 
 }
