@@ -32,6 +32,9 @@ public class Coffee {
         this.coffeeSize = coffeeSize;
     }
 
+    public int getCoffeeID() {
+        return coffeeId;
+    } 
     public String getBrand(){
         return brand;
     }

@@ -1,6 +1,7 @@
 package coffeeshop.Controllers.Customers;
 
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
@@ -38,11 +39,11 @@ public class CustomerOrders {
     @FXML
     private TableView<Optional<Coffee>> itemsTable;
     @FXML
-	private TableColumn<Coffee, String> brandColumn, roastColumn;
-    @FXML
-	private TableColumn<Coffee, BigDecimal> priceColumn;
-    @FXML
-	private TableColumn<Coffee, Integer> sizeColumn;
+	private TableColumn<Coffee, String> brandColumn, roastColumn, priceColumn, sizeColumn;
+    // @FXML
+	// private TableColumn<Coffee, BigDecimal> priceColumn;
+    // @FXML
+	// private TableColumn<Coffee, Integer> sizeColumn;
     private ObservableList<Item> itemsList = FXCollections.observableArrayList();
     private ObservableList<Optional<Coffee>> coffeeList = FXCollections.observableArrayList();
     private CoffeeDAOService coffeeDAOService = new CoffeeDAOService();
@@ -55,7 +56,7 @@ public class CustomerOrders {
 
     private void initOrdersTable() {
         orderDateColumn.setCellValueFactory(new PropertyValueFactory<Order, LocalDate>("orderDate"));
-        		totalItemsColumn.setCellValueFactory(column -> new ReadOnlyObjectWrapper<>(column.getValue()));
+        totalItemsColumn.setCellValueFactory(column -> new ReadOnlyObjectWrapper<>(column.getValue()));
         totalItemsColumn.setCellFactory(param -> new TableCell<Order, Order>() {
             @Override 
             protected void updateItem(Order order, boolean empty) {
@@ -68,13 +69,11 @@ public class CustomerOrders {
                     setOnMouseClicked((MouseEvent e) -> {
                         Order orderItems = getItem();
                         if (e.getButton() == MouseButton.PRIMARY && orderItems != null) {
-                            // ObservableList<Order> row = (ObservableList<Order>) getTableRow().getItem();
-                            // row.set(columnIndex, newOrder);
                             itemsList.addAll(OrderDAOService.getAllItemsForOrder(orderItems.getOrderId()));
                             for (Item item : itemsList) {
                                 coffeeList.add(coffeeDAOService.get(item.getCoffeeID()));
                             }
-                            
+                            loadItemsTable();
                         }
                     });
                 }
@@ -87,8 +86,8 @@ public class CustomerOrders {
     private void initItemsTable() {
         brandColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("brand"));
         roastColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("roast"));
-        priceColumn.setCellValueFactory(new PropertyValueFactory<Coffee, BigDecimal>("price"));
-        sizeColumn.setCellValueFactory(new PropertyValueFactory<Coffee, Integer>("coffeeSize"));
+        priceColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("price"));
+        sizeColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("coffeeSize"));
         loadItemsTable();
     }
     

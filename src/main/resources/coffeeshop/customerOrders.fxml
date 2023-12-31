@@ -28,8 +28,6 @@
             <TableColumn fx:id="roastColumn" prefWidth="75.0" text="Roast" />
             <TableColumn fx:id="priceColumn" prefWidth="75.0" text="Price" />
             <TableColumn fx:id="sizeColumn" prefWidth="75.0" text="Size" />
-            <TableColumn prefWidth="53.333404541015625" text="Edit" />
-            <TableColumn prefWidth="44.66668701171875" text="Delete" />
          </columns>
       </TableView>
    </children>

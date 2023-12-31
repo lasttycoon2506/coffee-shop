@@ -155,15 +155,13 @@ public class CustomerNewOrder {
 			OrderDAOService.saveOrder(newOrder);
 			switchToCustomerPg();
 			notificationWindow("confirmation", null);
-			//each coffee item stored in hash as coffeeID tallying quantity
+			//each coffee item stored in hash as coffeeID and quantity
 			for (Coffee coffee: orderList){
-				Field coffeeID = coffee.getClass().getDeclaredField("coffeeId");
-				coffeeID.setAccessible(true);
-				if (coffeeQuantityHash.get(coffeeID.get(coffee)) == null) {
-					coffeeQuantityHash.put((Integer) coffeeID.get(coffee), 1);
+				if (coffeeQuantityHash.get(coffee.getCoffeeID()) == null) {
+					coffeeQuantityHash.put(coffee.getCoffeeID(), 1);
 				}
 				else {
-					coffeeQuantityHash.put((Integer) coffeeID.get(coffee), coffeeQuantityHash.get(coffeeID.get(coffee)) + 1);
+					coffeeQuantityHash.put(coffee.getCoffeeID(), coffeeQuantityHash.get(coffee.getCoffeeID()) + 1);
 				}
 			}
 			//loops through coffeehash adding item object for each quantity of coffeeID
