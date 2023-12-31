@@ -7,6 +7,8 @@ import java.util.Optional;
 public class CoffeeDAOService {
     private static CoffeeDAO coffeeDAO = new CoffeeDAO();
 
+    public CoffeeDAOService(){
+    }
     private CoffeeDAOService(CoffeeDAO coffeeDAO){
         CoffeeDAOService.coffeeDAO = coffeeDAO;
     }

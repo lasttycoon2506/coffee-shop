@@ -29,6 +29,13 @@ public class Item {
         this.orderId = orderId;
     }
 
+    public Integer getCoffeeID() {
+        return this.coffeeId;
+    }
+    public Integer getQuantity() {
+        return this.quantity;
+    }
+
     public void setCoffeeID(int coffeeID) {
         this.coffeeId = coffeeID;
     }

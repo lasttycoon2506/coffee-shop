@@ -8,6 +8,7 @@ import coffeeshop.App;
 import coffeeshop.Entities.Orders.Order;
 import coffeeshop.Entities.Orders.OrderDAOService;
 import coffeeshop.Entities.Coffee.Coffee;
+import coffeeshop.Entities.Coffee.CoffeeDAOService;
 import coffeeshop.Entities.Customers.Customer;
 import coffeeshop.Entities.Items.Item;
 import coffeeshop.Models.Context;
@@ -43,6 +44,7 @@ public class CustomerOrders {
 	private TableColumn<Coffee, Integer> sizeColumn;
     private ObservableList<Item> itemsList = FXCollections.observableArrayList();
     private ObservableList<Coffee> coffeeList = FXCollections.observableArrayList();
+    private CoffeeDAOService coffeeDAOService = new CoffeeDAOService();
     @FXML
     public void initialize() {
         initOrdersTable();
@@ -69,7 +71,7 @@ public class CustomerOrders {
                             // row.set(columnIndex, newOrder);
                             itemsList.addAll(OrderDAOService.getAllItemsForOrder(orderItems.getOrderId()));
                             for (Item item : itemsList) {
-                                
+                                coffeeDAOService.get(item.getCoffeeID());
                             }
                         }
                     });
