@@ -1,4 +1,4 @@
-package coffeeshop.Classes;
+package coffeeshop.Models;
 
 import coffeeshop.Entities.Coffee.Coffee;
 import coffeeshop.Entities.Items.Item;

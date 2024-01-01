@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
 import coffeeshop.App;
-import coffeeshop.Classes.DisplayItems;
 import coffeeshop.Entities.Orders.Order;
 import coffeeshop.Entities.Orders.OrderDAOService;
 import coffeeshop.Entities.Coffee.Coffee;
@@ -12,6 +11,7 @@ import coffeeshop.Entities.Coffee.CoffeeDAOService;
 import coffeeshop.Entities.Customers.Customer;
 import coffeeshop.Entities.Items.Item;
 import coffeeshop.Models.Context;
+import coffeeshop.Models.DisplayItems;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -37,7 +37,7 @@ public class CustomerOrders {
     @FXML
     private TableView<DisplayItems> itemsTable;
     @FXML
-	private TableColumn<Coffee, String> brandColumn, roastColumn, priceColumn, sizeColumn;
+	private TableColumn<DisplayItems, String> brandColumn, roastColumn, priceColumn, sizeColumn, quantityColumn;
     private ObservableList<Item> itemsList = FXCollections.observableArrayList();
     private ObservableList<Coffee> coffeeList = FXCollections.observableArrayList();
     private ObservableList<DisplayItems> displayItemsList = FXCollections.observableArrayList();
@@ -82,11 +82,12 @@ public class CustomerOrders {
     }
 
     private void initItemsTable() {
+        brandColumn.setCellValueFactory(f -> f.getValue().getCoffee().getBrand());
         brandColumn.setCellValueFactory(new PropertyValueFactory<DisplayItems, String>("brand"));
         roastColumn.setCellValueFactory(new PropertyValueFactory<DisplayItems, String>("roast"));
         priceColumn.setCellValueFactory(new PropertyValueFactory<DisplayItems, String>("price"));
         sizeColumn.setCellValueFactory(new PropertyValueFactory<DisplayItems, String>("coffeeSize"));
-        sizeColumn.setCellValueFactory(new PropertyValueFactory<DisplayItems, String>("coffeeSize"));
+        quantityColumn.setCellValueFactory(new PropertyValueFactory<DisplayItems, String>("quantity"));
         loadItemsTable();
     }
     
