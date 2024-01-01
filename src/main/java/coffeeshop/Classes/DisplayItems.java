@@ -1,22 +1,17 @@
 package coffeeshop.Classes;
 
-import java.math.BigDecimal;
+import coffeeshop.Entities.Coffee.Coffee;
+import coffeeshop.Entities.Items.Item;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 
 
 public class DisplayItems {
-    private int coffeeId;
-    private String brand;
-    private String roast;
-    private BigDecimal price;
-    private int coffeeSize;
-    private int quantity;
+    private final ObjectProperty<Coffee> coffee = new SimpleObjectProperty<>();
+    private final ObjectProperty<Item> item = new SimpleObjectProperty<>();
     
-    public DisplayItems(int coffeeID, String brand, String roast, BigDecimal price, int coffeeSize, int quantity){
-        this.coffeeId = coffeeID;
-        this.brand = brand;
-        this.roast = roast;
-        this.price = price;
-        this.coffeeSize = coffeeSize;
-        this.quantity = quantity;
+    public DisplayItems(Coffee coffee, Item item){
+        this.coffee.set(coffee);
+        this.item.set(item);
     }
 }
