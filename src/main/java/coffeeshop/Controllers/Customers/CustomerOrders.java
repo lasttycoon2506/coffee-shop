@@ -68,8 +68,10 @@ public class CustomerOrders {
                 else {
                     setText(String.valueOf(order.getTotalItems()));
                     setOnMouseClicked((MouseEvent e) -> {
+                        clearTable(itemsTable);
                         Order orderItems = getItem();
                         if (e.getButton() == MouseButton.PRIMARY && orderItems != null) {
+                            itemsList.clear();
                             itemsList.addAll(OrderDAOService.getAllItemsForOrder(orderItems.getOrderId()));
                             for (Item item : itemsList) {
                                 coffeeList.add(coffeeDAOService.get(item.getCoffeeID()));
@@ -118,6 +120,13 @@ public class CustomerOrders {
         }
         return false;
     }
+
+    private void clearTable(TableView table) {
+		if (table.getItems().isEmpty()){
+			return;
+		}
+		table.getItems().clear();
+	}
 	
     @FXML
     private void switchToCustomerPg() throws IOException {
