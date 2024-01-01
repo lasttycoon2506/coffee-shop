@@ -24,10 +24,6 @@ public class CoffeeDAOService {
         coffeeDAO.save(coffee);
     }
 
-    public void saveOrder(Coffee coffeeID){
-        coffeeDAO.save(coffeeID);
-    }
-
     public static boolean coffeeListExistsDB() {
         return CoffeeDAO.coffeeListExistsDB();
     }

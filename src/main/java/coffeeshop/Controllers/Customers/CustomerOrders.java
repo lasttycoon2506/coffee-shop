@@ -1,13 +1,9 @@
 package coffeeshop.Controllers.Customers;
 
 import java.io.IOException;
-import java.lang.reflect.Field;
-import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 import coffeeshop.App;
-import coffeeshop.Data.CoffeeList;
 import coffeeshop.Entities.Orders.Order;
 import coffeeshop.Entities.Orders.OrderDAOService;
 import coffeeshop.Entities.Coffee.Coffee;
@@ -41,10 +37,6 @@ public class CustomerOrders {
     private TableView<Coffee> itemsTable;
     @FXML
 	private TableColumn<Coffee, String> brandColumn, roastColumn, priceColumn, sizeColumn;
-    // @FXML
-	// private TableColumn<Coffee, BigDecimal> priceColumn;
-    // @FXML
-	// private TableColumn<Coffee, Integer> sizeColumn;
     private ObservableList<Item> itemsList = FXCollections.observableArrayList();
     private ObservableList<Coffee> coffeeList = FXCollections.observableArrayList();
     private CoffeeDAOService coffeeDAOService = new CoffeeDAOService();
