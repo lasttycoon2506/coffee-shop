@@ -4,14 +4,12 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
+
 public class CoffeeDAOService {
     private static CoffeeDAO coffeeDAO = new CoffeeDAO();
 
     public CoffeeDAOService(){
     }
-    // private CoffeeDAOService(CoffeeDAO coffeeDAO){
-    //     CoffeeDAOService.coffeeDAO = coffeeDAO;
-    // }
 
     public Coffee get(Integer coffeeID) {
         Optional<Coffee> coffee = coffeeDAO.get(coffeeID);

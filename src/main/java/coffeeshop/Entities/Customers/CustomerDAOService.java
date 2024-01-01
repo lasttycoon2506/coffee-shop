@@ -11,10 +11,6 @@ import coffeeshop.Models.CustomerDTO;
 public class CustomerDAOService {
     private static CustomerDAO customerDAO = new CustomerDAO();
 
-    private CustomerDAOService(CustomerDAO customerDAO) {
-        CustomerDAOService.customerDAO = customerDAO;
-    }
-
     private static Customer getCustomer(Integer id) {
         Optional<Customer> customer = customerDAO.get(id);
         return customer.orElseGet(

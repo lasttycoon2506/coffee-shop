@@ -3,7 +3,6 @@ package coffeeshop.Entities.Orders;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
-
 import coffeeshop.Entities.Items.Item;
 import coffeeshop.Models.DAO;
 import jakarta.persistence.EntityManager;
