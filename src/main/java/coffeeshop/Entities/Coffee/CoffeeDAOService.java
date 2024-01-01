@@ -13,8 +13,12 @@ public class CoffeeDAOService {
     //     CoffeeDAOService.coffeeDAO = coffeeDAO;
     // }
 
-    public Optional<Coffee> get(Integer coffeeID) {
-        return coffeeDAO.get(coffeeID);
+    public Coffee get(Integer coffeeID) {
+        Optional<Coffee> coffee = coffeeDAO.get(coffeeID);
+        return coffee.orElseGet(
+          () -> {
+            return null;
+        });
     }
     public static void saveCoffeeTableToDB(Coffee coffee){
         coffeeDAO.save(coffee);

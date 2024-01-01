@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import coffeeshop.App;
+import coffeeshop.Data.CoffeeList;
 import coffeeshop.Entities.Orders.Order;
 import coffeeshop.Entities.Orders.OrderDAOService;
 import coffeeshop.Entities.Coffee.Coffee;
@@ -37,7 +38,7 @@ public class CustomerOrders {
 	private TableColumn<Order, Order> totalItemsColumn; 
     private ObservableList<Order> ordersList = FXCollections.observableArrayList();
     @FXML
-    private TableView<Optional<Coffee>> itemsTable;
+    private TableView<Coffee> itemsTable;
     @FXML
 	private TableColumn<Coffee, String> brandColumn, roastColumn, priceColumn, sizeColumn;
     // @FXML
@@ -45,7 +46,7 @@ public class CustomerOrders {
     // @FXML
 	// private TableColumn<Coffee, Integer> sizeColumn;
     private ObservableList<Item> itemsList = FXCollections.observableArrayList();
-    private ObservableList<Optional<Coffee>> coffeeList = FXCollections.observableArrayList();
+    private ObservableList<Coffee> coffeeList = FXCollections.observableArrayList();
     private CoffeeDAOService coffeeDAOService = new CoffeeDAOService();
     @FXML
     public void initialize() {
@@ -96,22 +97,22 @@ public class CustomerOrders {
     }
 
     private void loadOrdersTable() {
-        if (isTableEmpty(ordersTable, "NO ORDERS!")) {
+        if (isTableEmpty(ordersTable, ordersList, "NO ORDERS!")) {
         }
         else {
             ordersTable.setItems(ordersList);
         }
     }
     private void loadItemsTable() {
-        if (isTableEmpty(itemsTable, "NO ITEMS!")){
+        if (isTableEmpty(itemsTable, coffeeList, "NO ITEMS!")){
         }
         else {
             itemsTable.setItems(coffeeList);
         }
     }
 
-    private boolean isTableEmpty(TableView table, String msg) {
-        if (table.getItems().isEmpty()) {
+    private boolean isTableEmpty(TableView table, List lst, String msg) {
+        if (lst.isEmpty()) {
             table.setPlaceholder(new Label(msg));
             return true;
         }

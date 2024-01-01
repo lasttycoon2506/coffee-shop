@@ -19,12 +19,6 @@ public class CustomerDAOService {
         Optional<Customer> customer = customerDAO.get(id);
         return customer.orElseGet(
           () -> {
-            try {
-                return new Customer(null, null, null, null, null, null);
-            } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
             return null;
         });
     }

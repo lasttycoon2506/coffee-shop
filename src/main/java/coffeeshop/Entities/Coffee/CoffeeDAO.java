@@ -16,7 +16,11 @@ public class CoffeeDAO implements DAO<Coffee>{
     private static final EntityManager entityManager = factory.createEntityManager();
 
      public Optional<Coffee> get(Integer id) {
-        return Optional.ofNullable(entityManager.find(Coffee.class, id));
+        Optional<Coffee> coffee = Optional.ofNullable(entityManager.find(Coffee.class, id));
+        if (coffee.isPresent()) {
+            return coffee;
+        }
+        return null;
     }
 
     public void save(Coffee coffee) {
