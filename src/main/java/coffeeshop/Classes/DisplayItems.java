@@ -14,4 +14,11 @@ public class DisplayItems {
         this.coffee.set(coffee);
         this.item.set(item);
     }
+
+    public Coffee getCoffee(){
+        return coffee.get();
+    }
+    public Item getItem(){
+        return item.get();
+    }
 }

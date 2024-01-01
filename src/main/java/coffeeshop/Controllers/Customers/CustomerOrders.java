@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
 import coffeeshop.App;
+import coffeeshop.Classes.DisplayItems;
 import coffeeshop.Entities.Orders.Order;
 import coffeeshop.Entities.Orders.OrderDAOService;
 import coffeeshop.Entities.Coffee.Coffee;
@@ -34,11 +35,12 @@ public class CustomerOrders {
 	private TableColumn<Order, Order> totalItemsColumn; 
     private ObservableList<Order> ordersList = FXCollections.observableArrayList();
     @FXML
-    private TableView<Coffee> itemsTable;
+    private TableView<DisplayItems> itemsTable;
     @FXML
 	private TableColumn<Coffee, String> brandColumn, roastColumn, priceColumn, sizeColumn;
     private ObservableList<Item> itemsList = FXCollections.observableArrayList();
     private ObservableList<Coffee> coffeeList = FXCollections.observableArrayList();
+    private ObservableList<DisplayItems> displayItemsList = FXCollections.observableArrayList();
     private CoffeeDAOService coffeeDAOService = new CoffeeDAOService();
     @FXML
     public void initialize() {
@@ -66,7 +68,8 @@ public class CustomerOrders {
                             itemsList.clear();
                             itemsList.addAll(OrderDAOService.getAllItemsForOrder(orderItems.getOrderId()));
                             for (Item item : itemsList) {
-                                coffeeList.add(coffeeDAOService.get(item.getCoffeeID()));
+                                displayItemsList.add(new DisplayItems(coffeeDAOService.get(item.getCoffeeID()), item));
+                                // coffeeList.add(coffeeDAOService.get(item.getCoffeeID()));
                             }
                             loadItemsTable();
                         }
@@ -79,10 +82,11 @@ public class CustomerOrders {
     }
 
     private void initItemsTable() {
-        brandColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("brand"));
-        roastColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("roast"));
-        priceColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("price"));
-        sizeColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("coffeeSize"));
+        brandColumn.setCellValueFactory(new PropertyValueFactory<DisplayItems, String>("brand"));
+        roastColumn.setCellValueFactory(new PropertyValueFactory<DisplayItems, String>("roast"));
+        priceColumn.setCellValueFactory(new PropertyValueFactory<DisplayItems, String>("price"));
+        sizeColumn.setCellValueFactory(new PropertyValueFactory<DisplayItems, String>("coffeeSize"));
+        sizeColumn.setCellValueFactory(new PropertyValueFactory<DisplayItems, String>("coffeeSize"));
         loadItemsTable();
     }
     
@@ -98,10 +102,10 @@ public class CustomerOrders {
         }
     }
     private void loadItemsTable() {
-        if (isTableEmpty(itemsTable, coffeeList, "NO ITEMS!")){
+        if (isTableEmpty(itemsTable, displayItemsList, "NO ITEMS!")){
         }
         else {
-            itemsTable.setItems(coffeeList);
+            itemsTable.setItems(displayItemsList);
         }
     }
 
