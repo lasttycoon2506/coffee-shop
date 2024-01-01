@@ -16,14 +16,12 @@ public class Coffee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "coffee_id")
     private int coffeeId;
-    private String brand;
-    private String roast;
-    private BigDecimal price;
+    private final String brand;
+    private final String roast;
+    private final BigDecimal price;
     @Column(name = "coffee_size")
-    private int coffeeSize;
+    private final int coffeeSize;
 
-    public Coffee(){
-    }
     public Coffee (String brand, String roast, BigDecimal price, int coffeeSize) {
         this.brand = brand;
         this.roast = roast;

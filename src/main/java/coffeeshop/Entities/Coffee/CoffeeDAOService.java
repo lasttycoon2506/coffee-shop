@@ -8,9 +8,6 @@ import java.util.Optional;
 public class CoffeeDAOService {
     private static CoffeeDAO coffeeDAO = new CoffeeDAO();
 
-    public CoffeeDAOService(){
-    }
-
     public Coffee get(Integer coffeeID) {
         Optional<Coffee> coffee = coffeeDAO.get(coffeeID);
         return coffee.orElseGet(
