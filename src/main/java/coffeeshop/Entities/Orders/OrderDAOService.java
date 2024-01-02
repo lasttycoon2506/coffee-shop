@@ -9,11 +9,11 @@ public class OrderDAOService {
     private static OrderDAO orderDAO = new OrderDAO();
 
     public static Order get(Integer orderId) {
-    Optional<Order> order = orderDAO.get(orderId);
-        return order.orElseGet(
-          () -> {
-            return null;
-        });
+        Optional<Order> order = orderDAO.get(orderId);
+            return order.orElseGet(
+            () -> {
+                return null;
+            });
     }
     
     public static int getMostRecentOrder() {

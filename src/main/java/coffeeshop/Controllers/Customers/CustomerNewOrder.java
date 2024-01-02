@@ -149,7 +149,7 @@ public class CustomerNewOrder {
 		else {
 			//first saves order object to Orders table
 			newOrder.setOrdersDate(currentDate);
-			newOrder.setNumberOfItems(orderList.size());
+			newOrder.setTotalItems(orderList.size());
 			newOrder.setCustomerID(customer.getCustomerID());
 			OrderDAOService.saveOrder(newOrder);
 			switchToCustomerPg();

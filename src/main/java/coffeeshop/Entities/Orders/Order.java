@@ -48,7 +48,7 @@ public class Order {
     public void setOrdersDate(LocalDate orderDate) {
         this.orderDate = orderDate;
     }
-    public void setNumberOfItems(int totalItems) {
+    public void setTotalItems(int totalItems) {
         this.totalItems = totalItems;
     }
     public void setCustomerID(int customerID) {
