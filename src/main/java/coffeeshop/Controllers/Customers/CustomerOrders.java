@@ -9,6 +9,7 @@ import coffeeshop.Entities.Orders.OrderDAOService;
 import coffeeshop.Entities.Coffee.CoffeeDAOService;
 import coffeeshop.Entities.Customers.Customer;
 import coffeeshop.Entities.Items.Item;
+import coffeeshop.Entities.Items.ItemDAOService;
 import coffeeshop.Models.Context;
 import coffeeshop.Models.DisplayItems;
 import javafx.beans.property.ReadOnlyObjectWrapper;
@@ -102,7 +103,7 @@ public class CustomerOrders {
 				setGraphic(deleteButton);
 				deleteButton.setOnAction(event -> {
 					getTableView().getItems().remove(displayItem);
-
+                    ItemDAOService.deleteItem(getTableRow().getItem().getItem().getItemID());
                     }
 				);
 			}

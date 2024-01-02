@@ -29,6 +29,9 @@ public class Item {
         this.orderId = orderId;
     }
 
+    public Integer getItemID() {
+        return this.itemId;
+    }
     public Integer getCoffeeID() {
         return this.coffeeId;
     }

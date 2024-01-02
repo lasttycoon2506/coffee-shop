@@ -8,7 +8,7 @@ public class ItemDAOService {
         itemDAO.save(item);
     }
 
-    public static void deleteItem(Item item) {
-        itemDAO.delete(item);
+    public static void deleteItem(Integer itemId) {
+        itemDAO.delete(itemId);
     }
 }

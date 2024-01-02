@@ -33,8 +33,7 @@ public class ItemDAO implements DAO<Item>{
     }
 
     public void delete(Integer itemId) {
-        get(null);
-        executeInsideTransaction(entityManager -> entityManager.remove());
+        executeInsideTransaction(entityManager -> entityManager.remove(get(itemId)));
     }
 
     private static void executeInsideTransaction(Consumer<EntityManager> action) {
