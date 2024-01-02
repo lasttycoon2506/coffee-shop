@@ -20,11 +20,14 @@ import coffeeshop.Entities.Orders.Order;
 import coffeeshop.Entities.Orders.OrderDAOService;
 import javafx.animation.AnimationTimer;
 import javafx.beans.property.ReadOnlyObjectWrapper;
+import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -42,7 +45,7 @@ public class CustomerNewOrder {
 	private HashMap<Integer, Integer> coffeeQuantityHash = new HashMap<>();
 	private List<Item> newItemsList = new ArrayList<Item>();
 	@FXML
-    private TableView<Coffee> orderTable, filterTable;
+    private TableView<DisplayItems> orderTable, filterTable;
 	@FXML
 	private ComboBox<String> brandBox, roastBox;
 	@FXML
@@ -53,6 +56,7 @@ public class CustomerNewOrder {
 	private Label timeDisplay;
 	@FXML
 	private ObservableList<Coffee> orderList = FXCollections.observableArrayList();
+	private ObservableList<DisplayItems> displayItemsList = FXCollections.observableArrayList();
 	private ObservableList<Coffee> filteredList = FXCollections.observableArrayList();
 	private static final List<String> brandsList = CoffeeDAOService.getBrands();
 	private static final List<BigDecimal> pricesList = CoffeeDAOService.getPrices();
@@ -85,24 +89,41 @@ public class CustomerNewOrder {
 
 
 	private void initOrderTable() {
-		brandColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("brand"));
-        roastColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("roast"));
-		priceColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("price"));
-        sizeColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("coffeeSize"));
+		brandColumn.setCellValueFactory(cell -> new ReadOnlyStringWrapper(cell.getValue().getCoffee().getBrand()));
+        roastColumn.setCellValueFactory(cell -> new ReadOnlyStringWrapper(cell.getValue().getCoffee().getRoast()));
+        priceColumn.setCellValueFactory(cell -> new ReadOnlyStringWrapper(String.valueOf(cell.getValue().getCoffee().getPrice())));
+        sizeColumn.setCellValueFactory(cell -> new ReadOnlyStringWrapper(String.valueOf(cell.getValue().getCoffee().getCoffeeSize())));
+        // quantityColumn.setCellValueFactory(cell -> new ReadOnlyStringWrapper(String.valueOf(cell.getValue().getItem().getQuantity())));
+    	quantityColumn.setCellFactory(param -> new TableCell<DisplayItems, String>() {
+            @Override 
+            protected void updateItem(String quantity, boolean empty) {
+                super.updateItem(quantity, empty);
+                if (empty) {
+                    setText(null);
+                }
+				else if (quantity == null) {
+					setText("1");
+				}
+                else {
+                    setOnMouseClicked((MouseEvent e) -> {
+                    });
+                }
+                }
+            }); 
 		deleteColumn.setCellValueFactory(column -> new ReadOnlyObjectWrapper<>(column.getValue()));
 		deleteColumn.setStyle("-fx-alignment: CENTER;");
-		deleteColumn.setCellFactory(column -> new TableCell<Coffee, Coffee>() {
+		deleteColumn.setCellFactory(column -> new TableCell<DisplayItems, DisplayItems>() {
 			private final Button deleteButton = new Button("X");
 			@Override
-			protected void updateItem(Coffee coffee, boolean empty) {
-				super.updateItem(coffee, empty);
-				if (coffee == null) {
+			protected void updateItem(DisplayItems displayItem, boolean empty) {
+				super.updateItem(displayItem, empty);
+				if (displayItem == null) {
 					setGraphic(null);
 					return;
 				}
 				setGraphic(deleteButton);
 				deleteButton.setOnAction(
-					event -> getTableView().getItems().remove(coffee)
+					event -> getTableView().getItems().remove(displayItem)
 				);
 			}
 		});
@@ -177,7 +198,7 @@ public class CustomerNewOrder {
 	@FXML
 	private void selectedByBrand(){
 		Coffee coffeeItem = CoffeeDAOService.searchByBrand(brandBox.getValue());
-		orderList.add(coffeeItem);
+		displayItemsList.add(new DisplayItems(coffeeItem, null));
 		loadOrderTable();
 		resetChoiceBox(brandBox);
 	}
@@ -220,10 +241,10 @@ public class CustomerNewOrder {
 	}
 
 	private void loadOrderTable()  {
-        orderTable.setItems(orderList);
+        orderTable.setItems(displayItemsList);
 	}
 	private void loadFilterTable()  {
-        filterTable.setItems(filteredList);
+        // filterTable.setItems(filteredList);
 	}
 	private void clearFilterTable() {
 		if (filterTable.getItems().isEmpty()){
