@@ -15,9 +15,8 @@ public class OrderDAO implements DAO<Order>{
     private static final EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa-hibernate-mysql");
     private static final EntityManager entityManager = factory.createEntityManager();
     
-    public Optional<Order> get(Integer id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'get'");
+    public Optional<Order> get(Integer orderId) {
+        return Optional.ofNullable(entityManager.find(Order.class, orderId));
     }
     
     public List<Order> getAll() {

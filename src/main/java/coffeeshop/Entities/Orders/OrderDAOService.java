@@ -1,12 +1,21 @@
 package coffeeshop.Entities.Orders;
 
 import java.util.List;
+import java.util.Optional;
 import coffeeshop.Entities.Items.Item;
 
 
 public class OrderDAOService {
     private static OrderDAO orderDAO = new OrderDAO();
 
+    public static Order get(Integer orderId) {
+    Optional<Order> order = orderDAO.get(orderId);
+        return order.orElseGet(
+          () -> {
+            return null;
+        });
+    }
+    
     public static int getMostRecentOrder() {
         return OrderDAO.getMostRecentOrder();
     }

@@ -38,6 +38,9 @@ public class Item {
     public Integer getQuantity() {
         return this.quantity;
     }
+    public Integer getOrderID() {
+        return this.orderId;
+    }
 
     public void setCoffeeID(int coffeeID) {
         this.coffeeId = coffeeID;
@@ -45,7 +48,7 @@ public class Item {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-    public void setOrdersID(int orderId) {
+    public void setOrderID(int orderId) {
         this.orderId = orderId;
     }
 }

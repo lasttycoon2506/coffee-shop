@@ -103,6 +103,8 @@ public class CustomerOrders {
 				setGraphic(deleteButton);
 				deleteButton.setOnAction(event -> {
 					getTableView().getItems().remove(displayItem);
+                    getTableRow().getItem().getItem().getQuantity();  
+                    getTableRow().getItem().getItem().getOrderID();    
                     ItemDAOService.deleteItem(getTableRow().getItem().getItem());
                     }
 				);
