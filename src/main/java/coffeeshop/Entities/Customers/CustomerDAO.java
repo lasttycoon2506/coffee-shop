@@ -85,7 +85,7 @@ public class CustomerDAO implements DAO<Customer> {
         executeInsideTransaction(entityManager -> entityManager.merge(customer));
     }
 
-    public void delete(Integer customerId){
+    public void delete(Customer customer){
 
     }
 

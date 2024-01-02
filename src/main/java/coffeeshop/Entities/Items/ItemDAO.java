@@ -32,8 +32,10 @@ public class ItemDAO implements DAO<Item>{
         throw new UnsupportedOperationException("Unimplemented method 'edit'");
     }
 
-    public void delete(Integer itemId) {
-        executeInsideTransaction(entityManager -> entityManager.remove(get(itemId)));
+    public void delete(Item item) {
+        executeInsideTransaction(entityManager -> entityManager.remove(item));
+        entityManager.flush();
+        entityManager.clear();
     }
 
     private static void executeInsideTransaction(Consumer<EntityManager> action) {
@@ -48,5 +50,4 @@ public class ItemDAO implements DAO<Item>{
             throw e;
         }
     }
-    
 }

@@ -99,7 +99,7 @@ public class CoffeeDAO implements DAO<Coffee>{
     }
 
     @Override
-    public void delete(Integer coffeeId) {
+    public void delete(Coffee coffee) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
