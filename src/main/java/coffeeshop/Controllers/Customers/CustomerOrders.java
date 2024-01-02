@@ -13,6 +13,7 @@ import coffeeshop.Entities.Items.Item;
 import coffeeshop.Models.Context;
 import coffeeshop.Models.DisplayItems;
 import javafx.beans.property.ReadOnlyObjectWrapper;
+import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -82,12 +83,11 @@ public class CustomerOrders {
     }
 
     private void initItemsTable() {
-        brandColumn.setCellValueFactory(f -> f.getValue().getCoffee().getBrand());
-        brandColumn.setCellValueFactory(new PropertyValueFactory<DisplayItems, String>("brand"));
-        roastColumn.setCellValueFactory(new PropertyValueFactory<DisplayItems, String>("roast"));
-        priceColumn.setCellValueFactory(new PropertyValueFactory<DisplayItems, String>("price"));
-        sizeColumn.setCellValueFactory(new PropertyValueFactory<DisplayItems, String>("coffeeSize"));
-        quantityColumn.setCellValueFactory(new PropertyValueFactory<DisplayItems, String>("quantity"));
+        brandColumn.setCellValueFactory(cell -> new ReadOnlyStringWrapper(cell.getValue().getCoffee().getBrand()));
+        roastColumn.setCellValueFactory(cell -> new ReadOnlyStringWrapper(cell.getValue().getCoffee().getRoast()));
+        priceColumn.setCellValueFactory(cell -> new ReadOnlyStringWrapper(String.valueOf(cell.getValue().getCoffee().getPrice())));
+        sizeColumn.setCellValueFactory(cell -> new ReadOnlyStringWrapper(String.valueOf(cell.getValue().getCoffee().getCoffeeSize())));
+        quantityColumn.setCellValueFactory(cell -> new ReadOnlyStringWrapper(String.valueOf(cell.getValue().getItem().getQuantity())));
         loadItemsTable();
     }
     
