@@ -107,15 +107,21 @@ public class CustomerOrders {
                     Integer quantityToEdit = getTableRow().getItem().getItem().getQuantity();  
                     Order orderToEdit = OrderDAOService.get(getTableRow().getItem().getItem().getOrderID());
                     orderToEdit.setTotalItems(orderToEdit.getTotalItems() - quantityToEdit);
-                    OrderDAOService.editOrder(orderToEdit);
-                    ItemDAOService.deleteItem(getTableRow().getItem().getItem());
-                    refreshOrdersTable(customer.getCustomerID());
+                    if (orderToEdit.getTotalItems() == 0){
+                        OrderDAOService.deleteOrder(orderToEdit);
                     }
+                    else {
+                        OrderDAOService.editOrder(orderToEdit);
+                        ItemDAOService.deleteItem(getTableRow().getItem().getItem());
+                        refreshOrdersTable(customer.getCustomerID());
+                    }
+                }
 				);
 			}
 		});
         loadItemsTable();
     }
+
     private void refreshOrdersTable(int customerID){
         ordersList.addAll(OrderDAOService.getAllOrdersForCustomer(customerID));
     }

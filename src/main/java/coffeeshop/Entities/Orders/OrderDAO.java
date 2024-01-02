@@ -49,9 +49,10 @@ public class OrderDAO implements DAO<Order>{
         executeInsideTransaction(entityManager -> entityManager.merge(order));
     }
     
-    public void delete(Order o) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'delete'");
+    public void delete(Order order) {
+        executeInsideTransaction(entityManager ->
+            entityManager.remove(entityManager.contains(order) ? order : entityManager.merge(order)) 
+        );
     }
 
     private static void executeInsideTransaction(Consumer<EntityManager> action) {
