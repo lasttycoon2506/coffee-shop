@@ -57,12 +57,12 @@ public class CustomerNewOrder {
 	private static final List<BigDecimal> pricesList = CoffeeDAOService.getPrices();
 	private static final List<Integer> sizeList = CoffeeDAOService.getSizes();
 	@FXML
-	private TableColumn<Coffee, String> brandColumn, nameColumn, roastColumn, priceColumn, regionColumn, sizeColumn;
+	private TableColumn<Coffee, String> brandColumn, roastColumn, priceColumn, sizeColumn;
 	@FXML
 	private TableColumn<Coffee, Coffee> deleteColumn;
 	@FXML
-	private TableColumn<Coffee, String> brandColumnFilterTable, nameColumnFilterTable, roastColumnFilterTable, priceColumnFilterTable,
-										regionColumnFilterTable, sizeColumnFilterTable;
+	private TableColumn<Coffee, String> brandColumnFilterTable, roastColumnFilterTable, priceColumnFilterTable,
+										sizeColumnFilterTable;
 	@FXML
 	private TableColumn<Coffee, Coffee> addColumnFilterTable;
 	private LocalDate currentDate;
