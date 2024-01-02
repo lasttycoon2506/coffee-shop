@@ -15,12 +15,8 @@ public class CoffeeDAO implements DAO<Coffee>{
     private static final EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa-hibernate-mysql");
     private static final EntityManager entityManager = factory.createEntityManager();
 
-     public Optional<Coffee> get(Integer coffeeId) {
-        Optional<Coffee> coffee = Optional.ofNullable(entityManager.find(Coffee.class, coffeeId));
-        if (coffee.isPresent()) {
-            return coffee;
-        }
-        return null;
+    public Optional<Coffee> get(Integer coffeeId) {
+        return Optional.ofNullable(entityManager.find(Coffee.class, coffeeId));
     }
 
     public void save(Coffee coffee) {
