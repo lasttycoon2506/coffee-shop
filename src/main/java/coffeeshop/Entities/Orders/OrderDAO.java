@@ -51,7 +51,7 @@ public class OrderDAO implements DAO<Order>{
         throw new UnsupportedOperationException("Unimplemented method 'edit'");
     }
     
-    public void delete(Order t) {
+    public void delete(Integer t) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }

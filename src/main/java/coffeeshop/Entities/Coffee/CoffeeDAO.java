@@ -15,8 +15,8 @@ public class CoffeeDAO implements DAO<Coffee>{
     private static final EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa-hibernate-mysql");
     private static final EntityManager entityManager = factory.createEntityManager();
 
-     public Optional<Coffee> get(Integer id) {
-        Optional<Coffee> coffee = Optional.ofNullable(entityManager.find(Coffee.class, id));
+     public Optional<Coffee> get(Integer coffeeId) {
+        Optional<Coffee> coffee = Optional.ofNullable(entityManager.find(Coffee.class, coffeeId));
         if (coffee.isPresent()) {
             return coffee;
         }
@@ -99,7 +99,7 @@ public class CoffeeDAO implements DAO<Coffee>{
     }
 
     @Override
-    public void delete(Coffee t) {
+    public void delete(Integer coffeeId) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }

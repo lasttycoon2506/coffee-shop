@@ -14,9 +14,8 @@ public class ItemDAO implements DAO<Item>{
     private static final EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa-hibernate-mysql");
     private static final EntityManager entityManager = factory.createEntityManager();
 
-    public Optional<Item> get(Integer id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'get'");
+    public Optional<Item> get(Integer itemId) {
+        return Optional.ofNullable(entityManager.find(Item.class, itemId));
     }
 
     public List<Item> getAll() {
@@ -33,9 +32,9 @@ public class ItemDAO implements DAO<Item>{
         throw new UnsupportedOperationException("Unimplemented method 'edit'");
     }
 
-    public void delete(Item t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'delete'");
+    public void delete(Integer itemId) {
+        get(null);
+        executeInsideTransaction(entityManager -> entityManager.remove());
     }
 
     private static void executeInsideTransaction(Consumer<EntityManager> action) {

@@ -49,7 +49,7 @@ public class CustomerDAOService {
         customerDAO.edit(Context.getInstance().getCustomer());
     }
     
-    public static void deleteCustomer(Customer customer) {
-        customerDAO.delete(customer);
+    public static void deleteCustomer(Integer customerId) {
+        customerDAO.delete(customerId);
     }
 }

@@ -18,8 +18,8 @@ public class CustomerDAO implements DAO<Customer> {
     private static final EntityManager entityManager = factory.createEntityManager();
     
     @Override
-    public Optional<Customer> get(Integer id) {
-        return Optional.ofNullable(entityManager.find(Customer.class, id));
+    public Optional<Customer> get(Integer customerId) {
+        return Optional.ofNullable(entityManager.find(Customer.class, customerId));
     }
 
     public List<Customer> getAll(){
@@ -85,7 +85,7 @@ public class CustomerDAO implements DAO<Customer> {
         executeInsideTransaction(entityManager -> entityManager.merge(customer));
     }
 
-    public void delete(Customer customer){
+    public void delete(Integer customerId){
 
     }
 

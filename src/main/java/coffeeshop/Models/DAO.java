@@ -9,5 +9,5 @@ public interface DAO<Type> {
     List<Type> getAll();
     void save(Type t);
     void edit(Type t);
-    void delete(Type t);
+    void delete(Integer id);
 }
