@@ -10,7 +10,6 @@ import java.util.HashMap;
 import java.util.List;
 import coffeeshop.App;
 import coffeeshop.Models.Context;
-import coffeeshop.Models.DisplayItems;
 import coffeeshop.Entities.Coffee.Coffee;
 import coffeeshop.Entities.Coffee.CoffeeDAOService;
 import coffeeshop.Entities.Customers.Customer;
@@ -20,7 +19,6 @@ import coffeeshop.Entities.Orders.Order;
 import coffeeshop.Entities.Orders.OrderDAOService;
 import javafx.animation.AnimationTimer;
 import javafx.beans.property.ReadOnlyObjectWrapper;
-import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -59,9 +57,13 @@ public class CustomerNewOrder {
 	private static final List<BigDecimal> pricesList = CoffeeDAOService.getPrices();
 	private static final List<Integer> sizeList = CoffeeDAOService.getSizes();
 	@FXML
-	private TableColumn<DisplayItems, String> brandColumn, roastColumn, priceColumn, sizeColumn;
+	private TableColumn<Coffee, String> brandColumn, roastColumn;
 	@FXML
-	private TableColumn<DisplayItems, DisplayItems> deleteColumn;
+	private TableColumn<Coffee, BigDecimal> priceColumn;
+	@FXML
+	private TableColumn<Coffee, Integer> sizeColumn;
+	@FXML
+	private TableColumn<Coffee, Coffee> deleteColumn;
 	@FXML
 	private TableColumn<Coffee, String> brandColumnFilterTable, roastColumnFilterTable, priceColumnFilterTable,
 										sizeColumnFilterTable;
@@ -86,24 +88,24 @@ public class CustomerNewOrder {
 
 
 	private void initOrderTable() {
-		brandColumn.setCellValueFactory(cell -> new ReadOnlyStringWrapper(cell.getValue().getCoffee().getBrand()));
-        roastColumn.setCellValueFactory(cell -> new ReadOnlyStringWrapper(cell.getValue().getCoffee().getRoast()));
-        priceColumn.setCellValueFactory(cell -> new ReadOnlyStringWrapper(String.valueOf(cell.getValue().getCoffee().getPrice())));
-        sizeColumn.setCellValueFactory(cell -> new ReadOnlyStringWrapper(String.valueOf(cell.getValue().getCoffee().getCoffeeSize())));
+		brandColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("brand"));
+        roastColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("roast"));
+		priceColumn.setCellValueFactory(new PropertyValueFactory<Coffee, BigDecimal>("price"));
+        sizeColumn.setCellValueFactory(new PropertyValueFactory<Coffee, Integer>("coffeeSize"));	
 		deleteColumn.setCellValueFactory(column -> new ReadOnlyObjectWrapper<>(column.getValue()));
 		deleteColumn.setStyle("-fx-alignment: CENTER;");
-		deleteColumn.setCellFactory(column -> new TableCell<DisplayItems, DisplayItems>() {
+		deleteColumn.setCellFactory(column -> new TableCell<Coffee, Coffee>() {
 			private final Button deleteButton = new Button("X");
 			@Override
-			protected void updateItem(DisplayItems displayItem, boolean empty) {
-				super.updateItem(displayItem, empty);
-				if (displayItem == null) {
+			protected void updateItem(Coffee coffee, boolean empty) {
+				super.updateItem(coffee, empty);
+				if (coffee == null) {
 					setGraphic(null);
 					return;
 				}
 				setGraphic(deleteButton);
 				deleteButton.setOnAction(
-					event -> getTableView().getItems().remove(displayItem)
+					event -> getTableView().getItems().remove(coffee)
 				);
 			}
 		});
@@ -182,7 +184,6 @@ public class CustomerNewOrder {
 		loadOrderTable();
 		resetChoiceBox(brandBox);
 	}
-
 	@FXML
 	private void filterByRoast(){
 		clearFilterTable();
