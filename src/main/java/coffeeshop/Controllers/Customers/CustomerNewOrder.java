@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import coffeeshop.App;
 import coffeeshop.Models.Context;
+import coffeeshop.Models.DisplayItems;
 import coffeeshop.Entities.Coffee.Coffee;
 import coffeeshop.Entities.Coffee.CoffeeDAOService;
 import coffeeshop.Entities.Customers.Customer;
@@ -57,9 +58,9 @@ public class CustomerNewOrder {
 	private static final List<BigDecimal> pricesList = CoffeeDAOService.getPrices();
 	private static final List<Integer> sizeList = CoffeeDAOService.getSizes();
 	@FXML
-	private TableColumn<Coffee, String> brandColumn, roastColumn, priceColumn, sizeColumn;
+	private TableColumn<DisplayItems, String> brandColumn, roastColumn, priceColumn, sizeColumn, quantityColumn;
 	@FXML
-	private TableColumn<Coffee, Coffee> deleteColumn;
+	private TableColumn<DisplayItems, DisplayItems> deleteColumn;
 	@FXML
 	private TableColumn<Coffee, String> brandColumnFilterTable, roastColumnFilterTable, priceColumnFilterTable,
 										sizeColumnFilterTable;
