@@ -5,7 +5,6 @@ import java.time.LocalDate;
 import java.util.List;
 import coffeeshop.App;
 import coffeeshop.Entities.Orders.Order;
-import coffeeshop.Entities.Orders.OrderDAO;
 import coffeeshop.Entities.Orders.OrderDAOService;
 import coffeeshop.Entities.Coffee.CoffeeDAOService;
 import coffeeshop.Entities.Customers.Customer;
@@ -103,19 +102,23 @@ public class CustomerOrders {
 				}
 				setGraphic(deleteButton);
 				deleteButton.setOnAction(event -> {
+                    clearTable(ordersTable);
 					getTableView().getItems().remove(displayItem);
                     Integer quantityToEdit = getTableRow().getItem().getItem().getQuantity();  
                     Order orderToEdit = OrderDAOService.get(getTableRow().getItem().getItem().getOrderID());
                     orderToEdit.setTotalItems(orderToEdit.getTotalItems() - quantityToEdit);
                     OrderDAOService.editOrder(orderToEdit);
                     ItemDAOService.deleteItem(getTableRow().getItem().getItem());
+                    refreshOrdersTable(customer.getCustomerID());
                     }
 				);
 			}
 		});
         loadItemsTable();
     }
-    
+    private void refreshOrdersTable(int customerID){
+        ordersList.addAll(OrderDAOService.getAllOrdersForCustomer(customerID));
+    }
     private void getAllOrdersForCustomer(int customerID) {
         ordersList.addAll(OrderDAOService.getAllOrdersForCustomer(customerID));
     }
