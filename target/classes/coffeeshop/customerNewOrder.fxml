@@ -23,9 +23,8 @@
           <TableColumn fx:id="brandColumn" prefWidth="162.00000500679016" text="Brand" />
             <TableColumn fx:id="roastColumn" prefWidth="123.33332824707031" text="Roast" />
             <TableColumn fx:id="priceColumn" prefWidth="109.0" text="Price" />
-            <TableColumn fx:id="sizeColumn" prefWidth="58.33331298828125" text="Size" />
-            <TableColumn fx:id="quantityColumn" prefWidth="74.33340454101562" text="Quantity" />
-            <TableColumn fx:id="deleteColumn" prefWidth="76.0" text="Delete" />
+            <TableColumn fx:id="sizeColumn" prefWidth="103.66668701171875" text="Size" />
+            <TableColumn fx:id="deleteColumn" prefWidth="103.66665649414062" text="Delete" />
         </columns>
       </TableView>
       <Button alignment="CENTER" contentDisplay="CENTER" layoutX="499.0" layoutY="87.0" mnemonicParsing="false" onAction="#order" prefHeight="39.0" prefWidth="91.0" text="ORDER">
