@@ -27,8 +27,9 @@
             <TableColumn fx:id="brandColumn" prefWidth="75.0" text="Brand" />
             <TableColumn fx:id="roastColumn" prefWidth="75.0" text="Roast" />
             <TableColumn fx:id="priceColumn" prefWidth="75.0" text="Price" />
-            <TableColumn fx:id="sizeColumn" prefWidth="75.0" text="Size" />
-            <TableColumn fx:id="quantityColumn" prefWidth="75.0" text="Quantity" />
+            <TableColumn fx:id="sizeColumn" prefWidth="53.6666259765625" text="Size" />
+            <TableColumn fx:id="quantityColumn" prefWidth="73.33340454101562" text="Quantity" />
+            <TableColumn fx:id="deleteColumn" prefWidth="47.6666259765625" text="Delete" />
          </columns>
       </TableView>
    </children>

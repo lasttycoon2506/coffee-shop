@@ -17,6 +17,7 @@ import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
@@ -39,6 +40,8 @@ public class CustomerOrders {
     private TableView<DisplayItems> itemsTable;
     @FXML
 	private TableColumn<DisplayItems, String> brandColumn, roastColumn, priceColumn, sizeColumn, quantityColumn;
+    @FXML
+    private TableColumn<DisplayItems, DisplayItems> deleteColumn;
     private ObservableList<Item> itemsList = FXCollections.observableArrayList();
     private ObservableList<DisplayItems> displayItemsList = FXCollections.observableArrayList();
     private CoffeeDAOService coffeeDAOService = new CoffeeDAOService();
@@ -86,6 +89,23 @@ public class CustomerOrders {
         priceColumn.setCellValueFactory(cell -> new ReadOnlyStringWrapper(String.valueOf(cell.getValue().getCoffee().getPrice())));
         sizeColumn.setCellValueFactory(cell -> new ReadOnlyStringWrapper(String.valueOf(cell.getValue().getCoffee().getCoffeeSize())));
         quantityColumn.setCellValueFactory(cell -> new ReadOnlyStringWrapper(String.valueOf(cell.getValue().getItem().getQuantity())));
+        deleteColumn.setCellValueFactory(column -> new ReadOnlyObjectWrapper<>(column.getValue()));
+		deleteColumn.setStyle("-fx-alignment: CENTER;");
+        deleteColumn.setCellFactory(column -> new TableCell<DisplayItems, DisplayItems>() {
+			private final Button deleteButton = new Button("X");
+			@Override
+			protected void updateItem(DisplayItems displayItem, boolean empty) {
+				super.updateItem(displayItem, empty);
+				if (displayItem == null) {
+					setGraphic(null);
+					return;
+				}
+				setGraphic(deleteButton);
+				deleteButton.setOnAction(
+					event -> getTableView().getItems().remove(displayItem)
+				);
+			}
+		});
         loadItemsTable();
     }
     
