@@ -40,7 +40,6 @@ public class CustomerOrders {
     @FXML
 	private TableColumn<DisplayItems, String> brandColumn, roastColumn, priceColumn, sizeColumn, quantityColumn;
     private ObservableList<Item> itemsList = FXCollections.observableArrayList();
-    private ObservableList<Coffee> coffeeList = FXCollections.observableArrayList();
     private ObservableList<DisplayItems> displayItemsList = FXCollections.observableArrayList();
     private CoffeeDAOService coffeeDAOService = new CoffeeDAOService();
     @FXML
@@ -70,7 +69,6 @@ public class CustomerOrders {
                             itemsList.addAll(OrderDAOService.getAllItemsForOrder(orderItems.getOrderId()));
                             for (Item item : itemsList) {
                                 displayItemsList.add(new DisplayItems(coffeeDAOService.get(item.getCoffeeID()), item));
-                                // coffeeList.add(coffeeDAOService.get(item.getCoffeeID()));
                             }
                             loadItemsTable();
                         }
