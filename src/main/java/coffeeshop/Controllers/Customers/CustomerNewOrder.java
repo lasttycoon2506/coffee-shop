@@ -65,8 +65,11 @@ public class CustomerNewOrder {
 	@FXML
 	private TableColumn<Coffee, Coffee> deleteColumn;
 	@FXML
-	private TableColumn<Coffee, String> brandColumnFilterTable, roastColumnFilterTable, priceColumnFilterTable,
-										sizeColumnFilterTable;
+	private TableColumn<Coffee, String> brandColumnFilterTable, roastColumnFilterTable;
+	@FXML
+	private TableColumn<Coffee, BigDecimal> priceColumnFilterTable;
+	@FXML
+	private TableColumn<Coffee, Integer> sizeColumnFilterTable;
 	@FXML
 	private TableColumn<Coffee, Coffee> addColumnFilterTable;
 	private LocalDate currentDate;
@@ -115,8 +118,8 @@ public class CustomerNewOrder {
 	private void initFilterTable() {
 		brandColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("brand"));
         roastColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("roast"));
-		priceColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("price"));
-        sizeColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, String>("coffeeSize"));	
+		priceColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, BigDecimal>("price"));
+        sizeColumnFilterTable.setCellValueFactory(new PropertyValueFactory<Coffee, Integer>("coffeeSize"));	
 		addColumnFilterTable.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
 		addColumnFilterTable.setStyle("-fx-alignment: CENTER;");
 		addColumnFilterTable.setCellFactory(param -> new TableCell<Coffee, Coffee>() {
