@@ -7,10 +7,6 @@ import coffeeshop.Entities.Items.Item;
 public class OrderDAOService {
     private static OrderDAO orderDAO = new OrderDAO();
 
-    public static void saveOrder(Order order){
-        orderDAO.save(order);
-    }
-
     public static int getMostRecentOrder() {
         return OrderDAO.getMostRecentOrder();
     }
@@ -21,6 +17,14 @@ public class OrderDAOService {
 
     public static List<Item> getAllItemsForOrder(int orderID) {
         return OrderDAO.getAllItemsForOrder(orderID);
+    }
+
+    public static void saveOrder(Order order){
+        orderDAO.save(order);
+    }
+
+    public static void editOrder(Order order){
+        orderDAO.edit(order);
     }
 
 }

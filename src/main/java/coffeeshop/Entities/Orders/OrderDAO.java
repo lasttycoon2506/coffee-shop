@@ -46,9 +46,8 @@ public class OrderDAO implements DAO<Order>{
         executeInsideTransaction(entityManager -> entityManager.persist(order));
     }
     
-    public void edit (Order t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'edit'");
+    public void edit(Order order) {
+        executeInsideTransaction(entityManager -> entityManager.merge(order));
     }
     
     public void delete(Order o) {
