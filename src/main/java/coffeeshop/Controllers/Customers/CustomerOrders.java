@@ -99,6 +99,7 @@ public class CustomerOrders {
                         Order orderToDelete = OrderDAOService.getOrder(getTableRow().getItem().getOrderId());
                         orderToDelete.removeItems(itemsToDelete);
                         OrderDAOService.deleteOrder(OrderDAOService.getOrder(getTableRow().getItem().getOrderId()));
+                        clearTable(itemsTable);
                     });
 			}
 		});
