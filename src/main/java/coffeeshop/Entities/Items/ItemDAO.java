@@ -35,7 +35,6 @@ public class ItemDAO implements DAO<Item>{
     public void delete(Item item) {
         executeInsideTransaction(entityManager -> {
             entityManager.remove(entityManager.contains(item) ? item : entityManager.merge(item));  
-            entityManager.flush();
         });
     }
 

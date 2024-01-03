@@ -13,10 +13,14 @@ import jakarta.persistence.Persistence;
 
 public class OrderDAO implements DAO<Order>{
     private static final EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa-hibernate-mysql");
-    private static final EntityManager entityManager = factory.createEntityManager();
+
+    public static EntityManager getEntityManager() {
+        return factory.createEntityManager();
+    }
     
     public Optional<Order> get(Integer orderId) {
-        return Optional.ofNullable(entityManager.find(Order.class, orderId));
+        EntityManager em = getEntityManager();
+        return Optional.ofNullable(em.find(Order.class, orderId));
     }
     
     public List<Order> getAll() {
@@ -25,18 +29,21 @@ public class OrderDAO implements DAO<Order>{
     }
 
     public static int getMostRecentOrder() {
-        Integer orderID = entityManager.createQuery("SELECT MAX(orderId) FROM Order",
+        EntityManager em = getEntityManager();
+        Integer orderID = em.createQuery("SELECT MAX(orderId) FROM Order",
                             Integer.class).getSingleResult();
         return orderID;
     }
 
     public static List<Order> getAllOrdersForCustomer (Integer customerID) {
-        List<Order> customersOrders = entityManager.createQuery("SELECT customersOrders FROM Order customersOrders WHERE customerId = :customerID", 
+        EntityManager em = getEntityManager();
+        List<Order> customersOrders = em.createQuery("SELECT customersOrders FROM Order customersOrders WHERE customerId = :customerID", 
                                                     Order.class).setParameter("customerID", customerID).getResultList();
         return customersOrders;                                            
     }
     public static List<Item> getAllItemsForOrder (Integer orderID) {
-        List<Item> items = entityManager.createQuery("SELECT items FROM Item items WHERE orderId = :orderID", 
+        EntityManager em = getEntityManager();
+        List<Item> items = em.createQuery("SELECT items FROM Item items WHERE orderId = :orderID", 
                                                     Item.class).setParameter("orderID", orderID).getResultList();
         return items;                                            
     }
@@ -52,15 +59,15 @@ public class OrderDAO implements DAO<Order>{
     public void delete(Order order) {
         executeInsideTransaction(entityManager -> {
             entityManager.remove(entityManager.contains(order) ? order : entityManager.merge(order));
-            entityManager.flush();
         });
     }
 
     private static void executeInsideTransaction(Consumer<EntityManager> action) {
-        EntityTransaction transaction = entityManager.getTransaction();
+        EntityManager em = getEntityManager();
+        EntityTransaction transaction = em.getTransaction();
         try {
             transaction.begin();
-            action.accept(entityManager);
+            action.accept(em);
             transaction.commit(); 
         }
         catch (RuntimeException e) {
