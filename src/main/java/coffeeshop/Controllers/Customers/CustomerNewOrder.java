@@ -176,6 +176,7 @@ public class CustomerNewOrder {
 			for (Item newItem : newItemsList) {
 				ItemDAOService.saveItem(newItem);
 			}
+			newOrder.setItemsList(newItemsList);
 		}
 	}
 	
