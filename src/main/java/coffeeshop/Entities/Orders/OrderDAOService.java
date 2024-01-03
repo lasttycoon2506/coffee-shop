@@ -37,7 +37,7 @@ public class OrderDAOService {
     }
 
     public static void deleteOrder(Order order){
-        orderDAO.edit(order);
+        orderDAO.delete(order);
     }
 
 }

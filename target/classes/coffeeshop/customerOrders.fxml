@@ -32,5 +32,6 @@
             <TableColumn fx:id="deleteColumn" prefWidth="47.6666259765625" text="Delete" />
          </columns>
       </TableView>
+      <Button layoutX="248.0" layoutY="70.0" mnemonicParsing="false" onAction="#tester" text="Button" />
    </children>
 </AnchorPane>
