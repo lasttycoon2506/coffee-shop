@@ -15,13 +15,16 @@ import jakarta.persistence.Persistence;
 
 public class CustomerDAO implements DAO<Customer> {
     private static final EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa-hibernate-mysql");
-    private static final EntityManager entityManager = factory.createEntityManager();
+    // private static final EntityManager entityManager = factory.createEntityManager();
     
+    public static EntityManager getEntityManager() {
+        return factory.createEntityManager();
+    }
     @Override
     public Optional<Customer> get(Integer customerId) {
-        return Optional.ofNullable(entityManager.find(Customer.class, customerId));
+        EntityManager em = getEntityManager();
+        return Optional.ofNullable(em.find(Customer.class, customerId));
     }
-
     public List<Customer> getAll(){
         return null;
     }
@@ -63,7 +66,8 @@ public class CustomerDAO implements DAO<Customer> {
     }
 
     public static boolean login(String user, String pw) throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
-        Customer customer = entityManager.createQuery("SELECT pwHash FROM Customer pwHash WHERE userName = :userName",
+        EntityManager em = getEntityManager();
+        Customer customer = em.createQuery("SELECT pwHash FROM Customer pwHash WHERE userName = :userName",
                             Customer.class).setParameter("userName", user).getSingleResult();
         BCrypt.Result result = BCrypt.verifyer().verify(pw.toCharArray(), customer.getPassword().trim());
         if (result.verified) {
@@ -90,10 +94,11 @@ public class CustomerDAO implements DAO<Customer> {
     }
 
     private static void executeInsideTransaction(Consumer<EntityManager> action) {
-        EntityTransaction transaction = entityManager.getTransaction();
+        EntityManager em = getEntityManager();
+        EntityTransaction transaction = em.getTransaction();
         try {
             transaction.begin();
-            action.accept(entityManager);
+            action.accept(em);
             transaction.commit(); 
         }
         catch (RuntimeException e) {

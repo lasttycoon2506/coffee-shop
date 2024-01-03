@@ -16,12 +16,10 @@ public class ItemDAO implements DAO<Item>{
     public static EntityManager getEntityManager() {
         return factory.createEntityManager();
     }
-
     public Optional<Item> get(Integer itemId) {
         EntityManager em = getEntityManager();
         return Optional.ofNullable(em.find(Item.class, itemId));
     }
-
     public List<Item> getAll() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getAll'");
