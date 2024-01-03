@@ -1,6 +1,10 @@
 package coffeeshop.Entities.Orders;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+import coffeeshop.Entities.Items.Item;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -16,7 +20,6 @@ import jakarta.persistence.Table;
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @Column(name = "order_id")
     private int orderId;
     @Column(name = "order_date")
@@ -25,6 +28,8 @@ public class Order {
     private int totalItems;
     @Column(name = "customer_id")
     private int customerId;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval=true)
+    private List<Item> itemsList = new ArrayList<>();
 
     public Order(){
     }
@@ -56,5 +61,9 @@ public class Order {
     }
     public void setCustomerID(int customerID) {
         this.customerId = customerID;
+    }
+
+    public void removeItem(Item item) {
+        itemsList.remove(item);
     }
 }

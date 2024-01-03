@@ -93,9 +93,10 @@ public class CustomerOrders {
 					return;
 				}
 				setGraphic(deleteButton);
-				deleteButton.setOnAction(
-					event -> getTableView().getItems().remove(order)
-				);
+				deleteButton.setOnAction(event -> {
+	                                             getTableView().getItems().remove(order);
+                                                OrderDAOService.deleteOrder(OrderDAOService.get(getTableRow().getItem().getOrderId()));
+                                                });
 			}
 		});
         getAllOrdersForCustomer(customer.getCustomerID());
