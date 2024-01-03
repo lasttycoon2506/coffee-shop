@@ -12,10 +12,14 @@ import jakarta.persistence.Persistence;
 
 public class ItemDAO implements DAO<Item>{
     private static final EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa-hibernate-mysql");
-    private static final EntityManager entityManager = factory.createEntityManager();
+
+    public static EntityManager getEntityManager() {
+        return factory.createEntityManager();
+    }
 
     public Optional<Item> get(Integer itemId) {
-        return Optional.ofNullable(entityManager.find(Item.class, itemId));
+        EntityManager em = getEntityManager();
+        return Optional.ofNullable(em.find(Item.class, itemId));
     }
 
     public List<Item> getAll() {
@@ -39,10 +43,11 @@ public class ItemDAO implements DAO<Item>{
     }
 
     private static void executeInsideTransaction(Consumer<EntityManager> action) {
-        EntityTransaction transaction = entityManager.getTransaction();
+        EntityManager em = getEntityManager();
+        EntityTransaction transaction = em.getTransaction();
         try {
             transaction.begin();
-            action.accept(entityManager);
+            action.accept(em);
             transaction.commit(); 
         }
         catch (RuntimeException e) {
