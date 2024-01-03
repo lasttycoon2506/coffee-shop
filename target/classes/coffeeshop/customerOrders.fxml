@@ -16,20 +16,21 @@
       </Label>
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToCustomerPg" prefHeight="39.0" prefWidth="80.0" text="BACK" />
       <Button layoutX="506.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchToHomePg" prefHeight="39.0" prefWidth="80.0" text="HOME" />
-      <TableView fx:id="ordersTable" layoutY="137.0" prefHeight="263.0" prefWidth="200.0">
+      <TableView fx:id="ordersTable" layoutY="137.0" prefHeight="263.0" prefWidth="202.0">
         <columns>
-          <TableColumn fx:id="orderDateColumn" prefWidth="96.66668450832367" text="Order Date" />
-          <TableColumn fx:id="totalItemsColumn" prefWidth="102.33329010009766" text="Total Item(s)" />
+          <TableColumn fx:id="orderDateColumn" prefWidth="76.66665399074554" text="Order Date" />
+          <TableColumn fx:id="totalItemsColumn" prefWidth="77.66669464111328" text="Total Item(s)" />
+            <TableColumn fx:id="deleteColumnOrders" prefWidth="47.33331298828125" text="Delete" />
         </columns>
       </TableView>
-      <TableView fx:id="itemsTable" layoutX="200.0" layoutY="137.0" prefHeight="263.0" prefWidth="401.0">
+      <TableView fx:id="itemsTable" layoutX="201.0" layoutY="137.0" prefHeight="263.0" prefWidth="400.0">
          <columns>
             <TableColumn fx:id="brandColumn" prefWidth="75.0" text="Brand" />
             <TableColumn fx:id="roastColumn" prefWidth="75.0" text="Roast" />
             <TableColumn fx:id="priceColumn" prefWidth="75.0" text="Price" />
             <TableColumn fx:id="sizeColumn" prefWidth="53.6666259765625" text="Size" />
             <TableColumn fx:id="quantityColumn" prefWidth="73.33340454101562" text="Quantity" />
-            <TableColumn fx:id="deleteColumn" prefWidth="47.6666259765625" text="Delete" />
+            <TableColumn fx:id="deleteColumnItems" prefWidth="47.6666259765625" text="Delete" />
          </columns>
       </TableView>
    </children>

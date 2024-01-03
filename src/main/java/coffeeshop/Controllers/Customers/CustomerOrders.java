@@ -41,7 +41,7 @@ public class CustomerOrders {
     @FXML
 	private TableColumn<DisplayItems, String> brandColumn, roastColumn, priceColumn, sizeColumn, quantityColumn;
     @FXML
-    private TableColumn<DisplayItems, DisplayItems> deleteColumn;
+    private TableColumn<DisplayItems, DisplayItems> deleteColumnItems;
     private ObservableList<Item> itemsList = FXCollections.observableArrayList();
     private ObservableList<DisplayItems> displayItemsList = FXCollections.observableArrayList();
     private CoffeeDAOService coffeeDAOService = new CoffeeDAOService();
@@ -89,9 +89,12 @@ public class CustomerOrders {
         priceColumn.setCellValueFactory(cell -> new ReadOnlyStringWrapper(String.valueOf(cell.getValue().getCoffee().getPrice())));
         sizeColumn.setCellValueFactory(cell -> new ReadOnlyStringWrapper(String.valueOf(cell.getValue().getCoffee().getCoffeeSize())));
         quantityColumn.setCellValueFactory(cell -> new ReadOnlyStringWrapper(String.valueOf(cell.getValue().getItem().getQuantity())));
-        deleteColumn.setCellValueFactory(column -> new ReadOnlyObjectWrapper<>(column.getValue()));
-		deleteColumn.setStyle("-fx-alignment: CENTER;");
-        deleteColumn.setCellFactory(column -> new TableCell<DisplayItems, DisplayItems>() {
+        deleteColumnItems
+.setCellValueFactory(column -> new ReadOnlyObjectWrapper<>(column.getValue()));
+		deleteColumnItems
+.setStyle("-fx-alignment: CENTER;");
+        deleteColumnItems
+.setCellFactory(column -> new TableCell<DisplayItems, DisplayItems>() {
 			private final Button deleteButton = new Button("X");
 			@Override
 			protected void updateItem(DisplayItems displayItem, boolean empty) {
