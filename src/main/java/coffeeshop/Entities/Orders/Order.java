@@ -32,11 +32,12 @@ public class Order {
 
     public Order(){
     }
-    public Order (int orderId, LocalDate orderDate, int totalItems, int customerID) {
+    public Order (int orderId, LocalDate orderDate, int totalItems, int customerID, List<Item> itemsList) {
         this.orderId = orderId;
         this.orderDate = orderDate;
         this.totalItems = totalItems;
         this.customerId = customerID;
+        this.itemsList = itemsList;
     }
     
     public int getOrderId() {
@@ -60,6 +61,9 @@ public class Order {
     }
     public void setCustomerID(int customerID) {
         this.customerId = customerID;
+    }
+    public void setItemsList(List<Item> itemsList){
+        this.itemsList = itemsList;
     }
 
     public void removeItems(List<Item> itemList) {
