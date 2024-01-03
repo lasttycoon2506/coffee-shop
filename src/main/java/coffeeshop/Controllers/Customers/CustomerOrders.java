@@ -6,6 +6,7 @@ import java.util.List;
 import coffeeshop.App;
 import coffeeshop.Entities.Orders.Order;
 import coffeeshop.Entities.Orders.OrderDAOService;
+import coffeeshop.Entities.Coffee.Coffee;
 import coffeeshop.Entities.Coffee.CoffeeDAOService;
 import coffeeshop.Entities.Customers.Customer;
 import coffeeshop.Entities.Items.Item;
@@ -34,7 +35,7 @@ public class CustomerOrders {
     @FXML
 	private TableColumn<Order, LocalDate> orderDateColumn;
     @FXML
-	private TableColumn<Order, Order> totalItemsColumn; 
+	private TableColumn<Order, Order> totalItemsColumn, deleteColumnOrders; 
     private ObservableList<Order> ordersList = FXCollections.observableArrayList();
     @FXML
     private TableView<DisplayItems> itemsTable;
@@ -55,6 +56,7 @@ public class CustomerOrders {
     private void initOrdersTable() {
         orderDateColumn.setCellValueFactory(new PropertyValueFactory<Order, LocalDate>("orderDate"));
         totalItemsColumn.setCellValueFactory(column -> new ReadOnlyObjectWrapper<>(column.getValue()));
+        totalItemsColumn.setStyle("-fx-alignment: CENTER;");
         totalItemsColumn.setCellFactory(param -> new TableCell<Order, Order>() {
             @Override 
             protected void updateItem(Order order, boolean empty) {
@@ -79,9 +81,27 @@ public class CustomerOrders {
                 }
                 }
             }); 
+        deleteColumnOrders.setCellValueFactory(column -> new ReadOnlyObjectWrapper<>(column.getValue()));
+		deleteColumnOrders.setStyle("-fx-alignment: CENTER;");
+        deleteColumnOrders.setCellFactory(column -> new TableCell<Order, Order>() {
+			private final Button deleteButton = new Button("X");
+			@Override
+			protected void updateItem(Order order, boolean empty) {
+				super.updateItem(order, empty);
+				if (order == null) {
+					setGraphic(null);
+					return;
+				}
+				setGraphic(deleteButton);
+				deleteButton.setOnAction(
+					event -> getTableView().getItems().remove(order)
+				);
+			}
+		});
         getAllOrdersForCustomer(customer.getCustomerID());
         loadOrdersTable();
     }
+
 
     private void initItemsTable() {
         brandColumn.setCellValueFactory(cell -> new ReadOnlyStringWrapper(cell.getValue().getCoffee().getBrand()));
@@ -89,12 +109,9 @@ public class CustomerOrders {
         priceColumn.setCellValueFactory(cell -> new ReadOnlyStringWrapper(String.valueOf(cell.getValue().getCoffee().getPrice())));
         sizeColumn.setCellValueFactory(cell -> new ReadOnlyStringWrapper(String.valueOf(cell.getValue().getCoffee().getCoffeeSize())));
         quantityColumn.setCellValueFactory(cell -> new ReadOnlyStringWrapper(String.valueOf(cell.getValue().getItem().getQuantity())));
-        deleteColumnItems
-.setCellValueFactory(column -> new ReadOnlyObjectWrapper<>(column.getValue()));
-		deleteColumnItems
-.setStyle("-fx-alignment: CENTER;");
-        deleteColumnItems
-.setCellFactory(column -> new TableCell<DisplayItems, DisplayItems>() {
+        deleteColumnItems.setCellValueFactory(column -> new ReadOnlyObjectWrapper<>(column.getValue()));
+		deleteColumnItems.setStyle("-fx-alignment: CENTER;");
+        deleteColumnItems.setCellFactory(column -> new TableCell<DisplayItems, DisplayItems>() {
 			private final Button deleteButton = new Button("X");
 			@Override
 			protected void updateItem(DisplayItems displayItem, boolean empty) {
