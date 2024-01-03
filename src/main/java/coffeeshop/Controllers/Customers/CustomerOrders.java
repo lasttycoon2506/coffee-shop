@@ -163,7 +163,7 @@ public class CustomerOrders {
         }
     }
     private void loadItemsTable() {
-        if (isTableEmpty(itemsTable, displayItemsList, "NO ITEMS!")){
+        if (isTableEmpty(itemsTable, displayItemsList, "CLICK ON AN ORDER TO SHOW ITEMS!")){
         }
         else {
             itemsTable.setItems(displayItemsList);
