@@ -25,10 +25,11 @@ public class Item {
 
     public Item() {
     }
-    public Item(int coffeeId, int quantity, int orderId) {
+    public Item(int coffeeId, int quantity, int orderId, Order order) {
         this.coffeeId = coffeeId;
         this.quantity = quantity;
         this.orderId = orderId;
+        this.order = order;
     }
 
     public Integer getItemID() {
@@ -52,5 +53,8 @@ public class Item {
     }
     public void setOrderID(int orderId) {
         this.orderId = orderId;
+    }
+    public void setOrder(Order order){
+        this.order = order;
     }
 }
