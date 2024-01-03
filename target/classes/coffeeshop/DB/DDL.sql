@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS Items
    CONSTRAINT FK_Items_Coffee_Id
    FOREIGN KEY (coffee_id) REFERENCES Coffee(coffee_id),
    CONSTRAINT FK_Orders_Order_Id
-   FOREIGN KEY (order_id) REFERENCES Orders(order_id)
+   FOREIGN KEY (order_id) REFERENCES Orders(order_id) ON DELETE CASCADE
 );
 
 
