@@ -94,8 +94,10 @@ public class CustomerOrders {
 				}
 				setGraphic(deleteButton);
 				deleteButton.setOnAction(event -> {
-	                                             getTableView().getItems().remove(order);
-                                                OrderDAOService.deleteOrder(OrderDAOService.get(getTableRow().getItem().getOrderId()));
+	                                            getTableView().getItems().remove(order);
+                                                List<Item> itemsToDelete = OrderDAOService.getAllItemsForOrder(getTableRow().getItem().getOrderId());
+                                                OrderDAOService.getOrder(getTableRow().getItem().getOrderId()).removeItems(itemsToDelete);
+                                                OrderDAOService.deleteOrder(OrderDAOService.getOrder(getTableRow().getItem().getOrderId()));
                                                 });
 			}
 		});
@@ -126,7 +128,7 @@ public class CustomerOrders {
                     clearTable(ordersTable);
 					getTableView().getItems().remove(displayItem);
                     Integer quantityToEdit = getTableRow().getItem().getItem().getQuantity();  
-                    Order orderToEdit = OrderDAOService.get(getTableRow().getItem().getItem().getOrderID());
+                    Order orderToEdit = OrderDAOService.getOrder(getTableRow().getItem().getItem().getOrderID());
                     orderToEdit.setTotalItems(orderToEdit.getTotalItems() - quantityToEdit);
                     if (orderToEdit.getTotalItems() == 0){
                         ItemDAOService.deleteItem(getTableRow().getItem().getItem());

@@ -3,7 +3,6 @@ package coffeeshop.Entities.Orders;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
 import coffeeshop.Entities.Items.Item;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -63,7 +62,9 @@ public class Order {
         this.customerId = customerID;
     }
 
-    public void removeItem(Item item) {
-        itemsList.remove(item);
+    public void removeItems(List<Item> itemList) {
+        for (Item item : itemList) {
+            itemsList.remove(item);
+        }
     }
 }
