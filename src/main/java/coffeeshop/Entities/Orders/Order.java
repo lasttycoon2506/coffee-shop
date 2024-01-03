@@ -27,7 +27,7 @@ public class Order {
     private int totalItems;
     @Column(name = "customer_id")
     private int customerId;
-    @OneToMany(cascade = CascadeType.REMOVE, orphanRemoval=true, mappedBy = "order")
+    @OneToMany(cascade = CascadeType.PERSIST, orphanRemoval=true, mappedBy="order")
     private List<Item> itemsList = new ArrayList<>();
 
     public Order(){

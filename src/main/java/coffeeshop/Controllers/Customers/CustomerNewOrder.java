@@ -172,7 +172,7 @@ public class CustomerNewOrder {
 			}
 			//loops through coffeehash adding item object for each quantity of coffeeID
 			coffeeQuantityHash.forEach((coffeeID, quantity) -> newItemsList.add(new Item(coffeeID, quantity, 
-																						OrderDAOService.getMostRecentOrder())));
+																						OrderDAOService.getMostRecentOrder(), newOrder)));
 			for (Item newItem : newItemsList) {
 				ItemDAOService.saveItem(newItem);
 			}
