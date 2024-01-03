@@ -51,7 +51,7 @@ public class OrderDAO implements DAO<Order>{
     
     public void delete(Order order) {
         executeInsideTransaction(entityManager ->{
-            entityManager.remove(order);
+            entityManager.remove(entityManager.contains(order) ? order : entityManager.merge(order));
             entityManager.flush();
             entityManager.clear();
         });

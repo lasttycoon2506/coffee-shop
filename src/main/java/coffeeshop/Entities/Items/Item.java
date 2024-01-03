@@ -1,5 +1,6 @@
 package coffeeshop.Entities.Items;
 
+import coffeeshop.Entities.Orders.Order;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,6 +21,7 @@ public class Item {
     private int quantity;
     @Column(name = "order_id")
     private int orderId;
+    private Order order;
 
     public Item() {
     }
