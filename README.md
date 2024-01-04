@@ -44,7 +44,22 @@ ex: ![Screenshot 2023-11-17 151718](https://github.com/lasttycoon2506/artdealer/
 ### Edit Customer
 1) Login
 2) Your Profile button
-3) Edit info and click Edit 
+3) Edit info and click Edit
+
+### Create Order
+1) Login
+2) New Order button
+3) Choose coffee through dropdown selects/filters
+4) Order button
+
+### Delete Order(s)
+1) Login
+2) Orders button
+3) Click on individual Order to delete OR delete by individual Item(s)
+
+
+
+   
 
 
 
