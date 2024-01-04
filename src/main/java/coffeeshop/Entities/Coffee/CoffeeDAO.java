@@ -13,10 +13,13 @@ import jakarta.persistence.Persistence;
 
 public class CoffeeDAO implements DAO<Coffee>{
     private static final EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa-hibernate-mysql");
-    private static final EntityManager entityManager = factory.createEntityManager();
 
+    public static EntityManager getEntityManager() {
+        return factory.createEntityManager();
+    }
     public Optional<Coffee> get(Integer coffeeId) {
-        return Optional.ofNullable(entityManager.find(Coffee.class, coffeeId));
+        EntityManager em = getEntityManager();
+        return Optional.ofNullable(em.find(Coffee.class, coffeeId));
     }
 
     public void save(Coffee coffee) {
@@ -24,7 +27,8 @@ public class CoffeeDAO implements DAO<Coffee>{
     }
     
     public static boolean coffeeListExistsDB() {
-        List<Coffee> coffeeList = entityManager.createQuery("SELECT c FROM Coffee c", Coffee.class).getResultList();
+        EntityManager em = getEntityManager();
+        List<Coffee> coffeeList = em.createQuery("SELECT c FROM Coffee c", Coffee.class).getResultList();
         if (coffeeList.isEmpty()) {
             return false;
         }
@@ -32,48 +36,56 @@ public class CoffeeDAO implements DAO<Coffee>{
     }
 
     public static List<String> getBrands(){
-        List<String> brandsList =  entityManager.createQuery("SELECT brands.brand FROM Coffee brands ORDER BY brands.brand", 
+        EntityManager em = getEntityManager();
+        List<String> brandsList =  em.createQuery("SELECT brands.brand FROM Coffee brands ORDER BY brands.brand", 
                                                             String.class).getResultList();
         return brandsList;
     }
     public static List<BigDecimal> getPrices(){
-        List<BigDecimal> pricesList =  entityManager.createQuery("SELECT DISTINCT prices.price FROM Coffee prices ORDER BY prices.price", 
+        EntityManager em = getEntityManager();
+        List<BigDecimal> pricesList =  em.createQuery("SELECT DISTINCT prices.price FROM Coffee prices ORDER BY prices.price", 
                                                             BigDecimal.class).getResultList();
         return pricesList;
     }
     public static List<Integer> getSizes(){
-        List<Integer> sizesList =  entityManager.createQuery("SELECT DISTINCT sizes.coffeeSize FROM Coffee sizes ORDER BY sizes.coffeeSize", 
+        EntityManager em = getEntityManager();
+        List<Integer> sizesList =  em.createQuery("SELECT DISTINCT sizes.coffeeSize FROM Coffee sizes ORDER BY sizes.coffeeSize", 
                                                             Integer.class).getResultList();
         return sizesList;
     }
 
     public static Coffee searchByBrand(String brand){
-        Coffee coffeeItem = entityManager.createQuery("SELECT coffeeItem FROM Coffee coffeeItem WHERE brand = :brand",
+        EntityManager em = getEntityManager();
+        Coffee coffeeItem = em.createQuery("SELECT coffeeItem FROM Coffee coffeeItem WHERE brand = :brand",
                             Coffee.class).setParameter("brand", brand).getSingleResult();
         return coffeeItem;
     }
 
     public static List<Coffee> filterByRoast(String roast){
-        List<Coffee> filteredRoastList = entityManager.createQuery("SELECT roast FROM Coffee roast WHERE roast.roast = :roastType",
+        EntityManager em = getEntityManager();
+        List<Coffee> filteredRoastList = em.createQuery("SELECT roast FROM Coffee roast WHERE roast.roast = :roastType",
                             Coffee.class).setParameter("roastType", roast).getResultList();
         return filteredRoastList;
     }
     public static List<Coffee> filterByPrice(BigDecimal price){
-        List<Coffee> filteredPriceList = entityManager.createQuery("SELECT coffeeItem FROM Coffee coffeeItem WHERE price = :price",
+        EntityManager em = getEntityManager();
+        List<Coffee> filteredPriceList = em.createQuery("SELECT coffeeItem FROM Coffee coffeeItem WHERE price = :price",
                             Coffee.class).setParameter("price", price).getResultList();
         return filteredPriceList;
     }
     public static List<Coffee> filterBySize(Integer size){
-        List<Coffee> filteredSizeList = entityManager.createQuery("SELECT size FROM Coffee size WHERE size.coffeeSize = :size",
+        EntityManager em = getEntityManager();
+        List<Coffee> filteredSizeList = em.createQuery("SELECT size FROM Coffee size WHERE size.coffeeSize = :size",
                             Coffee.class).setParameter("size", size).getResultList();
         return filteredSizeList;
     }
 
     private static void executeInsideTransaction(Consumer<EntityManager> action) {
-        EntityTransaction transaction = entityManager.getTransaction();
+        EntityManager em = getEntityManager();
+        EntityTransaction transaction = em.getTransaction();
         try {
             transaction.begin();
-            action.accept(entityManager);
+            action.accept(em);
             transaction.commit(); 
         }
         catch (RuntimeException e) {

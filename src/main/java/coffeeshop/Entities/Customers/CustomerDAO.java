@@ -15,7 +15,6 @@ import jakarta.persistence.Persistence;
 
 public class CustomerDAO implements DAO<Customer> {
     private static final EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa-hibernate-mysql");
-    // private static final EntityManager entityManager = factory.createEntityManager();
     
     public static EntityManager getEntityManager() {
         return factory.createEntityManager();
