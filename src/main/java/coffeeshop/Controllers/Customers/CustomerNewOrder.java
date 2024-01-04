@@ -57,21 +57,13 @@ public class CustomerNewOrder {
 	private static final List<BigDecimal> pricesList = CoffeeDAOService.getPrices();
 	private static final List<Integer> sizeList = CoffeeDAOService.getSizes();
 	@FXML
-	private TableColumn<Coffee, String> brandColumn, roastColumn;
+	private TableColumn<Coffee, String> brandColumn, roastColumn, brandColumnFilterTable, roastColumnFilterTable;
 	@FXML
-	private TableColumn<Coffee, BigDecimal> priceColumn;
+	private TableColumn<Coffee, BigDecimal> priceColumn, priceColumnFilterTable;
 	@FXML
-	private TableColumn<Coffee, Integer> sizeColumn;
+	private TableColumn<Coffee, Integer> sizeColumn, sizeColumnFilterTable;
 	@FXML
-	private TableColumn<Coffee, Coffee> deleteColumn;
-	@FXML
-	private TableColumn<Coffee, String> brandColumnFilterTable, roastColumnFilterTable;
-	@FXML
-	private TableColumn<Coffee, BigDecimal> priceColumnFilterTable;
-	@FXML
-	private TableColumn<Coffee, Integer> sizeColumnFilterTable;
-	@FXML
-	private TableColumn<Coffee, Coffee> addColumnFilterTable;
+	private TableColumn<Coffee, Coffee> deleteColumn, addColumnFilterTable;
 	private LocalDate currentDate;
 	AnimationTimer timer = new AnimationTimer() {
 		@Override

@@ -17,6 +17,7 @@ public class CustomerLogin {
     @FXML
 	private TextField userLogin, pwLogin;
     
+    //user & pw no space allowed
     UnaryOperator<TextFormatter.Change> spaceFilter = change -> {
         if (change.getText().equals(" ")) {
             change.setText("");
