@@ -36,7 +36,7 @@ import javafx.scene.control.TableColumn;
 
 
 public class CustomerNewOrder {
-	private Customer customer = Context.getInstance().getCustomer();
+	private Customer customer = Context.getInstance().getCustomer(); 				//gets currently logged-in customer
 	private Order newOrder = new Order();
 	private HashMap<Integer, Integer> coffeeQuantityHash = new HashMap<>();
 	private List<Item> newItemsList = new ArrayList<Item>();
@@ -84,6 +84,7 @@ public class CustomerNewOrder {
 
 
 	private void initOrderTable() {
+		//getters for each class' property
 		brandColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("brand"));
         roastColumn.setCellValueFactory(new PropertyValueFactory<Coffee, String>("roast"));
 		priceColumn.setCellValueFactory(new PropertyValueFactory<Coffee, BigDecimal>("price"));

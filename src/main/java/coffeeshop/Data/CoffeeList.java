@@ -8,6 +8,7 @@ import coffeeshop.Entities.Coffee.Coffee;
 public class CoffeeList {
     private static ArrayList<Coffee> coffeeList = new ArrayList<Coffee>();
 
+    //types of coffee to be laoded into DB initially for placing orders
     private static ArrayList<Coffee> genCoffeeList() {
         coffeeList.add(new Coffee("Kona", "Medium", castBigDecimal("11.99"), 14));
         coffeeList.add(new Coffee("Local", "Dark", castBigDecimal("12.99"), 16));

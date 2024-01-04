@@ -6,7 +6,6 @@ import java.util.List;
 import coffeeshop.App;
 import coffeeshop.Entities.Orders.Order;
 import coffeeshop.Entities.Orders.OrderDAOService;
-import coffeeshop.Entities.Coffee.Coffee;
 import coffeeshop.Entities.Coffee.CoffeeDAOService;
 import coffeeshop.Entities.Customers.Customer;
 import coffeeshop.Entities.Items.Item;
@@ -97,6 +96,7 @@ public class CustomerOrders {
 	                    getTableView().getItems().remove(order);
                         List<Item> itemsToDelete = OrderDAOService.getAllItemsForOrder(getTableRow().getItem().getOrderId());
                         Order orderToDelete = OrderDAOService.getOrder(getTableRow().getItem().getOrderId());
+                        //removes itemstodelete obj from order for JPA cascading 
                         orderToDelete.removeItems(itemsToDelete);
                         OrderDAOService.deleteOrder(OrderDAOService.getOrder(getTableRow().getItem().getOrderId()));
                         clearTable(itemsTable);
@@ -132,6 +132,7 @@ public class CustomerOrders {
                     Integer quantityToEdit = getTableRow().getItem().getItem().getQuantity();  
                     Order orderToEdit = OrderDAOService.getOrder(getTableRow().getItem().getItem().getOrderID());
                     orderToEdit.setTotalItems(orderToEdit.getTotalItems() - quantityToEdit);
+                    //empty order (no items) removed from persistence and thus DB
                     if (orderToEdit.getTotalItems() == 0){
                         ItemDAOService.deleteItem(getTableRow().getItem().getItem());
                         OrderDAOService.deleteOrder(orderToEdit);
