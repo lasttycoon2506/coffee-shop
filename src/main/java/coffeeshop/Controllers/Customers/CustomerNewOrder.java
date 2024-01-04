@@ -65,6 +65,7 @@ public class CustomerNewOrder {
 	@FXML
 	private TableColumn<Coffee, Coffee> deleteColumn, addColumnFilterTable;
 	private LocalDate currentDate;
+	// stores date & time for display
 	AnimationTimer timer = new AnimationTimer() {
 		@Override
 		public void handle(long now) {
@@ -168,6 +169,7 @@ public class CustomerNewOrder {
 			for (Item newItem : newItemsList) {
 				ItemDAOService.saveItem(newItem);
 			}
+			//adds newitemslist obj to new order for jpa cascading 
 			newOrder.setItemsList(newItemsList);
 		}
 	}
