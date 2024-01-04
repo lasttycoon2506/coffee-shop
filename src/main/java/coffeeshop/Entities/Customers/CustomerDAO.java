@@ -19,13 +19,9 @@ public class CustomerDAO implements DAO<Customer> {
     public static EntityManager getEntityManager() {
         return factory.createEntityManager();
     }
-    @Override
     public Optional<Customer> get(Integer customerId) {
         EntityManager em = getEntityManager();
         return Optional.ofNullable(em.find(Customer.class, customerId));
-    }
-    public List<Customer> getAll(){
-        return null;
     }
 
     public static boolean userNameExists(String userName)  {
@@ -88,10 +84,6 @@ public class CustomerDAO implements DAO<Customer> {
         executeInsideTransaction(entityManager -> entityManager.merge(customer));
     }
 
-    public void delete(Customer customer){
-
-    }
-
     private static void executeInsideTransaction(Consumer<EntityManager> action) {
         EntityManager em = getEntityManager();
         EntityTransaction transaction = em.getTransaction();
@@ -104,5 +96,11 @@ public class CustomerDAO implements DAO<Customer> {
             transaction.rollback();
             throw e;
         }
+    }
+    
+    public List<Customer> getAll(){
+        return null;
+    }
+    public void delete(Customer customer){
     }
 }

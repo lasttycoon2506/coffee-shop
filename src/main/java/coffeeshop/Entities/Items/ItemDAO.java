@@ -21,8 +21,7 @@ public class ItemDAO implements DAO<Item>{
         return Optional.ofNullable(em.find(Item.class, itemId));
     }
     public List<Item> getAll() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAll'");
+        return null;
     }
 
     public void save(Item item) {
@@ -30,8 +29,6 @@ public class ItemDAO implements DAO<Item>{
     }
 
     public void edit(Item t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'edit'");
     }
 
     public void delete(Item item) {

@@ -96,19 +96,14 @@ public class CoffeeDAO implements DAO<Coffee>{
 
     @Override
     public List<Coffee> getAll() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAll'");
+        return null;
     }
 
     @Override
     public void edit(Coffee t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'edit'");
     }
 
     @Override
     public void delete(Coffee coffee) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
 }

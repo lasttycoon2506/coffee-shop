@@ -11,11 +11,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 
-//@ for JPA access
 @Entity
 @Table(name = "Customers")
 public class Customer {
-    //@ = JPA interfacing / customerId handled by mysql
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "customer_id")

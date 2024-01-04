@@ -8,12 +8,12 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-
+//maps class to DB entity
 @Entity
 @Table(name = "Coffee")
 public class Coffee {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)         //DB generates id
     @Column(name = "coffee_id")
     private int coffeeId;
     private String brand;

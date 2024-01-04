@@ -22,7 +22,7 @@ public class Item {
     private int quantity;
     @Column(name = "order_id")
     private int orderId;
-    @ManyToOne
+    @ManyToOne                      //req'd by jpa for cascading from parent
     private Order order;
 
     public Item() {
