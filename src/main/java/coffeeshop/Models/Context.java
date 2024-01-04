@@ -2,7 +2,7 @@ package coffeeshop.Models;
 
 import coffeeshop.Entities.Customers.Customer;
 
-
+//stores logged-in customer obj
 public class Context {
     private final static Context INSTANCE = new Context();
 

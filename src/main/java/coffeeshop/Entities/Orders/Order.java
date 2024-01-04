@@ -27,7 +27,7 @@ public class Order {
     private int totalItems;
     @Column(name = "customer_id")
     private int customerId;
-    @OneToMany(cascade = CascadeType.PERSIST, orphanRemoval=true, mappedBy="order")
+    @OneToMany(cascade = CascadeType.PERSIST, orphanRemoval=true, mappedBy="order")       //reqd for jpa cascading delete parent to children
     private List<Item> itemsList = new ArrayList<>();
 
     public Order(){

@@ -22,11 +22,6 @@ public class OrderDAO implements DAO<Order>{
         EntityManager em = getEntityManager();
         return Optional.ofNullable(em.find(Order.class, orderId));
     }
-    
-    public List<Order> getAll() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAll'");
-    }
 
     public static int getMostRecentOrder() {
         EntityManager em = getEntityManager();
@@ -74,5 +69,9 @@ public class OrderDAO implements DAO<Order>{
             transaction.rollback();
             throw e;
         }
+    }
+    
+    public List<Order> getAll() {
+        return null;
     }
 }

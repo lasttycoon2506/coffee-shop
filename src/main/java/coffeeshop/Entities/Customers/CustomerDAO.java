@@ -66,7 +66,7 @@ public class CustomerDAO implements DAO<Customer> {
                             Customer.class).setParameter("userName", user).getSingleResult();
         BCrypt.Result result = BCrypt.verifyer().verify(pw.toCharArray(), customer.getPassword().trim());
         if (result.verified) {
-            //sets current customer for future display/operations
+            //sets currently logged-in customer for future display/operations
             Context.getInstance().setCustomer(customer);
             return true;
         }
@@ -97,7 +97,7 @@ public class CustomerDAO implements DAO<Customer> {
             throw e;
         }
     }
-    
+
     public List<Customer> getAll(){
         return null;
     }
