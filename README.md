@@ -1,5 +1,5 @@
-# coffeeshop
-
+# Coffeeshop
+Mock Coffee shop App that allows a customer to create a profile, login, edit their profile, and place order(s) with multiple items & delete these order(s)/item(s)
 ## Installation
 ### Part I - Java:
 Install the following extensions in VS Code:
