@@ -1,4 +1,4 @@
-# Coffeeshop
+# Coffee shop
 Mock Coffee shop App that allows a customer to create a profile, login, edit their profile, and place order(s) with multiple items & delete these order(s)/item(s)
 ## Installation
 ### Part I - Java:
